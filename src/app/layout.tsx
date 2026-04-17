@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, DM_Sans } from "next/font/google";
 import Script from "next/script";
-import { webSiteSchema } from "@/lib/schema";
+import { webSiteSchema, organizationSchema } from "@/lib/schema";
 import "./globals.css";
 
 const jakartaSans = Plus_Jakarta_Sans({
@@ -40,8 +40,12 @@ export const metadata: Metadata = {
   authors: [{ name: "Stiven Ramírez" }],
   creator: "Stiven Ramírez",
   icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
   },
   openGraph: {
     type: "website",
@@ -52,6 +56,7 @@ export const metadata: Metadata = {
 };
 
 const websiteSchema = webSiteSchema();
+const orgSchema = organizationSchema();
 
 export default function RootLayout({
   children,
@@ -86,6 +91,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
         />
         {children}
         <Script

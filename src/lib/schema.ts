@@ -98,6 +98,7 @@ export function webSiteSchema(): object {
     "@type": "WebSite",
     name: SITE_NAME,
     url: SITE_URL,
+    description: "Consultor SEO y diseñador web en Medellín",
     potentialAction: {
       "@type": "SearchAction",
       target: {
@@ -106,6 +107,26 @@ export function webSiteSchema(): object {
       },
       "query-input": "required name=search_term_string",
     },
+  };
+}
+
+export function organizationSchema(): object {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: SITE_NAME,
+    url: SITE_URL,
+    logo: `${SITE_URL}/logo.png`,
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: "+57-301-578-7350",
+      contactType: "customer service",
+      availableLanguage: "Spanish",
+    },
+    sameAs: [
+      "https://www.instagram.com/stiv.seo/",
+      "https://www.linkedin.com/in/stivenramirez/",
+    ],
   };
 }
 
