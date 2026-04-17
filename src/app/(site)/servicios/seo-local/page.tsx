@@ -8,7 +8,7 @@ import { SubpageFAQ } from "@/components/sections/subpage/SubpageFAQ";
 import { SubpageRelated } from "@/components/sections/subpage/SubpageRelated";
 
 export const metadata: Metadata = {
-  title: "SEO Local Colombia · Aparecer en Google Maps · Stiven Ramírez",
+  title: "SEO Local Colombia · Google Maps · Stiven Ramírez",
   description:
     "Posiciona tu negocio en Google Maps y búsquedas locales. Google Business Profile, reseñas y SEO local para negocios colombianos.",
   keywords: ["seo local colombia", "aparecer google maps colombia", "google business profile colombia", "seo local medellin bogota"],
@@ -29,7 +29,7 @@ const schema = serviceSchema([{
   url: "https://stivenramirez.com/servicios/seo-local/",
   provider: "Stiven Ramírez",
   areaServed: "Colombia",
-  price: "Desde $400 USD/mes",
+  price: "Desde $1.600.000 COP/mes",
 }]);
 
 export default function SeoLocalPage() {

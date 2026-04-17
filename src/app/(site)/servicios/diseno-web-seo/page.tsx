@@ -27,7 +27,7 @@ const schema = serviceSchema([{
   url: "https://stivenramirez.com/servicios/diseno-web-seo/",
   provider: "Stiven Ramírez",
   areaServed: "Colombia",
-  price: "Desde $800 USD",
+  price: "Desde $3.500.000 COP · 3–4 semanas",
 }]);
 
 export default function DisenoWebSeoPage() {

@@ -11,7 +11,7 @@ import { FAQ } from "@/components/sections/home/FAQ";
 import { CTAFinal } from "@/components/sections/home/CTAFinal";
 
 export const metadata: Metadata = {
-  title: "Stiven Ramírez | Consultor SEO & Diseñador Web Colombia",
+  title: "Diseño Web & SEO Colombia · Stiven Ramírez",
   description:
     "Diseño webs WordPress y Shopify con SEO integrado desde el primer día. Posiciona en Google, genera ventas. Consultor en Medellín, Colombia.",
   alternates: { canonical: "https://stivenramirez.com/" },

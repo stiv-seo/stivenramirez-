@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, DM_Sans } from "next/font/google";
+import Script from "next/script";
 import { webSiteSchema } from "@/lib/schema";
 import "./globals.css";
 
@@ -21,8 +22,11 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL("https://stivenramirez.com"),
   title: {
-    default: "Stiven Ramírez | Consultor SEO & Diseñador Web Colombia",
+    default: "Diseño Web & SEO Colombia · Stiven Ramírez",
     template: "%s · Stiven Ramírez",
+  },
+  verification: {
+    google: "odevJDKr6OjReuoKXOGtgkC8Z7h92wx88WMxXnfuyp4",
   },
   description:
     "Diseño webs WordPress y Shopify con SEO integrado desde el primer día. Posiciona en Google y genera ventas. Medellín, Colombia.",
@@ -59,12 +63,41 @@ export default function RootLayout({
       lang="es"
       className={`${jakartaSans.variable} ${dmSans.variable}`}
     >
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5TM9G6BH');`,
+          }}
+        />
+      </head>
       <body className="min-h-screen antialiased">
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-5TM9G6BH"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
         {children}
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-NE7LKWFF6B"
+        />
+        <Script strategy="afterInteractive" id="ga4-init">
+          {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-NE7LKWFF6B');`}
+        </Script>
       </body>
     </html>
   );

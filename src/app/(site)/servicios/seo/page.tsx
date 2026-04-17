@@ -27,7 +27,7 @@ const schema = serviceSchema([{
   url: "https://stivenramirez.com/servicios/seo/",
   provider: "Stiven Ramírez",
   areaServed: "Colombia",
-  price: "Desde $500 USD/mes",
+  price: "Desde $1.300.000 COP/mes",
 }]);
 
 export default function SeoPage() {

@@ -7,7 +7,7 @@ import { SubpageCTA } from "@/components/sections/subpage/SubpageCTA";
 import { SubpageRelated } from "@/components/sections/subpage/SubpageRelated";
 
 export const metadata: Metadata = {
-  title: "Pauta Digital Colombia · Google Ads y Meta Ads · Stiven Ramírez",
+  title: "Pauta Digital · Google Ads y Meta Ads · Stiven Ramírez",
   description:
     "Campañas de pauta digital en Google y redes sociales para pymes colombianas. Sin porcentaje sobre inversión publicitaria. Resultados medibles.",
   keywords: ["pauta digital colombia", "publicidad digital colombia", "google ads meta ads colombia", "agencia pauta digital colombia"],
@@ -28,7 +28,7 @@ const schema = serviceSchema([{
   url: "https://stivenramirez.com/servicios/pauta-digital/",
   provider: "Stiven Ramírez",
   areaServed: "Colombia",
-  price: "Desde $400 USD/mes",
+  price: "Desde $1.500.000 COP/mes",
 }]);
 
 export default function PautaDigitalPage() {

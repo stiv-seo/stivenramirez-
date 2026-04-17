@@ -7,9 +7,9 @@ import { SubpageCTA } from "@/components/sections/subpage/SubpageCTA";
 import { SubpageRelated } from "@/components/sections/subpage/SubpageRelated";
 
 export const metadata: Metadata = {
-  title: "Auditoría SEO Colombia · Diagnóstico completo · Stiven Ramírez",
+  title: "Auditoría SEO Colombia · Stiven Ramírez",
   description:
-    "Auditoría SEO completa para sitios web colombianos. Diagnóstico técnico, análisis de keywords y plan de acción en 90 días. Desde $150 USD.",
+    "Auditoría SEO completa para sitios web colombianos. Diagnóstico técnico, análisis de keywords y plan de acción en 90 días. Desde $550.000 COP.",
   keywords: ["auditoria seo colombia", "auditoria seo gratis colombia", "diagnostico seo sitio web colombia"],
   alternates: { canonical: "https://stivenramirez.com/servicios/auditoria-seo/" },
   openGraph: {
@@ -28,7 +28,7 @@ const schema = serviceSchema([{
   url: "https://stivenramirez.com/servicios/auditoria-seo/",
   provider: "Stiven Ramírez",
   areaServed: "Colombia",
-  price: "Desde $150 USD",
+  price: "$550.000 COP",
 }]);
 
 export default function AuditoriaSeoPage() {
@@ -77,7 +77,7 @@ export default function AuditoriaSeoPage() {
         eyebrow="¿Por qué no estás posicionando?"
         title="La respuesta está"
         titleLine2="en la auditoría."
-        subtitle="$150 USD por saber exactamente qué frena tu SEO y qué hacer al respecto. Sin compromiso de continuar después."
+        subtitle="$550.000 COP por saber exactamente qué frena tu SEO y qué hacer al respecto. Sin compromiso de continuar después."
       />
     </>
   );

@@ -8,7 +8,7 @@ import { SobreMiValues } from "@/components/sections/sobre-mi/SobreMiValues";
 import { SobreMiCTA } from "@/components/sections/sobre-mi/SobreMiCTA";
 
 export const metadata: Metadata = {
-  title: "Sobre mí · Stiven Ramírez — Consultor SEO y Diseñador Web Colombia",
+  title: "Sobre mí · Stiven Ramírez",
   description:
     "Consultor SEO y diseñador web con base en Colombia. Trabajo con pymes y emprendedores que quieren crecer en Google sin depender de una agencia.",
   keywords: [
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "https://stivenramirez.com/sobre-mi/" },
   openGraph: {
-    title: "Sobre mí · Stiven Ramírez — Consultor SEO y Diseñador Web Colombia",
+    title: "Sobre mí · Stiven Ramírez",
     description:
       "9+ años juntando SEO y diseño web en un solo proceso. Trabajo solo, sin intermediarios, con resultados medibles.",
     url: "https://stivenramirez.com/sobre-mi/",

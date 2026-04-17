@@ -6,7 +6,7 @@ import { SubpageProcess } from "@/components/sections/subpage/SubpageProcess";
 import { SubpageCTA } from "@/components/sections/subpage/SubpageCTA";
 
 export const metadata: Metadata = {
-  title: "Meta Ads Colombia · Facebook e Instagram Ads · Stiven Ramírez",
+  title: "Meta Ads Colombia · Facebook e Instagram · Stiven Ramírez",
   description:
     "Campañas Facebook e Instagram Ads para pymes colombianas. Audiencias precisas, creatividades que convierten y optimización semanal sin % sobre inversión.",
   keywords: ["meta ads colombia", "facebook ads colombia", "instagram ads colombia", "publicidad facebook colombia pymes"],
@@ -27,7 +27,7 @@ const schema = serviceSchema([{
   url: "https://stivenramirez.com/servicios/meta-ads/",
   provider: "Stiven Ramírez",
   areaServed: "Colombia",
-  price: "Desde $400 USD/mes",
+  price: "Desde $1.500.000 COP/mes",
 }]);
 
 export default function MetaAdsPage() {

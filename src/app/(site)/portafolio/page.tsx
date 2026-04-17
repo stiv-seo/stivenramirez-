@@ -6,7 +6,7 @@ import { PortfolioProcess } from "@/components/sections/portafolio/PortfolioProc
 import { PortfolioCTA } from "@/components/sections/portafolio/PortfolioCTA";
 
 export const metadata: Metadata = {
-  title: "Portafolio · Resultados reales de SEO y Diseño Web · Stiven Ramírez",
+  title: "Portafolio · SEO y Diseño Web Colombia · Stiven Ramírez",
   description:
     "Casos reales de diseño web y SEO en Colombia. E-commerce Shopify, WordPress para negocios locales y campañas Google Ads con resultados documentados.",
   keywords: [
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://stivenramirez.com/portafolio/" },
   robots: { index: false, follow: false },
   openGraph: {
-    title: "Portafolio · Resultados reales de SEO y Diseño Web · Stiven Ramírez",
+    title: "Portafolio · SEO y Diseño Web Colombia · Stiven Ramírez",
     description:
       "E-commerce Shopify, WordPress local y Google Ads. Métricas reales, sin pantallazos editados. Colombia.",
     url: "https://stivenramirez.com/portafolio/",

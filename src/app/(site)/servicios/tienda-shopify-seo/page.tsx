@@ -29,7 +29,7 @@ const schema = serviceSchema([{
   url: "https://stivenramirez.com/servicios/tienda-shopify-seo/",
   provider: "Stiven Ramírez",
   areaServed: "Colombia",
-  price: "Desde $1.200 USD",
+  price: "Desde $3.000.000 COP · 4–5 semanas",
 }]);
 
 export default function TiendaShopifySeoPage() {

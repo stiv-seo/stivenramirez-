@@ -27,7 +27,7 @@ const schema = serviceSchema([{
   url: "https://stivenramirez.com/servicios/google-ads/",
   provider: "Stiven Ramírez",
   areaServed: "Colombia",
-  price: "Desde $400 USD/mes",
+  price: "Desde $1.500.000 COP/mes",
 }]);
 
 export default function GoogleAdsPage() {
