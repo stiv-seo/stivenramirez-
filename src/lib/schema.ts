@@ -1,0 +1,207 @@
+import { SITE_URL, SITE_NAME } from "@/lib/constants";
+
+// ─── Types ────────────────────────────────────────────────────────────────────
+
+export interface PersonSchemaProps {
+  name: string;
+  url: string;
+  jobTitle: string;
+  description: string;
+  sameAs?: string[];
+}
+
+export interface LocalBusinessSchemaProps {
+  name: string;
+  description: string;
+  url: string;
+  telephone?: string;
+  address?: {
+    city: string;
+    region: string;
+    country: string;
+  };
+}
+
+export interface ServiceSchemaProps {
+  name: string;
+  description: string;
+  url: string;
+  provider: string;
+  areaServed?: string;
+  price?: string;
+}
+
+export interface ArticleSchemaProps {
+  title: string;
+  description: string;
+  url: string;
+  datePublished: string;
+  dateModified?: string;
+  authorName: string;
+  image?: string;
+}
+
+export interface FaqSchemaProps {
+  items: { question: string; answer: string }[];
+}
+
+export interface BreadcrumbSchemaProps {
+  items: { name: string; url: string }[];
+}
+
+export interface CreativeWorkSchemaProps {
+  name: string;
+  description: string;
+  url: string;
+  creator: string;
+  dateCreated?: string;
+}
+
+// ─── Builders ─────────────────────────────────────────────────────────────────
+
+export function personSchema(props: PersonSchemaProps): object {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: props.name,
+    url: props.url,
+    jobTitle: props.jobTitle,
+    description: props.description,
+    ...(props.sameAs && props.sameAs.length > 0 ? { sameAs: props.sameAs } : {}),
+  };
+}
+
+export function localBusinessSchema(props: LocalBusinessSchemaProps): object {
+  return {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    name: props.name,
+    description: props.description,
+    url: props.url,
+    ...(props.telephone ? { telephone: props.telephone } : {}),
+    ...(props.address
+      ? {
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: props.address.city,
+            addressRegion: props.address.region,
+            addressCountry: props.address.country,
+          },
+        }
+      : {}),
+  };
+}
+
+export function webSiteSchema(): object {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: SITE_NAME,
+    url: SITE_URL,
+    potentialAction: {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: `${SITE_URL}/blog/?q={search_term_string}`,
+      },
+      "query-input": "required name=search_term_string",
+    },
+  };
+}
+
+export function serviceSchema(services: ServiceSchemaProps[]): object[] {
+  return services.map((s) => ({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: s.name,
+    description: s.description,
+    url: s.url,
+    provider: {
+      "@type": "Person",
+      name: s.provider,
+      url: SITE_URL,
+    },
+    areaServed: s.areaServed ?? "Colombia",
+    ...(s.price
+      ? {
+          offers: {
+            "@type": "Offer",
+            description: s.price,
+          },
+        }
+      : {}),
+  }));
+}
+
+export function articleSchema(props: ArticleSchemaProps): object {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: props.title,
+    description: props.description,
+    url: props.url,
+    datePublished: props.datePublished,
+    dateModified: props.dateModified ?? props.datePublished,
+    author: {
+      "@type": "Person",
+      name: props.authorName,
+      url: SITE_URL,
+    },
+    publisher: {
+      "@type": "Person",
+      name: SITE_NAME,
+      url: SITE_URL,
+    },
+    ...(props.image ? { image: props.image } : {}),
+  };
+}
+
+export function faqSchema(props: FaqSchemaProps): object {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: props.items.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
+}
+
+export function breadcrumbSchema(props: BreadcrumbSchemaProps): object {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: props.items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: item.url,
+    })),
+  };
+}
+
+export function creativeWorkSchema(props: CreativeWorkSchemaProps): object {
+  return {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    name: props.name,
+    description: props.description,
+    url: props.url,
+    creator: {
+      "@type": "Person",
+      name: props.creator,
+      url: SITE_URL,
+    },
+    ...(props.dateCreated ? { dateCreated: props.dateCreated } : {}),
+  };
+}
+
+// ─── Helper ───────────────────────────────────────────────────────────────────
+
+export function schemaToString(schema: object): string {
+  return JSON.stringify(schema);
+}

@@ -1,0 +1,257 @@
+---
+title: "SEO para Shopify: checklist completo para 2026"
+description: "20 puntos de optimización SEO que toda tienda Shopify en Colombia necesita antes de lanzar. Con ejemplos reales."
+date: "2026-04-05"
+category: "E-commerce"
+readTime: "12 min"
+slug: "seo-shopify-checklist"
+---
+
+Shopify es la plataforma de e-commerce más popular en Colombia para pymes que quieren vender online. Pero hay un problema que pocos mencionan: Shopify, por defecto, no está optimizado para SEO.
+
+Las tiendas que se lanzan sin una estrategia SEO sólida dependen 100% de pauta pagada para generar ventas. Cuando la pausa las campañas, el tráfico desaparece. Las que sí invierten en SEO desde el inicio construyen un activo que genera ventas de forma sostenida mes a mes.
+
+Este checklist cubre los 20 puntos más importantes que reviso en cada tienda Shopify antes de lanzar o en las auditorías que hago a tiendas existentes.
+
+---
+
+## Por qué el SEO de Shopify es diferente
+
+Antes de entrar al checklist, hay tres particularidades de Shopify que debes entender:
+
+**1. URLs duplicadas por defecto**
+
+Shopify genera dos URLs para cada producto:
+- `/products/nombre-producto`
+- `/collections/nombre-coleccion/products/nombre-producto`
+
+Si no lo corriges, Google ve contenido duplicado y no sabe cuál posicionar. Shopify agrega canonical tags automáticamente, pero esto no siempre es suficiente.
+
+**2. `/collections/` es más importante que `/products/`**
+
+En SEO de e-commerce, las páginas de colección (categorías) capturan mucho más tráfico que los productos individuales. "Zapatos de cuero para hombre" tiene más búsquedas que "Zapato Oxford Marrón Talla 42 Ref 2024". Muchas tiendas ignoran las colecciones y se enfocan solo en los productos.
+
+**3. La velocidad depende de los apps instalados**
+
+Cada app que instalas en Shopify agrega scripts a tu tienda. Una tienda con 15 apps puede cargar en 8-10 segundos. Los Core Web Vitals afectan directamente el posicionamiento en Google desde 2021.
+
+---
+
+## Checklist técnico (fundamentos)
+
+### ✅ 1. Conecta Google Search Console desde el día 1
+
+Sin Search Console no sabes cómo ve Google tu tienda. Es gratis, se configura en 10 minutos y es la herramienta más importante para SEO.
+
+Pasos:
+1. Ve a `search.google.com/search-console`
+2. Agrega tu propiedad con el dominio completo
+3. Verifica con el método de registro DNS (el más robusto)
+4. Envía tu sitemap: `tusitio.com/sitemap.xml`
+
+Shopify genera el sitemap automáticamente. Lo que Shopify **no** hace es enviarlo a Google.
+
+### ✅ 2. Configura el dominio personalizado correctamente
+
+Asegúrate de que:
+- Solo una versión del dominio responde: `tusitio.com` (con o sin www, no ambas)
+- La versión que no usas redirige (301) a la que sí usas
+- HTTPS está activo en todas las URLs
+
+Shopify incluye SSL gratis. La configuración de redirecciones www → non-www la haces en la sección de dominios del panel.
+
+### ✅ 3. Elimina el password de la tienda
+
+Muchas tiendas están en construcción con contraseña habilitada. Google no puede indexar páginas protegidas. Verifica en: `Admin → Online Store → Preferences → Password protection`.
+
+### ✅ 4. Verifica que no haya robots.txt bloqueando páginas importantes
+
+Shopify genera un `robots.txt` automático que bloquea rutas de admin y checkout (correcto). El problema ocurre cuando las apps agregan sus propias reglas que pueden bloquear colecciones o productos.
+
+Revisa tu `tusitio.com/robots.txt` y confirma que las páginas que quieres posicionar no están en el bloque `Disallow`.
+
+### ✅ 5. Audita la velocidad de carga
+
+Entra a `pagespeed.web.dev` y analiza:
+- Tu página de inicio
+- Tu página de colección más importante
+- Tu producto más vendido
+
+**Métricas objetivo:**
+- LCP (Largest Contentful Paint): menor a 2.5 segundos
+- FID (First Input Delay): menor a 100ms
+- CLS (Cumulative Layout Shift): menor a 0.1
+
+Si tu puntaje en móvil está por debajo de 50, el SEO va a ser una batalla cuesta arriba.
+
+**Las causas más comunes de lentitud en Shopify:**
+- Imágenes sin comprimir (el error número 1)
+- Demasiadas apps con scripts en el front-end
+- Tema con mucho JavaScript innecesario
+- Fuentes tipográficas cargadas desde Google Fonts sin preload
+
+### ✅ 6. Revisa las apps instaladas
+
+Desinstala toda app que no uses activamente. Incluso las apps desactivadas dejan código en el tema si no se desinstalan correctamente. Revisa también qué apps tienen permisos de agregar scripts: `Admin → Apps → App and sales channel settings`.
+
+---
+
+## Checklist de estructura y URLs
+
+### ✅ 7. Nombra las colecciones con keywords reales
+
+El handle de la colección se convierte en la URL:
+- ❌ `tusitio.com/collections/col-001`
+- ✅ `tusitio.com/collections/vestidos-de-noche-colombia`
+
+El nombre de la colección y su URL son factores de posicionamiento. Usa la keyword principal que buscará tu cliente, no tu nomenclatura interna.
+
+### ✅ 8. Escribe descripciones de colección con 150-300 palabras
+
+La mayoría de tiendas Shopify tienen colecciones con 0 palabras de texto. Google tiene muy poco contenido para entender de qué trata la página.
+
+Una descripción efectiva de colección incluye:
+- La keyword principal en el primer párrafo
+- Una descripción genuinamente útil para el comprador
+- Keywords relacionadas de forma natural
+- Un CTA al final
+
+No es relleno. Es contenido que ayuda al comprador a confirmar que está en el lugar correcto.
+
+### ✅ 9. Optimiza los handles de productos
+
+Lo mismo aplica para productos:
+- ❌ `tusitio.com/products/vestido-ref-2024-azul-m`
+- ✅ `tusitio.com/products/vestido-largo-azul-casual-mujer`
+
+Shopify permite editar el handle desde el editor del producto. Hazlo antes de lanzar —cambiarlo después requiere redireccionamiento para no perder el SEO.
+
+### ✅ 10. Crea una arquitectura de colecciones coherente
+
+Evita tener productos sueltos que no pertenecen a ninguna colección. Google entiende mejor los sitios con jerarquía clara:
+
+```
+Inicio
+├── Ropa de mujer
+│   ├── Vestidos
+│   ├── Blusas
+│   └── Pantalones
+└── Ropa de hombre
+    ├── Camisas
+    └── Pantalones
+```
+
+Cada nivel de la jerarquía es una oportunidad de posicionamiento.
+
+---
+
+## Checklist de contenido
+
+### ✅ 11. Escribe títulos de página únicos para cada producto y colección
+
+El `<title>` es lo que aparece en los resultados de Google. Shopify usa el nombre del producto como título por defecto: "Vestido Azul — Mi Tienda". Eso está bien para la mayoría de productos, pero las colecciones y la página de inicio merecen títulos más trabajados.
+
+**Fórmula para colecciones:**
+`[Keyword principal] | [Nombre tienda] Colombia`
+
+Ejemplo: `Vestidos de Noche para Mujer | Moda Colombiana`
+
+**Fórmula para productos populares:**
+`[Nombre producto] — [Beneficio clave] | [Nombre tienda]`
+
+### ✅ 12. Escribe meta descriptions que inviten al clic
+
+La meta description no afecta directamente el ranking, pero sí afecta el CTR (tasa de clic). Un CTR alto manda una señal positiva a Google.
+
+**Estructura que funciona:**
+- Primera oración: qué es el producto y para quién
+- Segunda oración: diferenciador o beneficio
+- Cierre: CTA directo
+
+Máximo 155 caracteres. Shopify te muestra un preview mientras escribes.
+
+### ✅ 13. Optimiza las imágenes de productos
+
+Las imágenes son el mayor problema de velocidad en tiendas Shopify. Cada imagen debe:
+
+- **Nombre de archivo descriptivo antes de subir:** `vestido-largo-azul-casual.jpg` en lugar de `IMG_4582.jpg`
+- **Alt text con keyword:** "Vestido largo azul casual para mujer — envío Colombia"
+- **Tamaño máximo:** 800-1200px de ancho para la imagen principal. Shopify genera versiones más pequeñas automáticamente.
+- **Formato:** sube en WebP si puedes. Si no, JPG comprimido al 80%.
+
+### ✅ 14. Agrega reseñas de productos
+
+Las reseñas agregan contenido único y fresco a las páginas de producto, lo que Google valora. También permiten rich snippets (las estrellas amarillas en los resultados de búsqueda), que aumentan el CTR hasta un 35%.
+
+Apps recomendadas: Judge.me (gratuita con plan básico) o Loox para tiendas visuales.
+
+### ✅ 15. Crea un blog con contenido real
+
+El blog de Shopify es subutilizado por la mayoría. Un artículo bien posicionado puede traer tráfico constante durante años.
+
+**Ideas de contenido para e-commerce:**
+- "Guía de tallas para [tipo de producto]"
+- "Cómo cuidar tu [producto]"
+- "Los [N] mejores [productos] para [ocasión] en [año]"
+- "[Tu producto] vs [producto de la competencia]: diferencias reales"
+
+Cada artículo es una entrada adicional a tu tienda. Un visitante que llega por el blog convierte menos que uno que busca directamente el producto, pero el volumen compensa.
+
+---
+
+## Checklist avanzado
+
+### ✅ 16. Implementa datos estructurados de producto
+
+Los datos estructurados (schema markup) le dicen a Google exactamente qué contiene tu página. Para e-commerce, el schema `Product` permite mostrar precio, disponibilidad y reseñas directamente en los resultados de búsqueda.
+
+Shopify agrega schema básico automáticamente. Para resultados más ricos, considera una app como `JSON-LD for SEO` o implementar el schema manualmente en el tema.
+
+### ✅ 17. Configura la moneda y región correctamente
+
+Si vendes solo en Colombia, asegúrate de que:
+- La moneda esté en COP (o USD si es tu mercado)
+- El idioma del storefront sea español
+- El hreflang esté configurado si tienes versiones en varios idiomas
+
+Google necesita saber para qué mercado geográfico es tu tienda.
+
+### ✅ 18. Crea páginas de colección para temporadas y ocasiones
+
+"Vestidos para matrimonio", "Regalos para el Día de la Madre", "Ofertas temporada escolar". Estas colecciones tienen picos de búsqueda predecibles.
+
+Créalas con anticipación (mínimo 2-3 meses antes) para que Google las indexe a tiempo. No las borres después —desactívalas y deja el contenido en línea.
+
+### ✅ 19. Monitorea los 404 regularmente
+
+Los 404 (páginas no encontradas) se acumulan cuando cambias URLs de productos, los desactivas sin redirigir o los eliminas. Cada 404 es un enlace roto que pierde el "link juice" acumulado.
+
+Revisa Search Console mensualmente en: Cobertura → Error → No encontrado.
+
+Configura redirecciones en: `Admin → Online Store → Navigation → URL Redirects`.
+
+### ✅ 20. Conecta Google Analytics 4
+
+Search Console te dice cómo llegan a tu tienda. GA4 te dice qué hacen después. Ambas herramientas juntas son la base del SEO basado en datos.
+
+Instala GA4 a través de la integración nativa de Shopify con Google & YouTube, o vía Google Tag Manager si quieres más control.
+
+---
+
+## Por dónde empezar si tu tienda ya está activa
+
+Si tu tienda ya tiene ventas y no quieres interrumpir nada, este es el orden de prioridad:
+
+> ¿Tienes una tienda activa y quieres saber exactamente qué está frenando su posicionamiento? Mi [servicio de SEO para Shopify](/servicios/seo-shopify/) incluye auditoría técnica completa, optimización de colecciones y seguimiento mensual. Si estás pensando en construir la tienda desde cero con SEO integrado desde el inicio, revisa el proceso de [tienda Shopify con SEO](/servicios/tienda-shopify-seo/).
+
+1. **Conecta Search Console y GA4** — sin datos no hay mejora posible
+2. **Audita la velocidad** — si estás por debajo de 50 en móvil, empieza aquí
+3. **Optimiza las colecciones más importantes** — URL, descripción, título
+4. **Optimiza imágenes** — mayor impacto por esfuerzo en tiendas existentes
+5. **Escribe 2 artículos de blog** al mes — el efecto es acumulativo
+
+El SEO de Shopify no es un sprint. Es un proceso de mejora continua donde cada optimización se acumula sobre la anterior.
+
+---
+
+**¿Quieres que revise tu tienda y te diga exactamente qué está frenando tu posicionamiento?** [Solicita una auditoría SEO gratuita](/contacto/) — 45 minutos de diagnóstico sin costo.

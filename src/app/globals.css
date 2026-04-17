@@ -1,26 +1,80 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ─── Design Tokens — Brandbook Stiven Ramírez ─────────────────────────────── */
+
+@theme {
+  /* Brand Colors */
+  --color-midnight:     #0B1829;
+  --color-navy:         #0F2D52;
+  --color-teal:         #00C4B4;
+  --color-teal-bright:  #00E5D3;
+  --color-teal-dim:     rgba(0, 196, 180, 0.1);
+  --color-off-white:    #F5F2EC;
+  --color-warm-white:   #FDFCFA;
+  --color-slate:        #5E6E82;
+  --color-slate-light:  #94A3B8;
+  --color-amber:        #F59E0B;
+  --color-amber-dim:    rgba(245, 158, 11, 0.1);
+  --color-text-dark:    #1A2B3C;
+  --color-text-mid:     #3D5166;
+  --color-whatsapp:     #25D366;
+  --color-whatsapp-dim: #20b858;
+  --color-footer-bg:    #060F1A;
+  --color-footer-bar:   #040C15;
+
+  /* Typography — next/font injects these CSS vars on <html> */
+  --font-sans:    var(--font-dm-sans);
+  --font-jakarta: var(--font-jakarta-sans);
+
+  /* Container */
+  --container-max: 1160px;
+  --container-px:  60px;
+
+  /* Section spacing */
+  --section-py: 100px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* ─── Base ──────────────────────────────────────────────────────────────────── */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-warm-white);
+  color: var(--color-text-dark);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
+/* ─── Decorative Utilities ──────────────────────────────────────────────────── */
+
+/* Subtle teal grid pattern — dark sections */
+.bg-grid-dark {
+  background-image:
+    linear-gradient(rgba(0, 196, 180, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 196, 180, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* Teal glow orb — used as absolute positioned child */
+.glow-teal {
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 196, 180, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Section number ghost decoration */
+.section-number {
+  font-family: var(--font-jakarta);
+  font-size: clamp(80px, 10vw, 140px);
+  font-weight: 800;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  position: absolute;
+}
+.section-number--light { color: rgba(0, 196, 180, 0.06); }
+.section-number--dark  { color: rgba(0, 196, 180, 0.04); }
