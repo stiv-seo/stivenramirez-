@@ -3,17 +3,20 @@ import { serviceSchema } from "@/lib/schema";
 import { SubpageHero } from "@/components/sections/subpage/SubpageHero";
 import { SubpageFeatures } from "@/components/sections/subpage/SubpageFeatures";
 import { SubpageProcess } from "@/components/sections/subpage/SubpageProcess";
+import { SubpageFAQ } from "@/components/sections/subpage/SubpageFAQ";
 import { SubpageCTA } from "@/components/sections/subpage/SubpageCTA";
+import { SubpageMidCTA } from "@/components/sections/subpage/SubpageMidCTA";
+import { Container } from "@/components/ui/Container";
 
 export const metadata: Metadata = {
-  title: "Google Ads para Pymes Colombia · Stiven Ramírez",
+  title: "Google Ads para pymes · Medellín · Stiven Ramírez",
   description:
-    "Campañas Google Ads para pymes colombianas. Configuración, optimización y reporte sin porcentaje sobre la inversión publicitaria.",
-  keywords: ["google ads colombia", "google ads pymes colombia", "publicidad google colombia", "contratar google ads colombia"],
+    "Google Ads para pymes en Medellín sin porcentaje sobre inversión. Configuración, optimización y reporte mensual. Freelance independiente.",
+  keywords: ["google ads medellin", "google ads pymes colombia", "publicidad google medellin", "contratar google ads colombia"],
   alternates: { canonical: "https://stivenramirez.com/servicios/google-ads/" },
   openGraph: {
-    title: "Google Ads para Pymes Colombia · Stiven Ramírez",
-    description: "Aparece primero en Google cuando te buscan. Sin porcentaje sobre inversión.",
+    title: "Google Ads para pymes · Medellín · Stiven Ramírez",
+    description: "Aparece primero en Google cuando te buscan. Sin porcentaje sobre inversión. Freelance en Medellín.",
     url: "https://stivenramirez.com/servicios/google-ads/",
     type: "website",
     locale: "es_CO",
@@ -23,7 +26,7 @@ export const metadata: Metadata = {
 
 const schema = serviceSchema([{
   name: "Google Ads para Pymes",
-  description: "Gestión de campañas Google Ads para pymes colombianas. Sin porcentaje sobre inversión publicitaria.",
+  description: "Gestión de campañas Google Ads para pymes en Medellín y Colombia. Sin porcentaje sobre inversión publicitaria.",
   url: "https://stivenramirez.com/servicios/google-ads/",
   provider: "Stiven Ramírez",
   areaServed: "Colombia",
@@ -70,6 +73,34 @@ export default function GoogleAdsPage() {
           },
         ]}
       />
+      <SubpageMidCTA text="¿Tienes una cuenta Google Ads activa que no genera los resultados esperados? Hablamos 30 minutos." />
+
+      {/* Contenido adicional — Google Ads vs SEO y estructura de cuenta */}
+      <section className="bg-warm-white" style={{ paddingTop: "80px", paddingBottom: "80px" }}>
+        <Container>
+          <div className="max-w-[720px] mx-auto">
+            <h2
+              className="font-jakarta font-extrabold text-text-dark leading-tight tracking-[-0.5px] mb-4"
+              style={{ fontSize: "clamp(22px, 2.5vw, 30px)" }}
+            >
+              ¿Por qué Google Ads y no solo SEO?
+            </h2>
+            <p className="font-sans text-text-mid leading-[1.85] mb-8 text-[16px]">
+              Google Ads y SEO no son competencia, son complemento. SEO es inversión a largo plazo que genera tráfico creciente pero tarda entre 3 y 6 meses en verse. Google Ads es inmediato: configurado bien, tu anuncio aparece mañana cuando alguien busca. Para pymes que necesitan leads ahora pero también quieren construir presencia orgánica, Google Ads acelera el timeline mientras el SEO escala. El modelo correcto es ambos: Ads genera ingresos hoy, esos ingresos financian el SEO de largo plazo.
+            </p>
+            <h2
+              className="font-jakarta font-extrabold text-text-dark leading-tight tracking-[-0.5px] mb-4"
+              style={{ fontSize: "clamp(22px, 2.5vw, 30px)" }}
+            >
+              Estructura típica de una cuenta Google Ads bien armada
+            </h2>
+            <p className="font-sans text-text-mid leading-[1.85] text-[16px]">
+              Una cuenta sin estructura es presupuesto desperdiciado. La estructura correcta incluye campañas separadas por intención de búsqueda (marca, servicios generales, problemas específicos), grupos de anuncios por keyword con variaciones cercanas, y textos únicos para cada grupo que responden exactamente lo que la persona busca. Alguien que busca "Google Ads para tiendas online" requiere un anuncio distinto al que busca "cómo anunciarme en Google". Son búsquedas diferentes, con intenciones diferentes. Google Ads es un sistema de precisión: pequeños ajustes en estructura generan cambios enormes en el costo por lead.
+            </p>
+          </div>
+        </Container>
+      </section>
+
       <SubpageProcess
         steps={[
           {
@@ -86,6 +117,27 @@ export default function GoogleAdsPage() {
             number: "03",
             title: "Optimización continua",
             description: "Revisión semanal de términos de búsqueda, ajuste de pujas por dispositivo y hora, y reporte mensual de costo por lead y ROAS.",
+          },
+        ]}
+      />
+      <SubpageFAQ
+        bg="off-white"
+        items={[
+          {
+            q: "¿Cuánto presupuesto mínimo necesito para Google Ads?",
+            a: "Para ver resultados en Colombia, recomiendo mínimo $1.500.000 COP/mes en inversión publicitaria (adicional al fee de gestión). Con menos, los datos tardan en acumularse y la optimización es lenta. Para sectores competitivos como seguros o inmobiliaria, el mínimo práctico es mayor.",
+          },
+          {
+            q: "¿En cuánto tiempo veo resultados?",
+            a: "Con cuenta bien estructurada, los primeros leads aparecen en los primeros días. Las primeras 2-3 semanas son de ajuste. Después del mes 1 ya tenemos datos para optimizar. Google Ads es inmediato comparado con SEO, pero también requiere paciencia en las primeras semanas de aprendizaje.",
+          },
+          {
+            q: "¿Cobras porcentaje sobre la inversión publicitaria?",
+            a: "No. Cobro un fee fijo de gestión mensual sin importar cuánto inviertas en pauta. Esto elimina el conflicto de interés de que te conviene gastar más. Mi incentivo es que tu costo por lead sea lo más bajo posible.",
+          },
+          {
+            q: "¿Puedo pausar la campaña cuando quiera?",
+            a: "Sí. Las campañas son tuyas — la cuenta de Google Ads queda a tu nombre desde el inicio. Puedes pausar en cualquier momento. Lo que recomiendo es no pausar en el primer mes porque interrumpe el aprendizaje del algoritmo y pierdes los datos acumulados.",
           },
         ]}
       />

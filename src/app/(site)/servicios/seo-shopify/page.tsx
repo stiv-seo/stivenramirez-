@@ -2,15 +2,20 @@ import type { Metadata } from "next";
 import { serviceSchema } from "@/lib/schema";
 import { SubpageHero } from "@/components/sections/subpage/SubpageHero";
 import { SubpageFeatures } from "@/components/sections/subpage/SubpageFeatures";
+import { SubpageMidCTA } from "@/components/sections/subpage/SubpageMidCTA";
+import { LossSection } from "@/components/sections/subpage/LossSection";
 import { SubpageProcess } from "@/components/sections/subpage/SubpageProcess";
 import { SubpageCTA } from "@/components/sections/subpage/SubpageCTA";
 import { SubpageFAQ } from "@/components/sections/subpage/SubpageFAQ";
 import { SubpageRelated } from "@/components/sections/subpage/SubpageRelated";
+import { StatCard } from "@/components/ui/StatCard";
+import { Container } from "@/components/ui/Container";
+import { FadeIn } from "@/components/ui/FadeIn";
 
 export const metadata: Metadata = {
-  title: "SEO para Shopify Colombia · Stiven Ramírez",
+  title: "SEO para Shopify · Freelance Medellín · Stiven Ramírez",
   description:
-    "Optimiza tu tienda Shopify en Google: colecciones, productos, velocidad y Core Web Vitals. Más que metadatos — SEO de e-commerce colombiano.",
+    "SEO para tiendas Shopify: colecciones, productos, velocidad y Core Web Vitals optimizados. Freelance independiente en Medellín.",
   keywords: ["seo shopify colombia", "optimizar tienda shopify", "posicionar shopify google colombia"],
   alternates: { canonical: "https://stivenramirez.com/servicios/seo-shopify/" },
   openGraph: {
@@ -56,6 +61,32 @@ export default function SeoShopifyPage() {
           { icon: "✍️", title: "Contenido de categorías", description: "Texto SEO en colecciones que ayuda a Google a entender qué vendes y a los compradores a confirmar que están en el lugar correcto." },
         ]}
       />
+      <SubpageMidCTA text="¿Tu tienda Shopify depende de pauta para cada venta? Hablamos 30 minutos sin costo ni compromiso." />
+      <LossSection
+        eyebrow="02 — El problema"
+        title="Shopify sin SEO vs. Shopify optimizado"
+        lossColumn={{
+          icon: "😰",
+          heading: "Sin SEO en Shopify",
+          items: [
+            { label: "URLs duplicadas sin resolver", description: "Shopify genera dos URLs por producto por defecto y Google no sabe cuál indexar." },
+            { label: "Colecciones sin contenido", description: "Páginas vacías para bots = no posicionan para ninguna keyword de compra." },
+            { label: "Apps que destrozan la velocidad", description: "Cada app activa agrega scripts. El móvil llega a 3+ segundos de carga fácilmente." },
+            { label: "100% dependencia de pauta", description: "Cada venta cuesta dinero en Google Ads o Meta Ads. Nunca deja de costar." },
+          ],
+        }}
+        gainColumn={{
+          icon: "🚀",
+          heading: "Con SEO Shopify bien hecho",
+          items: [
+            { label: "Colecciones indexadas con keywords de compra", description: "Las páginas que más tráfico generan posicionan para quien ya quiere comprar." },
+            { label: "Rich snippets en productos", description: "Precio, disponibilidad y reseñas visibles en resultados de Google sin pagar por clic." },
+            { label: "PageSpeed verde en móvil", description: "Auditoría de apps y optimización del tema para pasar los Core Web Vitals." },
+            { label: "Tráfico orgánico creciente", description: "Cada mes más visitas sin costo adicional. SEO reduce el costo por venta mes a mes." },
+          ],
+        }}
+        bg="warm-white"
+      />
       <SubpageProcess
         steps={[
           { number: "01", title: "Auditoría Shopify", description: "Mapeo errores técnicos específicos de Shopify: duplicados, velocidad, estructura de colecciones y oportunidades de keywords." },
@@ -63,6 +94,44 @@ export default function SeoShopifyPage() {
           { number: "03", title: "Contenido y reporte", description: "Descripciones de colección, blog de la tienda y reporte mensual con tráfico orgánico y posiciones." },
         ]}
       />
+      <section className="bg-off-white" style={{ paddingTop: "80px", paddingBottom: "80px" }}>
+        <Container>
+          <FadeIn className="mb-8">
+            <p className="font-sans text-[11px] font-semibold tracking-[4px] uppercase text-teal mb-3">
+              04 — Resultados
+            </p>
+            <h2
+              className="font-jakarta font-extrabold text-text-dark leading-tight tracking-[-0.5px]"
+              style={{ fontSize: "clamp(20px, 2.5vw, 28px)" }}
+            >
+              Lo que un Shopify bien optimizado produce
+            </h2>
+          </FadeIn>
+          <div className="grid sm:grid-cols-3 gap-5 max-w-[780px]">
+            <StatCard
+              icon="📅"
+              value="3–6"
+              label="meses para posiciones estables"
+              description="En colecciones con keywords reales y volumen de búsqueda"
+              accent="teal"
+            />
+            <StatCard
+              icon="⚡"
+              value="90+"
+              label="PageSpeed objetivo en móvil"
+              description="Después de auditoría de apps y optimización del tema"
+              accent="teal"
+            />
+            <StatCard
+              icon="📈"
+              value="$0"
+              label="costo por clic orgánico"
+              description="Cada posición ganada en Google no tiene costo adicional por visita"
+              accent="amber"
+            />
+          </div>
+        </Container>
+      </section>
       <SubpageFAQ
         bg="off-white"
         items={[

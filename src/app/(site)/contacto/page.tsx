@@ -3,9 +3,9 @@ import { ContactoHero } from "@/components/sections/contacto/ContactoHero";
 import { ContactoMain } from "@/components/sections/contacto/ContactoMain";
 
 export const metadata: Metadata = {
-  title: "Contacto · Stiven Ramírez — Consultor SEO y Diseñador Web",
+  title: "Contacto · Stiven Ramírez",
   description:
-    "Escríbeme para hablar de tu proyecto de diseño web o SEO. Respondo en menos de 24 horas. Llamada inicial gratuita sin compromiso.",
+    "Escríbeme para tu proyecto de diseño web o SEO. Freelance en Medellín. Respondo en menos de 24 horas, sin compromiso inicial.",
   keywords: [
     "contactar consultor seo colombia",
     "contratar diseñador web colombia",

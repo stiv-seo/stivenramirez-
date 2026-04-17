@@ -4,16 +4,18 @@ import { SubpageHero } from "@/components/sections/subpage/SubpageHero";
 import { SubpageFeatures } from "@/components/sections/subpage/SubpageFeatures";
 import { SubpageProcess } from "@/components/sections/subpage/SubpageProcess";
 import { SubpageCTA } from "@/components/sections/subpage/SubpageCTA";
+import { SubpageFAQ } from "@/components/sections/subpage/SubpageFAQ";
 import { SubpageRelated } from "@/components/sections/subpage/SubpageRelated";
+import { SubpageMidCTA } from "@/components/sections/subpage/SubpageMidCTA";
 
 export const metadata: Metadata = {
-  title: "Auditoría SEO Colombia · Stiven Ramírez",
+  title: "Auditoría SEO para pymes · Medellín · Stiven Ramírez",
   description:
-    "Auditoría SEO completa para sitios web colombianos. Diagnóstico técnico, análisis de keywords y plan de acción en 90 días. Desde $550.000 COP.",
+    "Auditoría SEO para pymes en Medellín: diagnóstico técnico, análisis de keywords y plan de acción 90 días. Freelance sin agencia. Desde $550.000 COP.",
   keywords: ["auditoria seo colombia", "auditoria seo gratis colombia", "diagnostico seo sitio web colombia"],
   alternates: { canonical: "https://stivenramirez.com/servicios/auditoria-seo/" },
   openGraph: {
-    title: "Auditoría SEO Colombia · Stiven Ramírez",
+    title: "Auditoría SEO para pymes · Medellín · Stiven Ramírez",
     description: "Diagnóstico técnico completo, análisis de keywords y plan de acción en 90 días para tu sitio.",
     url: "https://stivenramirez.com/servicios/auditoria-seo/",
     type: "website",
@@ -55,11 +57,33 @@ export default function AuditoriaSeoPage() {
           { icon: "📋", title: "Plan de acción 90 días", description: "Lista priorizada de acciones: qué hacer primero, qué impacto esperar y cuánto tiempo tardaría cada mejora en verse en Google." },
         ]}
       />
+      <SubpageMidCTA text="¿Quieres saber exactamente por qué tu sitio no posiciona? Hablamos 30 minutos sin costo." />
       <SubpageProcess
         steps={[
           { number: "01", title: "Accesos y contexto", description: "Me das acceso a Search Console y GA4. Me cuentas tus objetivos de negocio. Sin eso, la auditoría sería ciega." },
           { number: "02", title: "Análisis profundo", description: "3-5 días hábiles de análisis técnico, de keywords y de competencia con herramientas profesionales (Semrush, Ahrefs, Screaming Frog)." },
           { number: "03", title: "Presentación y entrega", description: "Llamada de 45 minutos donde presento los hallazgos y el plan de acción. Entrego el informe completo en PDF + hoja de cálculo editable." },
+        ]}
+      />
+      <SubpageFAQ
+        bg="off-white"
+        items={[
+          {
+            q: "¿Qué necesito para hacer la auditoría?",
+            a: "Acceso a tu Google Search Console y Google Analytics 4. Con eso tengo datos reales: qué páginas indexan, qué keywords ya posicionas y cuánto tráfico genera cada una. Sin esos datos, la auditoría sería ciega.",
+          },
+          {
+            q: "¿La auditoría incluye las correcciones?",
+            a: "No. La auditoría es el diagnóstico: te digo exactamente qué está mal, qué impacto tiene y cómo corregirlo. Las correcciones son un paso siguiente — puedes hacerlas tú mismo con el plan de acción, o contratarme para ejecutarlas.",
+          },
+          {
+            q: "¿En cuánto tiempo recibo la auditoría?",
+            a: "Entre 3 y 5 días hábiles desde que me das acceso a las herramientas. El proceso incluye análisis técnico, de keywords y de competencia. Al final hay una llamada de 45 minutos para presentar hallazgos y resolver dudas.",
+          },
+          {
+            q: "¿Si contrato SEO mensual después, el costo se descuenta?",
+            a: "Sí. Si decides contratar el servicio de SEO continuo después de la auditoría, aplico el 100% del costo de la auditoría como abono al primer mes.",
+          },
         ]}
       />
       <SubpageRelated

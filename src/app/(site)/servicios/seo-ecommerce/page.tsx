@@ -4,11 +4,12 @@ import { SubpageHero } from "@/components/sections/subpage/SubpageHero";
 import { SubpageFeatures } from "@/components/sections/subpage/SubpageFeatures";
 import { SubpageProcess } from "@/components/sections/subpage/SubpageProcess";
 import { SubpageCTA } from "@/components/sections/subpage/SubpageCTA";
+import { SubpageMidCTA } from "@/components/sections/subpage/SubpageMidCTA";
 
 export const metadata: Metadata = {
-  title: "SEO para E-commerce Colombia · Stiven Ramírez",
+  title: "SEO para E-commerce · Freelance Medellín · Stiven Ramírez",
   description:
-    "Posiciona tu tienda online en Google. SEO para e-commerce colombiano: categorías, productos, velocidad y contenido optimizados.",
+    "SEO para tiendas online en Colombia: categorías, productos y velocidad optimizados. Freelance para pymes y e-commerce en Medellín.",
   keywords: ["seo ecommerce colombia", "seo tienda online colombia", "posicionar ecommerce google colombia"],
   alternates: { canonical: "https://stivenramirez.com/servicios/seo-ecommerce/" },
   openGraph: {
@@ -54,6 +55,7 @@ export default function SeoEcommercePage() {
           { icon: "🏪", title: "Contenido de soporte", description: "Blog y guías de compra que capturan búsquedas informacionales y llevan tráfico a las categorías con intención de compra." },
         ]}
       />
+      <SubpageMidCTA text="¿Tu e-commerce paga cada venta con pauta? Hablamos 30 minutos para ver el potencial orgánico." />
       <SubpageProcess
         steps={[
           { number: "01", title: "Auditoría de catálogo", description: "Reviso la arquitectura actual, identifico canibalización de keywords entre productos y categorías, y mapeo oportunidades de tráfico." },

@@ -3,17 +3,19 @@ import { serviceSchema } from "@/lib/schema";
 import { SubpageHero } from "@/components/sections/subpage/SubpageHero";
 import { SubpageFeatures } from "@/components/sections/subpage/SubpageFeatures";
 import { SubpageProcess } from "@/components/sections/subpage/SubpageProcess";
+import { SubpageFAQ } from "@/components/sections/subpage/SubpageFAQ";
 import { SubpageCTA } from "@/components/sections/subpage/SubpageCTA";
+import { SubpageMidCTA } from "@/components/sections/subpage/SubpageMidCTA";
 
 export const metadata: Metadata = {
-  title: "Rediseño Web sin perder SEO Colombia · Stiven Ramírez",
+  title: "Rediseño Web sin perder SEO · Medellín · Stiven Ramírez",
   description:
-    "Rediseño de sitios web preservando el posicionamiento en Google. Migración con redirecciones 301, auditoría previa y cero pérdida de autoridad. Colombia.",
-  keywords: ["rediseño web colombia", "rediseño web sin perder seo", "migración web colombia", "actualizar sitio web colombia"],
+    "Rediseño web sin perder posicionamiento: auditoría previa, redirecciones 301 y migración que protege tu SEO. Freelance en Medellín.",
+  keywords: ["rediseño web medellin", "rediseño web sin perder seo", "migración web colombia", "actualizar sitio web colombia"],
   alternates: { canonical: "https://stivenramirez.com/servicios/rediseno-web-seo/" },
   openGraph: {
-    title: "Rediseño Web sin perder SEO · Stiven Ramírez",
-    description: "Rediseña tu sitio sin destruir el posicionamiento que tardaste años en construir. Colombia.",
+    title: "Rediseño Web sin perder SEO · Medellín · Stiven Ramírez",
+    description: "Rediseña tu sitio sin destruir el posicionamiento que tardaste años en construir. Freelance en Medellín.",
     url: "https://stivenramirez.com/servicios/rediseno-web-seo/",
     type: "website",
     locale: "es_CO",
@@ -70,6 +72,7 @@ export default function RedisenoWebSeoPage() {
           },
         ]}
       />
+      <SubpageMidCTA text="¿Estás pensando en rediseñar tu sitio? Antes de empezar, hablamos 30 minutos para proteger tu SEO." />
       <SubpageFeatures
         eyebrow="02 — El riesgo real"
         title="Por qué el rediseño es el momento más peligroso para tu SEO"
@@ -109,6 +112,27 @@ export default function RedisenoWebSeoPage() {
             number: "03",
             title: "Migración y monitoreo",
             description: "Lanzo el nuevo sitio, activo las redirecciones y monitoreo Search Console 30 días para detectar y corregir cualquier pérdida.",
+          },
+        ]}
+      />
+      <SubpageFAQ
+        bg="off-white"
+        items={[
+          {
+            q: "¿Un rediseño siempre afecta el SEO?",
+            a: "Depende de cómo se hace. Un rediseño sin plan de migración casi siempre pierde posicionamiento. Un rediseño con auditoría previa, redirecciones 301 correctas y verificación post-lanzamiento puede mantener el 95-100% del tráfico orgánico sin interrupciones.",
+          },
+          {
+            q: "¿Cuánto tiempo tarda el proceso de rediseño?",
+            a: "Normalmente entre 2 y 3 semanas. La primera semana es auditoría y mapeo del sitio actual. La segunda y tercera es diseño y construcción. El monitoreo de Search Console continúa 30 días después del lanzamiento.",
+          },
+          {
+            q: "¿Tienen que reconstruir todo desde cero?",
+            a: "No necesariamente. Si el sitio actual tiene buena estructura SEO, podemos preservarla y solo mejorar el diseño visual. El alcance del rediseño se define después de la auditoría inicial — a veces es renovar la apariencia, otras veces es restructurar completamente.",
+          },
+          {
+            q: "¿Qué pasa si pierdo posiciones después del rediseño?",
+            a: "Los primeros 30 días monitoreo Search Console activamente. Si detecto caídas, identifico la causa (redirección faltante, contenido eliminado, crawl error) y lo corrijo de inmediato. El monitoreo post-lanzamiento está incluido en el servicio, no es un extra.",
           },
         ]}
       />

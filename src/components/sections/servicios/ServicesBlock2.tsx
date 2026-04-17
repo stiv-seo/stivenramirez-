@@ -10,8 +10,8 @@ const plans = [
     id: "esencial",
     badge: { label: "Starter", variant: "teal" as const },
     name: "Plan Esencial",
-    price: "$500",
-    period: "USD/mes",
+    price: "$1.300.000",
+    period: "COP/mes",
     description: "Para negocios que comienzan su estrategia SEO",
     features: [
       "8 keywords objetivo",
@@ -29,8 +29,8 @@ const plans = [
     id: "profesional",
     badge: { label: "Más popular", variant: "amber" as const },
     name: "Plan Profesional",
-    price: "$900",
-    period: "USD/mes",
+    price: "$2.000.000",
+    period: "COP/mes",
     description: "Para negocios que quieren dominar su categoría",
     features: [
       "20 keywords objetivo",
@@ -49,8 +49,8 @@ const plans = [
     id: "auditoria",
     badge: { label: "One-time", variant: "teal" as const },
     name: "Auditoría SEO",
-    price: "$150",
-    period: "USD",
+    price: "$550.000",
+    period: "COP",
     description: "Diagnóstico completo de tu sitio actual",
     features: [
       "Auditoría técnica completa",

@@ -80,7 +80,7 @@ export function ServicesBlock1() {
           <FadeIn delay={0.05}>
             <div className="bg-warm-white rounded-2xl p-8 border border-[rgba(0,0,0,0.05)] hover:-translate-y-1 hover:shadow-xl transition-all duration-300 flex flex-col h-full">
               <Badge variant="teal" className="mb-4 self-start">
-                Desde $800 USD · 3–4 semanas
+                Desde $3.500.000 COP · 3–4 semanas
               </Badge>
               <h3 className="font-jakarta font-bold text-text-dark text-[22px] mb-6">
                 Diseño Web WordPress con SEO
@@ -111,7 +111,7 @@ export function ServicesBlock1() {
           <FadeIn delay={0.1}>
             <div className="bg-warm-white rounded-2xl p-8 border border-[rgba(0,0,0,0.05)] hover:-translate-y-1 hover:shadow-xl transition-all duration-300 flex flex-col h-full">
               <Badge variant="teal" className="mb-4 self-start">
-                Desde $1.200 USD · 4–5 semanas
+                Desde $3.000.000 COP · 4–5 semanas
               </Badge>
               <h3 className="font-jakarta font-bold text-text-dark text-[22px] mb-6">
                 Tienda Shopify con SEO

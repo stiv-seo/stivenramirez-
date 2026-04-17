@@ -11,7 +11,7 @@ const adServices = [
     title: "Google Ads para Pymes",
     description:
       "Aparece en los primeros resultados cuando alguien busca exactamente lo que ofreces. Solo pagas cuando hacen clic.",
-    price: "Desde $400 USD/mes",
+    price: "Desde $1.500.000 COP/mes",
     features: [
       "Configuración de campañas",
       "Keyword research",
@@ -29,7 +29,7 @@ const adServices = [
     title: "Facebook e Instagram Ads",
     description:
       "Llega a tu audiencia ideal en Facebook e Instagram con creatividades que convierten. Ideal para e-commerce y generación de leads.",
-    price: "Desde $400 USD/mes",
+    price: "Desde $1.500.000 COP/mes",
     features: [
       "Estrategia de audiencias",
       "Diseño de creatividades",

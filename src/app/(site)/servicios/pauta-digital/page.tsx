@@ -4,12 +4,13 @@ import { SubpageHero } from "@/components/sections/subpage/SubpageHero";
 import { SubpageFeatures } from "@/components/sections/subpage/SubpageFeatures";
 import { SubpageProcess } from "@/components/sections/subpage/SubpageProcess";
 import { SubpageCTA } from "@/components/sections/subpage/SubpageCTA";
+import { SubpageMidCTA } from "@/components/sections/subpage/SubpageMidCTA";
 import { SubpageRelated } from "@/components/sections/subpage/SubpageRelated";
 
 export const metadata: Metadata = {
-  title: "Pauta Digital · Google Ads y Meta Ads · Stiven Ramírez",
+  title: "Pauta Digital · Google & Meta Ads · Medellín",
   description:
-    "Campañas de pauta digital en Google y redes sociales para pymes colombianas. Sin porcentaje sobre inversión publicitaria. Resultados medibles.",
+    "Google Ads y Meta Ads para pymes en Medellín. Sin porcentaje sobre inversión. Freelance independiente con resultados medibles desde el primer mes.",
   keywords: ["pauta digital colombia", "publicidad digital colombia", "google ads meta ads colombia", "agencia pauta digital colombia"],
   alternates: { canonical: "https://stivenramirez.com/servicios/pauta-digital/" },
   openGraph: {
@@ -71,6 +72,7 @@ export default function PautaDigitalPage() {
           },
         ]}
       />
+      <SubpageMidCTA text="¿Tu presupuesto de pauta digital no genera los resultados esperados? Hablamos 30 minutos." />
       <SubpageProcess
         steps={[
           {

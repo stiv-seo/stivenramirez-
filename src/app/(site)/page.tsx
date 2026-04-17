@@ -11,9 +11,9 @@ import { FAQ } from "@/components/sections/home/FAQ";
 import { CTAFinal } from "@/components/sections/home/CTAFinal";
 
 export const metadata: Metadata = {
-  title: "Diseño Web & SEO Colombia · Stiven Ramírez",
+  title: "Stiven Ramírez · Diseño Web & SEO Medellín",
   description:
-    "Diseño webs WordPress y Shopify con SEO integrado desde el primer día. Posiciona en Google, genera ventas. Consultor en Medellín, Colombia.",
+    "Consultor SEO freelance y diseñador web en Medellín. WordPress y Shopify que posicionan en Google desde el día 1. Para pymes sin agencia.",
   alternates: { canonical: "https://stivenramirez.com/" },
 };
 

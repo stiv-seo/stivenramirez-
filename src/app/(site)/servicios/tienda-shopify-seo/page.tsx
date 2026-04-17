@@ -2,19 +2,24 @@ import type { Metadata } from "next";
 import { serviceSchema } from "@/lib/schema";
 import { SubpageHero } from "@/components/sections/subpage/SubpageHero";
 import { SubpageFeatures } from "@/components/sections/subpage/SubpageFeatures";
+import { SubpageMidCTA } from "@/components/sections/subpage/SubpageMidCTA";
+import { LossSection } from "@/components/sections/subpage/LossSection";
 import { SubpageProcess } from "@/components/sections/subpage/SubpageProcess";
 import { SubpageCTA } from "@/components/sections/subpage/SubpageCTA";
 import { SubpageFAQ } from "@/components/sections/subpage/SubpageFAQ";
 import { SubpageRelated } from "@/components/sections/subpage/SubpageRelated";
+import { StatCard } from "@/components/ui/StatCard";
+import { Container } from "@/components/ui/Container";
+import { FadeIn } from "@/components/ui/FadeIn";
 
 export const metadata: Metadata = {
-  title: "Tienda Shopify con SEO Colombia · Stiven Ramírez",
+  title: "Shopify con SEO para pymes · Stiven Ramírez",
   description:
-    "E-commerce Shopify con SEO integrado: colecciones optimizadas, velocidad máxima y conversión desde el lanzamiento. Colombia.",
+    "Tienda Shopify con SEO de colecciones, pasarelas de pago locales y conversión optimizada desde el lanzamiento. Freelance para pymes. Medellín.",
   keywords: ["tienda shopify colombia", "shopify seo colombia", "crear tienda shopify colombia", "ecommerce shopify colombia"],
   alternates: { canonical: "https://stivenramirez.com/servicios/tienda-shopify-seo/" },
   openGraph: {
-    title: "Tienda Shopify con SEO · Stiven Ramírez",
+    title: "Shopify con SEO para pymes · Stiven Ramírez",
     description: "Shopify con SEO de colecciones, velocidad optimizada y pasarelas de pago locales. Colombia.",
     url: "https://stivenramirez.com/servicios/tienda-shopify-seo/",
     type: "website",
@@ -72,6 +77,32 @@ export default function TiendaShopifySeoPage() {
           },
         ]}
       />
+      <SubpageMidCTA text="¿Quieres una tienda Shopify que venda sin depender solo de pauta? Hablamos 30 minutos." />
+      <LossSection
+        eyebrow="02 — La diferencia"
+        title="Shopify sin SEO vs. Shopify con SEO desde el lanzamiento"
+        lossColumn={{
+          icon: "😰",
+          heading: "Tienda Shopify sin SEO",
+          items: [
+            { label: "100% dependencia de pauta pagada", description: "Cada venta requiere inversión en anuncios. Si pausas la pauta, las ventas se detienen." },
+            { label: "Google no indexa las colecciones", description: "Sin texto en las colecciones, Google las trata como páginas vacías sin valor." },
+            { label: "Imágenes de 5MB que hacen lenta la tienda", description: "Shopify no optimiza imágenes automáticamente. Fotos pesadas = PageSpeed rojo en móvil." },
+            { label: "Sin pasarelas locales = clientes que abandonan", description: "Si no hay PSE o Nequi, los colombianos buscan otra tienda." },
+          ],
+        }}
+        gainColumn={{
+          icon: "🚀",
+          heading: "Shopify con SEO desde el lanzamiento",
+          items: [
+            { label: "Colecciones con texto que Google posiciona", description: "Cada colección con descripción trabajada captura tráfico de compra mes a mes." },
+            { label: "Productos con rich snippets en Google", description: "Precio, disponibilidad y reseñas visibles en resultados de búsqueda sin pagar por clic." },
+            { label: "Velocidad máxima con imágenes auditadas", description: "Imágenes WebP comprimidas, apps auditadas y tema optimizado para pasar Core Web Vitals." },
+            { label: "PSE, Nequi y Bancolombia integrados", description: "Tus clientes colombianos pagan como prefieren desde el primer día de operación." },
+          ],
+        }}
+        bg="warm-white"
+      />
       <SubpageProcess
         steps={[
           {
@@ -91,6 +122,44 @@ export default function TiendaShopifySeoPage() {
           },
         ]}
       />
+      <section className="bg-off-white" style={{ paddingTop: "80px", paddingBottom: "80px" }}>
+        <Container>
+          <FadeIn className="mb-8">
+            <p className="font-sans text-[11px] font-semibold tracking-[4px] uppercase text-teal mb-3">
+              04 — Resultados
+            </p>
+            <h2
+              className="font-jakarta font-extrabold text-text-dark leading-tight tracking-[-0.5px]"
+              style={{ fontSize: "clamp(20px, 2.5vw, 28px)" }}
+            >
+              Lo que recibes al final del proyecto
+            </h2>
+          </FadeIn>
+          <div className="grid sm:grid-cols-3 gap-5 max-w-[780px]">
+            <StatCard
+              icon="📅"
+              value="4–6"
+              label="semanas de entrega"
+              description="Para una tienda de hasta 50 productos con colecciones optimizadas"
+              accent="teal"
+            />
+            <StatCard
+              icon="💳"
+              value="3+"
+              label="pasarelas de pago locales"
+              description="PSE, Nequi, Bancolombia y tarjetas débito/crédito colombianas"
+              accent="teal"
+            />
+            <StatCard
+              icon="📈"
+              value="Mes 4"
+              label="primeras ventas orgánicas"
+              description="Para colecciones optimizadas en nichos con volumen de búsqueda"
+              accent="amber"
+            />
+          </div>
+        </Container>
+      </section>
       <SubpageFAQ
         bg="off-white"
         items={[

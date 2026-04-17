@@ -6,15 +6,16 @@ import { SubpageProcess } from "@/components/sections/subpage/SubpageProcess";
 import { SubpageCTA } from "@/components/sections/subpage/SubpageCTA";
 import { SubpageFAQ } from "@/components/sections/subpage/SubpageFAQ";
 import { SubpageRelated } from "@/components/sections/subpage/SubpageRelated";
+import { SubpageMidCTA } from "@/components/sections/subpage/SubpageMidCTA";
 
 export const metadata: Metadata = {
-  title: "SEO Local Colombia · Google Maps · Stiven Ramírez",
+  title: "SEO Local Medellín · Google Maps · Stiven Ramírez",
   description:
-    "Posiciona tu negocio en Google Maps y búsquedas locales. Google Business Profile, reseñas y SEO local para negocios colombianos.",
+    "SEO local en Medellín: posiciona en Google Maps y búsquedas cercanas. Google Business Profile para negocios físicos en Colombia.",
   keywords: ["seo local colombia", "aparecer google maps colombia", "google business profile colombia", "seo local medellin bogota"],
   alternates: { canonical: "https://stivenramirez.com/servicios/seo-local/" },
   openGraph: {
-    title: "SEO Local Colombia · Google Maps · Stiven Ramírez",
+    title: "SEO Local Medellín · Google Maps · Stiven Ramírez",
     description: "Aparece primero cuando alguien busca tu negocio cerca. Google Business Profile y SEO local.",
     url: "https://stivenramirez.com/servicios/seo-local/",
     type: "website",
@@ -56,6 +57,7 @@ export default function SeoLocalPage() {
           { icon: "🌐", title: "Sitio web local", description: "Página de contacto con schema LocalBusiness, mapa embebido y contenido que menciona la zona geográfica que atiendes." },
         ]}
       />
+      <SubpageMidCTA text="¿Tu negocio no aparece en los primeros lugares de Google Maps? Hablamos 30 minutos sin costo." />
       <SubpageProcess
         steps={[
           { number: "01", title: "Auditoría local", description: "Reviso tu ficha de Google Business, la consistencia NAP en directorios y las reseñas actuales. Identifico las brechas vs tu competencia local." },

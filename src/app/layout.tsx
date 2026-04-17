@@ -22,14 +22,14 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL("https://stivenramirez.com"),
   title: {
-    default: "Diseño Web & SEO Colombia · Stiven Ramírez",
+    default: "Stiven Ramírez · Diseño Web & SEO Medellín",
     template: "%s · Stiven Ramírez",
   },
   verification: {
     google: "odevJDKr6OjReuoKXOGtgkC8Z7h92wx88WMxXnfuyp4",
   },
   description:
-    "Diseño webs WordPress y Shopify con SEO integrado desde el primer día. Posiciona en Google y genera ventas. Medellín, Colombia.",
+    "Consultor SEO freelance y diseñador web en Medellín. WordPress y Shopify que posicionan en Google desde el día 1. Para pymes sin agencia.",
   keywords: [
     "diseño web colombia",
     "consultor seo colombia",

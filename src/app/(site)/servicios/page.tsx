@@ -7,9 +7,9 @@ import { ServicesBlock3 } from "@/components/sections/servicios/ServicesBlock3";
 import { ServicesCTA } from "@/components/sections/servicios/ServicesCTA";
 
 export const metadata: Metadata = {
-  title: "Servicios SEO y Diseño Web · stivenramirez.com",
+  title: "Servicios SEO y Diseño Web · Stiven Ramírez",
   description:
-    "Diseño web WordPress y Shopify con SEO integrado, consultoría SEO mensual y Google Ads. Un solo profesional, resultados medibles. Colombia.",
+    "Diseño web WordPress y Shopify con SEO integrado, SEO mensual y Google Ads. Freelance independiente para pymes en Medellín.",
   keywords: [
     "servicios seo diseño web colombia",
     "consultor seo colombia",
@@ -36,7 +36,7 @@ const schemas = serviceSchema([
     url: "https://stivenramirez.com/servicios/diseno-web-wordpress-seo/",
     provider: "Stiven Ramírez",
     areaServed: "Colombia",
-    price: "Desde $800 USD",
+    price: "Desde $3.500.000 COP",
   },
   {
     name: "Tienda Shopify con SEO",
@@ -44,7 +44,7 @@ const schemas = serviceSchema([
     url: "https://stivenramirez.com/servicios/tienda-shopify-seo/",
     provider: "Stiven Ramírez",
     areaServed: "Colombia",
-    price: "Desde $1.200 USD",
+    price: "Desde $3.000.000 COP",
   },
   {
     name: "SEO Continuo Mensual",
@@ -52,7 +52,7 @@ const schemas = serviceSchema([
     url: "https://stivenramirez.com/servicios/seo/",
     provider: "Stiven Ramírez",
     areaServed: "Colombia",
-    price: "Desde $500 USD/mes",
+    price: "Desde $1.300.000 COP/mes",
   },
   {
     name: "Google Ads y Meta Ads",
@@ -60,7 +60,7 @@ const schemas = serviceSchema([
     url: "https://stivenramirez.com/servicios/pauta-digital/",
     provider: "Stiven Ramírez",
     areaServed: "Colombia",
-    price: "Desde $400 USD/mes",
+    price: "Desde $1.500.000 COP/mes",
   },
 ]);
 

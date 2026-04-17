@@ -3,17 +3,20 @@ import { serviceSchema } from "@/lib/schema";
 import { SubpageHero } from "@/components/sections/subpage/SubpageHero";
 import { SubpageFeatures } from "@/components/sections/subpage/SubpageFeatures";
 import { SubpageProcess } from "@/components/sections/subpage/SubpageProcess";
+import { SubpageFAQ } from "@/components/sections/subpage/SubpageFAQ";
 import { SubpageCTA } from "@/components/sections/subpage/SubpageCTA";
+import { SubpageMidCTA } from "@/components/sections/subpage/SubpageMidCTA";
+import { Container } from "@/components/ui/Container";
 
 export const metadata: Metadata = {
-  title: "Meta Ads Colombia · Facebook e Instagram · Stiven Ramírez",
+  title: "Facebook e Instagram Ads · Medellín · Stiven Ramírez",
   description:
-    "Campañas Facebook e Instagram Ads para pymes colombianas. Audiencias precisas, creatividades que convierten y optimización semanal sin % sobre inversión.",
-  keywords: ["meta ads colombia", "facebook ads colombia", "instagram ads colombia", "publicidad facebook colombia pymes"],
+    "Meta Ads para pymes en Medellín: audiencias precisas, creatividades que convierten y Pixel bien configurado. Sin porcentaje sobre inversión.",
+  keywords: ["meta ads medellin", "facebook ads colombia", "instagram ads medellin", "publicidad facebook pymes colombia"],
   alternates: { canonical: "https://stivenramirez.com/servicios/meta-ads/" },
   openGraph: {
-    title: "Meta Ads Colombia · Facebook e Instagram · Stiven Ramírez",
-    description: "Facebook e Instagram Ads para pymes. Audiencias precisas, creatividades que convierten.",
+    title: "Facebook e Instagram Ads · Medellín · Stiven Ramírez",
+    description: "Meta Ads para pymes en Medellín. Audiencias precisas y creatividades que convierten. Sin % sobre inversión.",
     url: "https://stivenramirez.com/servicios/meta-ads/",
     type: "website",
     locale: "es_CO",
@@ -23,7 +26,7 @@ export const metadata: Metadata = {
 
 const schema = serviceSchema([{
   name: "Meta Ads — Facebook e Instagram",
-  description: "Gestión de campañas Facebook e Instagram para pymes colombianas. Sin porcentaje sobre inversión publicitaria.",
+  description: "Gestión de campañas Facebook e Instagram para pymes en Medellín y Colombia. Sin porcentaje sobre inversión publicitaria.",
   url: "https://stivenramirez.com/servicios/meta-ads/",
   provider: "Stiven Ramírez",
   areaServed: "Colombia",
@@ -70,6 +73,34 @@ export default function MetaAdsPage() {
           },
         ]}
       />
+      <SubpageMidCTA text="¿Tus campañas de Meta generan clics pero pocas conversiones? Hablamos 30 minutos sin costo." />
+
+      {/* Contenido adicional — Google vs Meta y la importancia del Pixel */}
+      <section className="bg-warm-white" style={{ paddingTop: "80px", paddingBottom: "80px" }}>
+        <Container>
+          <div className="max-w-[720px] mx-auto">
+            <h2
+              className="font-jakarta font-extrabold text-text-dark leading-tight tracking-[-0.5px] mb-4"
+              style={{ fontSize: "clamp(22px, 2.5vw, 30px)" }}
+            >
+              Google Ads vs Meta Ads: ¿cuál te conviene?
+            </h2>
+            <p className="font-sans text-text-mid leading-[1.85] mb-8 text-[16px]">
+              Google Ads es donde las personas están buscando activamente. Meta Ads es donde apareces sin que te busquen. En Google escribes "zapatos deportivos" y aparecen 5 tiendas. En Meta ves unos zapatos en tu feed sin haberlos buscado. Google funciona mejor para servicios y productos con demanda clara (abogados, SaaS, servicios técnicos). Meta funciona mejor para productos que necesitan ser vistos para ser deseados: ropa, cosmética, decoración. Si tu producto es complejo o nuevo, Meta te permite contar una historia. Si vendes algo que la gente ya busca activamente, Google es más eficiente. Muchos negocios se benefician de tener ambos canales activos con presupuestos distintos.
+            </p>
+            <h2
+              className="font-jakarta font-extrabold text-text-dark leading-tight tracking-[-0.5px] mb-4"
+              style={{ fontSize: "clamp(22px, 2.5vw, 30px)" }}
+            >
+              Por qué el Pixel de Meta bien configurado lo cambia todo
+            </h2>
+            <p className="font-sans text-text-mid leading-[1.85] text-[16px]">
+              El Pixel de Meta es la diferencia entre campañas que escalan y presupuesto que desaparece. Un Pixel mal instalado hace que Meta no entienda qué personas compran y cuáles no — entonces el algoritmo tira dardos al aire. Un Pixel bien configurado permite hacer lookalike audiences (personas similares a tus mejores clientes), retargeting preciso (recuperar a quienes casi compraron) y optimización automática real. Lo primero que revisamos antes de lanzar cualquier campaña es si el Pixel está activo en todas las páginas, si los eventos de conversión están disparando correctamente y si hay suficientes datos de entrenamiento. Sin eso, incluso con presupuesto alto, los resultados son inconsistentes.
+            </p>
+          </div>
+        </Container>
+      </section>
+
       <SubpageProcess
         steps={[
           {
@@ -86,6 +117,27 @@ export default function MetaAdsPage() {
             number: "03",
             title: "Escala y optimización",
             description: "Con datos suficientes, escalo las audiencias y creatividades que convierten. Reporte mensual con costo por lead, ROAS y alcance.",
+          },
+        ]}
+      />
+      <SubpageFAQ
+        bg="off-white"
+        items={[
+          {
+            q: "¿Facebook Ads todavía funciona en 2026?",
+            a: "Sí, y muy bien para muchos sectores. Facebook e Instagram combinados siguen siendo las plataformas con mayor tiempo de atención por usuario en Colombia. El costo por resultado subió vs años anteriores — por eso la segmentación y las creatividades importan más que nunca.",
+          },
+          {
+            q: "¿Cuánto presupuesto necesito para Meta Ads?",
+            a: "Mínimo $1.500.000 COP/mes en inversión publicitaria para salir de la fase de aprendizaje en tiempo razonable. Con menos, Meta tarda más en optimizar y los resultados son inconsistentes. Para e-commerce con catálogo de productos, el mínimo práctico es mayor.",
+          },
+          {
+            q: "¿Cuánto dura el período de aprendizaje?",
+            a: "Meta necesita entre 50 y 100 conversiones por conjunto de anuncios para terminar el aprendizaje. Dependiendo de tu presupuesto y tasa de conversión, puede ser entre 2 y 6 semanas. Durante ese período los resultados son variables — es normal y necesario.",
+          },
+          {
+            q: "¿Meta Ads o Google Ads — cuál me conviene?",
+            a: "Depende de tu producto. Google Ads es mejor cuando hay búsqueda activa (la gente ya sabe qué quiere). Meta Ads es mejor cuando necesitas crear demanda o cuando tu producto se vende por impulso visual. Muchos negocios se benefician de tener ambos canales activos con estrategias distintas.",
           },
         ]}
       />

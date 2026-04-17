@@ -4,11 +4,12 @@ import { SubpageHero } from "@/components/sections/subpage/SubpageHero";
 import { SubpageFeatures } from "@/components/sections/subpage/SubpageFeatures";
 import { SubpageProcess } from "@/components/sections/subpage/SubpageProcess";
 import { SubpageCTA } from "@/components/sections/subpage/SubpageCTA";
+import { SubpageMidCTA } from "@/components/sections/subpage/SubpageMidCTA";
 
 export const metadata: Metadata = {
-  title: "SEO Técnico Colombia · Velocidad y Rastreo · Stiven Ramírez",
+  title: "SEO Técnico · Velocidad y Rastreo · Medellín",
   description:
-    "Auditoría y corrección SEO técnica: velocidad, crawlability, canonicals, Core Web Vitals e indexación. Para sitios que no posicionan a pesar del contenido.",
+    "SEO técnico en Medellín: velocidad, indexación, canonicals y Core Web Vitals. Para sitios que no posicionan a pesar del contenido.",
   keywords: ["seo tecnico colombia", "auditoria tecnica seo", "core web vitals colombia", "indexacion google colombia"],
   alternates: { canonical: "https://stivenramirez.com/servicios/seo-tecnico/" },
   openGraph: {
@@ -54,6 +55,7 @@ export default function SeoTecnicoPage() {
           { icon: "📋", title: "Datos estructurados", description: "Schema markup implementado y validado: Organization, Service, Article, FAQ, BreadcrumbList. Rich snippets que mejoran el CTR." },
         ]}
       />
+      <SubpageMidCTA text="¿Sospechas que problemas técnicos están frenando tu posicionamiento? Hablamos 30 minutos." />
       <SubpageProcess
         steps={[
           { number: "01", title: "Rastreo completo", description: "Crawl del sitio con herramientas profesionales (Screaming Frog + Semrush). Lista exhaustiva de problemas técnicos ordenados por impacto." },

@@ -4,15 +4,16 @@ import { SubpageHero } from "@/components/sections/subpage/SubpageHero";
 import { SubpageFeatures } from "@/components/sections/subpage/SubpageFeatures";
 import { SubpageProcess } from "@/components/sections/subpage/SubpageProcess";
 import { SubpageCTA } from "@/components/sections/subpage/SubpageCTA";
+import { SubpageMidCTA } from "@/components/sections/subpage/SubpageMidCTA";
 
 export const metadata: Metadata = {
-  title: "Diseño Web con SEO integrado Colombia · Stiven Ramírez",
+  title: "Diseño Web con SEO · Freelance Medellín · Stiven Ramírez",
   description:
-    "Sitios web diseñados con SEO desde la arquitectura: velocidad, estructura y contenido optimizados para Google desde el día 1. Colombia.",
+    "Sitios web con SEO integrado desde el día 1: arquitectura, velocidad y contenido optimizados para Google. Freelance independiente en Medellín.",
   keywords: ["diseño web con seo colombia", "diseño web seo integrado", "sitio web posicionamiento google colombia"],
   alternates: { canonical: "https://stivenramirez.com/servicios/diseno-web-seo/" },
   openGraph: {
-    title: "Diseño Web con SEO integrado · Stiven Ramírez",
+    title: "Diseño Web con SEO · Freelance Medellín · Stiven Ramírez",
     description: "Sitio web que posiciona en Google desde el día 1. SEO integrado en diseño, velocidad y contenido.",
     url: "https://stivenramirez.com/servicios/diseno-web-seo/",
     type: "website",
@@ -70,6 +71,7 @@ export default function DisenoWebSeoPage() {
           },
         ]}
       />
+      <SubpageMidCTA text="¿Necesitas un sitio web que posicione en Google desde el primer día? Hablamos 30 minutos sin costo." />
       <SubpageProcess
         steps={[
           {
