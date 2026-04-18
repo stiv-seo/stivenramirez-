@@ -11,11 +11,11 @@ export const metadata: Metadata = {
   description:
     "SEO para tiendas online en Colombia: categorías, productos y velocidad optimizados. Freelance para pymes y e-commerce en Medellín.",
   keywords: ["seo ecommerce colombia", "seo tienda online colombia", "posicionar ecommerce google colombia"],
-  alternates: { canonical: "https://stivenramirez.com/servicios/seo-ecommerce/" },
+  alternates: { canonical: "https://stivenramirez.com/servicios/seo/ecommerce/" },
   openGraph: {
     title: "SEO para E-commerce Colombia · Stiven Ramírez",
     description: "Tráfico orgánico para tu tienda online. Categorías, productos y velocidad optimizados.",
-    url: "https://stivenramirez.com/servicios/seo-ecommerce/",
+    url: "https://stivenramirez.com/servicios/seo/ecommerce/",
     type: "website",
     locale: "es_CO",
     siteName: "Stiven Ramírez",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 const schema = serviceSchema([{
   name: "SEO para E-commerce",
   description: "Posicionamiento orgánico para tiendas online en Colombia. Categorías, productos y contenido optimizados.",
-  url: "https://stivenramirez.com/servicios/seo-ecommerce/",
+  url: "https://stivenramirez.com/servicios/seo/ecommerce/",
   provider: "Stiven Ramírez",
   areaServed: "Colombia",
   price: "Desde $2.000.000 COP/mes",

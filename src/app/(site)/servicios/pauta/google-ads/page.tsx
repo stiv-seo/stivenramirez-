@@ -13,11 +13,11 @@ export const metadata: Metadata = {
   description:
     "Google Ads para pymes en Medellín sin porcentaje sobre inversión. Configuración, optimización y reporte mensual. Freelance independiente.",
   keywords: ["google ads medellin", "google ads pymes colombia", "publicidad google medellin", "contratar google ads colombia"],
-  alternates: { canonical: "https://stivenramirez.com/servicios/google-ads/" },
+  alternates: { canonical: "https://stivenramirez.com/servicios/pauta/google-ads/" },
   openGraph: {
     title: "Google Ads para pymes · Medellín · Stiven Ramírez",
     description: "Aparece primero en Google cuando te buscan. Sin porcentaje sobre inversión. Freelance en Medellín.",
-    url: "https://stivenramirez.com/servicios/google-ads/",
+    url: "https://stivenramirez.com/servicios/pauta/google-ads/",
     type: "website",
     locale: "es_CO",
     siteName: "Stiven Ramírez",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 const schema = serviceSchema([{
   name: "Google Ads para Pymes",
   description: "Gestión de campañas Google Ads para pymes en Medellín y Colombia. Sin porcentaje sobre inversión publicitaria.",
-  url: "https://stivenramirez.com/servicios/google-ads/",
+  url: "https://stivenramirez.com/servicios/pauta/google-ads/",
   provider: "Stiven Ramírez",
   areaServed: "Colombia",
   price: "Desde $1.500.000 COP/mes",
@@ -75,7 +75,6 @@ export default function GoogleAdsPage() {
       />
       <SubpageMidCTA text="¿Tienes una cuenta Google Ads activa que no genera los resultados esperados? Hablamos 30 minutos." />
 
-      {/* Contenido adicional — Google Ads vs SEO y estructura de cuenta */}
       <section className="bg-warm-white" style={{ paddingTop: "80px", paddingBottom: "80px" }}>
         <Container>
           <div className="max-w-[720px] mx-auto">

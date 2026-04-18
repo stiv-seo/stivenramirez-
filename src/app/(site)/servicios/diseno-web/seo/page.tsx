@@ -11,11 +11,11 @@ export const metadata: Metadata = {
   description:
     "Sitios web con SEO integrado desde el día 1: arquitectura, velocidad y contenido optimizados para Google. Freelance independiente en Medellín.",
   keywords: ["diseño web con seo colombia", "diseño web seo integrado", "sitio web posicionamiento google colombia"],
-  alternates: { canonical: "https://stivenramirez.com/servicios/diseno-web-seo/" },
+  alternates: { canonical: "https://stivenramirez.com/servicios/diseno-web/seo/" },
   openGraph: {
     title: "Diseño Web con SEO · Freelance Medellín · Stiven Ramírez",
     description: "Sitio web que posiciona en Google desde el día 1. SEO integrado en diseño, velocidad y contenido.",
-    url: "https://stivenramirez.com/servicios/diseno-web-seo/",
+    url: "https://stivenramirez.com/servicios/diseno-web/seo/",
     type: "website",
     locale: "es_CO",
     siteName: "Stiven Ramírez",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 const schema = serviceSchema([{
   name: "Diseño Web con SEO integrado",
   description: "Sitios web construidos con arquitectura SEO, velocidad optimizada y contenido estratégico desde el día 1.",
-  url: "https://stivenramirez.com/servicios/diseno-web-seo/",
+  url: "https://stivenramirez.com/servicios/diseno-web/seo/",
   provider: "Stiven Ramírez",
   areaServed: "Colombia",
   price: "Desde $3.500.000 COP · 3–4 semanas",

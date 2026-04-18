@@ -12,11 +12,11 @@ export const metadata: Metadata = {
   description:
     "Rediseño web sin perder posicionamiento: auditoría previa, redirecciones 301 y migración que protege tu SEO. Freelance en Medellín.",
   keywords: ["rediseño web medellin", "rediseño web sin perder seo", "migración web colombia", "actualizar sitio web colombia"],
-  alternates: { canonical: "https://stivenramirez.com/servicios/rediseno-web-seo/" },
+  alternates: { canonical: "https://stivenramirez.com/servicios/diseno-web/rediseno/" },
   openGraph: {
     title: "Rediseño Web sin perder SEO · Medellín · Stiven Ramírez",
     description: "Rediseña tu sitio sin destruir el posicionamiento que tardaste años en construir. Freelance en Medellín.",
-    url: "https://stivenramirez.com/servicios/rediseno-web-seo/",
+    url: "https://stivenramirez.com/servicios/diseno-web/rediseno/",
     type: "website",
     locale: "es_CO",
     siteName: "Stiven Ramírez",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 const schema = serviceSchema([{
   name: "Rediseño Web sin perder SEO",
   description: "Rediseño de sitios web con auditoría previa, plan de redirecciones y migración que preserva el posicionamiento en Google.",
-  url: "https://stivenramirez.com/servicios/rediseno-web-seo/",
+  url: "https://stivenramirez.com/servicios/diseno-web/rediseno/",
   provider: "Stiven Ramírez",
   areaServed: "Colombia",
   price: "Desde $2.800.000 COP · 2–3 semanas",

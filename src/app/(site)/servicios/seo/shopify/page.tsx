@@ -17,11 +17,11 @@ export const metadata: Metadata = {
   description:
     "SEO para tiendas Shopify: colecciones, productos, velocidad y Core Web Vitals optimizados. Freelance independiente en Medellín.",
   keywords: ["seo shopify colombia", "optimizar tienda shopify", "posicionar shopify google colombia"],
-  alternates: { canonical: "https://stivenramirez.com/servicios/seo-shopify/" },
+  alternates: { canonical: "https://stivenramirez.com/servicios/seo/shopify/" },
   openGraph: {
     title: "SEO para Shopify Colombia · Stiven Ramírez",
     description: "Colecciones, productos y velocidad optimizados para que tu tienda Shopify aparezca en Google.",
-    url: "https://stivenramirez.com/servicios/seo-shopify/",
+    url: "https://stivenramirez.com/servicios/seo/shopify/",
     type: "website",
     locale: "es_CO",
     siteName: "Stiven Ramírez",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
 const schema = serviceSchema([{
   name: "SEO para Shopify",
   description: "Posicionamiento orgánico para tiendas Shopify: colecciones, productos, velocidad y contenido optimizados.",
-  url: "https://stivenramirez.com/servicios/seo-shopify/",
+  url: "https://stivenramirez.com/servicios/seo/shopify/",
   provider: "Stiven Ramírez",
   areaServed: "Colombia",
   price: "Desde $1.300.000 COP/mes",
@@ -162,8 +162,8 @@ export default function SeoShopifyPage() {
         title="¿Necesitas la tienda desde cero?"
         links={[
           {
-            label: "Tienda Shopify con SEO",
-            href: "/servicios/tienda-shopify-seo/",
+            label: "Shopify con SEO",
+            href: "/servicios/diseno-web/shopify/",
             description: "Construcción completa: diseño, pasarelas de pago locales y SEO integrado desde el lanzamiento.",
           },
         ]}

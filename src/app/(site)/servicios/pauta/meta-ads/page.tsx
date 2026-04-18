@@ -13,11 +13,11 @@ export const metadata: Metadata = {
   description:
     "Meta Ads para pymes en Medellín: audiencias precisas, creatividades que convierten y Pixel bien configurado. Sin porcentaje sobre inversión.",
   keywords: ["meta ads medellin", "facebook ads colombia", "instagram ads medellin", "publicidad facebook pymes colombia"],
-  alternates: { canonical: "https://stivenramirez.com/servicios/meta-ads/" },
+  alternates: { canonical: "https://stivenramirez.com/servicios/pauta/meta-ads/" },
   openGraph: {
     title: "Facebook e Instagram Ads · Medellín · Stiven Ramírez",
     description: "Meta Ads para pymes en Medellín. Audiencias precisas y creatividades que convierten. Sin % sobre inversión.",
-    url: "https://stivenramirez.com/servicios/meta-ads/",
+    url: "https://stivenramirez.com/servicios/pauta/meta-ads/",
     type: "website",
     locale: "es_CO",
     siteName: "Stiven Ramírez",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 const schema = serviceSchema([{
   name: "Meta Ads — Facebook e Instagram",
   description: "Gestión de campañas Facebook e Instagram para pymes en Medellín y Colombia. Sin porcentaje sobre inversión publicitaria.",
-  url: "https://stivenramirez.com/servicios/meta-ads/",
+  url: "https://stivenramirez.com/servicios/pauta/meta-ads/",
   provider: "Stiven Ramírez",
   areaServed: "Colombia",
   price: "Desde $1.500.000 COP/mes",
@@ -75,7 +75,6 @@ export default function MetaAdsPage() {
       />
       <SubpageMidCTA text="¿Tus campañas de Meta generan clics pero pocas conversiones? Hablamos 30 minutos sin costo." />
 
-      {/* Contenido adicional — Google vs Meta y la importancia del Pixel */}
       <section className="bg-warm-white" style={{ paddingTop: "80px", paddingBottom: "80px" }}>
         <Container>
           <div className="max-w-[720px] mx-auto">

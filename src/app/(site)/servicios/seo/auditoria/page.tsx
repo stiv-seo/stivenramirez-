@@ -13,11 +13,11 @@ export const metadata: Metadata = {
   description:
     "Auditoría SEO para pymes en Medellín: diagnóstico técnico, análisis de keywords y plan de acción 90 días. Freelance sin agencia. Desde $550.000 COP.",
   keywords: ["auditoria seo colombia", "auditoria seo gratis colombia", "diagnostico seo sitio web colombia"],
-  alternates: { canonical: "https://stivenramirez.com/servicios/auditoria-seo/" },
+  alternates: { canonical: "https://stivenramirez.com/servicios/seo/auditoria/" },
   openGraph: {
     title: "Auditoría SEO para pymes · Medellín · Stiven Ramírez",
     description: "Diagnóstico técnico completo, análisis de keywords y plan de acción en 90 días para tu sitio.",
-    url: "https://stivenramirez.com/servicios/auditoria-seo/",
+    url: "https://stivenramirez.com/servicios/seo/auditoria/",
     type: "website",
     locale: "es_CO",
     siteName: "Stiven Ramírez",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 const schema = serviceSchema([{
   name: "Auditoría SEO",
   description: "Diagnóstico SEO completo: técnico, keywords y competencia, con plan de acción en 90 días.",
-  url: "https://stivenramirez.com/servicios/auditoria-seo/",
+  url: "https://stivenramirez.com/servicios/seo/auditoria/",
   provider: "Stiven Ramírez",
   areaServed: "Colombia",
   price: "$550.000 COP",
@@ -92,7 +92,7 @@ export default function AuditoriaSeoPage() {
         links={[
           {
             label: "SEO Técnico",
-            href: "/servicios/seo-tecnico/",
+            href: "/servicios/seo/tecnico/",
             description: "Corrección de los problemas técnicos identificados en la auditoría: velocidad, crawlability, canonicals y más.",
           },
         ]}

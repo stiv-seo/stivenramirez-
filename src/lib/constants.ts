@@ -17,11 +17,11 @@ export const NAV_LINKS = [
 
 export const FOOTER_LINKS = {
   servicios: [
-    { label: "Diseño Web WordPress",  href: "/servicios/diseno-web-wordpress-seo/" },
-    { label: "Tienda Shopify + SEO",  href: "/servicios/tienda-shopify-seo/" },
-    { label: "SEO Continuo",          href: "/servicios/seo/" },
-    { label: "Google & Social Ads",   href: "/servicios/pauta-digital/" },
-    { label: "Auditoría SEO Gratis",  href: "/servicios/auditoria-seo/" },
+    { label: "Diseño Web WordPress",  href: "/servicios/diseno-web/wordpress/" },
+    { label: "Tienda Shopify + SEO",  href: "/servicios/diseno-web/shopify/" },
+    { label: "SEO Continuo",          href: "/servicios/seo/consultoria/" },
+    { label: "Google & Social Ads",   href: "/servicios/pauta/" },
+    { label: "Auditoría SEO",         href: "/servicios/seo/auditoria/" },
   ],
   recursos: [
     { label: "Blog",        href: "/blog/" },
@@ -42,29 +42,29 @@ export const SERVICES_DROPDOWN = [
   {
     group: "Diseño Web",
     links: [
-      { label: "Diseño Web con SEO",  href: "/servicios/diseno-web-seo/" },
-      { label: "WordPress con SEO",   href: "/servicios/diseno-web-wordpress-seo/" },
-      { label: "Shopify con SEO",     href: "/servicios/tienda-shopify-seo/" },
-      { label: "Rediseño Web",        href: "/servicios/rediseno-web-seo/" },
+      { label: "Diseño Web con SEO",  href: "/servicios/diseno-web/seo/" },
+      { label: "WordPress con SEO",   href: "/servicios/diseno-web/wordpress/" },
+      { label: "Shopify con SEO",     href: "/servicios/diseno-web/shopify/" },
+      { label: "Rediseño Web",        href: "/servicios/diseno-web/rediseno/" },
     ],
   },
   {
     group: "SEO",
     links: [
-      { label: "Consultoría SEO",  href: "/servicios/seo/" },
-      { label: "SEO para Shopify", href: "/servicios/seo-shopify/" },
-      { label: "SEO para WordPress", href: "/servicios/seo-wordpress/" },
-      { label: "SEO Local",        href: "/servicios/seo-local/" },
-      { label: "SEO E-commerce",   href: "/servicios/seo-ecommerce/" },
-      { label: "SEO Técnico",      href: "/servicios/seo-tecnico/" },
-      { label: "Auditoría SEO",    href: "/servicios/auditoria-seo/" },
+      { label: "Consultoría SEO",    href: "/servicios/seo/consultoria/" },
+      { label: "SEO para Shopify",   href: "/servicios/seo/shopify/" },
+      { label: "SEO para WordPress", href: "/servicios/seo/wordpress/" },
+      { label: "SEO Local",          href: "/servicios/seo/local/" },
+      { label: "SEO E-commerce",     href: "/servicios/seo/ecommerce/" },
+      { label: "SEO Técnico",        href: "/servicios/seo/tecnico/" },
+      { label: "Auditoría SEO",      href: "/servicios/seo/auditoria/" },
     ],
   },
   {
     group: "Pauta",
     links: [
-      { label: "Google Ads", href: "/servicios/google-ads/" },
-      { label: "Meta Ads",   href: "/servicios/meta-ads/" },
+      { label: "Google Ads", href: "/servicios/pauta/google-ads/" },
+      { label: "Meta Ads",   href: "/servicios/pauta/meta-ads/" },
     ],
   },
 ] as const;

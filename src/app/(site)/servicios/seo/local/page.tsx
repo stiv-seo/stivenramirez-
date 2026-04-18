@@ -5,7 +5,6 @@ import { SubpageFeatures } from "@/components/sections/subpage/SubpageFeatures";
 import { SubpageProcess } from "@/components/sections/subpage/SubpageProcess";
 import { SubpageCTA } from "@/components/sections/subpage/SubpageCTA";
 import { SubpageFAQ } from "@/components/sections/subpage/SubpageFAQ";
-import { SubpageRelated } from "@/components/sections/subpage/SubpageRelated";
 import { SubpageMidCTA } from "@/components/sections/subpage/SubpageMidCTA";
 
 export const metadata: Metadata = {
@@ -13,11 +12,11 @@ export const metadata: Metadata = {
   description:
     "SEO local en Medellín: posiciona en Google Maps y búsquedas cercanas. Google Business Profile para negocios físicos en Colombia.",
   keywords: ["seo local colombia", "aparecer google maps colombia", "google business profile colombia", "seo local medellin bogota"],
-  alternates: { canonical: "https://stivenramirez.com/servicios/seo-local/" },
+  alternates: { canonical: "https://stivenramirez.com/servicios/seo/local/" },
   openGraph: {
     title: "SEO Local Medellín · Google Maps · Stiven Ramírez",
     description: "Aparece primero cuando alguien busca tu negocio cerca. Google Business Profile y SEO local.",
-    url: "https://stivenramirez.com/servicios/seo-local/",
+    url: "https://stivenramirez.com/servicios/seo/local/",
     type: "website",
     locale: "es_CO",
     siteName: "Stiven Ramírez",
@@ -27,7 +26,7 @@ export const metadata: Metadata = {
 const schema = serviceSchema([{
   name: "SEO Local Colombia",
   description: "Posicionamiento en Google Maps y búsquedas locales para negocios físicos en Colombia.",
-  url: "https://stivenramirez.com/servicios/seo-local/",
+  url: "https://stivenramirez.com/servicios/seo/local/",
   provider: "Stiven Ramírez",
   areaServed: "Colombia",
   price: "Desde $1.600.000 COP/mes",

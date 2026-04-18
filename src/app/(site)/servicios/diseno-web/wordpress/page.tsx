@@ -17,11 +17,11 @@ export const metadata: Metadata = {
   description:
     "WordPress con SEO integrado: diseño personalizado, velocidad optimizada y posicionamiento desde el lanzamiento. Freelance para pymes en Medellín.",
   keywords: ["diseño web wordpress colombia", "wordpress seo colombia", "crear sitio wordpress colombia seo"],
-  alternates: { canonical: "https://stivenramirez.com/servicios/diseno-web-wordpress-seo/" },
+  alternates: { canonical: "https://stivenramirez.com/servicios/diseno-web/wordpress/" },
   openGraph: {
     title: "WordPress con SEO · Freelance Medellín · Stiven Ramírez",
     description: "WordPress con SEO integrado desde el día 1. Velocidad, diseño y posicionamiento en un solo proyecto.",
-    url: "https://stivenramirez.com/servicios/diseno-web-wordpress-seo/",
+    url: "https://stivenramirez.com/servicios/diseno-web/wordpress/",
     type: "website",
     locale: "es_CO",
     siteName: "Stiven Ramírez",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
 const schema = serviceSchema([{
   name: "Diseño Web WordPress con SEO",
   description: "Sitio WordPress profesional con SEO integrado: tema personalizado, velocidad optimizada y posicionamiento desde el lanzamiento.",
-  url: "https://stivenramirez.com/servicios/diseno-web-wordpress-seo/",
+  url: "https://stivenramirez.com/servicios/diseno-web/wordpress/",
   provider: "Stiven Ramírez",
   areaServed: "Colombia",
   price: "Desde $3.500.000 COP · 3–4 semanas",
@@ -191,7 +191,7 @@ export default function DisenoWordPressSeoPage() {
         links={[
           {
             label: "SEO para WordPress",
-            href: "/servicios/seo-wordpress/",
+            href: "/servicios/seo/wordpress/",
             description: "Optimización técnica y de contenido para sitios WordPress existentes que no están posicionando.",
           },
         ]}

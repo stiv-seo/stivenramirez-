@@ -17,11 +17,11 @@ export const metadata: Metadata = {
   description:
     "WordPress optimizado para Google: SEO técnico, velocidad y contenido estratégico. Freelance independiente en Medellín, Colombia.",
   keywords: ["seo wordpress colombia", "optimizar wordpress seo", "posicionar wordpress google colombia"],
-  alternates: { canonical: "https://stivenramirez.com/servicios/seo-wordpress/" },
+  alternates: { canonical: "https://stivenramirez.com/servicios/seo/wordpress/" },
   openGraph: {
     title: "SEO para WordPress Colombia · Stiven Ramírez",
     description: "WordPress optimizado para Google: técnico, contenido y velocidad. Colombia.",
-    url: "https://stivenramirez.com/servicios/seo-wordpress/",
+    url: "https://stivenramirez.com/servicios/seo/wordpress/",
     type: "website",
     locale: "es_CO",
     siteName: "Stiven Ramírez",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
 const schema = serviceSchema([{
   name: "SEO para WordPress",
   description: "Optimización SEO técnica y de contenido para sitios WordPress en Colombia.",
-  url: "https://stivenramirez.com/servicios/seo-wordpress/",
+  url: "https://stivenramirez.com/servicios/seo/wordpress/",
   provider: "Stiven Ramírez",
   areaServed: "Colombia",
   price: "Desde $1.300.000 COP/mes",
@@ -162,8 +162,8 @@ export default function SeoWordPressPage() {
         title="¿Necesitas el sitio WordPress desde cero?"
         links={[
           {
-            label: "Diseño Web WordPress con SEO",
-            href: "/servicios/diseno-web-wordpress-seo/",
+            label: "WordPress con SEO",
+            href: "/servicios/diseno-web/wordpress/",
             description: "WordPress construido con SEO integrado desde el primer día: arquitectura, velocidad y contenido optimizados.",
           },
         ]}

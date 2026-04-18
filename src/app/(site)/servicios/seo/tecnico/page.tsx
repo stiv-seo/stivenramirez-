@@ -11,11 +11,11 @@ export const metadata: Metadata = {
   description:
     "SEO técnico en Medellín: velocidad, indexación, canonicals y Core Web Vitals. Para sitios que no posicionan a pesar del contenido.",
   keywords: ["seo tecnico colombia", "auditoria tecnica seo", "core web vitals colombia", "indexacion google colombia"],
-  alternates: { canonical: "https://stivenramirez.com/servicios/seo-tecnico/" },
+  alternates: { canonical: "https://stivenramirez.com/servicios/seo/tecnico/" },
   openGraph: {
     title: "SEO Técnico Colombia · Stiven Ramírez",
     description: "Velocidad, rastreo, indexación y datos estructurados. Los cimientos que el SEO necesita.",
-    url: "https://stivenramirez.com/servicios/seo-tecnico/",
+    url: "https://stivenramirez.com/servicios/seo/tecnico/",
     type: "website",
     locale: "es_CO",
     siteName: "Stiven Ramírez",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 const schema = serviceSchema([{
   name: "SEO Técnico",
   description: "Auditoría y corrección de problemas técnicos de SEO: velocidad, indexación, rastreo y datos estructurados.",
-  url: "https://stivenramirez.com/servicios/seo-tecnico/",
+  url: "https://stivenramirez.com/servicios/seo/tecnico/",
   provider: "Stiven Ramírez",
   areaServed: "Colombia",
   price: "Desde $1.200.000 COP",

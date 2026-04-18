@@ -17,11 +17,11 @@ export const metadata: Metadata = {
   description:
     "Tienda Shopify con SEO de colecciones, pasarelas de pago locales y conversión optimizada desde el lanzamiento. Freelance para pymes. Medellín.",
   keywords: ["tienda shopify colombia", "shopify seo colombia", "crear tienda shopify colombia", "ecommerce shopify colombia"],
-  alternates: { canonical: "https://stivenramirez.com/servicios/tienda-shopify-seo/" },
+  alternates: { canonical: "https://stivenramirez.com/servicios/diseno-web/shopify/" },
   openGraph: {
     title: "Shopify con SEO para pymes · Stiven Ramírez",
     description: "Shopify con SEO de colecciones, velocidad optimizada y pasarelas de pago locales. Colombia.",
-    url: "https://stivenramirez.com/servicios/tienda-shopify-seo/",
+    url: "https://stivenramirez.com/servicios/diseno-web/shopify/",
     type: "website",
     locale: "es_CO",
     siteName: "Stiven Ramírez",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
 const schema = serviceSchema([{
   name: "Tienda Shopify con SEO",
   description: "E-commerce Shopify con SEO integrado, pasarelas de pago locales y optimización de conversión desde el lanzamiento.",
-  url: "https://stivenramirez.com/servicios/tienda-shopify-seo/",
+  url: "https://stivenramirez.com/servicios/diseno-web/shopify/",
   provider: "Stiven Ramírez",
   areaServed: "Colombia",
   price: "Desde $3.000.000 COP · 4–5 semanas",
@@ -48,7 +48,7 @@ export default function TiendaShopifySeoPage() {
         title="Tienda Shopify con SEO"
         titleAccent="que vende y posiciona."
         subtitle="Una tienda Shopify sin SEO depende 100% de pauta pagada. Con SEO integrado desde el inicio, el tráfico orgánico crece mes a mes mientras tus campañas generan resultados inmediatos."
-        breadcrumbCurrent="Tienda Shopify con SEO"
+        breadcrumbCurrent="Shopify con SEO"
       />
       <SubpageFeatures
         eyebrow="01 — Qué incluye"
@@ -191,7 +191,7 @@ export default function TiendaShopifySeoPage() {
         links={[
           {
             label: "SEO para Shopify",
-            href: "/servicios/seo-shopify/",
+            href: "/servicios/seo/shopify/",
             description: "Optimización de colecciones, productos y velocidad para tiendas Shopify existentes que dependen de pauta.",
           },
         ]}

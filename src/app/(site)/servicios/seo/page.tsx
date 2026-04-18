@@ -1,25 +1,20 @@
 import type { Metadata } from "next";
-import { serviceSchema } from "@/lib/schema";
+import Link from "next/link";
 import { SubpageHero } from "@/components/sections/subpage/SubpageHero";
-import { SubpageFeatures } from "@/components/sections/subpage/SubpageFeatures";
-import { SubpageMidCTA } from "@/components/sections/subpage/SubpageMidCTA";
-import { LossSection } from "@/components/sections/subpage/LossSection";
-import { SubpageProcess } from "@/components/sections/subpage/SubpageProcess";
-import { SubpageFAQ } from "@/components/sections/subpage/SubpageFAQ";
 import { SubpageCTA } from "@/components/sections/subpage/SubpageCTA";
-import { StatCard } from "@/components/ui/StatCard";
 import { Container } from "@/components/ui/Container";
 import { FadeIn } from "@/components/ui/FadeIn";
+import { Eyebrow } from "@/components/ui/Eyebrow";
 
 export const metadata: Metadata = {
-  title: "Consultor SEO Freelance Medellín · Stiven Ramírez",
+  title: "SEO para pymes Medellín · Consultor SEO · Stiven Ramírez",
   description:
-    "Consultoría SEO mensual sin agencia para pymes en Medellín. Estrategia, contenido y link building con resultados medibles. Sin contratos de permanencia.",
-  keywords: ["consultor seo medellin", "seo freelance colombia", "posicionamiento google medellin", "seo sin agencia colombia"],
+    "Consultoría SEO para pymes en Medellín: posicionamiento técnico, de contenido y local. Freelance sin agencia. Shopify, WordPress, e-commerce y más.",
+  keywords: ["consultor seo medellin", "seo pymes colombia", "posicionamiento google medellin", "seo freelance medellin"],
   alternates: { canonical: "https://stivenramirez.com/servicios/seo/" },
   openGraph: {
-    title: "Consultor SEO Freelance · Medellín · Stiven Ramírez",
-    description: "SEO mensual sin agencia para pymes en Medellín. Estrategia, contenido y resultados medibles.",
+    title: "SEO para pymes Medellín · Stiven Ramírez",
+    description: "SEO mensual, técnico, local y de plataforma para pymes en Medellín. Sin agencia, sin permanencia forzada.",
     url: "https://stivenramirez.com/servicios/seo/",
     type: "website",
     locale: "es_CO",
@@ -27,163 +22,112 @@ export const metadata: Metadata = {
   },
 };
 
-const schema = serviceSchema([{
-  name: "Consultoría SEO mensual",
-  description: "Posicionamiento orgánico mes a mes con estrategia, contenido y resultados medibles para pymes en Medellín y Colombia.",
-  url: "https://stivenramirez.com/servicios/seo/",
-  provider: "Stiven Ramírez",
-  areaServed: "Colombia",
-  price: "Desde $1.300.000 COP/mes",
-}]);
+const services = [
+  {
+    icon: "🔎",
+    title: "Consultoría SEO Mensual",
+    description: "SEO continuo mes a mes: keywords, on-page, link building y reporte. Sin contratos de un año.",
+    href: "/servicios/seo/consultoria/",
+    price: "Desde $1.300.000 COP/mes",
+  },
+  {
+    icon: "🛍️",
+    title: "SEO para Shopify",
+    description: "Colecciones, productos, velocidad y Core Web Vitals. El SEO específico de la plataforma que la mayoría ignora.",
+    href: "/servicios/seo/shopify/",
+    price: "Desde $1.300.000 COP/mes",
+  },
+  {
+    icon: "🔌",
+    title: "SEO para WordPress",
+    description: "Más allá de Yoast: técnico, velocidad, arquitectura de contenido y link building real.",
+    href: "/servicios/seo/wordpress/",
+    price: "Desde $1.300.000 COP/mes",
+  },
+  {
+    icon: "📍",
+    title: "SEO Local",
+    description: "Posiciona en Google Maps y búsquedas cercanas. Google Business Profile optimizado para el Local Pack.",
+    href: "/servicios/seo/local/",
+    price: "Desde $1.600.000 COP/mes",
+  },
+  {
+    icon: "🗂️",
+    title: "SEO E-commerce",
+    description: "Categorías, productos y catálogo optimizados. Para tiendas online que pagan cada venta con pauta.",
+    href: "/servicios/seo/ecommerce/",
+    price: "Desde $2.000.000 COP/mes",
+  },
+  {
+    icon: "⚙️",
+    title: "SEO Técnico",
+    description: "Core Web Vitals, rastreo, indexación y datos estructurados. Los cimientos que el resto del SEO necesita.",
+    href: "/servicios/seo/tecnico/",
+    price: "Desde $1.200.000 COP",
+  },
+  {
+    icon: "🔬",
+    title: "Auditoría SEO",
+    description: "Diagnóstico técnico completo con plan de acción 90 días. Saber exactamente qué frena tu posicionamiento.",
+    href: "/servicios/seo/auditoria/",
+    price: "$550.000 COP",
+  },
+];
 
-export default function SeoPage() {
+export default function SeoHubPage() {
   return (
     <>
-      {schema.map((s, i) => (
-        <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
-      ))}
       <SubpageHero
-        eyebrow="SEO Continuo · Medellín"
-        title="Consultoría SEO que"
-        titleAccent="mueve el negocio."
-        subtitle="No vendo posiciones en Google. Vendo tráfico orgánico calificado que se convierte en clientes. La diferencia está en la estrategia detrás de cada acción."
-        breadcrumbCurrent="SEO Continuo"
+        eyebrow="SEO · Medellín"
+        title="SEO para pymes"
+        titleAccent="que posiciona en Google."
+        subtitle="Consultoría SEO sin agencia. Trabajo solo, sin intermediarios, con estrategia real: técnico, contenido y links. Para el tipo de negocio que tienes, en la plataforma que usas."
+        breadcrumbCurrent="SEO"
       />
-      <SubpageFeatures
-        eyebrow="01 — Qué incluye"
-        title="SEO sin métricas de vanidad"
-        subtitle="Cada mes trabajamos en lo que mueve la aguja: posiciones, tráfico y conversiones."
-        features={[
-          { icon: "🔎", title: "Investigación de keywords", description: "Mapa de palabras clave actualizado según tu sector, estacionalidad y competencia. Atacamos primero las de mayor ROI." },
-          { icon: "📄", title: "Optimización on-page", description: "Títulos, H1s, meta descriptions, estructura de contenido y datos estructurados revisados y optimizados cada mes." },
-          { icon: "🔗", title: "Link building", description: "Construcción de enlaces de calidad desde sitios colombianos y del sector. Sin spam, sin granjas de links." },
-          { icon: "📈", title: "Reporte mensual", description: "Dashboard con posiciones, tráfico orgánico, conversiones y comparativa mes anterior. Números que entienden los dueños de negocio, no solo los técnicos." },
-        ]}
-      />
-      <SubpageMidCTA text="¿Tu sitio no aparece en Google aunque tienes buen contenido? Hablamos 30 minutos sin costo." />
-      <LossSection
-        eyebrow="02 — La diferencia"
-        title="SEO sin estrategia vs. consultoría SEO con resultados"
-        lossColumn={{
-          icon: "😰",
-          heading: "SEO sin consultor ni estrategia",
-          items: [
-            { label: "Posiciones cayendo sin saber por qué", description: "Google actualiza su algoritmo constantemente. Sin monitoreo activo, no sabes cuándo ni por qué bajaste." },
-            { label: "Contenido publicado sin keywords objetivo", description: "Artículos escritos 'por instinto' sin volumen de búsqueda real = tráfico cero o audiencia incorrecta." },
-            { label: "Sin backlinks = sin autoridad de dominio", description: "Google no posiciona sitios sin credibilidad externa. El contenido solo no es suficiente para competir." },
-            { label: "Sin reporte = sin saber qué funciona", description: "Invertir en SEO sin medir es como hacer ejercicio con los ojos cerrados. No sabes si avanzas." },
-          ],
-        }}
-        gainColumn={{
-          icon: "🚀",
-          heading: "Consultoría SEO mensual con plan",
-          items: [
-            { label: "Auditoría técnica + plan priorizado desde mes 1", description: "Primero corrijo lo que frena a Google, luego construimos sobre una base sólida." },
-            { label: "Cada pieza de contenido apunta a una intención real", description: "Keywords con volumen y con intención comercial. Contenido que atrae a quien puede comprar." },
-            { label: "Link building de calidad desde sitios colombianos", description: "Backlinks desde medios y directorios relevantes de tu sector. Sin spam, sin riesgos." },
-            { label: "Reporte mensual con posiciones, tráfico y conversiones", description: "Cada mes sabes exactamente qué avanzó, qué falta y cuál es el plan para el siguiente mes." },
-          ],
-        }}
-        bg="warm-white"
-      />
-
-      {/* Contenido adicional — timeline y metodología */}
       <section className="bg-off-white" style={{ paddingTop: "80px", paddingBottom: "80px" }}>
         <Container>
-          <div className="max-w-[720px] mx-auto">
+          <FadeIn className="mb-10">
+            <Eyebrow>Elige tu tipo de SEO</Eyebrow>
             <h2
-              className="font-jakarta font-extrabold text-text-dark leading-tight tracking-[-0.5px] mb-4"
-              style={{ fontSize: "clamp(22px, 2.5vw, 30px)" }}
+              className="font-jakarta font-extrabold text-text-dark leading-[1.05] tracking-[-1px]"
+              style={{ fontSize: "clamp(24px, 3vw, 36px)" }}
             >
-              ¿Cuánto tiempo tarda el SEO en generar resultados?
+              SEO para cada negocio y plataforma
             </h2>
-            <p className="font-sans text-text-mid leading-[1.85] mb-5 text-[16px]">
-              La respuesta honesta: entre 3 y 6 meses para las primeras posiciones visibles. Si tu sitio ya tiene autoridad —años online, backlinks de calidad—, el proceso es más rápido. Si partes de cero, es más lento. Mes 1 y 2 son de correcciones técnicas y base de contenido. Mes 2-3 empiezan a aparecer posiciones en página 2. Mes 4-6, las palabras clave de menor competencia entran a página 1. Las de alta competencia pueden tomar entre 9 y 12 meses.
+            <p className="font-sans text-text-mid text-[17px] leading-[1.7] mt-4 max-w-[560px]">
+              No hay una sola estrategia SEO. Elige según tu plataforma y tu objetivo, o cuéntame tu situación y te recomiendo por dónde empezar.
             </p>
-            <h2
-              className="font-jakarta font-extrabold text-text-dark leading-tight tracking-[-0.5px] mb-4"
-              style={{ fontSize: "clamp(22px, 2.5vw, 30px)" }}
-            >
-              El SEO no es "escribe contenido y espera"
-            </h2>
-            <p className="font-sans text-text-mid leading-[1.85] text-[16px]">
-              El mayor malentendido es pensar que SEO es publicar artículos y esperar que Google los indexe. SEO real es un ciclo: investigar qué buscan en tu mercado, escribir contenido que responda mejor que tus competidores, conseguir enlaces desde sitios de autoridad, monitorear posiciones semana a semana y ajustar. Si un artículo tiene potencial pero no sube, buscamos por qué: ¿le faltan backlinks?, ¿la competencia es más fuerte?, ¿falta profundidad técnica? Cada posición que ganas en Google es porque hiciste algo que tus competidores no hicieron. Eso requiere inversión continua, no un pago único.
-            </p>
-          </div>
-        </Container>
-      </section>
-
-      <SubpageProcess
-        steps={[
-          { number: "01", title: "Auditoría inicial", description: "Semana 1: auditoría técnica completa, mapa de keywords y análisis de competencia. La base de toda la estrategia." },
-          { number: "02", title: "Ejecución mensual", description: "On-page, contenido y link building ejecutados según el plan priorizado por impacto esperado vs esfuerzo." },
-          { number: "03", title: "Reporte y ajuste", description: "Último viernes del mes: reporte de resultados, análisis de qué funcionó y plan ajustado para el mes siguiente." },
-        ]}
-      />
-      <section className="bg-warm-white" style={{ paddingTop: "80px", paddingBottom: "80px" }}>
-        <Container>
-          <FadeIn className="mb-8">
-            <p className="font-sans text-[11px] font-semibold tracking-[4px] uppercase text-teal mb-3">
-              04 — Resultados
-            </p>
-            <h2
-              className="font-jakarta font-extrabold text-text-dark leading-tight tracking-[-0.5px]"
-              style={{ fontSize: "clamp(20px, 2.5vw, 28px)" }}
-            >
-              Qué esperar de la consultoría SEO
-            </h2>
           </FadeIn>
-          <div className="grid sm:grid-cols-3 gap-5 max-w-[780px]">
-            <StatCard
-              icon="📅"
-              value="3–6"
-              label="meses para resultados medibles"
-              description="Tráfico orgánico real para keywords con volumen de búsqueda"
-              accent="teal"
-            />
-            <StatCard
-              icon="📈"
-              value="+120%"
-              label="crecimiento promedio año 1"
-              description="En clientes con sitios existentes y contenido por optimizar"
-              accent="teal"
-            />
-            <StatCard
-              icon="📋"
-              value="0"
-              label="contratos de permanencia forzados"
-              description="Trabajo por trimestres renovables. Los resultados son el argumento"
-              accent="amber"
-            />
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {services.map((service) => (
+              <FadeIn key={service.href}>
+                <Link href={service.href} className="block h-full">
+                  <div className="bg-white rounded-2xl p-6 border border-[rgba(0,0,0,0.06)] hover:border-teal/30 hover:shadow-sm transition-all duration-200 h-full group">
+                    <span className="text-3xl mb-4 block" aria-hidden="true">{service.icon}</span>
+                    <h3 className="font-jakarta font-bold text-text-dark text-[16px] mb-2 group-hover:text-teal transition-colors duration-150">
+                      {service.title}
+                    </h3>
+                    <p className="font-sans text-text-mid text-[13px] leading-[1.8] mb-4">
+                      {service.description}
+                    </p>
+                    <div className="flex items-center justify-between">
+                      <span className="font-jakarta font-semibold text-slate text-[12px]">{service.price}</span>
+                      <span className="font-jakarta font-semibold text-teal text-[12px] group-hover:translate-x-1 transition-transform duration-150">
+                        Ver detalle →
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+              </FadeIn>
+            ))}
           </div>
         </Container>
       </section>
-      <SubpageFAQ
-        bg="off-white"
-        items={[
-          {
-            q: "¿En cuánto tiempo veo resultados con SEO?",
-            a: "Los primeros cambios técnicos son visibles en semanas, pero el tráfico orgánico real empieza a moverse entre el mes 3 y 6. Las keywords de baja competencia entran a página 1 antes; las de alta competencia pueden tomar 9-12 meses. SEO es una inversión con retorno creciente, no un interruptor.",
-          },
-          {
-            q: "¿El SEO funciona para cualquier tipo de negocio?",
-            a: "Funciona para negocios donde los clientes buscan en Google antes de comprar: servicios profesionales, e-commerce, salud, inmobiliaria, educación. Si tu negocio es B2B de nicho muy específico o sin volumen de búsqueda, Google Ads puede ser más directo en el corto plazo.",
-          },
-          {
-            q: "¿Hay contrato de permanencia mínima?",
-            a: "El SEO requiere mínimo 3 meses para mostrar resultados medibles. Trabajo con compromisos de 3 meses renovables, no contratos de un año. Después del primer trimestre, los resultados son el argumento para continuar.",
-          },
-          {
-            q: "¿Puedo manejar el SEO yo mismo con Yoast o Rank Math?",
-            a: "Yoast y Rank Math ayudan con el SEO básico on-page. Pero el SEO real incluye investigación de keywords, arquitectura de contenido, velocidad técnica y link building. Plugins no hacen eso automáticamente — son herramientas, no estrategia.",
-          },
-        ]}
-      />
       <SubpageCTA
-        eyebrow="¿Quieres crecer en Google?"
-        title="SEO que genera clientes,"
-        titleLine2="no solo tráfico."
-        subtitle="Agenda 30 minutos. Te muestro en qué posiciones está tu sitio ahora y qué es realista lograr en 6 meses."
+        eyebrow="¿No sabes por dónde empezar?"
+        title="30 minutos para saber"
+        titleLine2="qué SEO necesitas."
+        subtitle="Dime tu URL y tu objetivo. Te digo qué tipo de SEO tiene más sentido para tu negocio y qué resultados son realistas."
       />
     </>
   );
