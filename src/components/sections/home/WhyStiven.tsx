@@ -47,7 +47,14 @@ export function WhyStiven() {
           <div className="flex flex-col gap-0">
             {differentiators.map((d, i) => (
               <FadeIn key={d.title} delay={i * 0.1}>
-                <div className="flex gap-5 py-7">
+                <div className="relative flex gap-5 py-7 overflow-hidden">
+                  <span
+                    className="absolute right-0 top-1/2 -translate-y-1/2 font-jakarta font-extrabold leading-none select-none pointer-events-none text-text-dark"
+                    style={{ fontSize: "clamp(64px, 8vw, 96px)", opacity: 0.04 }}
+                    aria-hidden="true"
+                  >
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
                   <div className="text-2xl shrink-0 mt-0.5">{d.icon}</div>
                   <div>
                     <h3 className="font-jakarta font-bold text-text-dark text-[17px] mb-2">

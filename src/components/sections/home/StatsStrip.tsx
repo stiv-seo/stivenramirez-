@@ -9,14 +9,15 @@ interface Stat {
   value: number;
   suffix: string;
   label: string;
+  sublabel: string;
   decimal?: boolean;
 }
 
 const stats: Stat[] = [
-  { prefix: "+", value: 280, suffix: "%", label: "Tráfico orgánico promedio" },
-  { value: 3.2, suffix: "x", label: "ROAS promedio en pauta", decimal: true },
-  { prefix: "+", value: 45, suffix: "%", label: "Conversiones e-commerce" },
-  { prefix: "", value: 40, suffix: "+", label: "Proyectos entregados" },
+  { prefix: "+", value: 280, suffix: "%", label: "Tráfico orgánico promedio", sublabel: "en 6 meses con SEO" },
+  { value: 3.2, suffix: "x", label: "ROAS promedio en pauta", sublabel: "Google & Meta Ads", decimal: true },
+  { prefix: "+", value: 45, suffix: "%", label: "Conversiones e-commerce", sublabel: "Shopify + SEO combinado" },
+  { prefix: "", value: 40, suffix: "+", label: "Proyectos entregados", sublabel: "desde 2020 en Colombia" },
 ];
 
 function useCountUp(target: number, duration = 2000, decimal = false) {
@@ -62,8 +63,11 @@ function StatItem({ stat }: { stat: Stat }) {
         {stat.decimal ? count.toFixed(1) : Math.round(count)}
         {stat.suffix}
       </p>
-      <p className="font-sans text-slate-light text-sm leading-tight max-w-[130px]">
+      <p className="font-sans text-slate-light text-sm leading-tight max-w-[140px]">
         {stat.label}
+      </p>
+      <p className="font-sans text-slate/60 text-[11px] leading-tight max-w-[140px] mt-1">
+        {stat.sublabel}
       </p>
     </div>
   );

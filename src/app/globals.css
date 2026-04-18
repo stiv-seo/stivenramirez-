@@ -21,6 +21,8 @@
   --color-whatsapp-dim: #20b858;
   --color-footer-bg:    #060F1A;
   --color-footer-bar:   #040C15;
+  --color-purple:       #6D397D;
+  --color-purple-bright:#7d4590;
 
   /* Typography — next/font injects these CSS vars on <html> */
   --font-sans:    var(--font-dm-sans);
