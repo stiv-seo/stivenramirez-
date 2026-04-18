@@ -103,7 +103,7 @@ export function Hero() {
                 transition={{ duration: 0.5, ease: "easeOut" as const, delay: 0.3 }}
                 className="flex flex-wrap gap-3 mb-10"
               >
-                <Button variant="purple" size="lg" href={CALENDLY_URL} external>
+                <Button variant="primary" size="lg" href={CALENDLY_URL} external>
                   Agendar llamada gratis →
                 </Button>
                 <Button variant="border" size="lg" href="/servicios/">

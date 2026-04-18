@@ -4,7 +4,7 @@ import Link from "next/link";
 import { type ButtonHTMLAttributes, forwardRef } from "react";
 import { cn } from "@/lib/utils";
 
-export type ButtonVariant = "primary" | "whatsapp" | "dark" | "ghost" | "outline" | "purple" | "border";
+export type ButtonVariant = "primary" | "whatsapp" | "dark" | "ghost" | "outline" | "border";
 export type ButtonSize = "sm" | "md" | "lg";
 
 interface ButtonBaseProps {
@@ -46,10 +46,6 @@ const variantClasses: Record<ButtonVariant, string> = {
   outline:
     "bg-white text-text-dark border border-[rgba(0,0,0,0.07)] font-bold " +
     "hover:border-teal hover:text-teal transition-all duration-150",
-  purple:
-    "bg-purple text-white font-bold hover:bg-purple-bright hover:-translate-y-px " +
-    "shadow-[0_0_0_0_rgba(109,57,125,0)] hover:shadow-[0_4px_20px_rgba(109,57,125,0.35)] " +
-    "transition-all duration-200",
   border:
     "bg-transparent text-white border border-white/30 font-bold " +
     "hover:border-white/70 hover:bg-white/5 transition-all duration-150",
