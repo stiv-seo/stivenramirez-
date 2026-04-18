@@ -15,10 +15,10 @@ const contactSchema = z.object({
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
 const budgetLabel: Record<string, string> = {
-  "menos-500": "Menos de $500 USD",
-  "500-1000": "$500 – $1.000 USD",
-  "1000-3000": "$1.000 – $3.000 USD",
-  "mas-3000": "Más de $3.000 USD",
+  "menos-1m": "Menos de $1.000.000 COP",
+  "1m-2m": "$1.000.000 – $2.000.000 COP",
+  "2m-4m": "$2.000.000 – $4.000.000 COP",
+  "mas-4m": "Más de $4.000.000 COP",
   "no-se": "No lo sé todavía",
 };
 

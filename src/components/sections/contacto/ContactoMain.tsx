@@ -9,10 +9,10 @@ import { WA_URL, CALENDLY_URL } from "@/lib/constants";
 
 const budgetOptions = [
   { value: "", label: "¿Cuál es tu presupuesto aproximado?" },
-  { value: "menos-500", label: "Menos de $500 USD" },
-  { value: "500-1000", label: "$500 – $1.000 USD" },
-  { value: "1000-3000", label: "$1.000 – $3.000 USD" },
-  { value: "mas-3000", label: "Más de $3.000 USD" },
+  { value: "menos-1m", label: "Menos de $1.000.000 COP" },
+  { value: "1m-2m", label: "$1.000.000 – $2.000.000 COP" },
+  { value: "2m-4m", label: "$2.000.000 – $4.000.000 COP" },
+  { value: "mas-4m", label: "Más de $4.000.000 COP" },
   { value: "no-se", label: "No lo sé todavía" },
 ];
 
