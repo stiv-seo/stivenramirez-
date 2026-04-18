@@ -9,6 +9,13 @@ export interface Service {
   accent: "teal" | "amber";
 }
 
+export interface TestimonialMetric {
+  label: string;
+  before?: string;
+  after: string;
+  note?: string;
+}
+
 export interface Testimonial {
   id: string;
   name: string;
@@ -16,6 +23,7 @@ export interface Testimonial {
   city: string;
   text: string;
   stars: number;
+  metric: TestimonialMetric;
 }
 
 export interface FaqItem {
