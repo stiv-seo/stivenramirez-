@@ -33,7 +33,7 @@ const schemas = serviceSchema([
   {
     name: "Diseño Web WordPress con SEO",
     description: "Sitio profesional construido con arquitectura SEO, velocidad optimizada y on-page completo desde el primer día.",
-    url: "https://stivenramirez.com/servicios/diseno-web-wordpress-seo/",
+    url: "https://stivenramirez.com/servicios/diseno-web/wordpress/",
     provider: "Stiven Ramírez",
     areaServed: "Colombia",
     price: "Desde $3.500.000 COP",
@@ -41,7 +41,7 @@ const schemas = serviceSchema([
   {
     name: "Tienda Shopify con SEO",
     description: "E-commerce con SEO de productos, pasarelas de pago locales y optimización de conversión incluida.",
-    url: "https://stivenramirez.com/servicios/tienda-shopify-seo/",
+    url: "https://stivenramirez.com/servicios/diseno-web/shopify/",
     provider: "Stiven Ramírez",
     areaServed: "Colombia",
     price: "Desde $3.000.000 COP",
@@ -57,7 +57,7 @@ const schemas = serviceSchema([
   {
     name: "Google Ads y Meta Ads",
     description: "Campañas pagadas en Google y redes sociales sin porcentaje sobre el presupuesto publicitario.",
-    url: "https://stivenramirez.com/servicios/pauta-digital/",
+    url: "https://stivenramirez.com/servicios/pauta/",
     provider: "Stiven Ramírez",
     areaServed: "Colombia",
     price: "Desde $1.500.000 COP/mes",

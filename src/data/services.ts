@@ -9,7 +9,7 @@ export const services: Service[] = [
       "Sitio profesional construido con arquitectura SEO, velocidad optimizada y on-page completo. Posiciona desde el día del lanzamiento.",
     price: "Desde $3.500.000 COP · 3–4 semanas",
     cta: "Ver qué incluye →",
-    href: "/servicios/diseno-web-wordpress-seo/",
+    href: "/servicios/diseno-web/wordpress/",
     accent: "teal",
   },
   {
@@ -20,7 +20,7 @@ export const services: Service[] = [
       "E-commerce con SEO de productos, pasarelas de pago locales y optimización de conversión incluida desde el día 1.",
     price: "Desde $3.000.000 COP · 4–5 semanas",
     cta: "Ver qué incluye →",
-    href: "/servicios/tienda-shopify-seo/",
+    href: "/servicios/diseno-web/shopify/",
     accent: "teal",
   },
   {
@@ -42,7 +42,7 @@ export const services: Service[] = [
       "Campañas pagadas para acelerar resultados mientras el SEO orgánico madura. Sin porcentaje sobre presupuesto.",
     price: "Desde $1.500.000 COP/mes",
     cta: "Ver planes →",
-    href: "/servicios/pauta-digital/",
+    href: "/servicios/pauta/",
     accent: "amber",
   },
 ];

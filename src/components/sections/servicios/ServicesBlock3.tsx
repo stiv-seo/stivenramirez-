@@ -21,7 +21,7 @@ const adServices = [
       "Sin % sobre inversión",
     ],
     cta: "Ver Google Ads →",
-    href: "/servicios/google-ads/",
+    href: "/servicios/pauta/google-ads/",
   },
   {
     id: "meta-ads",
@@ -39,7 +39,7 @@ const adServices = [
       "Sin % sobre inversión",
     ],
     cta: "Ver Meta Ads →",
-    href: "/servicios/meta-ads/",
+    href: "/servicios/pauta/meta-ads/",
   },
 ];
 

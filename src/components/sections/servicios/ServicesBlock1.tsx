@@ -100,7 +100,7 @@ export function ServicesBlock1() {
                 </div>
               </div>
               <div className="pt-7 mt-7 border-t border-[rgba(0,0,0,0.06)]">
-                <Button variant="primary" href="/servicios/diseno-web-wordpress-seo/" className="w-full justify-center">
+                <Button variant="primary" href="/servicios/diseno-web/wordpress/" className="w-full justify-center">
                   Solicitar proyecto →
                 </Button>
               </div>
@@ -131,7 +131,7 @@ export function ServicesBlock1() {
                 </div>
               </div>
               <div className="pt-7 mt-7 border-t border-[rgba(0,0,0,0.06)]">
-                <Button variant="primary" href="/servicios/tienda-shopify-seo/" className="w-full justify-center">
+                <Button variant="primary" href="/servicios/diseno-web/shopify/" className="w-full justify-center">
                   Solicitar proyecto →
                 </Button>
               </div>

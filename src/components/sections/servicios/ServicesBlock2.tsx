@@ -66,12 +66,12 @@ const plans = [
 ];
 
 const subServices = [
-  { label: "SEO para Shopify",       href: "/servicios/seo-shopify/",   amber: false },
-  { label: "SEO para WordPress",     href: "/servicios/seo-wordpress/", amber: false },
-  { label: "SEO Local Colombia",     href: "/servicios/seo-local/",     amber: false },
-  { label: "SEO para E-commerce",    href: "/servicios/seo-ecommerce/", amber: false },
-  { label: "SEO Técnico",            href: "/servicios/seo-tecnico/",   amber: false },
-  { label: "Auditoría SEO Gratuita", href: "/servicios/auditoria-seo/", amber: true  },
+  { label: "SEO para Shopify",       href: "/servicios/seo/shopify/",     amber: false },
+  { label: "SEO para WordPress",     href: "/servicios/seo/wordpress/",   amber: false },
+  { label: "SEO Local Colombia",     href: "/servicios/seo/local/",       amber: false },
+  { label: "SEO para E-commerce",    href: "/servicios/seo/ecommerce/",   amber: false },
+  { label: "SEO Técnico",            href: "/servicios/seo/tecnico/",     amber: false },
+  { label: "Auditoría SEO Gratuita", href: "/servicios/seo/auditoria/",   amber: true  },
 ];
 
 export function ServicesBlock2() {
