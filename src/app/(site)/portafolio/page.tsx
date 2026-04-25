@@ -6,7 +6,7 @@ import { PortfolioProcess } from "@/components/sections/portafolio/PortfolioProc
 import { PortfolioCTA } from "@/components/sections/portafolio/PortfolioCTA";
 
 export const metadata: Metadata = {
-  title: "Portafolio · SEO y Diseño Web Colombia · Stiven Ramírez",
+  title: "Portafolio · SEO y Diseño Web Colombia",
   description:
     "Proyectos reales de SEO y diseño web en Medellín y Colombia. E-commerce Shopify, WordPress para pymes y Google Ads con métricas documentadas.",
   keywords: [

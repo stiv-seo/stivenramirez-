@@ -7,7 +7,7 @@ import { SubpageCTA } from "@/components/sections/subpage/SubpageCTA";
 import { SubpageMidCTA } from "@/components/sections/subpage/SubpageMidCTA";
 
 export const metadata: Metadata = {
-  title: "Diseño Web con SEO · Freelance Medellín · Stiven Ramírez",
+  title: "Diseño Web con SEO · Freelance Medellín",
   description:
     "Sitios web con SEO integrado desde el día 1: arquitectura, velocidad y contenido optimizados para Google. Freelance independiente en Medellín.",
   keywords: ["diseño web con seo colombia", "diseño web seo integrado", "sitio web posicionamiento google colombia"],

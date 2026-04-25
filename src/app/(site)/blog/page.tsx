@@ -5,7 +5,7 @@ import { BlogGrid } from "@/components/sections/blog/BlogGrid";
 import { BlogCTA } from "@/components/sections/blog/BlogCTA";
 
 export const metadata: Metadata = {
-  title: "Blog SEO y Diseño Web Medellín · Stiven Ramírez",
+  title: "Blog SEO y Diseño Web Medellín",
   description:
     "Guías de SEO, diseño web y e-commerce para pymes en Medellín y Colombia. WordPress, Shopify y Google Ads sin relleno.",
   keywords: [

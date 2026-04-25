@@ -3,7 +3,7 @@ import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
-  title: "Mensaje recibido · Stiven Ramírez",
+  title: "Mensaje recibido",
   description: "Tu mensaje ha sido recibido. Te respondo en menos de 24 horas.",
   robots: {
     index: false,

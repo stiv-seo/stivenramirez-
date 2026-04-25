@@ -8,7 +8,7 @@ import { SubpageFAQ } from "@/components/sections/subpage/SubpageFAQ";
 import { SubpageMidCTA } from "@/components/sections/subpage/SubpageMidCTA";
 
 export const metadata: Metadata = {
-  title: "SEO Local Medellín · Google Maps · Stiven Ramírez",
+  title: "SEO Local Medellín · Google Maps",
   description:
     "SEO local en Medellín: posiciona en Google Maps y búsquedas cercanas. Google Business Profile para negocios físicos en Colombia.",
   keywords: ["seo local colombia", "aparecer google maps colombia", "google business profile colombia", "seo local medellin bogota"],

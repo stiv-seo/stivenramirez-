@@ -9,7 +9,7 @@ import { SubpageMidCTA } from "@/components/sections/subpage/SubpageMidCTA";
 import { Container } from "@/components/ui/Container";
 
 export const metadata: Metadata = {
-  title: "Facebook e Instagram Ads · Medellín · Stiven Ramírez",
+  title: "Facebook e Instagram Ads · Medellín",
   description:
     "Meta Ads para pymes en Medellín: audiencias precisas, creatividades que convierten y Pixel bien configurado. Sin porcentaje sobre inversión.",
   keywords: ["meta ads medellin", "facebook ads colombia", "instagram ads medellin", "publicidad facebook pymes colombia"],

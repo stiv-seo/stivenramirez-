@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
 
 export const metadata: Metadata = {
-  title: "Términos de Uso · Stiven Ramírez",
+  title: "Términos de Uso",
   description: "Términos y condiciones de uso del sitio web stivenramirez.com.",
   alternates: { canonical: "https://stivenramirez.com/terminos/" },
   robots: { index: false, follow: false },

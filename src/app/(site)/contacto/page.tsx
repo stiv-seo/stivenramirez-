@@ -3,7 +3,7 @@ import { ContactoHero } from "@/components/sections/contacto/ContactoHero";
 import { ContactoMain } from "@/components/sections/contacto/ContactoMain";
 
 export const metadata: Metadata = {
-  title: "Contacto · Stiven Ramírez",
+  title: "Contacto",
   description:
     "Escríbeme para tu proyecto de diseño web o SEO. Freelance en Medellín. Respondo en menos de 24 horas, sin compromiso inicial.",
   keywords: [

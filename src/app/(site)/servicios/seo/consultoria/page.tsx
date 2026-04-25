@@ -12,7 +12,7 @@ import { Container } from "@/components/ui/Container";
 import { FadeIn } from "@/components/ui/FadeIn";
 
 export const metadata: Metadata = {
-  title: "Consultor SEO Freelance Medellín · Stiven Ramírez",
+  title: "Consultor SEO Freelance Medellín",
   description:
     "Consultoría SEO mensual sin agencia para pymes en Medellín. Estrategia, contenido y link building con resultados medibles. Sin contratos de permanencia.",
   keywords: ["consultor seo medellin", "seo freelance colombia", "posicionamiento google medellin", "seo sin agencia colombia"],

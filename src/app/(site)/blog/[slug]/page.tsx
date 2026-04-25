@@ -134,7 +134,9 @@ export default async function BlogPostPage({
     description: post.description,
     url: `https://stivenramirez.com/blog/${slug}/`,
     datePublished: post.date,
+    dateModified: post.date,
     authorName: "Stiven Ramírez",
+    image: `https://stivenramirez.com/opengraph-image`,
   });
 
   const categoryVariant: Record<string, "teal" | "amber"> = {

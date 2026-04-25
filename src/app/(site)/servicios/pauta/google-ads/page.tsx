@@ -9,7 +9,7 @@ import { SubpageMidCTA } from "@/components/sections/subpage/SubpageMidCTA";
 import { Container } from "@/components/ui/Container";
 
 export const metadata: Metadata = {
-  title: "Google Ads para pymes · Medellín · Stiven Ramírez",
+  title: "Google Ads para pymes · Medellín",
   description:
     "Google Ads para pymes en Medellín sin porcentaje sobre inversión. Configuración, optimización y reporte mensual. Freelance independiente.",
   keywords: ["google ads medellin", "google ads pymes colombia", "publicidad google medellin", "contratar google ads colombia"],

@@ -7,7 +7,7 @@ import { ServicesBlock3 } from "@/components/sections/servicios/ServicesBlock3";
 import { ServicesCTA } from "@/components/sections/servicios/ServicesCTA";
 
 export const metadata: Metadata = {
-  title: "Servicios SEO y Diseño Web · Stiven Ramírez",
+  title: "Servicios SEO y Diseño Web",
   description:
     "Diseño web WordPress y Shopify con SEO integrado, SEO mensual y Google Ads. Freelance independiente para pymes en Medellín.",
   keywords: [

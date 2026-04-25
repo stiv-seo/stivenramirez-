@@ -9,7 +9,7 @@ import { SubpageRelated } from "@/components/sections/subpage/SubpageRelated";
 import { SubpageMidCTA } from "@/components/sections/subpage/SubpageMidCTA";
 
 export const metadata: Metadata = {
-  title: "Auditoría SEO para pymes · Medellín · Stiven Ramírez",
+  title: "Auditoría SEO para pymes · Medellín",
   description:
     "Auditoría SEO para pymes en Medellín: diagnóstico técnico, análisis de keywords y plan de acción 90 días. Freelance sin agencia. Desde $550.000 COP.",
   keywords: ["auditoria seo colombia", "auditoria seo gratis colombia", "diagnostico seo sitio web colombia"],

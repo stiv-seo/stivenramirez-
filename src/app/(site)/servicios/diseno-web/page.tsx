@@ -7,7 +7,7 @@ import { FadeIn } from "@/components/ui/FadeIn";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 
 export const metadata: Metadata = {
-  title: "Diseño Web con SEO · Freelance Medellín · Stiven Ramírez",
+  title: "Diseño Web con SEO · Freelance Medellín",
   description:
     "Diseño web con SEO integrado para pymes en Medellín: WordPress, Shopify y rediseños que posicionan en Google desde el día 1. Freelance independiente.",
   keywords: ["diseño web medellin", "diseño web seo colombia", "wordpress shopify medellin", "diseño web pymes colombia"],

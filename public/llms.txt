@@ -1,0 +1,30 @@
+# Stiven Ramírez
+> Consultor SEO freelance y diseñador web con base en Medellín, Colombia.
+
+Especializado en pymes latinoamericanas que quieren posicionar en Google sin depender de una agencia. Servicios: diseño web con SEO integrado (WordPress, Shopify), consultoría SEO mensual, auditoría SEO, y pauta digital (Google Ads, Meta Ads).
+
+## Servicios
+- Diseño web WordPress con SEO: /servicios/diseno-web/wordpress/
+- Diseño web Shopify con SEO: /servicios/diseno-web/shopify/
+- Rediseño web sin perder SEO: /servicios/diseno-web/rediseno/
+- Consultoría SEO mensual: /servicios/seo/consultoria/
+- SEO técnico: /servicios/seo/tecnico/
+- SEO local Medellín y Colombia: /servicios/seo/local/
+- SEO para e-commerce: /servicios/seo/ecommerce/
+- Auditoría SEO: /servicios/seo/auditoria/
+- Google Ads: /servicios/pauta/google-ads/
+- Meta Ads (Facebook e Instagram): /servicios/pauta/meta-ads/
+
+## Blog
+The Stiven Ramírez Blog — artículos sobre SEO, diseño web y marketing digital para pymes colombianas.
+URL: /blog/
+
+## Sobre Stiven Ramírez
+Consultor SEO y diseñador web freelance con experiencia en Next.js, WordPress y Shopify. Trabaja directamente con el cliente — sin ejecutivos de cuentas ni tercerización. Medellín, Colombia (opera en todo el país y LATAM).
+Perfil: /sobre-mi/
+
+## Contacto
+Email: hola@stivenramirez.com
+Agendar llamada: https://calendly.com/stiv-seo03/30min
+WhatsApp disponible en: /contacto/
+Ubicación: Medellín, Colombia

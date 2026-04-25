@@ -8,7 +8,7 @@ import { SobreMiValues } from "@/components/sections/sobre-mi/SobreMiValues";
 import { SobreMiCTA } from "@/components/sections/sobre-mi/SobreMiCTA";
 
 export const metadata: Metadata = {
-  title: "Sobre mí · Stiven Ramírez",
+  title: "Sobre mí",
   description:
     "Consultor SEO freelance y diseñador web con base en Medellín. Trabajo con pymes que quieren crecer en Google sin depender de una agencia.",
   keywords: [

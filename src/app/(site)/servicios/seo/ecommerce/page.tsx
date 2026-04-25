@@ -7,7 +7,7 @@ import { SubpageCTA } from "@/components/sections/subpage/SubpageCTA";
 import { SubpageMidCTA } from "@/components/sections/subpage/SubpageMidCTA";
 
 export const metadata: Metadata = {
-  title: "SEO para E-commerce · Freelance Medellín · Stiven Ramírez",
+  title: "SEO para E-commerce · Freelance Medellín",
   description:
     "SEO para tiendas online en Colombia: categorías, productos y velocidad optimizados. Freelance para pymes y e-commerce en Medellín.",
   keywords: ["seo ecommerce colombia", "seo tienda online colombia", "posicionar ecommerce google colombia"],

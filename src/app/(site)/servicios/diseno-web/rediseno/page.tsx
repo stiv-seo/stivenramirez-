@@ -8,7 +8,7 @@ import { SubpageCTA } from "@/components/sections/subpage/SubpageCTA";
 import { SubpageMidCTA } from "@/components/sections/subpage/SubpageMidCTA";
 
 export const metadata: Metadata = {
-  title: "Rediseño Web sin perder SEO · Medellín · Stiven Ramírez",
+  title: "Rediseño Web sin perder SEO · Medellín",
   description:
     "Rediseño web sin perder posicionamiento: auditoría previa, redirecciones 301 y migración que protege tu SEO. Freelance en Medellín.",
   keywords: ["rediseño web medellin", "rediseño web sin perder seo", "migración web colombia", "actualizar sitio web colombia"],

@@ -13,7 +13,7 @@ import { Container } from "@/components/ui/Container";
 import { FadeIn } from "@/components/ui/FadeIn";
 
 export const metadata: Metadata = {
-  title: "Shopify con SEO para pymes · Stiven Ramírez",
+  title: "Shopify con SEO para pymes",
   description:
     "Tienda Shopify con SEO de colecciones, pasarelas de pago locales y conversión optimizada desde el lanzamiento. Freelance para pymes. Medellín.",
   keywords: ["tienda shopify colombia", "shopify seo colombia", "crear tienda shopify colombia", "ecommerce shopify colombia"],
