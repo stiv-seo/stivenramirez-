@@ -14,6 +14,15 @@ const contactSchema = z.object({
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
+function escHtml(str: string): string {
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
 const budgetLabel: Record<string, string> = {
   "menos-1m": "Menos de $1.000.000 COP",
   "1m-2m": "$1.000.000 – $2.000.000 COP",
@@ -23,7 +32,11 @@ const budgetLabel: Record<string, string> = {
 };
 
 function buildHtml(data: z.infer<typeof contactSchema>): string {
-  const budget = data.presupuesto ? (budgetLabel[data.presupuesto] ?? data.presupuesto) : "No indicado";
+  const budget = data.presupuesto ? (budgetLabel[data.presupuesto] ?? escHtml(data.presupuesto)) : "No indicado";
+  const nombre  = escHtml(data.nombre);
+  const email   = escHtml(data.email);
+  const empresa = data.empresa ? escHtml(data.empresa) : "—";
+  const mensaje = escHtml(data.mensaje).replace(/\n/g, "<br/>");
   return `
     <div style="font-family:sans-serif;max-width:600px;margin:0 auto;color:#1A2B3C;">
       <div style="background:#0B1829;padding:24px 32px;border-radius:12px 12px 0 0;">
@@ -35,15 +48,15 @@ function buildHtml(data: z.infer<typeof contactSchema>): string {
         <table style="width:100%;border-collapse:collapse;">
           <tr>
             <td style="padding:10px 0;border-bottom:1px solid rgba(0,0,0,0.06);font-size:13px;font-weight:600;width:130px;color:#64748B;">Nombre</td>
-            <td style="padding:10px 0;border-bottom:1px solid rgba(0,0,0,0.06);font-size:14px;">${data.nombre}</td>
+            <td style="padding:10px 0;border-bottom:1px solid rgba(0,0,0,0.06);font-size:14px;">${nombre}</td>
           </tr>
           <tr>
             <td style="padding:10px 0;border-bottom:1px solid rgba(0,0,0,0.06);font-size:13px;font-weight:600;color:#64748B;">Email</td>
-            <td style="padding:10px 0;border-bottom:1px solid rgba(0,0,0,0.06);font-size:14px;"><a href="mailto:${data.email}" style="color:#00C4B4;">${data.email}</a></td>
+            <td style="padding:10px 0;border-bottom:1px solid rgba(0,0,0,0.06);font-size:14px;"><a href="mailto:${email}" style="color:#00C4B4;">${email}</a></td>
           </tr>
           <tr>
             <td style="padding:10px 0;border-bottom:1px solid rgba(0,0,0,0.06);font-size:13px;font-weight:600;color:#64748B;">Empresa</td>
-            <td style="padding:10px 0;border-bottom:1px solid rgba(0,0,0,0.06);font-size:14px;">${data.empresa || "—"}</td>
+            <td style="padding:10px 0;border-bottom:1px solid rgba(0,0,0,0.06);font-size:14px;">${empresa}</td>
           </tr>
           <tr>
             <td style="padding:10px 0;border-bottom:1px solid rgba(0,0,0,0.06);font-size:13px;font-weight:600;color:#64748B;">Presupuesto</td>
@@ -51,12 +64,12 @@ function buildHtml(data: z.infer<typeof contactSchema>): string {
           </tr>
           <tr>
             <td style="padding:16px 0 0;font-size:13px;font-weight:600;color:#64748B;vertical-align:top;">Mensaje</td>
-            <td style="padding:16px 0 0;font-size:14px;line-height:1.7;">${data.mensaje.replace(/\n/g, "<br/>")}</td>
+            <td style="padding:16px 0 0;font-size:14px;line-height:1.7;">${mensaje}</td>
           </tr>
         </table>
         <div style="margin-top:24px;padding-top:16px;border-top:1px solid rgba(0,0,0,0.06);">
-          <a href="mailto:${data.email}" style="display:inline-block;background:#00C4B4;color:#0B1829;font-weight:700;font-size:13px;padding:10px 20px;border-radius:8px;text-decoration:none;">
-            Responder a ${data.nombre} →
+          <a href="mailto:${email}" style="display:inline-block;background:#00C4B4;color:#0B1829;font-weight:700;font-size:13px;padding:10px 20px;border-radius:8px;text-decoration:none;">
+            Responder a ${nombre} →
           </a>
         </div>
       </div>
@@ -64,9 +77,37 @@ function buildHtml(data: z.infer<typeof contactSchema>): string {
   `;
 }
 
+// ─── Rate limiter (in-process, IP-based) ─────────────────────────────────────
+// 3 submissions per 10 minutes per IP. Resets on cold-start (Vercel).
+
+const rateMap = new Map<string, { count: number; resetAt: number }>();
+const RATE_LIMIT  = 3;
+const WINDOW_MS   = 10 * 60 * 1000; // 10 min
+
+function isRateLimited(ip: string): boolean {
+  const now  = Date.now();
+  const entry = rateMap.get(ip);
+  if (!entry || now > entry.resetAt) {
+    rateMap.set(ip, { count: 1, resetAt: now + WINDOW_MS });
+    return false;
+  }
+  if (entry.count >= RATE_LIMIT) return true;
+  entry.count++;
+  return false;
+}
+
 // ─── Route handler ────────────────────────────────────────────────────────────
 
 export async function POST(req: NextRequest) {
+  // Rate limit
+  const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
+  if (isRateLimited(ip)) {
+    return NextResponse.json(
+      { error: "Demasiados intentos. Espera unos minutos antes de intentarlo de nuevo." },
+      { status: 429 }
+    );
+  }
+
   // Parse body
   let body: unknown;
   try {
