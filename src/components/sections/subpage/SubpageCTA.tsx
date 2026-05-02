@@ -38,7 +38,7 @@ export function SubpageCTA({
             {title}
             {titleLine2 && (
               <>
-                <br />
+                {" "}<br />
                 {titleLine2}
               </>
             )}

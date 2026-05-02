@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const ciudad = getCiudad(slug);
   if (!ciudad) return {};
   return {
-    title: `${ciudad.keyword_h1} con SEO · Stiven Ramírez`,
+    title: { absolute: `${ciudad.keyword_h1} con SEO · Stiven Ramírez` },
     description: ciudad.meta_description,
     keywords: [
       ciudad.keyword_meta,
@@ -43,6 +43,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: "website",
       locale: "es_CO",
       siteName: "Stiven Ramírez",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${ciudad.keyword_h1} con SEO · Stiven Ramírez`,
+      description: ciudad.meta_description,
     },
   };
 }
@@ -71,6 +76,7 @@ export default async function CiudadPage({ params }: Props) {
     description: `Diseño web con SEO integrado para empresas en ${ciudad.nombre}, ${ciudad.departamento}.`,
     url: `${SITE_URL}/diseno-web/${ciudad.slug}/`,
     telephone: "+57-301-578-7350",
+    priceRange: "$$",
     areaServed: {
       "@type": "City",
       name: ciudad.nombre,
@@ -92,6 +98,13 @@ export default async function CiudadPage({ params }: Props) {
     url: `${SITE_URL}/diseno-web/${ciudad.slug}/`,
     provider: { "@type": "Person", name: "Stiven Ramírez", url: SITE_URL },
     areaServed: ciudad.nombre,
+    offers: {
+      "@type": "AggregateOffer",
+      priceCurrency: "COP",
+      lowPrice: "1300000",
+      highPrice: "3500000",
+      offerCount: "3",
+    },
   };
 
   // ── Data ─────────────────────────────────────────────────────────────────────
@@ -267,7 +280,7 @@ export default async function CiudadPage({ params }: Props) {
               className="font-jakarta font-extrabold text-white leading-[1.05] tracking-[-1.5px] mb-6"
               style={{ fontSize: "clamp(34px, 4.5vw, 58px)" }}
             >
-              {ciudad.keyword_h1}
+              {ciudad.keyword_h1}{" "}
               <br />
               <span className="text-teal">con SEO integrado.</span>
             </h1>
