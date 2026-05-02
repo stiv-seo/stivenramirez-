@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { MDXRemote } from "next-mdx-remote/rsc";
+import remarkGfm from "remark-gfm";
 import { getAllPosts, getPostBySlug } from "@/lib/mdx";
 import { articleSchema } from "@/lib/schema";
 import { Container } from "@/components/ui/Container";
@@ -216,7 +217,11 @@ export default async function BlogPostPage({
       <section className="bg-warm-white" style={{ paddingTop: "72px", paddingBottom: "100px" }}>
         <Container>
           <div className="max-w-[760px] mx-auto">
-            <MDXRemote source={post.content} components={components} />
+            <MDXRemote
+              source={post.content}
+              components={components}
+              options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
+            />
 
             {/* Author card */}
             <div className="mt-16 border-t border-[rgba(0,0,0,0.08)] pt-10 flex items-start gap-5">
