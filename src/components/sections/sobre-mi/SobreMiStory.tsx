@@ -42,6 +42,11 @@ export function SobreMiStory() {
                 Eso significa que yo mismo hago el diagnóstico, el diseño, el SEO y los
                 reportes. Sin intermediarios que traduzcan mal tus objetivos.
               </p>
+              <p>
+                Aunque tengo base en Medellín, atiendo clientes en todo el país — Bogotá,
+                Cali, Barranquilla, Pereira, Manizales, Armenia y más. El trabajo es 100%
+                remoto y los resultados son los mismos independientemente de la ciudad.
+              </p>
             </div>
           </FadeIn>
 

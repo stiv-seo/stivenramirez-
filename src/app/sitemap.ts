@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { getAllPosts, getActiveCategorySlugs } from "@/lib/mdx";
+import { CIUDADES } from "@/data/ciudades";
 
 const BASE = "https://stivenramirez.com";
 
@@ -33,6 +34,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/servicios/pauta/meta-ads/`,    lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
   ];
 
+  const ciudadRoutes: MetadataRoute.Sitemap = CIUDADES.map((c) => ({
+    url: `${BASE}/diseno-web/${c.slug}/`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.8,
+  }));
+
   const posts = getAllPosts();
   const postRoutes: MetadataRoute.Sitemap = posts.map((post) => ({
     url: `${BASE}/blog/${post.slug}/`,
@@ -48,5 +56,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticRoutes, ...postRoutes, ...categoryRoutes];
+  return [...staticRoutes, ...ciudadRoutes, ...postRoutes, ...categoryRoutes];
 }

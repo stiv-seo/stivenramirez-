@@ -74,8 +74,8 @@ export function Footer() {
         className="mx-auto px-5 md:px-8 lg:px-[60px] py-12 md:py-20"
         style={{ maxWidth: "1160px" }}
       >
-        {/* Responsive grid — 1 col mobile / 2 col sm / 4 col lg */}
-        <div className="grid gap-10 md:gap-12 grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr]">
+        {/* Responsive grid — 1 col mobile / 2 col sm / 5 col lg */}
+        <div className="grid gap-10 md:gap-12 grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.2fr_1fr_1fr_1fr_1fr]">
           {/* Col 1 — Marca */}
           <div>
             <FooterLogo />
@@ -118,7 +118,14 @@ export function Footer() {
             ))}
           </FooterColumn>
 
-          {/* Col 4 — Contacto */}
+          {/* Col 4 — Ciudades */}
+          <FooterColumn title="Ciudades">
+            {FOOTER_LINKS.ciudades.map((l) => (
+              <FooterLink key={l.href} href={l.href} label={l.label} />
+            ))}
+          </FooterColumn>
+
+          {/* Col 5 — Contacto */}
           <FooterColumn title="Contacto">
             {FOOTER_LINKS.contacto.map((l) => (
               <FooterLink

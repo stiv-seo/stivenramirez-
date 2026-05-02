@@ -28,6 +28,14 @@ export const FOOTER_LINKS = {
     { label: "Sobre mí",    href: "/sobre-mi/" },
     { label: "Contacto",    href: "/contacto/" },
   ],
+  ciudades: [
+    { label: "Diseño Web en Bogotá",       href: "/diseno-web/bogota/" },
+    { label: "Diseño Web en Cali",         href: "/diseno-web/cali/" },
+    { label: "Diseño Web en Barranquilla", href: "/diseno-web/barranquilla/" },
+    { label: "Diseño Web en Pereira",      href: "/diseno-web/pereira/" },
+    { label: "Diseño Web en Manizales",    href: "/diseno-web/manizales/" },
+    { label: "Diseño Web en Armenia",      href: "/diseno-web/armenia/" },
+  ],
   contacto: [
     { label: "WhatsApp",          href: WA_URL,          external: true },
     { label: "Agendar llamada",   href: CALENDLY_URL,    external: true },
