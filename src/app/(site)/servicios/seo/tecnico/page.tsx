@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   keywords: ["seo tecnico colombia", "auditoria tecnica seo", "core web vitals colombia", "indexacion google colombia"],
   alternates: { canonical: "https://stivenramirez.com/servicios/seo/tecnico/" },
   openGraph: {
-    title: "SEO Técnico Colombia · Stiven Ramírez",
+    title: "SEO Técnico Colombia",
     description: "Velocidad, rastreo, indexación y datos estructurados. Los cimientos que el SEO necesita.",
     url: "https://stivenramirez.com/servicios/seo/tecnico/",
     type: "website",

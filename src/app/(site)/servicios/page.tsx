@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "https://stivenramirez.com/servicios/" },
   openGraph: {
-    title: "Servicios SEO y Diseño Web · Stiven Ramírez",
+    title: "Servicios SEO y Diseño Web",
     description:
       "Diseño web con SEO integrado, SEO mensual y Google Ads. Todo en un solo contrato. Colombia.",
     url: "https://stivenramirez.com/servicios/",

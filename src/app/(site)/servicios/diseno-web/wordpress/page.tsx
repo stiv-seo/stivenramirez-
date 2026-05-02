@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   keywords: ["diseño web wordpress colombia", "wordpress seo colombia", "crear sitio wordpress colombia seo"],
   alternates: { canonical: "https://stivenramirez.com/servicios/diseno-web/wordpress/" },
   openGraph: {
-    title: "WordPress con SEO · Freelance Medellín · Stiven Ramírez",
+    title: "WordPress con SEO · Freelance Medellín",
     description: "WordPress con SEO integrado desde el día 1. Velocidad, diseño y posicionamiento en un solo proyecto.",
     url: "https://stivenramirez.com/servicios/diseno-web/wordpress/",
     type: "website",

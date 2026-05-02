@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   keywords: ["rediseño web medellin", "rediseño web sin perder seo", "migración web colombia", "actualizar sitio web colombia"],
   alternates: { canonical: "https://stivenramirez.com/servicios/diseno-web/rediseno/" },
   openGraph: {
-    title: "Rediseño Web sin perder SEO · Medellín · Stiven Ramírez",
+    title: "Rediseño Web sin perder SEO · Medellín",
     description: "Rediseña tu sitio sin destruir el posicionamiento que tardaste años en construir. Freelance en Medellín.",
     url: "https://stivenramirez.com/servicios/diseno-web/rediseno/",
     type: "website",

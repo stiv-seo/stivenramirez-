@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   keywords: ["diseño web con seo colombia", "diseño web seo integrado", "sitio web posicionamiento google colombia"],
   alternates: { canonical: "https://stivenramirez.com/servicios/diseno-web/seo/" },
   openGraph: {
-    title: "Diseño Web con SEO · Freelance Medellín · Stiven Ramírez",
+    title: "Diseño Web con SEO · Freelance Medellín",
     description: "Sitio web que posiciona en Google desde el día 1. SEO integrado en diseño, velocidad y contenido.",
     url: "https://stivenramirez.com/servicios/diseno-web/seo/",
     type: "website",

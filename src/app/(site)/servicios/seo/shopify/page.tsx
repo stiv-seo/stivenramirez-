@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   keywords: ["seo shopify colombia", "optimizar tienda shopify", "posicionar shopify google colombia"],
   alternates: { canonical: "https://stivenramirez.com/servicios/seo/shopify/" },
   openGraph: {
-    title: "SEO para Shopify Colombia · Stiven Ramírez",
+    title: "SEO para Shopify Colombia",
     description: "Colecciones, productos y velocidad optimizados para que tu tienda Shopify aparezca en Google.",
     url: "https://stivenramirez.com/servicios/seo/shopify/",
     type: "website",

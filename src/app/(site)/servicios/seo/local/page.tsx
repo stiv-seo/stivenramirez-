@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   keywords: ["seo local colombia", "aparecer google maps colombia", "google business profile colombia", "seo local medellin bogota"],
   alternates: { canonical: "https://stivenramirez.com/servicios/seo/local/" },
   openGraph: {
-    title: "SEO Local Medellín · Google Maps · Stiven Ramírez",
+    title: "SEO Local Medellín · Google Maps",
     description: "Aparece primero cuando alguien busca tu negocio cerca. Google Business Profile y SEO local.",
     url: "https://stivenramirez.com/servicios/seo/local/",
     type: "website",

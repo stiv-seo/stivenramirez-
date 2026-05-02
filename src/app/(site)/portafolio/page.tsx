@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://stivenramirez.com/portafolio/" },
   robots: { index: false, follow: false },
   openGraph: {
-    title: "Portafolio · SEO y Diseño Web Colombia · Stiven Ramírez",
+    title: "Portafolio · SEO y Diseño Web Colombia",
     description:
       "E-commerce Shopify, WordPress local y Google Ads. Métricas reales, sin pantallazos editados. Colombia.",
     url: "https://stivenramirez.com/portafolio/",

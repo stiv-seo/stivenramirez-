@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "https://stivenramirez.com/contacto/" },
   openGraph: {
-    title: "Contacto · Stiven Ramírez",
+    title: "Contacto",
     description:
       "Cuéntame tu proyecto. Respondo en menos de 24 horas con un diagnóstico honesto y presupuesto sin sorpresas.",
     url: "https://stivenramirez.com/contacto/",

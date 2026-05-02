@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   keywords: ["seo wordpress colombia", "optimizar wordpress seo", "posicionar wordpress google colombia"],
   alternates: { canonical: "https://stivenramirez.com/servicios/seo/wordpress/" },
   openGraph: {
-    title: "SEO para WordPress Colombia · Stiven Ramírez",
+    title: "SEO para WordPress Colombia",
     description: "WordPress optimizado para Google: técnico, contenido y velocidad. Colombia.",
     url: "https://stivenramirez.com/servicios/seo/wordpress/",
     type: "website",

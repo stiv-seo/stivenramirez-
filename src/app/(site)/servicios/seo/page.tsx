@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   keywords: ["consultor seo medellin", "seo pymes colombia", "posicionamiento google medellin", "seo freelance medellin"],
   alternates: { canonical: "https://stivenramirez.com/servicios/seo/" },
   openGraph: {
-    title: "SEO para pymes Medellín · Stiven Ramírez",
+    title: "SEO para pymes Medellín",
     description: "SEO mensual, técnico, local y de plataforma para pymes en Medellín. Sin agencia, sin permanencia forzada.",
     url: "https://stivenramirez.com/servicios/seo/",
     type: "website",

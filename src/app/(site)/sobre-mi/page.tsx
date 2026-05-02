@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "https://stivenramirez.com/sobre-mi/" },
   openGraph: {
-    title: "Sobre mí · Stiven Ramírez",
+    title: "Sobre mí",
     description:
       "9+ años juntando SEO y diseño web en un solo proceso. Trabajo solo, sin intermediarios, con resultados medibles.",
     url: "https://stivenramirez.com/sobre-mi/",

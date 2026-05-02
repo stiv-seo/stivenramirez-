@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   keywords: ["seo ecommerce colombia", "seo tienda online colombia", "posicionar ecommerce google colombia"],
   alternates: { canonical: "https://stivenramirez.com/servicios/seo/ecommerce/" },
   openGraph: {
-    title: "SEO para E-commerce Colombia · Stiven Ramírez",
+    title: "SEO para E-commerce Colombia",
     description: "Tráfico orgánico para tu tienda online. Categorías, productos y velocidad optimizados.",
     url: "https://stivenramirez.com/servicios/seo/ecommerce/",
     type: "website",

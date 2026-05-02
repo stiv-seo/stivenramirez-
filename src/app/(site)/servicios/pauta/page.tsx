@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   keywords: ["pauta digital colombia", "publicidad digital colombia", "google ads meta ads colombia", "agencia pauta digital colombia"],
   alternates: { canonical: "https://stivenramirez.com/servicios/pauta/" },
   openGraph: {
-    title: "Pauta Digital Colombia · Stiven Ramírez",
+    title: "Pauta Digital Colombia",
     description: "Google Ads y Meta Ads para pymes colombianas. Sin porcentaje sobre inversión. Resultados medibles.",
     url: "https://stivenramirez.com/servicios/pauta/",
     type: "website",

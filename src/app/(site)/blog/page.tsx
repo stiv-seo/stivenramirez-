@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "https://stivenramirez.com/blog/" },
   openGraph: {
-    title: "Blog SEO y Diseño Web Colombia · Stiven Ramírez",
+    title: "Blog SEO y Diseño Web Colombia",
     description:
       "Estrategias de SEO y diseño web para pymes colombianas. Artículos sin relleno.",
     url: "https://stivenramirez.com/blog/",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 const blogSchema = {
   "@context": "https://schema.org",
   "@type": "Blog",
-  name: "Blog SEO y Diseño Web · Stiven Ramírez",
+  name: "Blog SEO y Diseño Web",
   description:
     "Artículos sobre SEO, diseño web y e-commerce para pymes en Colombia.",
   url: "https://stivenramirez.com/blog/",

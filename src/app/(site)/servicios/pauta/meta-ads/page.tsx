@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   keywords: ["meta ads medellin", "facebook ads colombia", "instagram ads medellin", "publicidad facebook pymes colombia"],
   alternates: { canonical: "https://stivenramirez.com/servicios/pauta/meta-ads/" },
   openGraph: {
-    title: "Facebook e Instagram Ads · Medellín · Stiven Ramírez",
+    title: "Facebook e Instagram Ads · Medellín",
     description: "Meta Ads para pymes en Medellín. Audiencias precisas y creatividades que convierten. Sin % sobre inversión.",
     url: "https://stivenramirez.com/servicios/pauta/meta-ads/",
     type: "website",
