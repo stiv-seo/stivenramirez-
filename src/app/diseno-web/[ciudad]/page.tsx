@@ -266,7 +266,7 @@ export default async function CiudadPage({ params }: Props) {
             </ol>
           </nav>
 
-          <FadeIn>
+          <div>
             <div className="flex flex-wrap gap-2 mb-5">
               <span className="inline-flex items-center gap-1.5 font-sans text-[11px] font-semibold text-teal bg-teal/10 border border-teal/20 rounded-full px-3 py-1">
                 Disponible para proyectos
@@ -289,7 +289,7 @@ export default async function CiudadPage({ params }: Props) {
               className="font-sans text-slate-light leading-[1.8] max-w-[560px] mb-8"
               style={{ fontSize: "clamp(16px, 1.5vw, 18px)" }}
             >
-              {ciudad.descripcion} WordPress y Shopify con SEO construido desde el primer elemento. Trabajo 100% remoto con empresas de {ciudad.nombre} y toda Colombia.
+              ¿Tu negocio en {ciudad.nombre} no aparece en Google? WordPress y Shopify con SEO construido desde el primer elemento — no agregado después. Trabajo 100% remoto, resultados medibles desde el mes 3.
             </p>
 
             <div className="flex flex-wrap gap-3 mb-10">
@@ -309,7 +309,7 @@ export default async function CiudadPage({ params }: Props) {
                 </span>
               ))}
             </div>
-          </FadeIn>
+          </div>
         </Container>
       </section>
 
@@ -339,6 +339,12 @@ export default async function CiudadPage({ params }: Props) {
                   El trabajo es 100% remoto. Tengo clientes activos en {ciudad.nombre} y no necesito estar presente físicamente para entregar resultados medibles.
                 </p>
               </div>
+              <a
+                href="#precios"
+                className="inline-flex items-center gap-1.5 mt-6 font-jakarta font-semibold text-teal text-[14px] hover:text-teal-bright transition-colors duration-150"
+              >
+                Ver precios para {ciudad.nombre} →
+              </a>
             </FadeIn>
 
             <FadeIn direction="left" delay={0.1}>
@@ -380,24 +386,22 @@ export default async function CiudadPage({ params }: Props) {
           <div className="grid sm:grid-cols-2 gap-5">
             {services.map((s) => (
               <FadeIn key={s.title}>
-                <Link href={s.href} className="block h-full">
-                  <div className="bg-white rounded-2xl p-7 border border-[rgba(0,0,0,0.06)] hover:border-teal/30 hover:shadow-sm transition-all duration-200 h-full group">
-                    <span className="text-4xl mb-5 block" aria-hidden="true">{s.icon}</span>
-                    <h3 className="font-jakarta font-bold text-text-dark text-[18px] mb-2 group-hover:text-teal transition-colors duration-150">
-                      {s.title}
-                    </h3>
-                    <p className="font-sans text-text-mid text-[14px] leading-[1.8] mb-5">{s.desc}</p>
-                    <div className="flex items-center justify-between">
-                      <span className="font-jakarta font-semibold text-slate text-[13px]">{s.price}</span>
-                      <span className="font-jakarta font-semibold text-teal text-[13px] group-hover:translate-x-1 transition-transform duration-150">
-                        Ver detalle →
-                      </span>
-                    </div>
-                  </div>
-                </Link>
+                <div className="bg-white rounded-2xl p-7 border border-[rgba(0,0,0,0.06)] h-full">
+                  <span className="text-4xl mb-5 block" aria-hidden="true">{s.icon}</span>
+                  <h3 className="font-jakarta font-bold text-text-dark text-[18px] mb-2">
+                    {s.title}
+                  </h3>
+                  <p className="font-sans text-text-mid text-[14px] leading-[1.8] mb-5">{s.desc}</p>
+                  <span className="font-jakarta font-semibold text-slate text-[13px]">{s.price}</span>
+                </div>
               </FadeIn>
             ))}
           </div>
+          <FadeIn className="mt-8 flex justify-center">
+            <Button variant="primary" size="lg" href={CALENDLY_URL} external>
+              Cotizar proyecto en {ciudad.nombre} →
+            </Button>
+          </FadeIn>
         </Container>
       </section>
 
@@ -445,8 +449,35 @@ export default async function CiudadPage({ params }: Props) {
         bg="off-white"
       />
 
+      {/* ── S6.5 Testimonio ─────────────────────────────────────────────────── */}
+      <section className="bg-midnight" style={{ paddingTop: "80px", paddingBottom: "80px" }}>
+        <Container>
+          <FadeIn className="max-w-2xl mx-auto text-center">
+            <div className="flex justify-center gap-0.5 mb-6">
+              {[1,2,3,4,5].map((s) => (
+                <svg key={s} width="18" height="18" viewBox="0 0 24 24" fill="#F5A623" aria-hidden="true">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+              ))}
+            </div>
+            <blockquote>
+              <p className="font-jakarta font-bold text-white leading-[1.65] mb-8" style={{ fontSize: "clamp(18px, 2vw, 22px)" }}>
+                &ldquo;Buscábamos una presencia robusta para la constructora y Stiven lo superó. El diseño es impecable y logramos reducir el costo por lead en un 45% gracias al SEO.&rdquo;
+              </p>
+              <footer className="flex flex-col items-center gap-1">
+                <span className="font-jakarta font-semibold text-teal text-[15px]">Alejandro Torres</span>
+                <span className="font-sans text-slate text-[13px]">CEO · Renovista, Bogotá</span>
+                <span className="inline-flex items-center gap-1.5 mt-2 font-jakarta text-[12px] font-semibold text-amber bg-amber/10 border border-amber/20 rounded-full px-3 py-1">
+                  CPL reducido 45% · SEO Local
+                </span>
+              </footer>
+            </blockquote>
+          </FadeIn>
+        </Container>
+      </section>
+
       {/* ── S7 Precios ───────────────────────────────────────────────────────── */}
-      <section className="bg-warm-white" style={{ paddingTop: "100px", paddingBottom: "100px" }}>
+      <section id="precios" className="bg-warm-white" style={{ paddingTop: "100px", paddingBottom: "100px" }}>
         <Container>
           <FadeIn className="mb-12">
             <Eyebrow>Precios</Eyebrow>
