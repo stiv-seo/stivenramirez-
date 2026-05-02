@@ -1,7 +1,7 @@
 import { Container } from "@/components/ui/Container";
 import { Badge } from "@/components/ui/Badge";
 import { FadeIn } from "@/components/ui/FadeIn";
-import { getAllPosts } from "@/lib/mdx";
+import { getAllPosts, CATEGORIES } from "@/lib/mdx";
 import { formatDate } from "@/lib/utils";
 
 const categoryVariant: Record<string, "teal" | "amber"> = {
@@ -15,9 +15,25 @@ export function BlogGrid() {
   return (
     <section
       className="bg-off-white"
-      style={{ paddingTop: "100px", paddingBottom: "100px" }}
+      style={{ paddingTop: "80px", paddingBottom: "100px" }}
     >
       <Container>
+        {/* Category filter nav */}
+        <FadeIn className="mb-10 flex flex-wrap gap-2">
+          <span className="font-sans text-xs bg-teal text-midnight font-semibold px-4 py-1.5 rounded-full">
+            Todos
+          </span>
+          {Object.entries(CATEGORIES).map(([slug, name]) => (
+            <a
+              key={slug}
+              href={`/blog/category/${slug}/`}
+              className="font-sans text-xs text-slate hover:text-teal border border-[rgba(0,0,0,0.1)] hover:border-teal/40 px-4 py-1.5 rounded-full transition-all duration-150"
+            >
+              {name}
+            </a>
+          ))}
+        </FadeIn>
+
         {/* Featured post — first item */}
         <FadeIn className="mb-8">
           <a

@@ -4,6 +4,19 @@ import matter from "gray-matter";
 
 const CONTENT_DIR = path.join(process.cwd(), "content/blog");
 
+export const CATEGORIES: Record<string, string> = {
+  seo: "SEO",
+  "diseno-web": "Diseño Web",
+  casos: "Casos",
+};
+
+export function categoryToSlug(category: string): string {
+  return (
+    Object.entries(CATEGORIES).find(([, v]) => v === category)?.[0] ??
+    category.toLowerCase().replace(/\s+/g, "-")
+  );
+}
+
 export interface PostMeta {
   slug: string;
   title: string;
@@ -39,6 +52,18 @@ export function getAllPosts(): PostMeta[] {
       } satisfies PostMeta;
     })
     .sort((a, b) => (a.date > b.date ? -1 : 1));
+}
+
+export function getPostsByCategory(catSlug: string): PostMeta[] {
+  const label = CATEGORIES[catSlug];
+  if (!label) return [];
+  return getAllPosts().filter((p) => p.category === label);
+}
+
+export function getActiveCategorySlugs(): string[] {
+  const posts = getAllPosts();
+  const used = new Set(posts.map((p) => categoryToSlug(p.category)));
+  return Object.keys(CATEGORIES).filter((slug) => used.has(slug));
 }
 
 export function getPostBySlug(slug: string): Post | null {

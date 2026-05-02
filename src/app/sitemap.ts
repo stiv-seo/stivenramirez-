@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { getAllPosts } from "@/lib/mdx";
+import { getAllPosts, getActiveCategorySlugs } from "@/lib/mdx";
 
 const BASE = "https://stivenramirez.com";
 
@@ -41,5 +41,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticRoutes, ...postRoutes];
+  const categoryRoutes: MetadataRoute.Sitemap = getActiveCategorySlugs().map((cat) => ({
+    url: `${BASE}/blog/category/${cat}/`,
+    lastModified: new Date(),
+    changeFrequency: "weekly" as const,
+    priority: 0.6,
+  }));
+
+  return [...staticRoutes, ...postRoutes, ...categoryRoutes];
 }
