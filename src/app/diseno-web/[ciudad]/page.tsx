@@ -12,7 +12,6 @@ import { LossSection } from "@/components/sections/subpage/LossSection";
 import { ProcessSteps } from "@/components/sections/subpage/ProcessSteps";
 import { SubpageFAQ } from "@/components/sections/subpage/SubpageFAQ";
 import { SubpageCTA } from "@/components/sections/subpage/SubpageCTA";
-import { TechPills } from "@/components/sections/subpage/TechPills";
 import { WA_URL, CALENDLY_URL, SITE_URL } from "@/lib/constants";
 
 type Props = { params: Promise<{ ciudad: string }> };
@@ -216,22 +215,10 @@ export default async function CiudadPage({ params }: Props) {
     "Reporte mensual",
   ];
 
-  const techTools = [
-    { icon: "🔌", name: "WordPress" },
-    { icon: "🛍️", name: "Shopify" },
-    { icon: "📊", name: "Google Search Console" },
-    { icon: "📈", name: "Google Analytics 4" },
-    { icon: "⚡", name: "Core Web Vitals" },
-    { icon: "🔍", name: "Ahrefs" },
-    { icon: "🎨", name: "Figma" },
-    { icon: "📝", name: "Schema Markup" },
-  ];
-
-  const cityDataCards = [
-    { label: "Población", value: ciudad.poblacion },
-    { label: "Mercado principal", value: ciudad.mercado },
-    { label: "Oportunidad", value: ciudad.oportunidad },
-    { label: "Modalidad de trabajo", value: `100% remoto con empresas de ${ciudad.nombre}` },
+  const painQuestions = [
+    `¿Tu empresa aparece cuando buscan "${ciudad.keyword_meta}" en Google?`,
+    "¿Cuánto estás pagando en ads por clientes que el SEO te traería gratis?",
+    "¿Tu sitio actual tiene velocidad, mobile y structured data correctos?",
   ];
 
   return (
@@ -266,48 +253,115 @@ export default async function CiudadPage({ params }: Props) {
             </ol>
           </nav>
 
-          <div>
-            <div className="flex flex-wrap gap-2 mb-5">
-              <span className="inline-flex items-center gap-1.5 font-sans text-[11px] font-semibold text-teal bg-teal/10 border border-teal/20 rounded-full px-3 py-1">
-                Disponible para proyectos
-              </span>
-              <span className="inline-flex items-center gap-1.5 font-sans text-[11px] font-semibold text-amber bg-amber/10 border border-amber/20 rounded-full px-3 py-1">
-                {ciudad.nombre}, {ciudad.departamento}
-              </span>
-            </div>
-
-            <h1
-              className="font-jakarta font-extrabold text-white leading-[1.05] tracking-[-1.5px] mb-6"
-              style={{ fontSize: "clamp(34px, 4.5vw, 58px)" }}
-            >
-              {ciudad.keyword_h1}{" "}
-              <br />
-              <span className="text-teal">con SEO integrado.</span>
-            </h1>
-
-            <p
-              className="font-sans text-slate-light leading-[1.8] max-w-[560px] mb-8"
-              style={{ fontSize: "clamp(16px, 1.5vw, 18px)" }}
-            >
-              ¿Tu negocio en {ciudad.nombre} no aparece en Google? WordPress y Shopify con SEO construido desde el primer elemento — no agregado después. Trabajo 100% remoto, resultados medibles desde el mes 3.
-            </p>
-
-            <div className="flex flex-wrap gap-3 mb-10">
-              <Button variant="primary" size="lg" href={CALENDLY_URL} external>
-                Solicitar cotización gratis →
-              </Button>
-              <Button variant="whatsapp" size="lg" href={WA_URL} external>
-                WhatsApp
-              </Button>
-            </div>
-
-            <div className="flex flex-wrap gap-6">
-              {["40+ proyectos entregados en Colombia", "Trabajo 100% remoto", "Resultados visibles desde mes 3"].map((t) => (
-                <span key={t} className="flex items-center gap-2 font-sans text-[12px] text-slate">
-                  <span className="text-teal font-bold" aria-hidden="true">✓</span>
-                  {t}
+          <div className="grid md:grid-cols-[1fr_320px] gap-12 items-center">
+            {/* Left — copy */}
+            <div>
+              <div className="flex flex-wrap gap-2 mb-5">
+                <span className="inline-flex items-center gap-1.5 font-sans text-[11px] font-semibold text-teal bg-teal/10 border border-teal/20 rounded-full px-3 py-1">
+                  Disponible para proyectos
                 </span>
-              ))}
+                <span className="inline-flex items-center gap-1.5 font-sans text-[11px] font-semibold text-amber bg-amber/10 border border-amber/20 rounded-full px-3 py-1">
+                  {ciudad.nombre}, {ciudad.departamento}
+                </span>
+              </div>
+
+              <h1
+                className="font-jakarta font-extrabold text-white leading-[1.05] tracking-[-1.5px] mb-6"
+                style={{ fontSize: "clamp(34px, 4.5vw, 58px)" }}
+              >
+                {ciudad.keyword_h1}{" "}
+                <br />
+                <span className="text-teal">con SEO integrado.</span>
+              </h1>
+
+              <p
+                className="font-sans text-slate-light leading-[1.8] max-w-[520px] mb-6"
+                style={{ fontSize: "clamp(16px, 1.5vw, 18px)" }}
+              >
+                ¿Tu negocio en {ciudad.nombre} no aparece en Google? WordPress y Shopify con SEO construido desde el primer elemento — no agregado después. Trabajo 100% remoto, resultados medibles desde el mes 3.
+              </p>
+
+              <div className="flex flex-wrap gap-3 mb-2">
+                <Button variant="primary" size="lg" href={CALENDLY_URL} external>
+                  Solicitar cotización gratis →
+                </Button>
+                <Button variant="whatsapp" size="lg" href={WA_URL} external>
+                  WhatsApp
+                </Button>
+              </div>
+              <p className="font-sans text-[11px] text-slate mb-8">
+                Sin compromiso · Respondo en menos de 24 h
+              </p>
+
+              <div className="flex flex-wrap gap-x-6 gap-y-2">
+                {[
+                  "40+ proyectos en Colombia",
+                  "Trabajo 100% remoto",
+                  "Desde $3.000.000 COP",
+                ].map((t) => (
+                  <span key={t} className="flex items-center gap-2 font-sans text-[12px] text-slate">
+                    <span className="text-teal font-bold" aria-hidden="true">✓</span>
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Right — result card */}
+            <div className="hidden md:block shrink-0" aria-hidden="true">
+              <div className="bg-[#0D1E31] rounded-2xl border border-teal/15 p-6 w-full">
+                <div className="flex items-center justify-between mb-5">
+                  <span className="font-sans text-[10px] font-semibold uppercase tracking-[2px] text-slate">
+                    Reporte · Mes 6
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 font-sans text-[10px] text-teal bg-teal/10 px-2.5 py-1 rounded-full">
+                    <span className="w-1.5 h-1.5 rounded-full bg-teal" />
+                    Activo
+                  </span>
+                </div>
+
+                <div className="mb-5">
+                  <p className="font-sans text-slate text-[11px] mb-1">Tráfico orgánico</p>
+                  <p className="font-jakarta font-extrabold text-teal leading-none" style={{ fontSize: "40px" }}>
+                    +280%
+                  </p>
+                  <p className="font-sans text-slate text-[11px] mt-1">vs. hace 6 meses</p>
+                </div>
+
+                <div className="flex items-end gap-1.5 h-10 mb-5">
+                  {[15, 22, 30, 38, 52, 68, 100].map((h, i) => (
+                    <div
+                      key={i}
+                      className="flex-1 rounded-sm"
+                      style={{
+                        height: `${h}%`,
+                        backgroundColor: i === 6 ? "#00C4B4" : `rgba(0,196,180,${0.12 + i * 0.07})`,
+                      }}
+                    />
+                  ))}
+                </div>
+
+                <div className="space-y-2.5 mb-5">
+                  {[
+                    { kw: `"${ciudad.keyword_meta}"`, pos: "#2" },
+                    { kw: `"wordpress ${ciudad.nombre.toLowerCase()}"`, pos: "#4" },
+                    { kw: `"seo ${ciudad.nombre.toLowerCase()}"`, pos: "#1", highlight: true },
+                  ].map(({ kw, pos, highlight }) => (
+                    <div key={kw} className="flex items-center justify-between gap-2">
+                      <span className="font-sans text-[11px] text-slate truncate">{kw}</span>
+                      <span className={`font-jakarta font-bold text-[12px] shrink-0 ${highlight ? "text-teal" : "text-slate-light"}`}>
+                        {pos}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="pt-4 border-t border-white/[0.06]">
+                  <p className="font-sans text-[10px] text-slate/50">
+                    Ejemplo de resultados · datos enmascarados
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </Container>
@@ -316,60 +370,8 @@ export default async function CiudadPage({ params }: Props) {
       {/* ── S2 Stats ─────────────────────────────────────────────────────────── */}
       <StatsStrip />
 
-      {/* ── S3 Contexto ciudad ───────────────────────────────────────────────── */}
-      <section className="bg-warm-white" style={{ paddingTop: "100px", paddingBottom: "100px" }}>
-        <Container>
-          <div className="grid gap-14 md:grid-cols-2 items-start">
-            <FadeIn>
-              <Eyebrow>Mercado local</Eyebrow>
-              <h2
-                className="font-jakarta font-extrabold text-text-dark leading-[1.1] tracking-[-1px] mb-5"
-                style={{ fontSize: "clamp(24px, 3vw, 38px)" }}
-              >
-                ¿Por qué las empresas en {ciudad.nombre} necesitan SEO?
-              </h2>
-              <div className="space-y-4 font-sans text-text-mid leading-[1.8]">
-                <p>
-                  {ciudad.nombre} concentra una economía activa en {ciudad.mercado}. Con una población de {ciudad.poblacion} y un tejido empresarial dominado por {ciudad.empresas}, la competencia digital apenas empieza a consolidarse.
-                </p>
-                <p>
-                  La oportunidad concreta: {ciudad.oportunidad}. Eso significa que entrar ahora con un sitio bien construido y SEO sólido tiene un costo de posicionamiento mucho menor que en mercados saturados.
-                </p>
-                <p>
-                  El trabajo es 100% remoto. Tengo clientes activos en {ciudad.nombre} y no necesito estar presente físicamente para entregar resultados medibles.
-                </p>
-              </div>
-              <a
-                href="#precios"
-                className="inline-flex items-center gap-1.5 mt-6 font-jakarta font-semibold text-teal text-[14px] hover:text-teal-bright transition-colors duration-150"
-              >
-                Ver precios para {ciudad.nombre} →
-              </a>
-            </FadeIn>
-
-            <FadeIn direction="left" delay={0.1}>
-              <div className="space-y-3">
-                {cityDataCards.map(({ label, value }) => (
-                  <div
-                    key={label}
-                    className="bg-off-white rounded-xl p-5 border border-[rgba(0,0,0,0.05)]"
-                  >
-                    <p className="font-sans text-[10px] font-semibold uppercase tracking-[2px] text-slate mb-1">
-                      {label}
-                    </p>
-                    <p className="font-jakarta font-semibold text-text-dark text-[15px] leading-[1.5]">
-                      {value}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </FadeIn>
-          </div>
-        </Container>
-      </section>
-
-      {/* ── S4 Qué incluye ───────────────────────────────────────────────────── */}
-      <section className="bg-off-white" style={{ paddingTop: "100px", paddingBottom: "20px" }}>
+      {/* ── S3 Servicios ─────────────────────────────────────────────────────── */}
+      <section className="bg-warm-white" style={{ paddingTop: "100px", paddingBottom: "20px" }}>
         <Container>
           <FadeIn className="mb-10">
             <Eyebrow>Servicios</Eyebrow>
@@ -405,89 +407,23 @@ export default async function CiudadPage({ params }: Props) {
         </Container>
       </section>
 
-      <TechPills
-        eyebrow="Stack tecnológico"
-        title="Herramientas que uso en cada proyecto"
-        tools={techTools}
-        bg="off-white"
-      />
-
-      {/* ── S5 Loss ──────────────────────────────────────────────────────────── */}
-      <LossSection
-        eyebrow="La diferencia"
-        title="Sitio web sin SEO vs. con SEO integrado"
-        bg="warm-white"
-        lossColumn={{
-          icon: "😓",
-          heading: "Sin SEO desde el diseño",
-          items: [
-            { label: "Invisible en Google", description: "Google no puede rastrear ni entender el contenido. El sitio no aparece para ninguna búsqueda relevante." },
-            { label: "Tráfico solo de pauta", description: "Cada visita cuesta dinero. Si dejas de pagar anuncios, el tráfico desaparece completamente." },
-            { label: "Rediseño costoso después", description: "Agregar SEO a un sitio ya construido requiere cambiar URLs, estructura y contenido — con riesgo de perder lo que tenías." },
-            { label: "Sin datos ni métricas", description: "No sabes qué páginas generan ventas, de dónde vienen tus clientes ni qué buscan en Google." },
-          ],
-        }}
-        gainColumn={{
-          icon: "🚀",
-          heading: "Con SEO integrado desde el inicio",
-          items: [
-            { label: "Posicionamiento orgánico", description: "Apareces en Google para las búsquedas de tus clientes potenciales sin pagar por clic." },
-            { label: "Tráfico que no se apaga", description: "El SEO construye activos digitales permanentes. El tráfico crece mes a mes sin depender de pauta." },
-            { label: "Base técnica correcta", description: "URLs semánticas, velocidad optimizada y schema markup desde el inicio — sin deuda técnica futura." },
-            { label: "Decisiones con datos", description: "Reportes mensuales con posiciones, tráfico y conversiones. Sabes exactamente qué funciona." },
-          ],
-        }}
-      />
-
-      {/* ── S6 Proceso ───────────────────────────────────────────────────────── */}
-      <ProcessSteps
-        eyebrow="Proceso"
-        title="Cómo trabajamos juntos"
-        subtitle="4 etapas claras. Tú sabes en qué paso estamos en todo momento."
-        steps={processSteps}
-        layout="grid"
-        bg="off-white"
-      />
-
-      {/* ── S6.5 Testimonio ─────────────────────────────────────────────────── */}
-      <section className="bg-midnight" style={{ paddingTop: "80px", paddingBottom: "80px" }}>
-        <Container>
-          <FadeIn className="max-w-2xl mx-auto text-center">
-            <div className="flex justify-center gap-0.5 mb-6">
-              {[1,2,3,4,5].map((s) => (
-                <svg key={s} width="18" height="18" viewBox="0 0 24 24" fill="#F5A623" aria-hidden="true">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                </svg>
-              ))}
-            </div>
-            <blockquote>
-              <p className="font-jakarta font-bold text-white leading-[1.65] mb-8" style={{ fontSize: "clamp(18px, 2vw, 22px)" }}>
-                &ldquo;Buscábamos una presencia robusta para la constructora y Stiven lo superó. El diseño es impecable y logramos reducir el costo por lead en un 45% gracias al SEO.&rdquo;
-              </p>
-              <footer className="flex flex-col items-center gap-1">
-                <span className="font-jakarta font-semibold text-teal text-[15px]">Alejandro Torres</span>
-                <span className="font-sans text-slate text-[13px]">CEO · Renovista, Bogotá</span>
-                <span className="inline-flex items-center gap-1.5 mt-2 font-jakarta text-[12px] font-semibold text-amber bg-amber/10 border border-amber/20 rounded-full px-3 py-1">
-                  CPL reducido 45% · SEO Local
-                </span>
-              </footer>
-            </blockquote>
-          </FadeIn>
-        </Container>
-      </section>
-
-      {/* ── S7 Precios ───────────────────────────────────────────────────────── */}
-      <section id="precios" className="bg-warm-white" style={{ paddingTop: "100px", paddingBottom: "100px" }}>
+      {/* ── S4 Precios ───────────────────────────────────────────────────────── */}
+      <section id="precios" className="bg-off-white" style={{ paddingTop: "100px", paddingBottom: "100px" }}>
         <Container>
           <FadeIn className="mb-12">
             <Eyebrow>Precios</Eyebrow>
-            <h2
-              className="font-jakarta font-extrabold text-text-dark leading-[1.05] tracking-[-1px]"
-              style={{ fontSize: "clamp(24px, 3vw, 38px)" }}
-            >
-              Inversión para tu proyecto en {ciudad.nombre}
-            </h2>
-            <p className="font-sans text-text-mid text-[17px] leading-[1.7] mt-4 max-w-[520px]">
+            <div className="flex flex-wrap items-center gap-3 mb-3">
+              <h2
+                className="font-jakarta font-extrabold text-text-dark leading-[1.05] tracking-[-1px]"
+                style={{ fontSize: "clamp(24px, 3vw, 38px)" }}
+              >
+                Inversión para tu proyecto en {ciudad.nombre}
+              </h2>
+              <span className="inline-flex items-center gap-1.5 font-sans text-[11px] font-semibold text-amber bg-amber/10 border border-amber/20 rounded-full px-3 py-1 shrink-0">
+                Solo 3 cupos / mes
+              </span>
+            </div>
+            <p className="font-sans text-text-mid text-[17px] leading-[1.7] max-w-[520px]">
               Precios en COP. Sin costos adicionales por ubicación — el trabajo es 100% remoto.
             </p>
           </FadeIn>
@@ -583,10 +519,132 @@ export default async function CiudadPage({ params }: Props) {
         </Container>
       </section>
 
-      {/* ── S8 FAQ ───────────────────────────────────────────────────────────── */}
+      {/* ── S5 Contexto ciudad ───────────────────────────────────────────────── */}
+      <section className="bg-warm-white" style={{ paddingTop: "100px", paddingBottom: "100px" }}>
+        <Container>
+          <div className="grid gap-14 md:grid-cols-2 items-start">
+            <FadeIn>
+              <Eyebrow>Mercado local</Eyebrow>
+              <h2
+                className="font-jakarta font-extrabold text-text-dark leading-[1.1] tracking-[-1px] mb-5"
+                style={{ fontSize: "clamp(24px, 3vw, 38px)" }}
+              >
+                ¿Por qué las empresas en {ciudad.nombre} necesitan SEO?
+              </h2>
+              <div className="space-y-4 font-sans text-text-mid leading-[1.8]">
+                <p>
+                  {ciudad.nombre} concentra una economía activa en {ciudad.mercado}. Con una población de {ciudad.poblacion} y un tejido empresarial dominado por {ciudad.empresas}, la competencia digital apenas empieza a consolidarse.
+                </p>
+                <p>
+                  La oportunidad concreta: {ciudad.oportunidad}. Eso significa que entrar ahora con un sitio bien construido y SEO sólido tiene un costo de posicionamiento mucho menor que en mercados saturados.
+                </p>
+                <p>
+                  El trabajo es 100% remoto. Tengo clientes activos en {ciudad.nombre} y no necesito estar presente físicamente para entregar resultados medibles.
+                </p>
+              </div>
+              <a
+                href="#precios"
+                className="inline-flex items-center gap-1.5 mt-6 font-jakarta font-semibold text-teal text-[14px] hover:text-teal-bright transition-colors duration-150"
+              >
+                Ver precios para {ciudad.nombre} →
+              </a>
+            </FadeIn>
+
+            <FadeIn direction="left" delay={0.1}>
+              <div className="space-y-3">
+                {painQuestions.map((q, i) => (
+                  <div
+                    key={i}
+                    className="bg-off-white rounded-xl p-5 border border-[rgba(0,0,0,0.05)] flex gap-4 items-start"
+                  >
+                    <span
+                      className="font-jakarta font-extrabold text-amber/40 text-[22px] leading-none shrink-0 mt-0.5"
+                      aria-hidden="true"
+                    >
+                      ?
+                    </span>
+                    <p className="font-jakarta font-semibold text-text-dark text-[15px] leading-[1.5]">
+                      {q}
+                    </p>
+                  </div>
+                ))}
+                <p className="font-sans text-text-mid text-[14px] leading-[1.7] pt-2 pl-1">
+                  Si la respuesta es &ldquo;no&rdquo; o &ldquo;no sé&rdquo; — tu sitio web hoy está perdiendo clientes.
+                </p>
+              </div>
+            </FadeIn>
+          </div>
+        </Container>
+      </section>
+
+      {/* ── S6 Loss ──────────────────────────────────────────────────────────── */}
+      <LossSection
+        eyebrow="La diferencia"
+        title="Sitio web sin SEO vs. con SEO integrado"
+        bg="off-white"
+        lossColumn={{
+          icon: "😓",
+          heading: "Sin SEO desde el diseño",
+          items: [
+            { label: "Invisible en Google", description: "Google no puede rastrear ni entender el contenido. El sitio no aparece para ninguna búsqueda relevante." },
+            { label: "Tráfico solo de pauta", description: "Cada visita cuesta dinero. Si dejas de pagar anuncios, el tráfico desaparece completamente." },
+            { label: "Rediseño costoso después", description: "Agregar SEO a un sitio ya construido requiere cambiar URLs, estructura y contenido — con riesgo de perder lo que tenías." },
+            { label: "Sin datos ni métricas", description: "No sabes qué páginas generan ventas, de dónde vienen tus clientes ni qué buscan en Google." },
+          ],
+        }}
+        gainColumn={{
+          icon: "🚀",
+          heading: "Con SEO integrado desde el inicio",
+          items: [
+            { label: "Posicionamiento orgánico", description: "Apareces en Google para las búsquedas de tus clientes potenciales sin pagar por clic." },
+            { label: "Tráfico que no se apaga", description: "El SEO construye activos digitales permanentes. El tráfico crece mes a mes sin depender de pauta." },
+            { label: "Base técnica correcta", description: "URLs semánticas, velocidad optimizada y schema markup desde el inicio — sin deuda técnica futura." },
+            { label: "Decisiones con datos", description: "Reportes mensuales con posiciones, tráfico y conversiones. Sabes exactamente qué funciona." },
+          ],
+        }}
+      />
+
+      {/* ── S7 Proceso ───────────────────────────────────────────────────────── */}
+      <ProcessSteps
+        eyebrow="Proceso"
+        title="Cómo trabajamos juntos"
+        subtitle="4 etapas claras. Tú sabes en qué paso estamos en todo momento."
+        steps={processSteps}
+        layout="vertical"
+        bg="warm-white"
+      />
+
+      {/* ── S8 Testimonio ─────────────────────────────────────────────────────── */}
+      <section className="bg-midnight" style={{ paddingTop: "80px", paddingBottom: "80px" }}>
+        <Container>
+          <FadeIn className="max-w-2xl mx-auto text-center">
+            <div className="flex justify-center gap-0.5 mb-6">
+              {[1, 2, 3, 4, 5].map((s) => (
+                <svg key={s} width="18" height="18" viewBox="0 0 24 24" fill="#F5A623" aria-hidden="true">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                </svg>
+              ))}
+            </div>
+            <blockquote>
+              <p className="font-jakarta font-bold text-white leading-[1.65] mb-8" style={{ fontSize: "clamp(18px, 2vw, 22px)" }}>
+                &ldquo;Buscábamos una presencia robusta para la constructora y Stiven lo superó. El diseño es impecable y logramos reducir el costo por lead en un 45% gracias al SEO.&rdquo;
+              </p>
+              <footer className="flex flex-col items-center gap-1">
+                <span className="font-jakarta font-semibold text-teal text-[15px]">Alejandro Torres</span>
+                <span className="font-sans text-slate text-[13px]">CEO · Renovista</span>
+                <span className="inline-flex items-center gap-1.5 mt-2 font-jakarta text-[12px] font-semibold text-amber bg-amber/10 border border-amber/20 rounded-full px-3 py-1">
+                  CPL reducido 45% · SEO Local
+                </span>
+              </footer>
+            </blockquote>
+          </FadeIn>
+        </Container>
+      </section>
+
+      {/* ── S9 FAQ ───────────────────────────────────────────────────────────── */}
       <SubpageFAQ items={faqs} bg="off-white" />
 
-      {/* ── S9 CTA Final ─────────────────────────────────────────────────────── */}
+      {/* ── S10 CTA Final ────────────────────────────────────────────────────── */}
       <SubpageCTA
         eyebrow={`¿Tu empresa en ${ciudad.nombre}?`}
         title={`Diseño web para ${ciudad.nombre}`}
@@ -594,7 +652,7 @@ export default async function CiudadPage({ params }: Props) {
         subtitle={`Atiendo clientes en ${ciudad.nombre} de forma 100% remota. Cotización gratis, sin compromiso. Cuéntame tu proyecto.`}
       />
 
-      {/* ── S10 Navegación entre ciudades ────────────────────────────────────── */}
+      {/* ── S11 Navegación entre ciudades ────────────────────────────────────── */}
       <section
         className="bg-midnight border-t border-white/[0.06]"
         style={{ paddingTop: "32px", paddingBottom: "32px" }}
