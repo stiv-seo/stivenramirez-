@@ -45,11 +45,11 @@ export function SubpageCTA({
           </h2>
           <p className="font-sans text-slate-light leading-[1.75] mb-10">{subtitle}</p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Button variant="primary" size="lg" href={CALENDLY_URL} external>
-              Agendar llamada gratuita →
-            </Button>
             <Button variant="whatsapp" size="lg" href={WA_URL} external>
-              Escribir por WhatsApp
+              Escribir por WhatsApp →
+            </Button>
+            <Button variant="border" size="lg" href={CALENDLY_URL} external>
+              Agendar llamada gratuita
             </Button>
           </div>
         </FadeIn>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CIUDADES, getCiudad } from "@/data/ciudades";
+import { CiudadSchema } from "@/components/CiudadSchema";
 import { Container } from "@/components/ui/Container";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { Button } from "@/components/ui/Button";
@@ -24,16 +25,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { ciudad: slug } = await params;
   const ciudad = getCiudad(slug);
   if (!ciudad) return {};
+  const ogImage = `${SITE_URL}/og-diseno-web.jpg`;
   return {
     title: { absolute: `${ciudad.keyword_h1} con SEO · Stiven Ramírez` },
     description: ciudad.meta_description,
-    keywords: [
-      ciudad.keyword_meta,
-      `seo ${ciudad.nombre.toLowerCase()}`,
-      `wordpress ${ciudad.nombre.toLowerCase()}`,
-      `shopify ${ciudad.nombre.toLowerCase()}`,
-      "diseño web colombia",
-    ],
     alternates: { canonical: `${SITE_URL}/diseno-web/${ciudad.slug}/` },
     openGraph: {
       title: `${ciudad.keyword_h1} con SEO · Stiven Ramírez`,
@@ -42,11 +37,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: "website",
       locale: "es_CO",
       siteName: "Stiven Ramírez",
+      images: [{ url: ogImage, width: 1200, height: 630, alt: `${ciudad.keyword_h1} con SEO · Stiven Ramírez` }],
     },
     twitter: {
       card: "summary_large_image",
       title: `${ciudad.keyword_h1} con SEO · Stiven Ramírez`,
       description: ciudad.meta_description,
+      images: [ogImage],
     },
   };
 }
@@ -55,56 +52,6 @@ export default async function CiudadPage({ params }: Props) {
   const { ciudad: slug } = await params;
   const ciudad = getCiudad(slug);
   if (!ciudad) notFound();
-
-  // ── Schema ───────────────────────────────────────────────────────────────────
-
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Inicio", item: SITE_URL },
-      { "@type": "ListItem", position: 2, name: "Diseño Web", item: `${SITE_URL}/servicios/diseno-web/` },
-      { "@type": "ListItem", position: 3, name: ciudad.nombre, item: `${SITE_URL}/diseno-web/${ciudad.slug}/` },
-    ],
-  };
-
-  const localBusinessSchema = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    name: "Stiven Ramírez — Diseño Web & SEO",
-    description: `Diseño web con SEO integrado para empresas en ${ciudad.nombre}, ${ciudad.departamento}.`,
-    url: `${SITE_URL}/diseno-web/${ciudad.slug}/`,
-    telephone: "+57-301-578-7350",
-    priceRange: "$$",
-    areaServed: {
-      "@type": "City",
-      name: ciudad.nombre,
-      containedInPlace: { "@type": "State", name: ciudad.departamento },
-    },
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: ciudad.nombre,
-      addressRegion: ciudad.departamento,
-      addressCountry: "CO",
-    },
-  };
-
-  const serviceSchema = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: `${ciudad.keyword_h1} con SEO`,
-    description: ciudad.meta_description,
-    url: `${SITE_URL}/diseno-web/${ciudad.slug}/`,
-    provider: { "@type": "Person", name: "Stiven Ramírez", url: SITE_URL },
-    areaServed: ciudad.nombre,
-    offers: {
-      "@type": "AggregateOffer",
-      priceCurrency: "COP",
-      lowPrice: "1300000",
-      highPrice: "3500000",
-      offerCount: "3",
-    },
-  };
 
   // ── Data ─────────────────────────────────────────────────────────────────────
 
@@ -115,6 +62,7 @@ export default async function CiudadPage({ params }: Props) {
       desc: "Sitio WordPress con tema personalizado, arquitectura de URLs semántica, velocidad optimizada y Core Web Vitals en verde. Para sitios corporativos, portafolios y blogs.",
       price: "A partir de $3.500.000 COP",
       href: "/servicios/diseno-web/wordpress/",
+      linkText: "Ver WordPress con SEO integrado →",
     },
     {
       icon: "🛍️",
@@ -122,6 +70,7 @@ export default async function CiudadPage({ params }: Props) {
       desc: "Tienda Shopify con colecciones optimizadas, schema Product, pasarelas de pago locales y SEO técnico correcto desde el inicio. Para e-commerce.",
       price: "A partir de $3.000.000 COP",
       href: "/servicios/diseno-web/shopify/",
+      linkText: "Ver Shopify con SEO integrado →",
     },
     {
       icon: "📈",
@@ -129,6 +78,7 @@ export default async function CiudadPage({ params }: Props) {
       desc: "Optimización de metaetiquetas, encabezados, contenido y estructura interna de un sitio existente. Ideal si ya tienes sitio pero no posicionas.",
       price: "A partir de $550.000 COP",
       href: "/servicios/seo/auditoria/",
+      linkText: "Ver auditoría SEO →",
     },
     {
       icon: "📊",
@@ -136,6 +86,7 @@ export default async function CiudadPage({ params }: Props) {
       desc: "Configuración de Google Search Console, GA4 y tablero de métricas. Sabes exactamente cuánto tráfico orgánico genera cada página cada mes.",
       price: "Incluido en todos los proyectos",
       href: "/servicios/seo/consultoria/",
+      linkText: "Ver consultoría SEO mensual →",
     },
   ];
 
@@ -185,7 +136,7 @@ export default async function CiudadPage({ params }: Props) {
     },
     {
       q: `¿Cómo trabajamos si estoy en ${ciudad.nombre} y tú en Medellín?`,
-      a: `El proceso es 100% remoto. Usamos videollamadas para las reuniones de diagnóstico y presentación, y Google Drive para compartir materiales. Tengo clientes activos en ${ciudad.nombre}, Bogotá, Cali y otras ciudades — la distancia no afecta la calidad ni los tiempos.`,
+      a: "El proceso es 100% remoto. Usamos videollamadas para las reuniones de diagnóstico y presentación, y Google Drive para compartir materiales. Tengo clientes activos en varias ciudades de Colombia — la distancia no afecta la calidad ni los tiempos.",
     },
   ];
 
@@ -215,18 +166,9 @@ export default async function CiudadPage({ params }: Props) {
     "Reporte mensual",
   ];
 
-  const painQuestions = [
-    `¿Tu empresa aparece cuando buscan "${ciudad.keyword_meta}" en Google?`,
-    "¿Cuánto estás pagando en ads por clientes que el SEO te traería gratis?",
-    "¿Tu sitio actual tiene velocidad, mobile y structured data correctos?",
-  ];
-
   return (
     <>
-      {/* Schemas */}
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+      <CiudadSchema ciudad={ciudad} slug={ciudad.slug} descripcion={ciudad.meta_description} />
 
       {/* ── S1 Hero ─────────────────────────────────────────────────────────── */}
       <section
@@ -282,11 +224,11 @@ export default async function CiudadPage({ params }: Props) {
               </p>
 
               <div className="flex flex-wrap gap-3 mb-2">
-                <Button variant="primary" size="lg" href={CALENDLY_URL} external>
-                  Solicitar cotización gratis →
-                </Button>
                 <Button variant="whatsapp" size="lg" href={WA_URL} external>
-                  WhatsApp
+                  Escribir por WhatsApp →
+                </Button>
+                <Button variant="border" size="lg" href={CALENDLY_URL} external>
+                  Agendar llamada gratis
                 </Button>
               </div>
               <p className="font-sans text-[11px] text-slate mb-8">
@@ -388,26 +330,88 @@ export default async function CiudadPage({ params }: Props) {
           <div className="grid sm:grid-cols-2 gap-5">
             {services.map((s) => (
               <FadeIn key={s.title}>
-                <div className="bg-white rounded-2xl p-7 border border-[rgba(0,0,0,0.06)] h-full">
+                <div className="bg-white rounded-2xl p-7 border border-[rgba(0,0,0,0.06)] h-full flex flex-col">
                   <span className="text-4xl mb-5 block" aria-hidden="true">{s.icon}</span>
                   <h3 className="font-jakarta font-bold text-text-dark text-[18px] mb-2">
                     {s.title}
                   </h3>
-                  <p className="font-sans text-text-mid text-[14px] leading-[1.8] mb-5">{s.desc}</p>
-                  <span className="font-jakarta font-semibold text-slate text-[13px]">{s.price}</span>
+                  <p className="font-sans text-text-mid text-[14px] leading-[1.8] mb-5 flex-1">{s.desc}</p>
+                  <div className="flex items-center justify-between gap-3 mt-auto">
+                    <span className="font-jakarta font-semibold text-slate text-[13px]">{s.price}</span>
+                    <Link
+                      href={s.href}
+                      className="font-jakarta font-semibold text-teal text-[13px] hover:text-teal-bright transition-colors duration-150 shrink-0"
+                    >
+                      {s.linkText}
+                    </Link>
+                  </div>
                 </div>
               </FadeIn>
             ))}
           </div>
           <FadeIn className="mt-8 flex justify-center">
-            <Button variant="primary" size="lg" href={CALENDLY_URL} external>
+            <Button variant="whatsapp" size="lg" href={WA_URL} external>
               Cotizar proyecto en {ciudad.nombre} →
             </Button>
           </FadeIn>
         </Container>
       </section>
 
-      {/* ── S4 Precios ───────────────────────────────────────────────────────── */}
+      {/* ── S4 Testimonio ────────────────────────────────────────────────────── */}
+      <section className="bg-midnight" style={{ paddingTop: "80px", paddingBottom: "80px" }}>
+        <Container>
+          <FadeIn className="max-w-2xl mx-auto text-center">
+            <div className="flex justify-center gap-0.5 mb-6">
+              {[1, 2, 3, 4, 5].map((s) => (
+                <svg key={s} width="18" height="18" viewBox="0 0 24 24" fill="#F5A623" aria-hidden="true">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                </svg>
+              ))}
+            </div>
+            <blockquote>
+              <p className="font-jakarta font-bold text-white leading-[1.65] mb-8" style={{ fontSize: "clamp(18px, 2vw, 22px)" }}>
+                &ldquo;Buscábamos una presencia robusta para la constructora y Stiven lo superó. El diseño es impecable y logramos reducir el costo por lead en un 45% gracias al SEO.&rdquo;
+              </p>
+              <footer className="flex flex-col items-center gap-1">
+                <span className="font-jakarta font-semibold text-teal text-[15px]">Alejandro Torres</span>
+                <span className="font-sans text-slate text-[13px]">CEO · Renovista</span>
+                <span className="inline-flex items-center gap-1.5 mt-2 font-jakarta text-[12px] font-semibold text-amber bg-amber/10 border border-amber/20 rounded-full px-3 py-1">
+                  CPL reducido 45% · SEO Local
+                </span>
+              </footer>
+            </blockquote>
+          </FadeIn>
+        </Container>
+      </section>
+
+      {/* ── S5 Comparación ───────────────────────────────────────────────────── */}
+      <LossSection
+        eyebrow="La diferencia"
+        title="Sitio web sin SEO vs. con SEO integrado"
+        bg="warm-white"
+        lossColumn={{
+          icon: "😓",
+          heading: "Sin SEO desde el diseño",
+          items: [
+            { label: "Invisible en Google", description: "Google no puede rastrear ni entender el contenido. El sitio no aparece para ninguna búsqueda relevante." },
+            { label: "Tráfico solo de pauta", description: "Cada visita cuesta dinero. Si dejas de pagar anuncios, el tráfico desaparece completamente." },
+            { label: "Rediseño costoso después", description: "Agregar SEO a un sitio ya construido requiere cambiar URLs, estructura y contenido — con riesgo de perder lo que tenías." },
+            { label: "Sin datos ni métricas", description: "No sabes qué páginas generan ventas, de dónde vienen tus clientes ni qué buscan en Google." },
+          ],
+        }}
+        gainColumn={{
+          icon: "🚀",
+          heading: "Con SEO integrado desde el inicio",
+          items: [
+            { label: "Posicionamiento orgánico", description: "Apareces en Google para las búsquedas de tus clientes potenciales sin pagar por clic." },
+            { label: "Tráfico que no se apaga", description: "El SEO construye activos digitales permanentes. El tráfico crece mes a mes sin depender de pauta." },
+            { label: "Base técnica correcta", description: "URLs semánticas, velocidad optimizada y schema markup desde el inicio — sin deuda técnica futura." },
+            { label: "Decisiones con datos", description: "Reportes mensuales con posiciones, tráfico y conversiones. Sabes exactamente qué funciona." },
+          ],
+        }}
+      />
+
+      {/* ── S6 Precios ───────────────────────────────────────────────────────── */}
       <section id="precios" className="bg-off-white" style={{ paddingTop: "100px", paddingBottom: "100px" }}>
         <Container>
           <FadeIn className="mb-12">
@@ -438,7 +442,7 @@ export default async function CiudadPage({ params }: Props) {
                   WordPress o Shopify con SEO técnico base y Core Web Vitals en verde.
                 </p>
                 <div className="mb-6">
-                  <p className="font-sans text-slate text-[12px] uppercase tracking-[1px] mb-1">A partir de</p>
+                  <p className="font-sans text-slate text-[12px] uppercase tracking-[1px] mb-2">A partir de</p>
                   <p className="font-jakarta font-extrabold text-teal leading-none" style={{ fontSize: "clamp(28px, 3vw, 36px)" }}>
                     $3.000.000
                   </p>
@@ -452,8 +456,8 @@ export default async function CiudadPage({ params }: Props) {
                     </li>
                   ))}
                 </ul>
-                <Button variant="outline" size="md" href={CALENDLY_URL} external className="w-full justify-center">
-                  Solicitar cotización
+                <Button variant="whatsapp" size="md" href={WA_URL} external className="w-full justify-center">
+                  Cotizar sitio web →
                 </Button>
               </div>
             </FadeIn>
@@ -466,12 +470,21 @@ export default async function CiudadPage({ params }: Props) {
                 <p className="font-sans text-slate-light text-[14px] leading-[1.7] mb-6">
                   Sitio web con posicionamiento continuo. Para empresas que quieren crecer en Google.
                 </p>
-                <div className="mb-6">
-                  <p className="font-sans text-slate-light text-[12px] uppercase tracking-[1px] mb-1">A partir de</p>
-                  <p className="font-jakarta font-extrabold text-teal leading-none" style={{ fontSize: "clamp(28px, 3vw, 36px)" }}>
-                    $3.500.000
-                  </p>
-                  <p className="font-sans text-slate-light text-sm mt-1">COP · diseño + desde $1.300.000/mes SEO</p>
+                <div className="mb-6 space-y-2">
+                  <div>
+                    <p className="font-sans text-slate-light text-[11px] uppercase tracking-[1px] mb-1">Proyecto (único)</p>
+                    <p className="font-jakarta font-extrabold text-teal leading-none" style={{ fontSize: "clamp(26px, 2.8vw, 34px)" }}>
+                      desde $3.500.000
+                    </p>
+                    <p className="font-sans text-slate-light text-sm mt-0.5">COP</p>
+                  </div>
+                  <div className="pt-2 border-t border-white/[0.08]">
+                    <p className="font-sans text-slate-light text-[11px] uppercase tracking-[1px] mb-1">+ Retención SEO</p>
+                    <p className="font-jakarta font-bold text-slate-light leading-none text-[22px]">
+                      desde $1.300.000
+                    </p>
+                    <p className="font-sans text-slate-light text-sm mt-0.5">COP / mes</p>
+                  </div>
                 </div>
                 <ul className="space-y-2.5 mb-8 flex-1">
                   {planFeaturesCombo.map((f) => (
@@ -482,7 +495,7 @@ export default async function CiudadPage({ params }: Props) {
                   ))}
                 </ul>
                 <Button variant="primary" size="md" href={CALENDLY_URL} external className="w-full justify-center">
-                  Solicitar cotización
+                  Ver qué incluye →
                 </Button>
               </div>
             </FadeIn>
@@ -496,11 +509,11 @@ export default async function CiudadPage({ params }: Props) {
                   Para sitios que ya existen y necesitan posicionarse en Google.
                 </p>
                 <div className="mb-6">
-                  <p className="font-sans text-slate text-[12px] uppercase tracking-[1px] mb-1">A partir de</p>
+                  <p className="font-sans text-slate text-[12px] uppercase tracking-[1px] mb-2">A partir de</p>
                   <p className="font-jakarta font-extrabold text-teal leading-none" style={{ fontSize: "clamp(28px, 3vw, 36px)" }}>
                     $1.300.000
                   </p>
-                  <p className="font-sans text-slate text-sm mt-1">COP/mes</p>
+                  <p className="font-sans text-slate text-sm mt-1">COP / mes</p>
                 </div>
                 <ul className="space-y-2.5 mb-8 flex-1">
                   {planFeaturesSeo.map((f) => (
@@ -510,99 +523,14 @@ export default async function CiudadPage({ params }: Props) {
                     </li>
                   ))}
                 </ul>
-                <Button variant="outline" size="md" href={CALENDLY_URL} external className="w-full justify-center">
-                  Solicitar cotización
+                <Button variant="whatsapp" size="md" href={WA_URL} external className="w-full justify-center">
+                  Cotizar SEO mensual →
                 </Button>
               </div>
             </FadeIn>
           </div>
         </Container>
       </section>
-
-      {/* ── S5 Contexto ciudad ───────────────────────────────────────────────── */}
-      <section className="bg-warm-white" style={{ paddingTop: "100px", paddingBottom: "100px" }}>
-        <Container>
-          <div className="grid gap-14 md:grid-cols-2 items-start">
-            <FadeIn>
-              <Eyebrow>Mercado local</Eyebrow>
-              <h2
-                className="font-jakarta font-extrabold text-text-dark leading-[1.1] tracking-[-1px] mb-5"
-                style={{ fontSize: "clamp(24px, 3vw, 38px)" }}
-              >
-                ¿Por qué las empresas en {ciudad.nombre} necesitan SEO?
-              </h2>
-              <div className="space-y-4 font-sans text-text-mid leading-[1.8]">
-                <p>
-                  {ciudad.nombre} concentra una economía activa en {ciudad.mercado}. Con una población de {ciudad.poblacion} y un tejido empresarial dominado por {ciudad.empresas}, la competencia digital apenas empieza a consolidarse.
-                </p>
-                <p>
-                  La oportunidad concreta: {ciudad.oportunidad}. Eso significa que entrar ahora con un sitio bien construido y SEO sólido tiene un costo de posicionamiento mucho menor que en mercados saturados.
-                </p>
-                <p>
-                  El trabajo es 100% remoto. Tengo clientes activos en {ciudad.nombre} y no necesito estar presente físicamente para entregar resultados medibles.
-                </p>
-              </div>
-              <a
-                href="#precios"
-                className="inline-flex items-center gap-1.5 mt-6 font-jakarta font-semibold text-teal text-[14px] hover:text-teal-bright transition-colors duration-150"
-              >
-                Ver precios para {ciudad.nombre} →
-              </a>
-            </FadeIn>
-
-            <FadeIn direction="left" delay={0.1}>
-              <div className="space-y-3">
-                {painQuestions.map((q, i) => (
-                  <div
-                    key={i}
-                    className="bg-off-white rounded-xl p-5 border border-[rgba(0,0,0,0.05)] flex gap-4 items-start"
-                  >
-                    <span
-                      className="font-jakarta font-extrabold text-amber/40 text-[22px] leading-none shrink-0 mt-0.5"
-                      aria-hidden="true"
-                    >
-                      ?
-                    </span>
-                    <p className="font-jakarta font-semibold text-text-dark text-[15px] leading-[1.5]">
-                      {q}
-                    </p>
-                  </div>
-                ))}
-                <p className="font-sans text-text-mid text-[14px] leading-[1.7] pt-2 pl-1">
-                  Si la respuesta es &ldquo;no&rdquo; o &ldquo;no sé&rdquo; — tu sitio web hoy está perdiendo clientes.
-                </p>
-              </div>
-            </FadeIn>
-          </div>
-        </Container>
-      </section>
-
-      {/* ── S6 Loss ──────────────────────────────────────────────────────────── */}
-      <LossSection
-        eyebrow="La diferencia"
-        title="Sitio web sin SEO vs. con SEO integrado"
-        bg="off-white"
-        lossColumn={{
-          icon: "😓",
-          heading: "Sin SEO desde el diseño",
-          items: [
-            { label: "Invisible en Google", description: "Google no puede rastrear ni entender el contenido. El sitio no aparece para ninguna búsqueda relevante." },
-            { label: "Tráfico solo de pauta", description: "Cada visita cuesta dinero. Si dejas de pagar anuncios, el tráfico desaparece completamente." },
-            { label: "Rediseño costoso después", description: "Agregar SEO a un sitio ya construido requiere cambiar URLs, estructura y contenido — con riesgo de perder lo que tenías." },
-            { label: "Sin datos ni métricas", description: "No sabes qué páginas generan ventas, de dónde vienen tus clientes ni qué buscan en Google." },
-          ],
-        }}
-        gainColumn={{
-          icon: "🚀",
-          heading: "Con SEO integrado desde el inicio",
-          items: [
-            { label: "Posicionamiento orgánico", description: "Apareces en Google para las búsquedas de tus clientes potenciales sin pagar por clic." },
-            { label: "Tráfico que no se apaga", description: "El SEO construye activos digitales permanentes. El tráfico crece mes a mes sin depender de pauta." },
-            { label: "Base técnica correcta", description: "URLs semánticas, velocidad optimizada y schema markup desde el inicio — sin deuda técnica futura." },
-            { label: "Decisiones con datos", description: "Reportes mensuales con posiciones, tráfico y conversiones. Sabes exactamente qué funciona." },
-          ],
-        }}
-      />
 
       {/* ── S7 Proceso ───────────────────────────────────────────────────────── */}
       <ProcessSteps
@@ -614,37 +542,10 @@ export default async function CiudadPage({ params }: Props) {
         bg="warm-white"
       />
 
-      {/* ── S8 Testimonio ─────────────────────────────────────────────────────── */}
-      <section className="bg-midnight" style={{ paddingTop: "80px", paddingBottom: "80px" }}>
-        <Container>
-          <FadeIn className="max-w-2xl mx-auto text-center">
-            <div className="flex justify-center gap-0.5 mb-6">
-              {[1, 2, 3, 4, 5].map((s) => (
-                <svg key={s} width="18" height="18" viewBox="0 0 24 24" fill="#F5A623" aria-hidden="true">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                </svg>
-              ))}
-            </div>
-            <blockquote>
-              <p className="font-jakarta font-bold text-white leading-[1.65] mb-8" style={{ fontSize: "clamp(18px, 2vw, 22px)" }}>
-                &ldquo;Buscábamos una presencia robusta para la constructora y Stiven lo superó. El diseño es impecable y logramos reducir el costo por lead en un 45% gracias al SEO.&rdquo;
-              </p>
-              <footer className="flex flex-col items-center gap-1">
-                <span className="font-jakarta font-semibold text-teal text-[15px]">Alejandro Torres</span>
-                <span className="font-sans text-slate text-[13px]">CEO · Renovista</span>
-                <span className="inline-flex items-center gap-1.5 mt-2 font-jakarta text-[12px] font-semibold text-amber bg-amber/10 border border-amber/20 rounded-full px-3 py-1">
-                  CPL reducido 45% · SEO Local
-                </span>
-              </footer>
-            </blockquote>
-          </FadeIn>
-        </Container>
-      </section>
-
-      {/* ── S9 FAQ ───────────────────────────────────────────────────────────── */}
+      {/* ── S8 FAQ ───────────────────────────────────────────────────────────── */}
       <SubpageFAQ items={faqs} bg="off-white" />
 
-      {/* ── S10 CTA Final ────────────────────────────────────────────────────── */}
+      {/* ── S9 CTA Final ────────────────────────────────────────────────────── */}
       <SubpageCTA
         eyebrow={`¿Tu empresa en ${ciudad.nombre}?`}
         title={`Diseño web para ${ciudad.nombre}`}
@@ -652,7 +553,7 @@ export default async function CiudadPage({ params }: Props) {
         subtitle={`Atiendo clientes en ${ciudad.nombre} de forma 100% remota. Cotización gratis, sin compromiso. Cuéntame tu proyecto.`}
       />
 
-      {/* ── S11 Navegación entre ciudades ────────────────────────────────────── */}
+      {/* ── S10 Navegación entre ciudades ────────────────────────────────────── */}
       <section
         className="bg-midnight border-t border-white/[0.06]"
         style={{ paddingTop: "32px", paddingBottom: "32px" }}

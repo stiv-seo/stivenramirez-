@@ -10,6 +10,11 @@ export interface Ciudad {
   keyword_h1: string;
   keyword_meta: string;
   meta_description: string;
+  // Campos enriquecidos para SEO programático
+  sectorEconomicoPrincipal: string;
+  poblacionAprox: string;
+  oportunidadLocal: string;
+  ejemplosSectores: string[];
 }
 
 export const CIUDADES: Ciudad[] = [
@@ -26,6 +31,10 @@ export const CIUDADES: Ciudad[] = [
     keyword_meta: "diseño web Cali",
     meta_description:
       "Diseño web en Cali con SEO integrado para pymes caleñas. WordPress y Shopify que posicionan en Google desde el día 1. Trabajo remoto, resultados medibles.",
+    sectorEconomicoPrincipal: "Industria, moda y agroindustria",
+    poblacionAprox: "2.2 millones de habitantes",
+    oportunidadLocal: "Más del 60% de pymes caleñas no tienen presencia digital optimizada",
+    ejemplosSectores: ["Moda y confecciones", "Alimentos y bebidas", "Servicios profesionales", "Comercio"],
   },
   {
     nombre: "Bogotá",
@@ -40,6 +49,10 @@ export const CIUDADES: Ciudad[] = [
     keyword_meta: "diseño web Bogotá",
     meta_description:
       "Diseño web en Bogotá con SEO integrado para startups y pymes. WordPress y Shopify que posicionan en Google desde el día 1. Trabajo remoto, sin agencia.",
+    sectorEconomicoPrincipal: "Servicios B2B, tecnología y finanzas",
+    poblacionAprox: "8 millones de habitantes",
+    oportunidadLocal: "Mayor volumen de búsqueda del país para diseño web y SEO",
+    ejemplosSectores: ["Startups y tecnología", "Servicios empresariales", "Salud y educación", "Fintech"],
   },
   {
     nombre: "Barranquilla",
@@ -54,6 +67,10 @@ export const CIUDADES: Ciudad[] = [
     keyword_meta: "diseño web Barranquilla",
     meta_description:
       "Diseño web en Barranquilla con SEO para empresas de comercio e importación. WordPress y Shopify que posicionan en Google. Trabajo 100% remoto.",
+    sectorEconomicoPrincipal: "Comercio exterior y logística portuaria",
+    poblacionAprox: "1.2 millones de habitantes",
+    oportunidadLocal: "Mercado digital menos saturado que Bogotá y Medellín",
+    ejemplosSectores: ["Comercio exterior", "Logística y puertos", "Agroindustria", "Servicios portuarios"],
   },
   {
     nombre: "Pereira",
@@ -68,6 +85,10 @@ export const CIUDADES: Ciudad[] = [
     keyword_meta: "diseño web Pereira",
     meta_description:
       "Diseño web en Pereira con SEO integrado para pymes del Eje Cafetero. WordPress y Shopify que posicionan en Google desde el día 1. Trabajo remoto.",
+    sectorEconomicoPrincipal: "Turismo, café y comercio regional",
+    poblacionAprox: "580.000 habitantes",
+    oportunidadLocal: "Alta demanda turística del Eje Cafetero con muy poca inversión digital",
+    ejemplosSectores: ["Turismo y hotelería", "Café y agroindustria", "Textiles", "Comercio regional"],
   },
   {
     nombre: "Manizales",
@@ -82,6 +103,10 @@ export const CIUDADES: Ciudad[] = [
     keyword_meta: "diseño web Manizales",
     meta_description:
       "Diseño web en Manizales con SEO para empresas de tecnología y educación. WordPress y Shopify que posicionan en Google. Trabajo 100% remoto.",
+    sectorEconomicoPrincipal: "Educación superior y tecnología",
+    poblacionAprox: "430.000 habitantes",
+    oportunidadLocal: "Alta concentración universitaria con bajo índice de digitalización empresarial",
+    ejemplosSectores: ["Instituciones educativas", "Empresas de tecnología", "Café y agroindustria", "Servicios profesionales"],
   },
   {
     nombre: "Armenia",
@@ -96,6 +121,10 @@ export const CIUDADES: Ciudad[] = [
     keyword_meta: "diseño web Armenia",
     meta_description:
       "Diseño web en Armenia con SEO para negocios turísticos y comercio local del Quindío. WordPress y Shopify que posicionan en Google. Trabajo remoto.",
+    sectorEconomicoPrincipal: "Turismo cafetero y servicios locales",
+    poblacionAprox: "300.000 habitantes",
+    oportunidadLocal: "Turismo cafetero en auge con muy poca presencia digital optimizada",
+    ejemplosSectores: ["Hoteles y fincas cafeteras", "Restaurantes y gastronomía", "Turismo de experiencias", "Comercio local"],
   },
 ];
 
