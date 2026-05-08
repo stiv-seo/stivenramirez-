@@ -13,7 +13,7 @@ import { Container } from "@/components/ui/Container";
 import { FadeIn } from "@/components/ui/FadeIn";
 
 export const metadata: Metadata = {
-  title: "SEO para WordPress · Freelance Medellín",
+  title: "SEO para WordPress | Freelance Medellín",
   description:
     "WordPress optimizado para Google: SEO técnico, velocidad y contenido estratégico. Freelance independiente en Medellín, Colombia.",
   keywords: ["seo wordpress colombia", "optimizar wordpress seo", "posicionar wordpress google colombia"],
@@ -44,7 +44,7 @@ export default function SeoWordPressPage() {
         <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
       ))}
       <SubpageHero
-        eyebrow="SEO WordPress · Colombia"
+        eyebrow="SEO WordPress | Colombia"
         title="SEO para WordPress"
         titleAccent="sin plugins que prometen todo."
         subtitle="Yoast o RankMath son herramientas, no estrategias. Un sitio WordPress con SEO real necesita arquitectura, contenido y velocidad trabajados por alguien que entiende cómo piensa Google."

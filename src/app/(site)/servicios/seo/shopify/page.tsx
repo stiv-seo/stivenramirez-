@@ -13,7 +13,7 @@ import { Container } from "@/components/ui/Container";
 import { FadeIn } from "@/components/ui/FadeIn";
 
 export const metadata: Metadata = {
-  title: "SEO para Shopify · Freelance Medellín",
+  title: "SEO para Shopify | Freelance Medellín",
   description:
     "SEO para tiendas Shopify: colecciones, productos, velocidad y Core Web Vitals optimizados. Freelance independiente en Medellín.",
   keywords: ["seo shopify colombia", "optimizar tienda shopify", "posicionar shopify google colombia"],
@@ -44,7 +44,7 @@ export default function SeoShopifyPage() {
         <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
       ))}
       <SubpageHero
-        eyebrow="SEO Shopify · E-commerce"
+        eyebrow="SEO Shopify | E-commerce"
         title="SEO para Shopify"
         titleAccent="más allá de los metadatos."
         subtitle="Shopify tiene limitaciones de SEO que la mayoría ignora: URLs duplicadas, colecciones sin contenido, velocidad penalizada por apps. Las conozco todas y sé cómo solucionarlas."

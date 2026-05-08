@@ -7,13 +7,13 @@ import { SubpageCTA } from "@/components/sections/subpage/SubpageCTA";
 import { SubpageMidCTA } from "@/components/sections/subpage/SubpageMidCTA";
 
 export const metadata: Metadata = {
-  title: "Diseño Web con SEO · Freelance Medellín",
+  title: "Diseño Web con SEO | Freelance Medellín",
   description:
     "Sitios web con SEO integrado desde el día 1: arquitectura, velocidad y contenido optimizados para Google. Freelance independiente en Medellín.",
   keywords: ["diseño web con seo colombia", "diseño web seo integrado", "sitio web posicionamiento google colombia"],
   alternates: { canonical: "https://stivenramirez.com/servicios/diseno-web/seo/" },
   openGraph: {
-    title: "Diseño Web con SEO · Freelance Medellín",
+    title: "Diseño Web con SEO | Freelance Medellín",
     description: "Sitio web que posiciona en Google desde el día 1. SEO integrado en diseño, velocidad y contenido.",
     url: "https://stivenramirez.com/servicios/diseno-web/seo/",
     type: "website",
@@ -28,7 +28,7 @@ const schema = serviceSchema([{
   url: "https://stivenramirez.com/servicios/diseno-web/seo/",
   provider: "Stiven Ramírez",
   areaServed: "Colombia",
-  price: "Desde $3.500.000 COP · 3–4 semanas",
+  price: "Desde $3.500.000 COP | 3–4 semanas",
 }]);
 
 export default function DisenoWebSeoPage() {
@@ -38,7 +38,7 @@ export default function DisenoWebSeoPage() {
         <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
       ))}
       <SubpageHero
-        eyebrow="Diseño Web · SEO Integrado"
+        eyebrow="Diseño Web | SEO Integrado"
         title="Diseño Web con SEO"
         titleAccent="integrado desde el día 1."
         subtitle="No diseño primero y luego 'le pongo SEO'. La arquitectura, las URLs, los textos y la velocidad se construyen juntos para que Google te encuentre desde el lanzamiento."

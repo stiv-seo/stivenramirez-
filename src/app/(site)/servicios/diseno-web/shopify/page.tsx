@@ -34,7 +34,7 @@ const schema = serviceSchema([{
   url: "https://stivenramirez.com/servicios/diseno-web/shopify/",
   provider: "Stiven Ramírez",
   areaServed: "Colombia",
-  price: "Desde $3.000.000 COP · 4–5 semanas",
+  price: "Desde $3.000.000 COP | 4–5 semanas",
 }]);
 
 export default function TiendaShopifySeoPage() {
@@ -44,7 +44,7 @@ export default function TiendaShopifySeoPage() {
         <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
       ))}
       <SubpageHero
-        eyebrow="Shopify · E-commerce + SEO"
+        eyebrow="Shopify | E-commerce + SEO"
         title="Tienda Shopify con SEO"
         titleAccent="que vende y posiciona."
         subtitle="Una tienda Shopify sin SEO depende 100% de pauta pagada. Con SEO integrado desde el inicio, el tráfico orgánico crece mes a mes mientras tus campañas generan resultados inmediatos."

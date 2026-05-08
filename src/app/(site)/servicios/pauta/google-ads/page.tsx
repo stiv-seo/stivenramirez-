@@ -9,13 +9,13 @@ import { SubpageMidCTA } from "@/components/sections/subpage/SubpageMidCTA";
 import { Container } from "@/components/ui/Container";
 
 export const metadata: Metadata = {
-  title: "Google Ads para pymes · Medellín",
+  title: "Google Ads para pymes | Medellín",
   description:
     "Google Ads para pymes en Medellín sin porcentaje sobre inversión. Configuración, optimización y reporte mensual. Freelance independiente.",
   keywords: ["google ads medellin", "google ads pymes colombia", "publicidad google medellin", "contratar google ads colombia"],
   alternates: { canonical: "https://stivenramirez.com/servicios/pauta/google-ads/" },
   openGraph: {
-    title: "Google Ads para pymes · Medellín",
+    title: "Google Ads para pymes | Medellín",
     description: "Aparece primero en Google cuando te buscan. Sin porcentaje sobre inversión. Freelance en Medellín.",
     url: "https://stivenramirez.com/servicios/pauta/google-ads/",
     type: "website",
@@ -40,7 +40,7 @@ export default function GoogleAdsPage() {
         <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
       ))}
       <SubpageHero
-        eyebrow="Google Ads · Búsqueda y Display"
+        eyebrow="Google Ads | Búsqueda y Display"
         title="Google Ads:"
         titleAccent="aparece cuando te buscan."
         subtitle="Google Ads es el único canal donde tu anuncio aparece exactamente cuando alguien busca lo que tú vendes. La intención de compra ya está ahí — el trabajo es no desperdiciarla."

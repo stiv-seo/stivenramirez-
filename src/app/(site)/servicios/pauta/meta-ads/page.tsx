@@ -9,13 +9,13 @@ import { SubpageMidCTA } from "@/components/sections/subpage/SubpageMidCTA";
 import { Container } from "@/components/ui/Container";
 
 export const metadata: Metadata = {
-  title: "Facebook e Instagram Ads · Medellín",
+  title: "Facebook e Instagram Ads | Medellín",
   description:
     "Meta Ads para pymes en Medellín: audiencias precisas, creatividades que convierten y Pixel bien configurado. Sin porcentaje sobre inversión.",
   keywords: ["meta ads medellin", "facebook ads colombia", "instagram ads medellin", "publicidad facebook pymes colombia"],
   alternates: { canonical: "https://stivenramirez.com/servicios/pauta/meta-ads/" },
   openGraph: {
-    title: "Facebook e Instagram Ads · Medellín",
+    title: "Facebook e Instagram Ads | Medellín",
     description: "Meta Ads para pymes en Medellín. Audiencias precisas y creatividades que convierten. Sin % sobre inversión.",
     url: "https://stivenramirez.com/servicios/pauta/meta-ads/",
     type: "website",
@@ -40,7 +40,7 @@ export default function MetaAdsPage() {
         <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
       ))}
       <SubpageHero
-        eyebrow="Meta Ads · Facebook e Instagram"
+        eyebrow="Meta Ads | Facebook e Instagram"
         title="Meta Ads:"
         titleAccent="llega a quien aún no te busca."
         subtitle="Google Ads captura demanda existente. Meta Ads crea demanda nueva. Si tu producto necesita ser visto para ser deseado, Facebook e Instagram son el canal correcto."

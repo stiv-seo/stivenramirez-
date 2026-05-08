@@ -8,13 +8,13 @@ import { SubpageFAQ } from "@/components/sections/subpage/SubpageFAQ";
 import { SubpageMidCTA } from "@/components/sections/subpage/SubpageMidCTA";
 
 export const metadata: Metadata = {
-  title: "SEO Local Medellín · Google Maps",
+  title: "SEO Local Medellín | Google Maps",
   description:
     "SEO local en Medellín: posiciona en Google Maps y búsquedas cercanas. Google Business Profile para negocios físicos en Colombia.",
   keywords: ["seo local colombia", "aparecer google maps colombia", "google business profile colombia", "seo local medellin bogota"],
   alternates: { canonical: "https://stivenramirez.com/servicios/seo/local/" },
   openGraph: {
-    title: "SEO Local Medellín · Google Maps",
+    title: "SEO Local Medellín | Google Maps",
     description: "Aparece primero cuando alguien busca tu negocio cerca. Google Business Profile y SEO local.",
     url: "https://stivenramirez.com/servicios/seo/local/",
     type: "website",
@@ -39,7 +39,7 @@ export default function SeoLocalPage() {
         <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
       ))}
       <SubpageHero
-        eyebrow="SEO Local · Google Maps"
+        eyebrow="SEO Local | Google Maps"
         title="Aparece primero cuando"
         titleAccent="te buscan cerca."
         subtitle="El 60% de los clics en búsquedas locales van a los 3 primeros resultados de Google Maps. Si no estás ahí, estás perdiendo clientes frente a competidores que sí optimizaron."

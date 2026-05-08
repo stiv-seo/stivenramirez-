@@ -7,7 +7,7 @@ import { SubpageCTA } from "@/components/sections/subpage/SubpageCTA";
 import { SubpageMidCTA } from "@/components/sections/subpage/SubpageMidCTA";
 
 export const metadata: Metadata = {
-  title: "SEO para E-commerce · Freelance Medellín",
+  title: "SEO para E-commerce | Freelance Medellín",
   description:
     "SEO para tiendas online en Colombia: categorías, productos y velocidad optimizados. Freelance para pymes y e-commerce en Medellín.",
   keywords: ["seo ecommerce colombia", "seo tienda online colombia", "posicionar ecommerce google colombia"],
@@ -38,7 +38,7 @@ export default function SeoEcommercePage() {
         <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
       ))}
       <SubpageHero
-        eyebrow="SEO E-commerce · Colombia"
+        eyebrow="SEO E-commerce | Colombia"
         title="SEO para e-commerce"
         titleAccent="que reduce el costo por venta."
         subtitle="Un e-commerce que no posiciona en Google paga cada venta con pauta. Cada posición orgánica ganada es una venta que ya no cuesta dinero en anuncios."

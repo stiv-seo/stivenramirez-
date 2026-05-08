@@ -22,8 +22,8 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL("https://stivenramirez.com"),
   title: {
-    default: "Stiven Ramírez · Diseño Web & SEO Medellín",
-    template: "%s · Stiven Ramírez",
+    default: "Stiven Ramírez | Consultor SEO & Diseño Web Medellín",
+    template: "%s | Stiven Ramírez",
   },
   verification: {
     google: "odevJDKr6OjReuoKXOGtgkC8Z7h92wx88WMxXnfuyp4",

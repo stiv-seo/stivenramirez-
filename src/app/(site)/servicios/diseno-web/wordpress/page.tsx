@@ -13,13 +13,13 @@ import { Container } from "@/components/ui/Container";
 import { FadeIn } from "@/components/ui/FadeIn";
 
 export const metadata: Metadata = {
-  title: "WordPress con SEO · Freelance Medellín",
+  title: "WordPress con SEO | Freelance Medellín",
   description:
     "WordPress con SEO integrado: diseño personalizado, velocidad optimizada y posicionamiento desde el lanzamiento. Freelance para pymes en Medellín.",
   keywords: ["diseño web wordpress colombia", "wordpress seo colombia", "crear sitio wordpress colombia seo"],
   alternates: { canonical: "https://stivenramirez.com/servicios/diseno-web/wordpress/" },
   openGraph: {
-    title: "WordPress con SEO · Freelance Medellín",
+    title: "WordPress con SEO | Freelance Medellín",
     description: "WordPress con SEO integrado desde el día 1. Velocidad, diseño y posicionamiento en un solo proyecto.",
     url: "https://stivenramirez.com/servicios/diseno-web/wordpress/",
     type: "website",
@@ -34,7 +34,7 @@ const schema = serviceSchema([{
   url: "https://stivenramirez.com/servicios/diseno-web/wordpress/",
   provider: "Stiven Ramírez",
   areaServed: "Colombia",
-  price: "Desde $3.500.000 COP · 3–4 semanas",
+  price: "Desde $3.500.000 COP | 3–4 semanas",
 }]);
 
 export default function DisenoWordPressSeoPage() {
@@ -44,7 +44,7 @@ export default function DisenoWordPressSeoPage() {
         <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
       ))}
       <SubpageHero
-        eyebrow="WordPress · Diseño + SEO"
+        eyebrow="WordPress | Diseño + SEO"
         title="Diseño Web WordPress"
         titleAccent="que posiciona en Google."
         subtitle="WordPress es la plataforma más usada del mundo —y la más mal configurada. Un sitio WordPress bien construido puede posicionar para decenas de keywords en pocos meses."

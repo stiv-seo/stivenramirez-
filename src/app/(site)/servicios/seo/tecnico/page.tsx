@@ -7,7 +7,7 @@ import { SubpageCTA } from "@/components/sections/subpage/SubpageCTA";
 import { SubpageMidCTA } from "@/components/sections/subpage/SubpageMidCTA";
 
 export const metadata: Metadata = {
-  title: "SEO Técnico · Velocidad y Rastreo · Medellín",
+  title: "SEO Técnico | Velocidad y Rastreo | Medellín",
   description:
     "SEO técnico en Medellín: velocidad, indexación, canonicals y Core Web Vitals. Para sitios que no posicionan a pesar del contenido.",
   keywords: ["seo tecnico colombia", "auditoria tecnica seo", "core web vitals colombia", "indexacion google colombia"],
@@ -38,7 +38,7 @@ export default function SeoTecnicoPage() {
         <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
       ))}
       <SubpageHero
-        eyebrow="SEO Técnico · Fundamentos"
+        eyebrow="SEO Técnico | Fundamentos"
         title="SEO Técnico:"
         titleAccent="los cimientos que sostienen todo."
         subtitle="El mejor contenido del mundo no posiciona si Google no puede rastrearlo, indexarlo y entenderlo. El SEO técnico es lo que hace posible que el resto del SEO funcione."

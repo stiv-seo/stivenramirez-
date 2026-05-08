@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   keywords: ["consultor seo medellin", "seo freelance colombia", "posicionamiento google medellin", "seo sin agencia colombia"],
   alternates: { canonical: "https://stivenramirez.com/servicios/seo/consultoria/" },
   openGraph: {
-    title: "Consultor SEO Freelance · Medellín",
+    title: "Consultor SEO Freelance | Medellín",
     description: "SEO mensual sin agencia para pymes en Medellín. Estrategia, contenido y resultados medibles.",
     url: "https://stivenramirez.com/servicios/seo/consultoria/",
     type: "website",
@@ -43,7 +43,7 @@ export default function SeoConsultoriaPage() {
         <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
       ))}
       <SubpageHero
-        eyebrow="SEO Continuo · Medellín"
+        eyebrow="SEO Continuo | Medellín"
         title="Consultoría SEO que"
         titleAccent="mueve el negocio."
         subtitle="No vendo posiciones en Google. Vendo tráfico orgánico calificado que se convierte en clientes. La diferencia está en la estrategia detrás de cada acción."

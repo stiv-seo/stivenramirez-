@@ -11,7 +11,7 @@ import { FadeIn } from "@/components/ui/FadeIn";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 
 export const metadata: Metadata = {
-  title: "Pauta Digital · Google & Meta Ads · Medellín",
+  title: "Pauta Digital | Google & Meta Ads Medellín",
   description:
     "Google Ads y Meta Ads para pymes en Medellín. Sin porcentaje sobre inversión. Freelance independiente con resultados medibles desde el primer mes.",
   keywords: ["pauta digital colombia", "publicidad digital colombia", "google ads meta ads colombia", "agencia pauta digital colombia"],
@@ -59,7 +59,7 @@ export default function PautaHubPage() {
         <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
       ))}
       <SubpageHero
-        eyebrow="Pauta Digital · Google y Meta"
+        eyebrow="Pauta Digital | Google y Meta"
         title="Pauta digital que"
         titleAccent="acelera mientras el SEO madura."
         subtitle="El SEO orgánico tarda meses en dar resultados. La pauta pagada genera leads desde el primer día. Los dos juntos es la estrategia más rentable para una pyme colombiana que quiere crecer rápido."

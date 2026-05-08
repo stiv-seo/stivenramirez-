@@ -9,13 +9,13 @@ import { SubpageRelated } from "@/components/sections/subpage/SubpageRelated";
 import { SubpageMidCTA } from "@/components/sections/subpage/SubpageMidCTA";
 
 export const metadata: Metadata = {
-  title: "Auditoría SEO para pymes · Medellín",
+  title: "Auditoría SEO para pymes | Medellín",
   description:
     "Auditoría SEO para pymes en Medellín: diagnóstico técnico, análisis de keywords y plan de acción 90 días. Freelance sin agencia. Desde $550.000 COP.",
   keywords: ["auditoria seo colombia", "auditoria seo gratis colombia", "diagnostico seo sitio web colombia"],
   alternates: { canonical: "https://stivenramirez.com/servicios/seo/auditoria/" },
   openGraph: {
-    title: "Auditoría SEO para pymes · Medellín",
+    title: "Auditoría SEO para pymes | Medellín",
     description: "Diagnóstico técnico completo, análisis de keywords y plan de acción en 90 días para tu sitio.",
     url: "https://stivenramirez.com/servicios/seo/auditoria/",
     type: "website",
@@ -40,7 +40,7 @@ export default function AuditoriaSeoPage() {
         <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
       ))}
       <SubpageHero
-        eyebrow="Auditoría SEO · One-time"
+        eyebrow="Auditoría SEO | One-time"
         title="Saber exactamente"
         titleAccent="por qué no posicionas."
         subtitle="Antes de invertir en SEO mensual, necesitas saber dónde estás parado. La auditoría te da un diagnóstico honesto y un plan de acción priorizado — no una lista de 200 ítems sin contexto."

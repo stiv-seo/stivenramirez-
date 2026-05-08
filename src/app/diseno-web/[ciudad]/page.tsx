@@ -27,21 +27,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!ciudad) return {};
   const ogImage = `${SITE_URL}/og-diseno-web.jpg`;
   return {
-    title: { absolute: `${ciudad.keyword_h1} con SEO · Stiven Ramírez` },
+    title: { absolute: `${ciudad.keyword_h1} con SEO | Stiven Ramírez` },
     description: ciudad.meta_description,
     alternates: { canonical: `${SITE_URL}/diseno-web/${ciudad.slug}/` },
     openGraph: {
-      title: `${ciudad.keyword_h1} con SEO · Stiven Ramírez`,
+      title: `${ciudad.keyword_h1} con SEO | Stiven Ramírez`,
       description: ciudad.meta_description,
       url: `${SITE_URL}/diseno-web/${ciudad.slug}/`,
       type: "website",
       locale: "es_CO",
       siteName: "Stiven Ramírez",
-      images: [{ url: ogImage, width: 1200, height: 630, alt: `${ciudad.keyword_h1} con SEO · Stiven Ramírez` }],
+      images: [{ url: ogImage, width: 1200, height: 630, alt: `${ciudad.keyword_h1} con SEO | Stiven Ramírez` }],
     },
     twitter: {
       card: "summary_large_image",
-      title: `${ciudad.keyword_h1} con SEO · Stiven Ramírez`,
+      title: `${ciudad.keyword_h1} con SEO | Stiven Ramírez`,
       description: ciudad.meta_description,
       images: [ogImage],
     },
@@ -232,7 +232,7 @@ export default async function CiudadPage({ params }: Props) {
                 </Button>
               </div>
               <p className="font-sans text-[11px] text-slate mb-8">
-                Sin compromiso · Respondo en menos de 24 h
+                Sin compromiso | Respondo en menos de 24 h
               </p>
 
               <div className="flex flex-wrap gap-x-6 gap-y-2">
@@ -254,7 +254,7 @@ export default async function CiudadPage({ params }: Props) {
               <div className="bg-[#0D1E31] rounded-2xl border border-teal/15 p-6 w-full">
                 <div className="flex items-center justify-between mb-5">
                   <span className="font-sans text-[10px] font-semibold uppercase tracking-[2px] text-slate">
-                    Reporte · Mes 6
+                    Reporte | Mes 6
                   </span>
                   <span className="inline-flex items-center gap-1.5 font-sans text-[10px] text-teal bg-teal/10 px-2.5 py-1 rounded-full">
                     <span className="w-1.5 h-1.5 rounded-full bg-teal" />
@@ -300,7 +300,7 @@ export default async function CiudadPage({ params }: Props) {
 
                 <div className="pt-4 border-t border-white/[0.06]">
                   <p className="font-sans text-[10px] text-slate/50">
-                    Ejemplo de resultados · datos enmascarados
+                    Ejemplo de resultados | datos enmascarados
                   </p>
                 </div>
               </div>
@@ -374,9 +374,9 @@ export default async function CiudadPage({ params }: Props) {
               </p>
               <footer className="flex flex-col items-center gap-1">
                 <span className="font-jakarta font-semibold text-teal text-[15px]">Alejandro Torres</span>
-                <span className="font-sans text-slate text-[13px]">CEO · Renovista</span>
+                <span className="font-sans text-slate text-[13px]">CEO | Renovista</span>
                 <span className="inline-flex items-center gap-1.5 mt-2 font-jakarta text-[12px] font-semibold text-amber bg-amber/10 border border-amber/20 rounded-full px-3 py-1">
-                  CPL reducido 45% · SEO Local
+                  CPL reducido 45% | SEO Local
                 </span>
               </footer>
             </blockquote>
@@ -446,7 +446,7 @@ export default async function CiudadPage({ params }: Props) {
                   <p className="font-jakarta font-extrabold text-teal leading-none" style={{ fontSize: "clamp(28px, 3vw, 36px)" }}>
                     $3.000.000
                   </p>
-                  <p className="font-sans text-slate text-sm mt-1">COP · pago único</p>
+                  <p className="font-sans text-slate text-sm mt-1">COP | pago único</p>
                 </div>
                 <ul className="space-y-2.5 mb-8 flex-1">
                   {planFeaturesSitio.map((f) => (

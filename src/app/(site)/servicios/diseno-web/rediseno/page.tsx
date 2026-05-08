@@ -8,13 +8,13 @@ import { SubpageCTA } from "@/components/sections/subpage/SubpageCTA";
 import { SubpageMidCTA } from "@/components/sections/subpage/SubpageMidCTA";
 
 export const metadata: Metadata = {
-  title: "Rediseño Web sin perder SEO · Medellín",
+  title: "Rediseño Web sin perder SEO | Medellín",
   description:
     "Rediseño web sin perder posicionamiento: auditoría previa, redirecciones 301 y migración que protege tu SEO. Freelance en Medellín.",
   keywords: ["rediseño web medellin", "rediseño web sin perder seo", "migración web colombia", "actualizar sitio web colombia"],
   alternates: { canonical: "https://stivenramirez.com/servicios/diseno-web/rediseno/" },
   openGraph: {
-    title: "Rediseño Web sin perder SEO · Medellín",
+    title: "Rediseño Web sin perder SEO | Medellín",
     description: "Rediseña tu sitio sin destruir el posicionamiento que tardaste años en construir. Freelance en Medellín.",
     url: "https://stivenramirez.com/servicios/diseno-web/rediseno/",
     type: "website",
@@ -29,7 +29,7 @@ const schema = serviceSchema([{
   url: "https://stivenramirez.com/servicios/diseno-web/rediseno/",
   provider: "Stiven Ramírez",
   areaServed: "Colombia",
-  price: "Desde $2.800.000 COP · 2–3 semanas",
+  price: "Desde $2.800.000 COP | 2–3 semanas",
 }]);
 
 export default function RedisenoWebSeoPage() {
@@ -39,7 +39,7 @@ export default function RedisenoWebSeoPage() {
         <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
       ))}
       <SubpageHero
-        eyebrow="Rediseño Web · Sin perder posiciones"
+        eyebrow="Rediseño Web | Sin perder posiciones"
         title="Rediseño Web"
         titleAccent="sin destruir tu SEO."
         subtitle="Un rediseño mal ejecutado puede borrar en semanas el posicionamiento que tardaste años en construir. Hago el rediseño con un plan de migración que protege cada posición."

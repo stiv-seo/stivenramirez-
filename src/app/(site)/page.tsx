@@ -13,9 +13,9 @@ import { TechStack } from "@/components/sections/home/TechStack";
 import { CTAFinal } from "@/components/sections/home/CTAFinal";
 
 export const metadata: Metadata = {
-  title: { absolute: "Stiven Ramírez · Diseño Web & SEO Medellín" },
+  title: { absolute: "Stiven Ramírez | Consultor SEO & Diseño Web Medellín" },
   description:
-    "Consultor SEO freelance y diseñador web en Medellín. WordPress y Shopify que posicionan en Google desde el día 1. Para pymes sin agencia.",
+    "Consultor SEO en Medellín y diseñador web freelance. Sitios en WordPress que posicionan en Google desde el día 1. Sin agencia, atención directa y resultados medibles.",
   alternates: { canonical: "https://stivenramirez.com/" },
 };
 
