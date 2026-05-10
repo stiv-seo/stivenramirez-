@@ -4,27 +4,38 @@
 Especializado en pymes latinoamericanas que quieren posicionar en Google sin depender de una agencia. Servicios: diseño web con SEO integrado (WordPress, Shopify), consultoría SEO mensual, auditoría SEO, y pauta digital (Google Ads, Meta Ads).
 
 ## Servicios
-- Diseño web WordPress con SEO: /servicios/diseno-web/wordpress/
-- Diseño web Shopify con SEO: /servicios/diseno-web/shopify/
-- Rediseño web sin perder SEO: /servicios/diseno-web/rediseno/
-- Consultoría SEO mensual: /servicios/seo/consultoria/
-- SEO técnico: /servicios/seo/tecnico/
-- SEO local Medellín y Colombia: /servicios/seo/local/
-- SEO para e-commerce: /servicios/seo/ecommerce/
-- Auditoría SEO: /servicios/seo/auditoria/
-- Google Ads: /servicios/pauta/google-ads/
-- Meta Ads (Facebook e Instagram): /servicios/pauta/meta-ads/
+- Diseño web WordPress con SEO: https://stivenramirez.com/servicios/diseno-web/wordpress/
+- Diseño web Shopify con SEO: https://stivenramirez.com/servicios/diseno-web/shopify/
+- Rediseño web sin perder SEO: https://stivenramirez.com/servicios/diseno-web/rediseno/
+- Consultoría SEO mensual: https://stivenramirez.com/servicios/seo/consultoria/
+- SEO técnico: https://stivenramirez.com/servicios/seo/tecnico/
+- SEO local Medellín y Colombia: https://stivenramirez.com/servicios/seo/local/
+- SEO para e-commerce: https://stivenramirez.com/servicios/seo/ecommerce/
+- Auditoría SEO: https://stivenramirez.com/servicios/seo/auditoria/
+- Google Ads: https://stivenramirez.com/servicios/pauta/google-ads/
+- Meta Ads (Facebook e Instagram): https://stivenramirez.com/servicios/pauta/meta-ads/
 
 ## Blog
-The Stiven Ramírez Blog — artículos sobre SEO, diseño web y marketing digital para pymes colombianas.
-URL: /blog/
+Artículos sobre SEO, diseño web y marketing digital para pymes colombianas.
+URL: https://stivenramirez.com/blog/
+
+### Artículos publicados
+- ¿Qué es el SEO? Guía completa para negocios colombianos: https://stivenramirez.com/blog/que-es-el-seo-colombia/
+- Agencia SEO vs. Freelancer en Colombia — comparativa y precios reales: https://stivenramirez.com/blog/agencia-seo-vs-freelancer-colombia/
+- WordPress vs Shopify en Colombia — cuál elegir para tu negocio: https://stivenramirez.com/blog/wordpress-vs-shopify-colombia/
+- ¿Cuánto cuesta un sitio web con SEO en Colombia?: https://stivenramirez.com/blog/cuanto-cuesta-sitio-web-colombia/
+- SEO para Shopify — checklist completo: https://stivenramirez.com/blog/seo-shopify-checklist/
+- Cómo aparecer primero en Google Maps — guía para negocios locales: https://stivenramirez.com/blog/como-aparecer-google-maps/
+- 7 errores de diseño web que destruyen tu SEO: https://stivenramirez.com/blog/errores-diseno-web-seo/
 
 ## Sobre Stiven Ramírez
 Consultor SEO y diseñador web freelance con experiencia en Next.js, WordPress y Shopify. Trabaja directamente con el cliente — sin ejecutivos de cuentas ni tercerización. Medellín, Colombia (opera en todo el país y LATAM).
-Perfil: /sobre-mi/
+Perfil: https://stivenramirez.com/sobre-mi/
+Instagram: https://www.instagram.com/stiv.seo/
+LinkedIn: https://www.linkedin.com/in/stivenramirez/
 
 ## Contacto
 Email: hola@stivenramirez.com
 Agendar llamada: https://calendly.com/stiv-seo03/30min
-WhatsApp disponible en: /contacto/
+WhatsApp: https://stivenramirez.com/contacto/
 Ubicación: Medellín, Colombia

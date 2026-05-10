@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import { getAllPosts, getPostBySlug } from "@/lib/mdx";
-import { articleSchema } from "@/lib/schema";
+import { articleSchema, breadcrumbSchema } from "@/lib/schema";
 import { Container } from "@/components/ui/Container";
 import { Badge } from "@/components/ui/Badge";
 import { formatDate } from "@/lib/utils";
@@ -137,7 +137,15 @@ export default async function BlogPostPage({
     datePublished: post.date,
     dateModified: post.date,
     authorName: "Stiven Ramírez",
-    image: `https://stivenramirez.com/opengraph-image`,
+    image: `https://stivenramirez.com/blog/${slug}/opengraph-image`,
+  });
+
+  const breadcrumb = breadcrumbSchema({
+    items: [
+      { name: "Inicio", url: "https://stivenramirez.com/" },
+      { name: "Blog",   url: "https://stivenramirez.com/blog/" },
+      { name: post.title, url: `https://stivenramirez.com/blog/${slug}/` },
+    ],
   });
 
   const categoryVariant: Record<string, "teal" | "amber"> = {
@@ -152,7 +160,12 @@ export default async function BlogPostPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+      />
 
+      <article>
       {/* Hero */}
       <section
         className="relative bg-midnight bg-grid-dark overflow-hidden"
@@ -263,6 +276,7 @@ export default async function BlogPostPage({
           </div>
         </Container>
       </section>
+      </article>
     </>
   );
 }
