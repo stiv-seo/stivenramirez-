@@ -17,6 +17,10 @@ export default async function Image({
     return new ImageResponse(<AgenciaOG />, { width: 1200, height: 630 });
   }
 
+  if (slug === "que-es-el-seo-colombia") {
+    return new ImageResponse(<QueEsElSeoOG />, { width: 1200, height: 630 });
+  }
+
   if (slug === "wordpress-vs-shopify-colombia") {
     return new ImageResponse(<WordpressShopifyOG />, { width: 1200, height: 630 });
   }
@@ -198,6 +202,81 @@ function AgenciaOG() {
             <div style={{ width: 24, height: 24, borderRadius: "50%", background: "#fff", boxShadow: "0 0 18px rgba(255,255,255,0.85)" }} />
           </div>
         </div>
+      </div>
+    </div>
+  );
+}
+
+// ─── Qué es el SEO — radar de descubrimiento ─────────────────────────────────
+
+function QueEsElSeoOG() {
+  const bgSeo = `radial-gradient(700px 540px at 50% 50%, rgba(0,196,180,0.10) 0%, rgba(0,196,180,0.03) 35%, transparent 65%), linear-gradient(180deg, #11141c 0%, #0d1117 50%, #0a0c12 100%)`;
+  const circles = [
+    { x: 120, y: 160, dim: false }, { x: 470, y: 290, dim: false },
+    { x: 410, y: 430, dim: false }, { x: 160, y: 430, dim: false },
+    { x: 80,  y: 280, dim: false }, { x: 240, y: 80,  dim: true  },
+    { x: 330, y: 470, dim: true  },
+  ];
+  const squares = [
+    { x: 430, y: 140, teal: true  },
+    { x: 200, y: 120, teal: false, dim: true  },
+    { x: 360, y: 200, teal: false, dim: true  },
+    { x: 60,  y: 200, teal: false, dim: false },
+    { x: 480, y: 200, teal: false, dim: false },
+  ];
+  return (
+    <div style={{ ...stage, background: bgSeo, display: "flex", alignItems: "center", justifyContent: "center" }}>
+      <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, backgroundImage: `linear-gradient(to right, rgba(255,255,255,0.06) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.06) 1px, transparent 1px)`, backgroundSize: "40px 40px" }} />
+      <Corner />
+
+      {/* Radar */}
+      <div style={{ position: "relative", width: 540, height: 540, display: "flex", alignItems: "center", justifyContent: "center" }}>
+        {/* Rings */}
+        {[{ s: 500, c: "rgba(255,255,255,0.04)" }, { s: 380, c: "rgba(255,255,255,0.08)" }, { s: 260, c: "rgba(255,255,255,0.14)" }, { s: 140, c: "rgba(0,196,180,0.45)" }].map(({ s, c }, i) => (
+          <div key={i} style={{ position: "absolute", width: s, height: s, borderRadius: "50%", border: `1px solid ${c}` }} />
+        ))}
+
+        {/* Crosshair */}
+        <div style={{ position: "absolute", left: 0, right: 0, top: "50%", height: 1, background: "linear-gradient(90deg, transparent 0%, rgba(0,196,180,0.45) 50%, transparent 100%)" }} />
+        <div style={{ position: "absolute", top: 0, bottom: 0, left: "50%", width: 1, background: "linear-gradient(180deg, transparent 0%, rgba(0,196,180,0.45) 50%, transparent 100%)" }} />
+
+        {/* SVG connector lines */}
+        <svg width={540} height={540} style={{ position: "absolute", top: 0, left: 0 }}>
+          <g stroke="rgba(255,255,255,0.08)" strokeWidth="1" fill="none">
+            <line x1="270" y1="270" x2="120" y2="160" />
+            <line x1="270" y1="270" x2="430" y2="140" />
+            <line x1="270" y1="270" x2="470" y2="290" />
+            <line x1="270" y1="270" x2="410" y2="430" />
+            <line x1="270" y1="270" x2="160" y2="430" />
+            <line x1="270" y1="270" x2="80"  y2="280" />
+          </g>
+          <g stroke="rgba(0,196,180,0.7)" strokeWidth="1.25" fill="none">
+            <line x1="270" y1="270" x2="430" y2="140" />
+          </g>
+        </svg>
+
+        {/* Reticle */}
+        <div style={{ position: "absolute", width: 130, height: 130, display: "flex", alignItems: "stretch", justifyContent: "stretch" }}>
+          <div style={{ position: "absolute", top: 0, left: 0, width: 14, height: 14, borderTop: `1px solid ${TEAL}`, borderLeft: `1px solid ${TEAL}` }} />
+          <div style={{ position: "absolute", top: 0, right: 0, width: 14, height: 14, borderTop: `1px solid ${TEAL}`, borderRight: `1px solid ${TEAL}` }} />
+          <div style={{ position: "absolute", bottom: 0, left: 0, width: 14, height: 14, borderBottom: `1px solid ${TEAL}`, borderLeft: `1px solid ${TEAL}` }} />
+          <div style={{ position: "absolute", bottom: 0, right: 0, width: 14, height: 14, borderBottom: `1px solid ${TEAL}`, borderRight: `1px solid ${TEAL}` }} />
+        </div>
+
+        {/* Core diamond */}
+        <div style={{ position: "relative", width: 70, height: 70, background: "linear-gradient(135deg, #5beedc 0%, #00C4B4 55%, rgba(0,196,180,0) 100%)", boxShadow: "0 0 50px rgba(0,196,180,0.6)", transform: "rotate(45deg)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+          <div style={{ width: 26, height: 26, background: "#fff", boxShadow: "0 0 14px rgba(255,255,255,0.85)" }} />
+        </div>
+
+        {/* Circle satellites */}
+        {circles.map(({ x, y, dim }, i) => (
+          <div key={i} style={{ position: "absolute", left: x - (dim ? 3 : 5), top: y - (dim ? 3 : 5), width: dim ? 6 : 10, height: dim ? 6 : 10, borderRadius: "50%", background: dim ? "rgba(255,255,255,0.18)" : "rgba(255,255,255,0.42)" }} />
+        ))}
+
+        {/* Square satellites */}
+        {squares.map(({ x, y, teal, dim }, i) => (
+          <div key={i} style={{ position: "absolute", left: x - (dim ? 3.5 : 5), top: y - (dim ? 3.5 : 5), width: dim ? 7 : 10, height: dim ? 7 : 10, background: teal ? TEAL : dim ? "rgba(255,255,255,0.16)" : "rgba(255,255,255,0.32)", transform: "rotate(45deg)", boxShadow: teal ? "0 0 14px rgba(0,196,180,0.6)" : undefined }} />
+        ))}
       </div>
     </div>
   );
