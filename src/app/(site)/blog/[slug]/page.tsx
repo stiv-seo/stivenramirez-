@@ -7,7 +7,6 @@ import { articleSchema } from "@/lib/schema";
 import { Container } from "@/components/ui/Container";
 import { Badge } from "@/components/ui/Badge";
 import { formatDate } from "@/lib/utils";
-import { bannerRegistry } from "@/components/blog/banners/registry";
 
 // ─── Static params ─────────────────────────────────────────────────────────────
 
@@ -147,8 +146,6 @@ export default async function BlogPostPage({
     "SEO": "teal",
   };
 
-  const Banner = bannerRegistry[slug] ?? null;
-
   return (
     <>
       <script
@@ -215,17 +212,6 @@ export default async function BlogPostPage({
           </div>
         </Container>
       </section>
-
-      {/* Featured banner — rendered only when a design exists for this post */}
-      {Banner && (
-        <div className="bg-midnight" style={{ paddingBottom: "48px" }}>
-          <Container>
-            <div className="max-w-[760px]">
-              <Banner />
-            </div>
-          </Container>
-        </div>
-      )}
 
       {/* Article body */}
       <section className="bg-warm-white" style={{ paddingTop: "72px", paddingBottom: "100px" }}>

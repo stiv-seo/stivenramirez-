@@ -3,6 +3,8 @@ import { Badge } from "@/components/ui/Badge";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { getAllPosts, CATEGORIES } from "@/lib/mdx";
 import { formatDate } from "@/lib/utils";
+import { BannerThumbnail } from "@/components/blog/banners/BannerThumbnail";
+import { bannerRegistry } from "@/components/blog/banners/registry";
 
 const categoryVariant: Record<string, "teal" | "amber"> = {
   "Diseño Web": "teal",
@@ -42,24 +44,17 @@ export function BlogGrid() {
             aria-label={`Leer: ${posts[0].title}`}
           >
             <div className="grid md:grid-cols-[1fr_420px]">
-              {/* Image placeholder */}
-              <div
-                className="relative bg-midnight flex items-center justify-center min-h-[160px] md:min-h-[260px]"
-              >
-                <div
-                  className="absolute inset-0 opacity-20"
-                  style={{
-                    backgroundImage:
-                      "radial-gradient(circle at 30% 50%, #00C4B4 0%, transparent 60%)",
-                  }}
-                  aria-hidden="true"
-                />
-                <div className="relative text-center px-8">
-                  <Badge variant={categoryVariant[posts[0].category] ?? "teal"} className="mb-4">
-                    {posts[0].category}
-                  </Badge>
-                  <p className="font-sans text-xs text-slate">Imagen del artículo</p>
-                </div>
+              {/* Featured image */}
+              <div className="relative bg-midnight min-h-[160px] md:min-h-[260px]">
+                {bannerRegistry[posts[0].slug] ? (
+                  <BannerThumbnail slug={posts[0].slug} />
+                ) : (
+                  <div
+                    className="absolute inset-0 opacity-20"
+                    style={{ backgroundImage: "radial-gradient(circle at 30% 50%, #00C4B4 0%, transparent 60%)" }}
+                    aria-hidden="true"
+                  />
+                )}
               </div>
 
               {/* Content */}
@@ -103,19 +98,17 @@ export function BlogGrid() {
                 className="group block bg-warm-white rounded-2xl overflow-hidden border border-[rgba(0,0,0,0.05)] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full"
                 aria-label={`Leer: ${post.title}`}
               >
-                {/* Image placeholder */}
-                <div
-                  className="bg-navy flex items-center justify-center"
-                  style={{ height: "160px" }}
-                >
-                  <div
-                    className="w-full h-full flex items-center justify-center opacity-30"
-                    style={{
-                      backgroundImage:
-                        "radial-gradient(circle at 50% 50%, #00C4B4 0%, transparent 70%)",
-                    }}
-                    aria-hidden="true"
-                  />
+                {/* Card image */}
+                <div className="relative bg-midnight" style={{ height: "160px" }}>
+                  {bannerRegistry[post.slug] ? (
+                    <BannerThumbnail slug={post.slug} />
+                  ) : (
+                    <div
+                      className="absolute inset-0 opacity-30"
+                      style={{ backgroundImage: "radial-gradient(circle at 50% 50%, #00C4B4 0%, transparent 70%)" }}
+                      aria-hidden="true"
+                    />
+                  )}
                 </div>
 
                 <div className="p-6">
