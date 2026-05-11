@@ -53,6 +53,13 @@ export const metadata: Metadata = {
     url: "https://stivenramirez.com",
     siteName: "Stiven Ramírez",
   },
+  alternates: {
+    canonical: "https://stivenramirez.com/",
+    languages: {
+      "es-CO": "https://stivenramirez.com/",
+      "x-default": "https://stivenramirez.com/",
+    },
+  },
 };
 
 const websiteSchema = webSiteSchema();

@@ -57,6 +57,14 @@ export interface CreativeWorkSchemaProps {
   dateCreated?: string;
 }
 
+export interface CollectionPageSchemaProps {
+  name: string;
+  description: string;
+  url: string;
+  author: string;
+  items: { name: string; url: string }[];
+}
+
 // ─── Builders ─────────────────────────────────────────────────────────────────
 
 export function personSchema(props: PersonSchemaProps): object {
@@ -218,6 +226,30 @@ export function creativeWorkSchema(props: CreativeWorkSchemaProps): object {
       url: SITE_URL,
     },
     ...(props.dateCreated ? { dateCreated: props.dateCreated } : {}),
+  };
+}
+
+export function collectionPageSchema(props: CollectionPageSchemaProps): object {
+  return {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: props.name,
+    description: props.description,
+    url: props.url,
+    author: {
+      "@type": "Person",
+      name: props.author,
+      url: SITE_URL,
+    },
+    mainEntity: {
+      "@type": "ItemList",
+      itemListElement: props.items.map((item, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        name: item.name,
+        url: item.url,
+      })),
+    },
   };
 }
 
