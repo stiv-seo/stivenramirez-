@@ -10,6 +10,7 @@ const credentials = [
   "Google Search Console certificado",
   "Google Ads Partner",
   "+40 proyectos en Colombia y Latam",
+  "Proyectos con Bancolombia, Éxito, Levi's y más",
 ];
 
 export function AboutPreview() {
