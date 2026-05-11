@@ -144,8 +144,8 @@ export function Hero() {
                 style={{ aspectRatio: "4/5" }}
               >
                 <Image
-                  src="/images/stiven-ramirez.webp"
-                  alt="Stiven Ramírez — Consultor SEO y Diseñador Web en Medellín"
+                  src="/images/stiven-ramirez-especialista-seo-wordpress-shopify.webp"
+                  alt="Stiven Ramírez — Especialista SEO WordPress y Shopify en Medellín"
                   fill
                   className="object-cover"
                   priority

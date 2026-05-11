@@ -239,7 +239,7 @@ export default async function BlogPostPage({
             {/* Author card */}
             <div className="mt-16 border-t border-[rgba(0,0,0,0.08)] pt-10 flex items-start gap-5">
               <img
-                src="/images/stiven-ramirez.webp"
+                src="/images/stiven-ramirez-consultor-seo-medellin.webp"
                 alt="Stiven Ramírez"
                 width={48}
                 height={48}

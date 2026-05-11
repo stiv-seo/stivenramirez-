@@ -27,7 +27,7 @@ export function AboutPreview() {
               style={{ aspectRatio: "4/5", maxHeight: "500px" }}
             >
               <Image
-                src="/images/stiven-ramirez.webp"
+                src="/images/stiven-ramirez-consultor-seo-medellin.webp"
                 alt="Stiven Ramírez — Consultor SEO freelance en Medellín, Colombia"
                 fill
                 className="object-cover"
