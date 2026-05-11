@@ -238,12 +238,13 @@ export default async function BlogPostPage({
 
             {/* Author card */}
             <div className="mt-16 border-t border-[rgba(0,0,0,0.08)] pt-10 flex items-start gap-5">
-              <div
-                className="w-12 h-12 rounded-full bg-teal/20 border-2 border-teal/40 flex items-center justify-center shrink-0"
-                aria-hidden="true"
-              >
-                <span className="font-jakarta font-extrabold text-teal text-sm">SR</span>
-              </div>
+              <img
+                src="/images/stiven-ramirez.webp"
+                alt="Stiven Ramírez"
+                width={48}
+                height={48}
+                className="w-12 h-12 rounded-full object-cover border-2 border-teal/40 shrink-0"
+              />
               <div>
                 <p className="font-jakarta font-bold text-text-dark text-[15px] mb-1">
                   Stiven Ramírez

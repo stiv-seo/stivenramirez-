@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { CALENDLY_URL } from "@/lib/constants";
@@ -142,19 +143,15 @@ export function Hero() {
                 className="relative w-full rounded-2xl overflow-hidden bg-navy"
                 style={{ aspectRatio: "4/5" }}
               >
-                {/* Placeholder until real photo */}
-                <div className="absolute inset-0 bg-gradient-to-br from-navy to-midnight flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-20 h-20 rounded-2xl bg-teal/20 flex items-center justify-center mx-auto mb-3">
-                      <span className="font-jakarta font-extrabold text-2xl text-teal">SR</span>
-                    </div>
-                    <p className="font-sans text-xs text-slate-light/50">
-                      Foto profesional · próximamente
-                    </p>
-                  </div>
-                </div>
-                {/* Decorative border */}
-                <div className="absolute inset-0 rounded-2xl ring-1 ring-white/5" />
+                <Image
+                  src="/images/stiven-ramirez.webp"
+                  alt="Stiven Ramírez — Consultor SEO y Diseñador Web en Medellín"
+                  fill
+                  className="object-cover"
+                  priority
+                  sizes="(max-width: 1024px) 0px, 40vw"
+                />
+                <div className="absolute inset-0 rounded-2xl ring-1 ring-white/5" aria-hidden="true" />
               </div>
             </motion.div>
           </div>

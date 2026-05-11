@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Button } from "@/components/ui/Button";
@@ -25,17 +26,14 @@ export function AboutPreview() {
               className="relative w-full rounded-2xl overflow-hidden bg-navy"
               style={{ aspectRatio: "4/5", maxHeight: "500px" }}
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-navy to-midnight flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-24 h-24 rounded-2xl bg-teal/20 flex items-center justify-center mx-auto mb-4">
-                    <span className="font-jakarta font-extrabold text-3xl text-teal">SR</span>
-                  </div>
-                  <p className="font-sans text-xs text-slate-light/50">
-                    Foto · próximamente
-                  </p>
-                </div>
-              </div>
-              <div className="absolute inset-0 rounded-2xl ring-1 ring-white/5" />
+              <Image
+                src="/images/stiven-ramirez.webp"
+                alt="Stiven Ramírez — Consultor SEO freelance en Medellín, Colombia"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 45vw"
+              />
+              <div className="absolute inset-0 rounded-2xl ring-1 ring-white/5" aria-hidden="true" />
             </div>
           </FadeIn>
 

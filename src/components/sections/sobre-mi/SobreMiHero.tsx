@@ -69,27 +69,13 @@ export function SobreMiHero() {
               />
               <div className="relative rounded-2xl overflow-hidden bg-navy aspect-[3/4]">
                 <Image
-                  src="/images/stiven-ramirez.jpg"
+                  src="/images/stiven-ramirez.webp"
                   alt="Stiven Ramírez — Consultor SEO y Diseñador Web Colombia"
                   fill
                   className="object-cover"
                   priority
                   sizes="(max-width: 768px) 260px, 340px"
                 />
-                {/* Placeholder overlay while no real photo */}
-                <div
-                  className="absolute inset-0 flex items-center justify-center bg-navy/80"
-                  aria-hidden="true"
-                >
-                  <div className="text-center">
-                    <div
-                      className="w-16 h-16 rounded-full bg-teal/20 border-2 border-teal/40 flex items-center justify-center mx-auto mb-3"
-                    >
-                      <span className="font-jakarta font-extrabold text-teal text-xl">SR</span>
-                    </div>
-                    <p className="font-sans text-xs text-slate">Foto pendiente</p>
-                  </div>
-                </div>
               </div>
             </div>
           </FadeIn>
