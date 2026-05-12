@@ -11,14 +11,14 @@ import { FadeIn } from "@/components/ui/FadeIn";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 
 export const metadata: Metadata = {
-  title: "Pauta Digital | Google & Meta Ads Medellín",
+  title: "Pauta Digital | Google, Meta y TikTok Ads Medellín",
   description:
-    "Google Ads y Meta Ads para pymes en Medellín. Sin porcentaje sobre inversión. Freelance independiente con resultados medibles desde el primer mes.",
-  keywords: ["pauta digital colombia", "publicidad digital colombia", "google ads meta ads colombia", "agencia pauta digital colombia"],
+    "Google Ads, Meta Ads y TikTok Ads para pymes en Medellín. Sin porcentaje sobre inversión. Freelance independiente con resultados medibles desde el primer mes.",
+  keywords: ["pauta digital colombia", "publicidad digital colombia", "google ads meta ads colombia", "tiktok ads colombia", "agencia pauta digital colombia"],
   alternates: { canonical: "https://stivenramirez.com/servicios/pauta/" },
   openGraph: {
     title: "Pauta Digital Colombia",
-    description: "Google Ads y Meta Ads para pymes colombianas. Sin porcentaje sobre inversión. Resultados medibles.",
+    description: "Google Ads, Meta Ads y TikTok Ads para pymes colombianas. Sin porcentaje sobre inversión. Resultados medibles.",
     url: "https://stivenramirez.com/servicios/pauta/",
     type: "website",
     locale: "es_CO",
@@ -27,8 +27,8 @@ export const metadata: Metadata = {
 };
 
 const schema = serviceSchema([{
-  name: "Pauta Digital — Google Ads y Meta Ads",
-  description: "Gestión de campañas en Google y redes sociales para pymes colombianas. Sin porcentaje sobre inversión publicitaria.",
+  name: "Pauta Digital — Google Ads, Meta Ads y TikTok Ads",
+  description: "Gestión de campañas en Google, Meta y TikTok para pymes colombianas. Sin porcentaje sobre inversión publicitaria.",
   url: "https://stivenramirez.com/servicios/pauta/",
   provider: "Stiven Ramírez",
   areaServed: "Colombia",
@@ -45,8 +45,8 @@ const channels = [
   },
   {
     icon: "📱",
-    title: "Meta Ads",
-    description: "Facebook e Instagram para llegar a tu audiencia antes de que te busque. Audiencias precisas y creatividades que detienen el scroll.",
+    title: "Meta y TikTok Ads",
+    description: "Facebook, Instagram y TikTok para llegar a tu audiencia antes de que te busque. Audiencias precisas y lineamientos para creatividades que detienen el scroll.",
     href: "/servicios/pauta/meta-ads/",
     best: "Productos visuales y de consumo",
   },
@@ -59,7 +59,7 @@ export default function PautaHubPage() {
         <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
       ))}
       <SubpageHero
-        eyebrow="Pauta Digital | Google y Meta"
+        eyebrow="Pauta Digital | Google, Meta y TikTok"
         title="Pauta digital que"
         titleAccent="acelera mientras el SEO madura."
         subtitle="El SEO orgánico tarda meses en dar resultados. La pauta pagada genera leads desde el primer día. Los dos juntos es la estrategia más rentable para una pyme colombiana que quiere crecer rápido."
@@ -73,7 +73,7 @@ export default function PautaHubPage() {
               className="font-jakarta font-extrabold text-text-dark leading-[1.05] tracking-[-1px]"
               style={{ fontSize: "clamp(24px, 3vw, 36px)" }}
             >
-              Google Ads o Meta Ads: ¿cuál necesitas?
+              Google Ads, Meta o TikTok: ¿cuál necesitas?
             </h2>
             <p className="font-sans text-text-mid text-[17px] leading-[1.7] mt-4 max-w-[560px]">
               No todas las empresas necesitan los dos canales. Defino cuál tiene más sentido según tu negocio, audiencia y presupuesto antes de gastar un peso.
@@ -117,8 +117,8 @@ export default function PautaHubPage() {
           },
           {
             icon: "✍️",
-            title: "Creatividades y copys",
-            description: "Anuncios con textos que convierten y creatividades adaptadas a cada plataforma. Sin diseños genéricos de Canva sin estrategia detrás.",
+            title: "Copys y lineamientos creativos",
+            description: "Textos de anuncio que convierten y lineamientos estratégicos para tus creatividades (especificaciones técnicas, formatos y recomendaciones por plataforma). El diseño de piezas es un servicio adicional con planes de contenido separados.",
           },
           {
             icon: "📊",

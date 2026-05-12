@@ -37,7 +37,7 @@ export const services: Service[] = [
   {
     id: "ads",
     icon: "🎯",
-    title: "Google & Social Ads",
+    title: "Google, Meta y TikTok Ads",
     description:
       "Campañas pagadas para acelerar resultados mientras el SEO orgánico madura. Sin porcentaje sobre presupuesto.",
     price: "Desde $1.500.000 COP/mes",
