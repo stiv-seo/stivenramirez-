@@ -29,6 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: { absolute: `${ciudad.keyword_h1} con SEO | Stiven Ramírez` },
     description: ciudad.meta_description,
+    keywords: ciudad.keywords,
     alternates: { canonical: `${SITE_URL}/diseno-web/${ciudad.slug}/` },
     openGraph: {
       title: `${ciudad.keyword_h1} con SEO | Stiven Ramírez`,
@@ -130,14 +131,7 @@ export default async function CiudadPage({ params }: Props) {
       q: "¿En cuánto tiempo veo resultados en Google?",
       a: "Las mejoras técnicas se reflejan en 2–4 semanas. El tráfico orgánico empieza a crecer entre el mes 3 y 6, dependiendo de la competencia del sector. Comparto reportes mensuales con posiciones, tráfico y conversiones.",
     },
-    {
-      q: "¿Trabajo con WordPress o con Shopify?",
-      a: "Depende de tu negocio. WordPress es ideal para sitios corporativos, portafolios y blogs. Shopify es mejor para tiendas online con catálogo de productos. En la llamada de diagnóstico te explico cuál aplica para tu caso.",
-    },
-    {
-      q: `¿Cómo trabajamos si estoy en ${ciudad.nombre} y tú en Medellín?`,
-      a: "El proceso es 100% remoto. Usamos videollamadas para las reuniones de diagnóstico y presentación, y Google Drive para compartir materiales. Tengo clientes activos en varias ciudades de Colombia — la distancia no afecta la calidad ni los tiempos.",
-    },
+    ...ciudad.faqsLocal,
   ];
 
   const planFeaturesSitio = [
@@ -311,6 +305,35 @@ export default async function CiudadPage({ params }: Props) {
 
       {/* ── S2 Stats ─────────────────────────────────────────────────────────── */}
       <StatsStrip />
+
+      {/* ── S2.5 Mercado local ───────────────────────────────────────────────── */}
+      <section className="bg-off-white" style={{ paddingTop: "80px", paddingBottom: "80px" }}>
+        <Container>
+          <FadeIn className="mb-10">
+            <Eyebrow>{ciudad.nombre}, {ciudad.departamento}</Eyebrow>
+            <h2
+              className="font-jakarta font-extrabold text-text-dark leading-[1.05] tracking-[-1px]"
+              style={{ fontSize: "clamp(24px, 3vw, 36px)" }}
+            >
+              {ciudad.marketSection.h2}
+            </h2>
+            <p className="font-sans text-text-mid text-[17px] leading-[1.8] mt-4 max-w-[620px]">
+              {ciudad.marketSection.paragraph}
+            </p>
+          </FadeIn>
+          <div className="grid sm:grid-cols-2 gap-5 max-w-[860px]">
+            {ciudad.marketSection.cards.map((card) => (
+              <FadeIn key={card.title}>
+                <div className="bg-white rounded-2xl p-6 border border-[rgba(0,0,0,0.06)] h-full">
+                  <span className="text-3xl mb-4 block" aria-hidden="true">{card.icon}</span>
+                  <h3 className="font-jakarta font-bold text-text-dark text-[16px] mb-2">{card.title}</h3>
+                  <p className="font-sans text-text-mid text-[14px] leading-[1.8]">{card.description}</p>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </Container>
+      </section>
 
       {/* ── S3 Servicios ─────────────────────────────────────────────────────── */}
       <section className="bg-warm-white" style={{ paddingTop: "100px", paddingBottom: "20px" }}>
