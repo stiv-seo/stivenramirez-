@@ -117,3 +117,5 @@
 | ¿Qué es el SEO? Guía completa para negocios colombianos | /blog/que-es-el-seo-colombia/ | ✅ | Cada enero |
 | Agencia SEO vs. Freelancer en Colombia | /blog/agencia-seo-vs-freelancer-colombia/ | ✅ | Cada 6 meses |
 | WordPress vs Shopify en Colombia | /blog/wordpress-vs-shopify-colombia/ | ✅ | Cada enero |
+| 7 errores de diseño web que destruyen tu SEO | /blog/errores-diseno-web-seo/ | ✅ | Cada 6 meses |
+| SEO para restaurantes en Colombia | /blog/seo-para-restaurantes-colombia/ | ✅ 2026-05-19 | Cada 6 meses |

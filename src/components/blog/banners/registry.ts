@@ -6,6 +6,7 @@ import { BannerCuantoCuestaSeo } from "./BannerCuantoCuestaSeo";
 import { BannerSeoShopifyChecklist } from "./BannerSeoShopifyChecklist";
 import { BannerGoogleMaps } from "./BannerGoogleMaps";
 import { BannerErroresDisenoWebSeo } from "./BannerErroresDisenoWebSeo";
+import { BannerSeoRestaurantes } from "./BannerSeoRestaurantes";
 
 export const bannerRegistry: Record<string, ComponentType> = {
   "wordpress-vs-shopify-colombia":      BannerWordpressVsShopify,
@@ -15,4 +16,5 @@ export const bannerRegistry: Record<string, ComponentType> = {
   "seo-shopify-checklist":              BannerSeoShopifyChecklist,
   "como-aparecer-google-maps":          BannerGoogleMaps,
   "errores-diseno-web-seo":             BannerErroresDisenoWebSeo,
+  "seo-para-restaurantes-colombia":     BannerSeoRestaurantes,
 };
