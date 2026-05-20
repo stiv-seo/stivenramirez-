@@ -32,6 +32,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/servicios/pauta/`,             lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/servicios/pauta/google-ads/`,  lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/servicios/pauta/meta-ads/`,    lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
+    // ── Precios ───────────────────────────────────────────────────────────────
+    { url: `${BASE}/servicios/precios/`,           lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
   ];
 
   const ciudadRoutes: MetadataRoute.Sitemap = CIUDADES.map((c) => ({
