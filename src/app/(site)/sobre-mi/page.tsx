@@ -27,6 +27,11 @@ export const metadata: Metadata = {
     type: "profile",
     locale: "es_CO",
     siteName: "Stiven Ramírez",
+    images: [{ url: "https://stivenramirez.com/opengraph-image" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["https://stivenramirez.com/opengraph-image"],
   },
 };
 

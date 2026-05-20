@@ -4,10 +4,11 @@ import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { FadeIn } from "@/components/ui/FadeIn";
-import { recentPosts } from "@/data/posts";
+import { getAllPosts } from "@/lib/mdx";
 import { formatDate } from "@/lib/utils";
 
 export function BlogPreview() {
+  const recentPosts = getAllPosts().slice(0, 3);
   return (
     <section
       className="bg-off-white"

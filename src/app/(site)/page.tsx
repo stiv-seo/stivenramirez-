@@ -15,7 +15,7 @@ import { CTAFinal } from "@/components/sections/home/CTAFinal";
 export const metadata: Metadata = {
   title: { absolute: "Stiven Ramírez | Consultor SEO & Diseño Web Medellín" },
   description:
-    "Consultor SEO en Medellín y diseñador web freelance. Sitios en WordPress que posicionan en Google desde el día 1. Sin agencia, atención directa y resultados medibles.",
+    "Consultor SEO y diseñador web freelance en Medellín. WordPress y Shopify que posicionan en Google desde el día 1. Sin agencia, resultados medibles.",
   alternates: { canonical: "https://stivenramirez.com/" },
 };
 

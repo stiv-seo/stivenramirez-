@@ -25,7 +25,7 @@ export async function generateMetadata({
   if (!label) return {};
 
   return {
-    title: `${label} — Blog`,
+    title: `Blog de ${label}`,
     description: `Artículos sobre ${label.toLowerCase()} para pymes colombianas. Guías prácticas sin relleno por Stiven Ramírez.`,
     alternates: { canonical: `https://stivenramirez.com/blog/category/${cat}/` },
     openGraph: {
