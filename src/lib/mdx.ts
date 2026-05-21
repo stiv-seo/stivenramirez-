@@ -20,6 +20,7 @@ export function categoryToSlug(category: string): string {
 export interface PostMeta {
   slug: string;
   title: string;
+  metaTitle?: string;
   description: string;
   date: string;
   category: string;
@@ -45,6 +46,7 @@ export function getAllPosts(): PostMeta[] {
       return {
         slug,
         title: data.title ?? "",
+        metaTitle: data.metaTitle ?? undefined,
         description: data.description ?? "",
         date: data.date ?? "",
         category: data.category ?? "",
@@ -76,6 +78,7 @@ export function getPostBySlug(slug: string): Post | null {
   return {
     slug,
     title: data.title ?? "",
+    metaTitle: data.metaTitle ?? undefined,
     description: data.description ?? "",
     date: data.date ?? "",
     category: data.category ?? "",
