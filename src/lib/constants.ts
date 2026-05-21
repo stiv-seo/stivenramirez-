@@ -25,6 +25,7 @@ export const FOOTER_LINKS = {
   ],
   recursos: [
     { label: "Blog",        href: "/blog/" },
+    { label: "Precios",     href: "/servicios/precios/" },
     { label: "Sobre mí",    href: "/sobre-mi/" },
     { label: "Contacto",    href: "/contacto/" },
   ],

@@ -110,13 +110,20 @@ function ServicesDropdown({ onClose }: { onClose: () => void }) {
             </div>
           ))}
         </div>
-        <div className="mt-5 pt-4 border-t border-white/[0.06]">
+        <div className="mt-5 pt-4 border-t border-white/[0.06] flex items-center gap-5">
           <Link
             href="/servicios/"
             onClick={onClose}
             className="font-sans text-[12px] font-medium text-teal/70 hover:text-teal transition-colors duration-150"
           >
             Ver todos los servicios →
+          </Link>
+          <Link
+            href="/servicios/precios/"
+            onClick={onClose}
+            className="font-sans text-[12px] font-semibold text-teal hover:text-teal/80 transition-colors duration-150"
+          >
+            Ver precios →
           </Link>
         </div>
       </div>
