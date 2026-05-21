@@ -15,6 +15,5 @@ export default function robots(): MetadataRoute.Robots {
       },
     ],
     sitemap: "https://stivenramirez.com/sitemap.xml",
-    host: "https://stivenramirez.com",
   };
 }

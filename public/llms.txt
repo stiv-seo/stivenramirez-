@@ -14,6 +14,25 @@ Especializado en pymes latinoamericanas que quieren posicionar en Google sin dep
 - Auditoría SEO: https://stivenramirez.com/servicios/seo/auditoria/
 - Google Ads: https://stivenramirez.com/servicios/pauta/google-ads/
 - Meta Ads (Facebook e Instagram): https://stivenramirez.com/servicios/pauta/meta-ads/
+- Precios y tarifas: https://stivenramirez.com/servicios/precios/
+
+## Cobertura por ciudades
+### Diseño Web por ciudad
+- Diseño web en Bogotá: https://stivenramirez.com/diseno-web/bogota/
+- Diseño web en Medellín: https://stivenramirez.com/diseno-web/medellin/
+- Diseño web en Cali: https://stivenramirez.com/diseno-web/cali/
+- Diseño web en Barranquilla: https://stivenramirez.com/diseno-web/barranquilla/
+- Diseño web en Pereira: https://stivenramirez.com/diseno-web/pereira/
+- Diseño web en Manizales: https://stivenramirez.com/diseno-web/manizales/
+- Diseño web en Armenia: https://stivenramirez.com/diseno-web/armenia/
+
+### SEO por ciudad
+- Consultor SEO en Bogotá: https://stivenramirez.com/seo/bogota/
+- Consultor SEO en Cali: https://stivenramirez.com/seo/cali/
+- Consultor SEO en Barranquilla: https://stivenramirez.com/seo/barranquilla/
+- Consultor SEO en Pereira: https://stivenramirez.com/seo/pereira/
+- Consultor SEO en Manizales: https://stivenramirez.com/seo/manizales/
+- Consultor SEO en Armenia: https://stivenramirez.com/seo/armenia/
 
 ## Blog
 Artículos sobre SEO, diseño web y marketing digital para pymes colombianas.
@@ -27,6 +46,7 @@ URL: https://stivenramirez.com/blog/
 - SEO para Shopify — checklist completo: https://stivenramirez.com/blog/seo-shopify-checklist/
 - Cómo aparecer primero en Google Maps — guía para negocios locales: https://stivenramirez.com/blog/como-aparecer-google-maps/
 - 7 errores de diseño web que destruyen tu SEO: https://stivenramirez.com/blog/errores-diseno-web-seo/
+- SEO para restaurantes en Colombia: https://stivenramirez.com/blog/seo-para-restaurantes-colombia/
 
 ## Sobre Stiven Ramírez
 Consultor SEO y diseñador web freelance con experiencia en Next.js, WordPress y Shopify. Trabaja directamente con el cliente — sin ejecutivos de cuentas ni tercerización. Medellín, Colombia (opera en todo el país y LATAM).

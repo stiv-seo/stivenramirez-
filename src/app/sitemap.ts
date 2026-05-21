@@ -36,12 +36,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/servicios/precios/`,           lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
   ];
 
-  const ciudadRoutes: MetadataRoute.Sitemap = CIUDADES.map((c) => ({
-    url: `${BASE}/diseno-web/${c.slug}/`,
-    lastModified: new Date(),
-    changeFrequency: "monthly" as const,
-    priority: 0.8,
-  }));
+  const ciudadRoutes: MetadataRoute.Sitemap = [
+    ...CIUDADES.map((c) => ({
+      url: `${BASE}/diseno-web/${c.slug}/`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    })),
+    ...CIUDADES.map((c) => ({
+      url: `${BASE}/seo/${c.slug}/`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    })),
+  ];
 
   const posts = getAllPosts();
   const postRoutes: MetadataRoute.Sitemap = posts.map((post) => ({
