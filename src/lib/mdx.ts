@@ -23,6 +23,7 @@ export interface PostMeta {
   metaTitle?: string;
   description: string;
   date: string;
+  dateModified?: string;
   category: string;
   readTime: string;
 }
@@ -49,6 +50,7 @@ export function getAllPosts(): PostMeta[] {
         metaTitle: data.metaTitle ?? undefined,
         description: data.description ?? "",
         date: data.date ?? "",
+        dateModified: data.dateModified ?? undefined,
         category: data.category ?? "",
         readTime: data.readTime ?? "",
       } satisfies PostMeta;
@@ -81,6 +83,7 @@ export function getPostBySlug(slug: string): Post | null {
     metaTitle: data.metaTitle ?? undefined,
     description: data.description ?? "",
     date: data.date ?? "",
+    dateModified: data.dateModified ?? undefined,
     category: data.category ?? "",
     readTime: data.readTime ?? "",
     content,
