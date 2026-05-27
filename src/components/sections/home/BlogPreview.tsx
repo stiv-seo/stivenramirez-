@@ -8,7 +8,7 @@ import { getAllPosts } from "@/lib/mdx";
 import { formatDate } from "@/lib/utils";
 
 export function BlogPreview() {
-  const recentPosts = getAllPosts().slice(0, 3);
+  const recentPosts = getAllPosts().slice(0, 4);
   return (
     <section
       className="bg-off-white"
@@ -32,7 +32,7 @@ export function BlogPreview() {
         </FadeIn>
 
         {/* Posts grid */}
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {recentPosts.map((post, i) => (
             <FadeIn key={post.slug} delay={i * 0.1}>
               <Link

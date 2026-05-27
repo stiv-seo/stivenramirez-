@@ -11,6 +11,8 @@ import { BlogPreview } from "@/components/sections/home/BlogPreview";
 import { FAQ } from "@/components/sections/home/FAQ";
 import { TechStack } from "@/components/sections/home/TechStack";
 import { CTAFinal } from "@/components/sections/home/CTAFinal";
+import { localBusinessSchema } from "@/lib/schema";
+import { SITE_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
   title: { absolute: "Stiven Ramírez | Consultor SEO & Diseño Web Medellín" },
@@ -19,9 +21,49 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://stivenramirez.com/" },
 };
 
+const localBiz = localBusinessSchema({
+  name: "Stiven Ramírez - Consultor SEO Medellín",
+  description:
+    "Consultor SEO freelance y diseñador web en Medellín. WordPress y Shopify que posicionan en Google desde el día 1. Sin agencia, resultados medibles.",
+  url: SITE_URL,
+  telephone: "+57-301-578-7350",
+  address: { city: "Medellín", region: "Antioquia", country: "CO" },
+});
+
+const person = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Stiven Ramírez",
+  url: SITE_URL,
+  jobTitle: "Consultor SEO",
+  description:
+    "Consultor SEO freelance y diseñador web en Medellín con más de 4 años posicionando pymes colombianas en Google.",
+  homeLocation: {
+    "@type": "Place",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Medellín",
+      addressRegion: "Antioquia",
+      addressCountry: "CO",
+    },
+  },
+  sameAs: [
+    "https://www.instagram.com/stiv.seo/",
+    "https://www.linkedin.com/in/stivenramirez/",
+  ],
+};
+
 export default function HomePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBiz) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(person) }}
+      />
       <Hero />
       <StatsStrip />
       <Agitation />
