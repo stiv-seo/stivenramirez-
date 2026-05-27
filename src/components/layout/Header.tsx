@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/Button";
@@ -15,17 +14,33 @@ function Logo() {
   return (
     <Link
       href="/"
-      className="shrink-0 transition-opacity duration-200 hover:opacity-85"
+      className="shrink-0 flex items-center gap-3.5 transition-opacity duration-200 hover:opacity-85"
       aria-label="Stiven Ramírez — Inicio"
     >
-      <Image
-        src="/logo.png"
-        alt="Stiven Ramírez — Diseño Web & SEO"
-        width={140}
-        height={40}
-        priority
-        className="h-10 w-auto object-contain"
-      />
+      {/* Mark */}
+      <div className="w-11 h-11 rounded-[9px] bg-teal flex items-center justify-center shrink-0">
+        <span
+          className="font-jakarta font-extrabold text-midnight leading-none"
+          style={{ fontSize: "22px", letterSpacing: "-0.05em" }}
+        >
+          SR
+        </span>
+      </div>
+      {/* Wordmark */}
+      <div className="flex flex-col gap-[5px]">
+        <span
+          className="font-jakarta font-extrabold text-off-white leading-none"
+          style={{ fontSize: "18px", letterSpacing: "-0.03em" }}
+        >
+          Stiven Ramírez
+        </span>
+        <span
+          className="font-sans font-medium uppercase text-off-white/50"
+          style={{ fontSize: "9px", letterSpacing: "3px" }}
+        >
+          Diseño Web &amp; SEO
+        </span>
+      </div>
     </Link>
   );
 }

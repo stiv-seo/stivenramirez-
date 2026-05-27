@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { Divider } from "@/components/ui/Divider";
 import { FOOTER_LINKS, SITE_NAME, SITE_TAGLINE, WA_URL, CALENDLY_URL, INSTAGRAM_URL } from "@/lib/constants";
 
@@ -9,16 +8,31 @@ function FooterLogo() {
   return (
     <Link
       href="/"
-      className="shrink-0 transition-opacity duration-200 hover:opacity-85 w-fit"
+      className="shrink-0 flex items-center gap-3.5 transition-opacity duration-200 hover:opacity-85 w-fit"
       aria-label="Stiven Ramírez — Inicio"
     >
-      <Image
-        src="/logo.png"
-        alt="Stiven Ramírez — Diseño Web & SEO"
-        width={140}
-        height={40}
-        className="h-10 w-auto object-contain"
-      />
+      <div className="w-11 h-11 rounded-[9px] bg-teal flex items-center justify-center shrink-0">
+        <span
+          className="font-jakarta font-extrabold text-midnight leading-none"
+          style={{ fontSize: "22px", letterSpacing: "-0.05em" }}
+        >
+          SR
+        </span>
+      </div>
+      <div className="flex flex-col gap-[5px]">
+        <span
+          className="font-jakarta font-extrabold text-off-white leading-none"
+          style={{ fontSize: "18px", letterSpacing: "-0.03em" }}
+        >
+          Stiven Ramírez
+        </span>
+        <span
+          className="font-sans font-medium uppercase text-off-white/50"
+          style={{ fontSize: "9px", letterSpacing: "3px" }}
+        >
+          Diseño Web &amp; SEO
+        </span>
+      </div>
     </Link>
   );
 }
