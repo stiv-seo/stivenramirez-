@@ -34,6 +34,12 @@ export default async function Image({
   if (slug === "errores-diseno-web-seo") {
     return new ImageResponse(<ErroresDisenoWebOG />, { width: 1200, height: 630 });
   }
+  if (slug === "cuanto-cuesta-el-seo-colombia") {
+    return new ImageResponse(<CuantoCuestaElSeoOG />, { width: 1200, height: 630 });
+  }
+  if (slug === "seo-para-restaurantes-colombia") {
+    return new ImageResponse(<RestaurantesOG />, { width: 1200, height: 630 });
+  }
 
   // Generic fallback for posts without a custom banner
   return new ImageResponse(
@@ -631,6 +637,160 @@ function ErroresDisenoWebOG() {
         <div style={{ position: "absolute", left: "50%", top: "50%", width: 110, height: 4, background: `linear-gradient(90deg, rgba(0,196,180,0) 0%, ${TEAL} 25%, #5beedc 50%, ${TEAL} 75%, rgba(0,196,180,0) 100%)`, boxShadow: "0 0 18px rgba(0,196,180,0.7)", transform: "translate(-50%,-50%) rotate(45deg)" }} />
         <div style={{ position: "absolute", left: "50%", top: "50%", width: 110, height: 4, background: `linear-gradient(90deg, rgba(0,196,180,0) 0%, ${TEAL} 25%, #5beedc 50%, ${TEAL} 75%, rgba(0,196,180,0) 100%)`, boxShadow: "0 0 18px rgba(0,196,180,0.7)", transform: "translate(-50%,-50%) rotate(-45deg)" }} />
         <div style={{ position: "absolute", left: "50%", top: "50%", width: 10, height: 10, borderRadius: "50%", background: "#fff", boxShadow: "0 0 14px rgba(255,255,255,0.85)", transform: "translate(-50%,-50%)" }} />
+      </div>
+    </div>
+  );
+}
+
+// ─── Cuánto cuesta el SEO Colombia — tier bars ───────────────────────────────
+
+function CuantoCuestaElSeoOG() {
+  const bg = "radial-gradient(800px 540px at 62% 50%, rgba(0,196,180,0.10) 0%, rgba(0,196,180,0.03) 35%, transparent 65%), linear-gradient(180deg, #11141c 0%, #0d1117 50%, #0a0c12 100%)";
+
+  // Horizontal tier bars: railX=72, barH=30, stride=86, startY=128
+  const TIERS = [
+    { w: 110, teal: false, bg: "rgba(255,255,255,0.05)" },
+    { w: 195, teal: false, bg: "rgba(255,255,255,0.08)" },
+    { w: 295, teal: true,  bg: "linear-gradient(90deg, rgba(0,196,180,0.50) 0%, rgba(0,196,180,0.15) 100%)" },
+    { w: 375, teal: false, bg: "rgba(255,255,255,0.08)" },
+    { w: 460, teal: false, bg: "rgba(255,255,255,0.05)" },
+  ];
+  const railX = 72, barH = 30, stride = 86, startY = 128;
+
+  return (
+    <div style={{ ...stage, background: bg }}>
+      <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, backgroundImage: "linear-gradient(to right, rgba(255,255,255,0.06) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.06) 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
+      <Corner />
+      <ScanLine />
+
+      {/* Vertical rail */}
+      <div style={{ position: "absolute", left: railX, top: startY, width: 1, height: 374, background: "linear-gradient(180deg, transparent 0%, rgba(255,255,255,0.22) 12%, rgba(255,255,255,0.22) 88%, transparent 100%)" }} />
+
+      {/* Tier bars */}
+      {TIERS.map((bar, i) => (
+        <div key={i} style={{
+          position: "absolute",
+          left: railX,
+          top: startY + i * stride,
+          width: bar.w,
+          height: barH,
+          background: bar.bg,
+          border: bar.teal ? "1px solid rgba(0,196,180,0.65)" : "1px solid rgba(255,255,255,0.09)",
+          borderLeft: "none",
+          boxShadow: bar.teal ? "0 0 24px rgba(0,196,180,0.28)" : undefined,
+        }} />
+      ))}
+
+      {/* Tick marks */}
+      {TIERS.map((_, i) => (
+        <div key={i} style={{ position: "absolute", left: railX - 5, top: startY + i * stride + 14, width: 10, height: 1, background: "rgba(255,255,255,0.28)" }} />
+      ))}
+
+      {/* Dashed trend line + focal dot on teal bar */}
+      <svg width={600} height={630} style={{ position: "absolute", top: 0, left: 0 }}>
+        <g stroke="rgba(0,196,180,0.35)" strokeWidth="1" fill="none" strokeDasharray="3 5">
+          <polyline points="182,143 267,229 367,315 447,401 532,487" />
+        </g>
+        <circle cx="367" cy="315" r="4" fill={TEAL} />
+      </svg>
+
+      {/* Diamond accent on teal bar end */}
+      <div style={{ position: "absolute", left: 385, top: 310, width: 10, height: 10, background: TEAL, transform: "rotate(45deg)", boxShadow: "0 0 14px rgba(0,196,180,0.65)" }} />
+
+      {/* RIGHT: rings + focal diamond */}
+      <div style={{ position: "absolute", top: 0, right: 0, width: 600, bottom: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <div style={{ position: "relative", width: 360, height: 360, display: "flex", alignItems: "center", justifyContent: "center" }}>
+          {[320, 230, 130].map((s, i) => (
+            <div key={i} style={{ position: "absolute", width: s, height: s, borderRadius: "50%", border: `1px solid ${i === 2 ? "rgba(0,196,180,0.45)" : i === 1 ? "rgba(255,255,255,0.10)" : "rgba(255,255,255,0.06)"}` }} />
+          ))}
+          <div style={{ position: "absolute", left: -40, right: -40, height: 1, top: "50%", background: "linear-gradient(90deg, transparent, rgba(0,196,180,0.45), transparent)" }} />
+          <div style={{ position: "absolute", top: -40, bottom: -40, width: 1, left: "50%", background: "linear-gradient(180deg, transparent, rgba(0,196,180,0.45), transparent)" }} />
+          <div style={{ position: "absolute", width: 130, height: 130 }}>
+            <div style={{ position: "absolute", top: 0, left: 0, width: 14, height: 14, borderTop: `1px solid ${TEAL}`, borderLeft: `1px solid ${TEAL}` }} />
+            <div style={{ position: "absolute", top: 0, right: 0, width: 14, height: 14, borderTop: `1px solid ${TEAL}`, borderRight: `1px solid ${TEAL}` }} />
+            <div style={{ position: "absolute", bottom: 0, left: 0, width: 14, height: 14, borderBottom: `1px solid ${TEAL}`, borderLeft: `1px solid ${TEAL}` }} />
+            <div style={{ position: "absolute", bottom: 0, right: 0, width: 14, height: 14, borderBottom: `1px solid ${TEAL}`, borderRight: `1px solid ${TEAL}` }} />
+          </div>
+          <div style={{ position: "relative", width: 80, height: 80, background: "linear-gradient(135deg, #5beedc 0%, #00C4B4 55%, rgba(0,196,180,0) 100%)", boxShadow: "0 0 50px rgba(0,196,180,0.55)", transform: "rotate(45deg)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <div style={{ width: 28, height: 28, background: "#fff", boxShadow: "0 0 12px rgba(255,255,255,0.85)" }} />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ─── SEO para restaurantes Colombia — local pins + path ───────────────────────
+
+function RestaurantesOG() {
+  const bg = "radial-gradient(700px 540px at 50% 50%, rgba(0,196,180,0.10) 0%, rgba(0,196,180,0.03) 35%, transparent 65%), linear-gradient(180deg, #11141c 0%, #0d1117 50%, #0a0c12 100%)";
+
+  // Pin positions (left panel)
+  const PINS = [
+    { x: 120, y: 160, dim: true  }, { x: 200, y: 280, dim: false },
+    { x: 320, y: 120, dim: false }, { x: 380, y: 300, dim: true  },
+    { x: 260, y: 400, dim: true  }, { x: 450, y: 200, dim: false },
+    { x: 160, y: 440, dim: true  }, { x: 400, y: 430, dim: true  },
+  ];
+  // Focal pin at left-panel center
+  const fx = 280, fy = 260;
+
+  return (
+    <div style={{ ...stage, background: bg }}>
+      <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, backgroundImage: "linear-gradient(to right, rgba(255,255,255,0.06) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.06) 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
+      {/* Street lines */}
+      <svg width={600} height={630} style={{ position: "absolute", top: 0, left: 0 }}>
+        <g stroke="rgba(255,255,255,0.05)" strokeWidth="1" fill="none">
+          <line x1="-40" y1="480" x2="640" y2="80"  />
+          <line x1="-40" y1="200" x2="640" y2="600" />
+          <line x1="-40" y1="320" x2="640" y2="320" />
+          <line x1="280"  y1="-40" x2="280" y2="670" />
+        </g>
+        {/* Path to focal pin */}
+        <g stroke="rgba(0,196,180,0.40)" strokeWidth="1.25" fill="none" strokeDasharray="4 4">
+          <line x1={PINS[1].x} y1={PINS[1].y} x2={fx} y2={fy} />
+          <line x1={PINS[2].x} y1={PINS[2].y} x2={fx} y2={fy} />
+          <line x1={PINS[5].x} y1={PINS[5].y} x2={fx} y2={fy} />
+        </g>
+      </svg>
+      <Corner />
+      <ScanLine />
+
+      {/* Competitor pins */}
+      {PINS.map((pin, i) => (
+        <div key={i} style={{ position: "absolute", left: pin.x - 8, top: pin.y - 24, width: 16, height: 24 }}>
+          <div style={{ width: 16, height: 16, transform: "rotate(45deg)", border: `1px solid ${pin.dim ? "rgba(255,255,255,0.18)" : "rgba(255,255,255,0.35)"}`, background: "rgba(255,255,255,0.03)", margin: "auto" }} />
+        </div>
+      ))}
+
+      {/* Focal pin (teal, prominent) */}
+      <div style={{ position: "absolute", left: fx - 24, top: fy - 48, width: 48, height: 48, background: "linear-gradient(135deg, #5beedc 0%, #00C4B4 60%, rgba(0,196,180,0) 100%)", boxShadow: "0 0 40px rgba(0,196,180,0.55)", transform: "rotate(45deg)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <div style={{ width: 18, height: 18, background: "#fff", boxShadow: "0 0 10px rgba(255,255,255,0.85)" }} />
+      </div>
+
+      {/* Rings around focal pin */}
+      {[120, 80].map((s, i) => (
+        <div key={i} style={{ position: "absolute", left: fx - s/2, top: fy - s/2, width: s, height: s, borderRadius: "50%", border: `1px solid ${i === 1 ? "rgba(0,196,180,0.40)" : "rgba(255,255,255,0.10)"}` }} />
+      ))}
+
+      {/* RIGHT: search bar + rings */}
+      <div style={{ position: "absolute", top: 0, right: 0, width: 600, bottom: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <div style={{ position: "relative", width: 380, height: 380, display: "flex", alignItems: "center", justifyContent: "center" }}>
+          {[340, 250, 140].map((s, i) => (
+            <div key={i} style={{ position: "absolute", width: s, height: s, borderRadius: "50%", border: `1px solid ${i === 2 ? "rgba(0,196,180,0.45)" : i === 1 ? "rgba(255,255,255,0.10)" : "rgba(255,255,255,0.06)"}` }} />
+          ))}
+          <div style={{ position: "absolute", left: -40, right: -40, height: 1, top: "50%", background: "linear-gradient(90deg, transparent, rgba(0,196,180,0.45), transparent)" }} />
+          <div style={{ position: "absolute", top: -40, bottom: -40, width: 1, left: "50%", background: "linear-gradient(180deg, transparent, rgba(0,196,180,0.45), transparent)" }} />
+          <div style={{ position: "absolute", width: 140, height: 140 }}>
+            <div style={{ position: "absolute", top: 0, left: 0, width: 14, height: 14, borderTop: `1px solid ${TEAL}`, borderLeft: `1px solid ${TEAL}` }} />
+            <div style={{ position: "absolute", top: 0, right: 0, width: 14, height: 14, borderTop: `1px solid ${TEAL}`, borderRight: `1px solid ${TEAL}` }} />
+            <div style={{ position: "absolute", bottom: 0, left: 0, width: 14, height: 14, borderBottom: `1px solid ${TEAL}`, borderLeft: `1px solid ${TEAL}` }} />
+            <div style={{ position: "absolute", bottom: 0, right: 0, width: 14, height: 14, borderBottom: `1px solid ${TEAL}`, borderRight: `1px solid ${TEAL}` }} />
+          </div>
+          <div style={{ position: "relative", width: 80, height: 80, background: "linear-gradient(135deg, #5beedc 0%, #00C4B4 55%, rgba(0,196,180,0) 100%)", boxShadow: "0 0 50px rgba(0,196,180,0.55)", transform: "rotate(45deg)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <div style={{ width: 28, height: 28, background: "#fff", boxShadow: "0 0 12px rgba(255,255,255,0.85)" }} />
+          </div>
+        </div>
       </div>
     </div>
   );
