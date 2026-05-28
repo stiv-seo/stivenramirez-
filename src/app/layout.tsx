@@ -30,13 +30,6 @@ export const metadata: Metadata = {
   },
   description:
     "Consultor SEO freelance y diseñador web en Medellín. WordPress y Shopify que posicionan en Google desde el día 1. Para pymes sin agencia.",
-  keywords: [
-    "diseño web colombia",
-    "consultor seo colombia",
-    "wordpress seo",
-    "shopify seo",
-    "diseño web medellin",
-  ],
   authors: [{ name: "Stiven Ramírez" }],
   creator: "Stiven Ramírez",
   icons: {

@@ -177,11 +177,24 @@ export function articleSchema(props: ArticleSchemaProps): object {
       url: SITE_URL,
     },
     publisher: {
-      "@type": "Person",
+      "@type": "Organization",
       name: SITE_NAME,
       url: SITE_URL,
+      logo: {
+        "@type": "ImageObject",
+        url: `${SITE_URL}/logo.png`,
+      },
     },
-    ...(props.image ? { image: props.image } : {}),
+    ...(props.image
+      ? {
+          image: {
+            "@type": "ImageObject",
+            url: props.image,
+            width: 1200,
+            height: 630,
+          },
+        }
+      : {}),
   };
 }
 
