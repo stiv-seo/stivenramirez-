@@ -4,7 +4,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/Button";
-import { MobileMenu } from "./MobileMenu";
+import dynamic from "next/dynamic";
+const MobileMenu = dynamic(() => import("./MobileMenu").then((m) => m.MobileMenu), { ssr: false });
 import { NAV_LINKS, SERVICES_DROPDOWN, WA_URL } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 

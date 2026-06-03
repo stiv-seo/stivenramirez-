@@ -77,3 +77,22 @@ body {
 }
 .section-number--light { color: rgba(0, 196, 180, 0.06); }
 .section-number--dark  { color: rgba(0, 196, 180, 0.04); }
+
+/* ─── Hero entrance animations (CSS — no JS bundle) ────────────────────────── */
+
+@keyframes heroFadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes heroFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes heroScale {
+  from { opacity: 0; transform: scale(0.97); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.hero-anim-up   { animation: heroFadeUp  0.6s ease-out both; }
+.hero-anim-fade { animation: heroFadeIn  0.6s ease-out both; }
+.hero-anim-scale{ animation: heroScale   0.7s ease-out both; }

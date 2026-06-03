@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
@@ -68,41 +65,30 @@ export function Hero() {
           >
             {/* Left — copy */}
             <div>
-              <motion.div
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, ease: "easeOut" as const }}
+              <p
+                className="hero-anim-up font-sans text-[11px] font-semibold tracking-[4px] uppercase text-teal mb-5"
+                style={{ animationDelay: "0s" }}
               >
-                <p className="font-sans text-[11px] font-semibold tracking-[4px] uppercase text-teal mb-5">
-                  Freelance SEO &amp; Diseño Web · Medellín, Colombia
-                </p>
-              </motion.div>
+                Freelance SEO &amp; Diseño Web · Medellín, Colombia
+              </p>
 
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, ease: "easeOut" as const, delay: 0.1 }}
-                className="font-jakarta font-extrabold text-white leading-[1.05] tracking-[-1.5px] mb-6"
-                style={{ fontSize: "clamp(40px, 5vw, 64px)" }}
+              <h1
+                className="hero-anim-up font-jakarta font-extrabold text-white leading-[1.05] tracking-[-1.5px] mb-6"
+                style={{ fontSize: "clamp(40px, 5vw, 64px)", animationDelay: "0.1s" }}
               >
                 Diseño webs que posicionan en Google y generan ventas.
-              </motion.h1>
+              </h1>
 
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, ease: "easeOut" as const, delay: 0.2 }}
-                className="font-sans text-slate-light leading-[1.75] mb-8 max-w-[560px]"
-                style={{ fontSize: "clamp(16px, 1.2vw, 18px)" }}
+              <p
+                className="hero-anim-up font-sans text-slate-light leading-[1.75] mb-8 max-w-[560px]"
+                style={{ fontSize: "clamp(16px, 1.2vw, 18px)", animationDelay: "0.2s" }}
               >
                 Sitios WordPress y Shopify con SEO integrado desde el primer elemento. No contratas a un diseñador y luego a un SEO — lo tienes todo en uno.
-              </motion.p>
+              </p>
 
-              <motion.div
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, ease: "easeOut" as const, delay: 0.3 }}
-                className="flex flex-wrap gap-3 mb-10"
+              <div
+                className="hero-anim-up flex flex-wrap gap-3 mb-10"
+                style={{ animationDelay: "0.3s" }}
               >
                 <Button variant="primary" size="lg" href={CALENDLY_URL} external>
                   Agendar llamada gratis →
@@ -110,14 +96,12 @@ export function Hero() {
                 <Button variant="border" size="lg" href="/servicios/">
                   Ver servicios
                 </Button>
-              </motion.div>
+              </div>
 
               {/* Tool pills */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.6, delay: 0.45 }}
-                className="flex flex-wrap gap-2"
+              <div
+                className="hero-anim-fade flex flex-wrap gap-2"
+                style={{ animationDelay: "0.45s" }}
               >
                 {toolPills.map((pill) => (
                   <span
@@ -129,15 +113,13 @@ export function Hero() {
                     {pill.abbr}
                   </span>
                 ))}
-              </motion.div>
+              </div>
             </div>
 
-            {/* Right — foto placeholder */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.97 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.7, ease: "easeOut" as const, delay: 0.2 }}
-              className="hidden lg:block"
+            {/* Right — foto */}
+            <div
+              className="hero-anim-scale hidden lg:block"
+              style={{ animationDelay: "0.2s" }}
             >
               <div
                 className="relative w-full rounded-2xl overflow-hidden bg-navy"
@@ -153,7 +135,7 @@ export function Hero() {
                 />
                 <div className="absolute inset-0 rounded-2xl ring-1 ring-white/5" aria-hidden="true" />
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </Container>

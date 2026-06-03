@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Button } from "@/components/ui/Button";
@@ -50,22 +49,18 @@ function FaqAccordionItem({
         </span>
       </button>
 
-      <AnimatePresence initial={false}>
-        {isOpen && (
-          <motion.div
-            key="answer"
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.28, ease: "easeInOut" as const }}
-            className="overflow-hidden"
-          >
-            <p className="font-sans text-text-mid text-sm leading-[1.75] pb-5 pr-10">
-              {item.answer}
-            </p>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <div
+        className="overflow-hidden"
+        style={{
+          maxHeight: isOpen ? "400px" : "0",
+          opacity: isOpen ? 1 : 0,
+          transition: "max-height 0.28s ease-in-out, opacity 0.28s ease-in-out",
+        }}
+      >
+        <p className="font-sans text-text-mid text-sm leading-[1.75] pb-5 pr-10">
+          {item.answer}
+        </p>
+      </div>
     </div>
   );
 }
