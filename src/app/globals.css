@@ -139,3 +139,72 @@ body {
   transition: background-color 220ms cubic-bezier(0.32,0.72,0,1);
 }
 .service-row:hover { background-color: rgba(0,196,180,0.04); }
+
+/* ─── Home v2 — Mobile responsive overrides ─────────────────────────────── */
+
+/* Hero: single column, hide photo */
+@media (max-width: 767px) {
+  [data-hero-grid] {
+    grid-template-columns: 1fr !important;
+    padding-top: 100px !important;
+  }
+  [data-hero-photo] {
+    display: none !important;
+  }
+}
+
+/* Bento services: collapse to single column */
+@media (max-width: 767px) {
+  [data-bento-grid] {
+    grid-template-columns: 1fr !important;
+  }
+  [data-bento-grid] > * {
+    grid-column: 1 !important;
+    grid-row: auto !important;
+    min-height: 260px !important;
+  }
+}
+
+/* Metrics: 2×2 on mobile */
+@media (max-width: 767px) {
+  [data-metrics-grid] {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  [data-metrics-grid] > * {
+    border-right: none !important;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+}
+
+/* Testimonial: single column */
+@media (max-width: 767px) {
+  [data-testimonial-grid] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* About: single column */
+@media (max-width: 767px) {
+  [data-about-grid] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* CTA: single column */
+@media (max-width: 767px) {
+  [data-cta-grid] {
+    grid-template-columns: 1fr !important;
+    align-items: flex-start !important;
+  }
+  [data-cta-actions] {
+    align-items: flex-start !important;
+  }
+}
+
+/* BigStatement: single column */
+@media (max-width: 767px) {
+  [data-statement-grid] {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+}

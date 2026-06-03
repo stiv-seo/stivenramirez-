@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { HeroTeal } from "@/components/sections/home-v2/HeroTeal";
 import { LogoStrip } from "@/components/sections/home-v2/LogoStrip";
+import { WorkPreview } from "@/components/sections/home-v2/WorkPreview";
+import { BigStatement } from "@/components/sections/home-v2/BigStatement";
 import { BentoServices } from "@/components/sections/home-v2/BentoServices";
 import { ScrollRevealProof } from "@/components/sections/home-v2/ScrollRevealProof";
-import { BigStatement } from "@/components/sections/home-v2/BigStatement";
 import { TestimonialSpotlight } from "@/components/sections/home-v2/TestimonialSpotlight";
 import { AboutEditorial } from "@/components/sections/home-v2/AboutEditorial";
 import { CTACommand } from "@/components/sections/home-v2/CTACommand";
@@ -37,9 +38,10 @@ export default function HomePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(person) }} />
       <HeroTeal />
       <LogoStrip />
+      <WorkPreview />
+      <BigStatement />
       <BentoServices />
       <ScrollRevealProof />
-      <BigStatement />
       <TestimonialSpotlight />
       <AboutEditorial />
       <CTACommand />

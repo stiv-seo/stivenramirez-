@@ -1,151 +1,330 @@
 "use client";
+
+import { useRef } from "react";
+import {
+  motion,
+  useReducedMotion,
+  useScroll,
+  useTransform,
+} from "framer-motion";
 import Link from "next/link";
 
 /*
-  Gapless bento — 12-col grid math:
-  Card A: col-span-7 row-span-2 (featured dark)
-  Card B: col-span-5 row-span-1 (light)
-  Card C: col-span-5 row-span-1 (light)
-  = 7+5 = 12 ✓ | Row 1: A+B | Row 2: A+C → zero gaps
-  grid-auto-flow: dense applied
+  Sticky Stack — 3 cards apiladas al scroll.
+  Cada card: position: sticky; top: 0; min-height: 100dvh
+  z-index incremental: la siguiente siempre encima.
+  useScroll mide el progress de cada wrapper y aplica scale + opacity.
+  Resultado visual: la nueva card sube sobre la anterior que se achica.
 */
 
+const SERVICES = [
+  {
+    num: "01",
+    title: "Diseño web con SEO",
+    sub: "WordPress y Shopify",
+    body: "Sitio profesional construido con arquitectura SEO, velocidad optimizada y schema markup desde el día del lanzamiento. No diseño y luego optimizo — todo ocurre en paralelo.",
+    features: [
+      "Arquitectura SEO On-Page",
+      "Core Web Vitals optimizados",
+      "Schema markup integrado",
+      "Sitemap y robots.txt configurados",
+    ],
+    price: "Desde $3.500.000 COP",
+    href: "/servicios/diseno-web/seo/",
+    bg: "#0B1829",
+    accent: "#00C4B4",
+    textColor: "#F7F5F0",
+    subColor: "rgba(247,245,240,0.42)",
+  },
+  {
+    num: "02",
+    title: "SEO continuo mensual",
+    sub: "Posicionamiento orgánico",
+    body: "Estrategia de contenido, optimización técnica y linkbuilding mes a mes. Reportes con datos reales de Google Search Console. Sin contratos trampa.",
+    features: [
+      "Auditoría mensual",
+      "Contenido optimizado",
+      "Link building editorial",
+      "Reporte GSC mensual",
+    ],
+    price: "Desde $1.300.000/mes",
+    href: "/servicios/seo/consultoria/",
+    bg: "#F7F5F0",
+    accent: "#00C4B4",
+    textColor: "#0B1829",
+    subColor: "#5E6E82",
+  },
+  {
+    num: "03",
+    title: "Google y Meta Ads",
+    sub: "Pauta digital",
+    body: "Campañas de pago diseñadas para acelerar resultados mientras el SEO orgánico madura. Segmentación precisa, creatividades propias y optimización semanal.",
+    features: [
+      "Configuración de campañas",
+      "Creatividades incluidas",
+      "Optimización semanal",
+      "Reportes de ROAS",
+    ],
+    price: "Desde $1.500.000/mes",
+    href: "/servicios/pauta/",
+    bg: "#0F2D52",
+    accent: "#F59E0B",
+    textColor: "#F7F5F0",
+    subColor: "rgba(247,245,240,0.42)",
+  },
+];
+
+/* ─── Individual sticky card ────────────────────────────────── */
+function StickyCard({
+  service,
+  index,
+  total,
+}: {
+  service: (typeof SERVICES)[0];
+  index: number;
+  total: number;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const isLast = index === total - 1;
+  const reduce = useReducedMotion();
+
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
+
+  /* Scale and opacity animate when the NEXT card slides over this one */
+  const scale = useTransform(
+    scrollYProgress,
+    [0.55, 1],
+    isLast ? [1, 1] : reduce ? [1, 1] : [1, 0.93]
+  );
+  const opacity = useTransform(
+    scrollYProgress,
+    [0.6, 1],
+    isLast ? [1, 1] : reduce ? [1, 1] : [1, 0.55]
+  );
+
+  return (
+    <div
+      ref={ref}
+      style={{
+        position: "sticky",
+        top: 0,
+        minHeight: "100dvh",
+        zIndex: index + 1,
+        display: "flex",
+        alignItems: "stretch",
+      }}
+    >
+      <motion.div
+        style={{
+          scale,
+          opacity,
+          flex: 1,
+          background: service.bg,
+          display: "flex",
+          alignItems: "center",
+          transformOrigin: "top center",
+        }}
+      >
+        <div
+          style={{
+            maxWidth: 1160,
+            margin: "0 auto",
+            padding: "clamp(48px,7vw,96px) clamp(24px,5vw,60px)",
+            width: "100%",
+            boxSizing: "border-box",
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            gap: "clamp(40px,6vw,100px)",
+            alignItems: "center",
+          }}
+        >
+          {/* Left: content */}
+          <div>
+            {/* Decorative large number */}
+            <p
+              aria-hidden
+              style={{
+                fontFamily: "var(--font-jakarta)",
+                fontWeight: 800,
+                fontSize: "clamp(5rem,10vw,10rem)",
+                color:
+                  service.bg === "#F7F5F0"
+                    ? "rgba(11,24,41,0.06)"
+                    : "rgba(247,245,240,0.05)",
+                letterSpacing: "-0.06em",
+                lineHeight: 1,
+                marginBottom: -16,
+                userSelect: "none",
+              }}
+            >
+              {service.num}
+            </p>
+
+            <p
+              style={{
+                fontFamily: "var(--font-sans)",
+                fontSize: 12,
+                fontWeight: 600,
+                letterSpacing: "0.1em",
+                color: service.accent,
+                marginBottom: 12,
+              }}
+            >
+              {service.sub.toUpperCase()}
+            </p>
+
+            <h2
+              style={{
+                fontFamily: "var(--font-jakarta)",
+                fontWeight: 700,
+                fontSize: "clamp(28px,3.5vw,48px)",
+                color: service.textColor,
+                letterSpacing: "-0.025em",
+                lineHeight: 1.08,
+                marginBottom: "clamp(16px,2vw,24px)",
+                textWrap: "balance",
+              }}
+            >
+              {service.title}
+            </h2>
+
+            <p
+              style={{
+                fontFamily: "var(--font-sans)",
+                fontSize: "clamp(15px,1.3vw,17px)",
+                color: service.subColor,
+                lineHeight: 1.72,
+                marginBottom: "clamp(24px,3vw,36px)",
+                textWrap: "pretty",
+              }}
+            >
+              {service.body}
+            </p>
+
+            <Link
+              href={service.href}
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 10,
+                padding: "13px 13px 13px 22px",
+                borderRadius: 99,
+                background: service.accent,
+                color:
+                  service.accent === "#F59E0B" ? "#0B1829" : "#0B1829",
+                fontFamily: "var(--font-jakarta)",
+                fontWeight: 600,
+                fontSize: "0.9375rem",
+                textDecoration: "none",
+                whiteSpace: "nowrap",
+                transition: "opacity 200ms",
+              }}
+              onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.opacity = "0.85")}
+              onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.opacity = "1")}
+            >
+              Ver más
+              <span
+                aria-hidden
+                style={{
+                  width: 32,
+                  height: 32,
+                  borderRadius: "50%",
+                  background: "rgba(0,0,0,0.1)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontSize: 15,
+                }}
+              >
+                →
+              </span>
+            </Link>
+          </div>
+
+          {/* Right: features + price */}
+          <div>
+            <div
+              style={{
+                borderRadius: 16,
+                border: `1px solid ${
+                  service.bg === "#F7F5F0"
+                    ? "rgba(11,24,41,0.08)"
+                    : "rgba(255,255,255,0.08)"
+                }`,
+                overflow: "hidden",
+              }}
+            >
+              {service.features.map((f, i) => (
+                <div
+                  key={f}
+                  style={{
+                    padding: "16px 20px",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 12,
+                    borderBottom:
+                      i < service.features.length - 1
+                        ? `1px solid ${
+                            service.bg === "#F7F5F0"
+                              ? "rgba(11,24,41,0.06)"
+                              : "rgba(255,255,255,0.06)"
+                          }`
+                        : "none",
+                  }}
+                >
+                  <span
+                    style={{ color: service.accent, fontSize: 12, flexShrink: 0 }}
+                    aria-hidden
+                  >
+                    ✓
+                  </span>
+                  <span
+                    style={{
+                      fontFamily: "var(--font-sans)",
+                      fontSize: 14,
+                      color: service.subColor,
+                    }}
+                  >
+                    {f}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            <p
+              style={{
+                fontFamily: "var(--font-jakarta)",
+                fontWeight: 700,
+                fontSize: "clamp(18px,2vw,26px)",
+                color: service.accent,
+                marginTop: 24,
+                letterSpacing: "-0.02em",
+              }}
+            >
+              {service.price}
+            </p>
+          </div>
+        </div>
+      </motion.div>
+    </div>
+  );
+}
+
+/* ─── Section wrapper ───────────────────────────────────────── */
 export function BentoServices() {
   return (
-    <section style={{ background: "#F7F5F0", padding: "clamp(80px,10vw,140px) 0" }}>
-      <div style={{ maxWidth: 1160, margin: "0 auto", padding: "0 clamp(24px,5vw,60px)" }}>
-
-        {/* Header — NO section number */}
-        <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", marginBottom: 48, flexWrap: "wrap", gap: 20 }}>
-          <h2 style={{
-            fontFamily: "var(--font-jakarta-sans)", fontWeight: 800,
-            fontSize: "clamp(28px,4vw,52px)",
-            color: "#0B1829", lineHeight: 1.06,
-            letterSpacing: "-0.03em", margin: 0,
-            textWrap: "balance",
-          }}>
-            Lo que construyo para ti.
-          </h2>
-          <p style={{
-            fontFamily: "var(--font-dm-sans)", fontSize: 15,
-            color: "#5E6E82", lineHeight: 1.7,
-            maxWidth: "38ch", margin: 0, textAlign: "right",
-          }}>
-            SEO integrado desde el primer elemento — no diseño y luego posiciono.
-          </p>
-        </div>
-
-        {/* Bento grid */}
-        <div style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(12, 1fr)",
-          gridAutoFlow: "dense",
-          gap: 16,
-        }}>
-
-          {/* A: Featured dark — col 1-7, rows 1-2 */}
-          <Link href="/servicios/diseno-web/wordpress/" style={{
-            gridColumn: "1 / 8",
-            gridRow: "1 / 3",
-            background: "#0B1829",
-            borderRadius: 20,
-            padding: "clamp(28px,3vw,44px)",
-            display: "flex", flexDirection: "column", justifyContent: "flex-end",
-            textDecoration: "none",
-            minHeight: 380,
-            position: "relative", overflow: "hidden",
-            transition: "transform 300ms cubic-bezier(0.16,1,0.3,1)",
-          }}
-          >
-            {/* Ambient blob */}
-            <div aria-hidden="true" style={{
-              position: "absolute", top: "-20%", right: "-10%",
-              width: "60%", height: "60%", borderRadius: "50%",
-              background: "radial-gradient(circle, rgba(0,196,180,0.12) 0%, transparent 70%)",
-              pointerEvents: "none",
-            }} />
-            <span style={{
-              position: "absolute", top: 28, right: 28,
-              background: "#00C4B4", color: "#040C15",
-              fontFamily: "var(--font-dm-sans)", fontSize: 10, fontWeight: 700,
-              letterSpacing: "2px", textTransform: "uppercase",
-              padding: "5px 12px", borderRadius: 99,
-            }}>Más popular</span>
-            <div style={{ position: "relative", zIndex: 1 }}>
-              <p style={{
-                fontFamily: "var(--font-dm-sans)", fontSize: 12,
-                color: "rgba(0,196,180,0.7)", letterSpacing: "1px",
-                textTransform: "uppercase", marginBottom: 12,
-              }}>Diseño Web</p>
-              <h3 style={{
-                fontFamily: "var(--font-jakarta-sans)", fontWeight: 800,
-                fontSize: "clamp(22px,2.5vw,34px)",
-                color: "white", lineHeight: 1.1,
-                letterSpacing: "-0.02em", marginBottom: 16,
-              }}>
-                WordPress & Shopify<br />con SEO integrado
-              </h3>
-              <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 14, color: "rgba(255,255,255,0.55)", lineHeight: 1.7, maxWidth: "40ch", marginBottom: 28 }}>
-                Sitio profesional con arquitectura SEO, velocidad optimizada y schema markup desde el día del lanzamiento.
-              </p>
-              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-                <span style={{ fontFamily: "var(--font-jakarta-sans)", fontWeight: 700, fontSize: 18, color: "#00C4B4" }}>
-                  Desde $3.500.000 COP
-                </span>
-                <span style={{
-                  width: 40, height: 40, borderRadius: "50%",
-                  border: "1px solid rgba(0,196,180,0.3)",
-                  display: "flex", alignItems: "center", justifyContent: "center",
-                  color: "#00C4B4", fontSize: 18,
-                }}>→</span>
-              </div>
-            </div>
-          </Link>
-
-          {/* B: SEO Mensual — col 8-12, row 1 */}
-          <Link href="/servicios/seo/" style={{
-            gridColumn: "8 / 13",
-            gridRow: "1 / 2",
-            background: "white",
-            borderRadius: 20,
-            padding: "clamp(24px,2.5vw,36px)",
-            display: "flex", flexDirection: "column",
-            textDecoration: "none",
-            border: "1px solid rgba(0,0,0,0.07)",
-            transition: "border-color 250ms ease-out, transform 300ms cubic-bezier(0.16,1,0.3,1)",
-          }}
-          >
-            <div style={{ width: 36, height: 36, borderRadius: 10, background: "rgba(0,196,180,0.1)", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 20 }}>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00C4B4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-            </div>
-            <h3 style={{ fontFamily: "var(--font-jakarta-sans)", fontWeight: 700, fontSize: 18, color: "#0B1829", marginBottom: 8 }}>SEO Continuo Mensual</h3>
-            <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 13, color: "#5E6E82", lineHeight: 1.65, flex: 1 }}>Posicionamiento orgánico mes a mes con estrategia, contenido y resultados medibles.</p>
-            <p style={{ fontFamily: "var(--font-jakarta-sans)", fontWeight: 700, fontSize: 15, color: "#0B1829", marginTop: 20 }}>Desde $1.300.000/mes</p>
-          </Link>
-
-          {/* C: Ads — col 8-12, row 2 */}
-          <Link href="/servicios/pauta/" style={{
-            gridColumn: "8 / 13",
-            gridRow: "2 / 3",
-            background: "#0B1829",
-            borderRadius: 20,
-            padding: "clamp(24px,2.5vw,36px)",
-            display: "flex", flexDirection: "column",
-            textDecoration: "none",
-            transition: "transform 300ms cubic-bezier(0.16,1,0.3,1)",
-          }}
-          >
-            <div style={{ width: 36, height: 36, borderRadius: 10, background: "rgba(245,158,11,0.15)", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 20 }}>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-            </div>
-            <h3 style={{ fontFamily: "var(--font-jakarta-sans)", fontWeight: 700, fontSize: 18, color: "white", marginBottom: 8 }}>Google, Meta & TikTok Ads</h3>
-            <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 13, color: "rgba(255,255,255,0.45)", lineHeight: 1.65, flex: 1 }}>Pauta digital para acelerar resultados mientras el SEO orgánico madura.</p>
-            <p style={{ fontFamily: "var(--font-jakarta-sans)", fontWeight: 700, fontSize: 15, color: "#F59E0B", marginTop: 20 }}>Desde $1.500.000/mes</p>
-          </Link>
-
-        </div>
-
-      </div>
+    <section aria-label="Servicios de diseño web y SEO">
+      {SERVICES.map((service, i) => (
+        <StickyCard
+          key={service.num}
+          service={service}
+          index={i}
+          total={SERVICES.length}
+        />
+      ))}
     </section>
   );
 }

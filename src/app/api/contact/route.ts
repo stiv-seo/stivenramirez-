@@ -130,23 +130,32 @@ export async function POST(req: NextRequest) {
   // Check API key
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
-    // Development fallback — log and pretend success
-    console.log("[contact] RESEND_API_KEY no configurado. Datos recibidos:", data);
-    return NextResponse.json({ ok: true, dev: true });
+    if (process.env.NODE_ENV === "development") {
+      console.warn("[contact] RESEND_API_KEY no configurado — omitiendo envío en desarrollo.");
+      return NextResponse.json({ ok: true, dev: true });
+    }
+    console.error("[contact] RESEND_API_KEY no configurado en producción.");
+    return NextResponse.json({ error: "Error de configuración del servidor." }, { status: 500 });
+  }
+
+  const contactEmail = process.env.CONTACT_EMAIL;
+  if (!contactEmail) {
+    console.error("[contact] CONTACT_EMAIL no configurado.");
+    return NextResponse.json({ error: "Error de configuración del servidor." }, { status: 500 });
   }
 
   // Send email
   const resend = new Resend(apiKey);
   const { error } = await resend.emails.send({
     from: "hola@stivenramirez.com",
-    to: process.env.CONTACT_EMAIL ?? "stiv.seo03@gmail.com",
+    to: contactEmail,
     replyTo: data.email,
     subject: `Nuevo contacto de ${data.nombre}${data.empresa ? ` (${data.empresa})` : ""}`,
     html: buildHtml(data),
   });
 
   if (error) {
-    console.error("[contact] Resend error:", error);
+    console.error("[contact] Resend error:", error.name);
     return NextResponse.json({ error: "No se pudo enviar el mensaje. Intenta de nuevo." }, { status: 500 });
   }
 

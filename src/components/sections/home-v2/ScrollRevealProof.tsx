@@ -1,89 +1,160 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 
-/* Scroll-driven reveal — purpose: each stat appears as it enters view */
+/* ─── Process section ("Cómo trabajo") ─────────────────────── */
 
-function useInView(threshold = 0.3) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [inView, setInView] = useState(false);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) { setInView(true); obs.disconnect(); } }, { threshold });
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, [threshold]);
-  return { ref, inView };
-}
+const SPRING = { type: "spring", duration: 0.65, bounce: 0.06 } as const;
 
-function CountUp({ target, suffix = "", inView }: { target: number; suffix?: string; inView: boolean }) {
-  const [val, setVal] = useState(0);
-  useEffect(() => {
-    if (!inView) return;
-    const dur = 1600;
-    const start = performance.now();
-    const step = (now: number) => {
-      const p = Math.min((now - start) / dur, 1);
-      const ease = 1 - Math.pow(1 - p, 4);
-      setVal(Math.round(ease * target));
-      if (p < 1) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
-  }, [inView, target]);
-  return <>{val}{suffix}</>;
-}
-
-const proofItems = [
-  { prefix: "+", value: 280, suffix: "%",  label: "Tráfico orgánico promedio",  sub: "en 6 meses con SEO" },
-  { prefix: "",  value: 40,  suffix: "+",  label: "Proyectos entregados",        sub: "Colombia · Latam · 2020–2026" },
-  { prefix: "",  value: 32,  suffix: "×",  label: "ROAS promedio en pauta",      sub: "Google & Meta Ads combinado" },
-  { prefix: "",  value: 100, suffix: "",   label: "SEO Score Lighthouse",         sub: "en todos los proyectos" },
+const STEPS = [
+  {
+    num: "01",
+    title: "Diagnostico tu sitio",
+    body: "Auditoría técnica, análisis de palabras clave y benchmarking frente a tu competencia directa. Entrego un plan claro antes de cobrar un peso.",
+    tag: "Gratis y sin compromiso",
+  },
+  {
+    num: "02",
+    title: "Diseño y optimizo",
+    body: "Construyo el sitio con SEO On-Page integrado desde el primer elemento. Estructura, velocidad y contenido optimizados para Google desde el día 1.",
+    tag: "WordPress · Shopify",
+  },
+  {
+    num: "03",
+    title: "Mido y mejoro",
+    body: "Reportes mensuales reales de Google Search Console. Sin métricas inventadas. Ajuste continuo de estrategia en base a los datos.",
+    tag: "Resultados medibles",
+  },
 ];
 
 export function ScrollRevealProof() {
-  const { ref, inView } = useInView();
+  const reduce = useReducedMotion();
 
   return (
-    <section style={{ background: "#0B1829", position: "relative", overflow: "hidden" }}>
-      {/* Teal line top */}
-      <div style={{ height: 3, background: "#00C4B4" }} aria-hidden="true" />
+    <section
+      style={{
+        background: "#F7F5F0",
+        padding: "clamp(80px,10vw,140px) 0",
+        overflow: "hidden",
+      }}
+    >
+      <div
+        style={{
+          maxWidth: 1160,
+          margin: "0 auto",
+          padding: "0 clamp(24px,5vw,60px)",
+        }}
+      >
+        {/* Header */}
+        <motion.h2
+          initial={{ opacity: 0, y: reduce ? 0 : 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={SPRING}
+          style={{
+            fontFamily: "var(--font-jakarta)",
+            fontWeight: 700,
+            fontSize: "clamp(26px,3.8vw,48px)",
+            color: "#0B1829",
+            letterSpacing: "-0.03em",
+            lineHeight: 1.06,
+            margin: "0 0 clamp(48px,6vw,80px)",
+            textWrap: "balance",
+          }}
+        >
+          Cómo trabajo contigo.
+        </motion.h2>
 
-      <div ref={ref} style={{
-        maxWidth: 1160, margin: "0 auto",
-        padding: "clamp(60px,8vw,100px) clamp(24px,5vw,60px)",
-        display: "grid",
-        gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
-        gap: "clamp(32px,4vw,0px)",
-      }}>
-        {proofItems.map((item, i) => (
-          <div
-            key={item.label}
-            style={{
-              padding: "clamp(20px,3vw,48px) clamp(20px,3vw,40px)",
-              borderRight: i < proofItems.length - 1 ? "1px solid rgba(255,255,255,0.06)" : "none",
-              opacity: inView ? 1 : 0,
-              transform: inView ? "translateY(0)" : "translateY(24px)",
-              transition: `opacity 0.7s cubic-bezier(0.16,1,0.3,1) ${i * 0.1}s, transform 0.7s cubic-bezier(0.16,1,0.3,1) ${i * 0.1}s`,
-            }}
-          >
-            <p style={{
-              fontFamily: "var(--font-jakarta-sans)", fontWeight: 800,
-              fontSize: "clamp(40px,5vw,64px)",
-              color: "#00C4B4",
-              letterSpacing: "-0.03em", lineHeight: 1,
-              marginBottom: 12,
-            }}>
-              {item.prefix}<CountUp target={item.value} suffix={item.suffix} inView={inView} />
-            </p>
-            <p style={{ fontFamily: "var(--font-dm-sans)", fontWeight: 600, fontSize: 14, color: "white", marginBottom: 4 }}>
-              {item.label}
-            </p>
-            <p style={{ fontFamily: "var(--font-dm-sans)", fontSize: 12, color: "rgba(255,255,255,0.3)" }}>
-              {item.sub}
-            </p>
-          </div>
-        ))}
+        {/* Steps — stacked rows with large decorative numbers */}
+        <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
+          {STEPS.map((step, i) => (
+            <motion.div
+              key={step.num}
+              initial={{ opacity: 0, y: reduce ? 0 : 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ ...SPRING, delay: i * 0.1 }}
+              style={{
+                display: "grid",
+                gridTemplateColumns: "120px 1fr",
+                gap: "clamp(24px,3vw,48px)",
+                alignItems: "start",
+                paddingBlock: "clamp(32px,4vw,52px)",
+                borderBottom:
+                  i < STEPS.length - 1
+                    ? "1px solid rgba(11,24,41,0.08)"
+                    : "none",
+              }}
+            >
+              {/* Large decorative number — illustration, not a label */}
+              <div style={{ position: "relative" }}>
+                <p
+                  aria-hidden
+                  style={{
+                    fontFamily: "var(--font-jakarta)",
+                    fontWeight: 800,
+                    fontSize: "clamp(4rem,7vw,7.5rem)",
+                    color: "rgba(0,196,180,0.15)",
+                    letterSpacing: "-0.06em",
+                    lineHeight: 1,
+                    margin: 0,
+                    userSelect: "none",
+                  }}
+                >
+                  {step.num}
+                </p>
+              </div>
+
+              {/* Content */}
+              <div style={{ paddingTop: "0.4em" }}>
+                {/* Tag */}
+                <span
+                  style={{
+                    display: "inline-block",
+                    fontFamily: "var(--font-sans)",
+                    fontSize: 11,
+                    fontWeight: 600,
+                    letterSpacing: "0.08em",
+                    color: "#00A08F",
+                    background: "rgba(0,196,180,0.08)",
+                    padding: "4px 10px",
+                    borderRadius: 99,
+                    marginBottom: 12,
+                  }}
+                >
+                  {step.tag}
+                </span>
+
+                <h3
+                  style={{
+                    fontFamily: "var(--font-jakarta)",
+                    fontWeight: 700,
+                    fontSize: "clamp(20px,2.5vw,30px)",
+                    color: "#0B1829",
+                    letterSpacing: "-0.02em",
+                    lineHeight: 1.15,
+                    marginBottom: 12,
+                  }}
+                >
+                  {step.title}
+                </h3>
+
+                <p
+                  style={{
+                    fontFamily: "var(--font-sans)",
+                    fontSize: "clamp(14px,1.2vw,16px)",
+                    color: "#5E6E82",
+                    lineHeight: 1.72,
+                    maxWidth: "56ch",
+                    textWrap: "pretty",
+                  }}
+                >
+                  {step.body}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -1,171 +1,425 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import {
+  motion,
+  useReducedMotion,
+  useMotionValue,
+  useSpring,
+} from "framer-motion";
 import Link from "next/link";
+import { useRef } from "react";
 import { CALENDLY_URL } from "@/lib/constants";
 
-/*
-  Python RNG seed: "seo colombia medellin".length % 3 = 0
-  → Hero: Cinematic Center / Teal drench
-  → H1 max-w-screen-xl, clamp(3rem,6vw,5.5rem), 2 lines guaranteed
-  No meta-labels. No stats in hero. No pill badges.
-*/
+/* ─── Spring / easing ──────────────────────────────────────── */
+const SPRING = { type: "spring", duration: 0.8, bounce: 0.08 } as const;
+const SPRING_SLOW = { type: "spring", duration: 1.1, bounce: 0.06 } as const;
+const EASE = [0.16, 1, 0.3, 1] as const;
 
+const H1_LINE1 = "Diseño web".split(" ");
+const H1_LINE2 = "que posiciona en Google.".split(" ");
+
+/* ─── Magnetic CTA ──────────────────────────────────────────── */
+function MagneticBtn({
+  href,
+  children,
+  bg = "#00C4B4",
+  color = "#0B1829",
+}: {
+  href: string;
+  children: React.ReactNode;
+  bg?: string;
+  color?: string;
+}) {
+  const ref = useRef<HTMLAnchorElement>(null);
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+  const sx = useSpring(x, { stiffness: 140, damping: 14 });
+  const sy = useSpring(y, { stiffness: 140, damping: 14 });
+
+  function onMove(e: React.MouseEvent<HTMLAnchorElement>) {
+    const rect = ref.current!.getBoundingClientRect();
+    x.set((e.clientX - rect.left - rect.width / 2) * 0.28);
+    y.set((e.clientY - rect.top - rect.height / 2) * 0.28);
+  }
+  function onLeave() {
+    x.set(0);
+    y.set(0);
+  }
+
+  return (
+    <motion.a
+      ref={ref}
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      onMouseMove={onMove}
+      onMouseLeave={onLeave}
+      style={{ x: sx, y: sy }}
+      whileTap={{ scale: 0.96 }}
+      transition={{ duration: 0.15 }}
+    >
+      <span
+        style={{
+          display: "inline-flex",
+          alignItems: "center",
+          gap: 10,
+          padding: "14px 14px 14px 24px",
+          borderRadius: 99,
+          background: bg,
+          color,
+          fontFamily: "var(--font-jakarta)",
+          fontWeight: 600,
+          fontSize: "0.9375rem",
+          textDecoration: "none",
+          whiteSpace: "nowrap",
+          cursor: "pointer",
+          userSelect: "none",
+        }}
+      >
+        {children}
+        <span
+          aria-hidden
+          style={{
+            width: 34,
+            height: 34,
+            borderRadius: "50%",
+            background: "rgba(0,0,0,0.12)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontSize: 16,
+          }}
+        >
+          →
+        </span>
+      </span>
+    </motion.a>
+  );
+}
+
+/* ─── Floating project pill ─────────────────────────────────── */
+function ProjectPill({
+  name,
+  tag,
+  delay,
+  top,
+  right,
+}: {
+  name: string;
+  tag: string;
+  delay: number;
+  top: string;
+  right: string;
+}) {
+  const reduce = useReducedMotion();
+  return (
+    <motion.div
+      initial={{ opacity: 0, x: reduce ? 0 : 24, y: reduce ? 0 : 8 }}
+      animate={{ opacity: 1, x: 0, y: 0 }}
+      transition={{ ...SPRING_SLOW, delay }}
+      style={{
+        position: "absolute",
+        top,
+        right,
+        display: "flex",
+        alignItems: "center",
+        gap: 10,
+        padding: "10px 16px 10px 10px",
+        borderRadius: 99,
+        background: "rgba(11,24,41,0.85)",
+        backdropFilter: "blur(12px)",
+        WebkitBackdropFilter: "blur(12px)",
+        border: "1px solid rgba(0,196,180,0.2)",
+      }}
+    >
+      <span
+        style={{
+          width: 32,
+          height: 32,
+          borderRadius: "50%",
+          background: "rgba(0,196,180,0.15)",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          flexShrink: 0,
+        }}
+        aria-hidden
+      >
+        <svg
+          width="14"
+          height="14"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="#00C4B4"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <rect x="3" y="3" width="18" height="18" rx="2" />
+          <path d="M3 9h18M9 21V9" />
+        </svg>
+      </span>
+      <div>
+        <p
+          style={{
+            fontFamily: "var(--font-jakarta)",
+            fontWeight: 600,
+            fontSize: 12,
+            color: "rgba(247,245,240,0.9)",
+            margin: 0,
+            whiteSpace: "nowrap",
+          }}
+        >
+          {name}
+        </p>
+        <p
+          style={{
+            fontFamily: "var(--font-sans)",
+            fontSize: 10,
+            color: "#00C4B4",
+            margin: 0,
+            whiteSpace: "nowrap",
+          }}
+        >
+          {tag}
+        </p>
+      </div>
+    </motion.div>
+  );
+}
+
+/* ─── Main component ─────────────────────────────────────────── */
 export function HeroTeal() {
-  const videoRef = useRef<HTMLDivElement>(null);
+  const reduce = useReducedMotion();
 
-  /* Parallax on scroll — purpose: depth */
-  useEffect(() => {
-    const el = videoRef.current;
-    if (!el) return;
-    const onScroll = () => {
-      const y = window.scrollY;
-      el.style.transform = `translateY(${y * 0.3}px)`;
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  const container = {
+    hidden: {},
+    visible: {
+      transition: { staggerChildren: reduce ? 0 : 0.07, delayChildren: 0.1 },
+    },
+  };
+
+  const word = {
+    hidden: { opacity: 0, y: reduce ? 0 : 40 },
+    visible: { opacity: 1, y: 0, transition: SPRING },
+  };
+
+  const fadeIn = {
+    hidden: { opacity: 0, y: reduce ? 0 : 18 },
+    visible: { opacity: 1, y: 0, transition: { ...SPRING, delay: 0.6 } },
+  };
 
   return (
     <section
       style={{
-        background: "#00C4B4",
+        background: "#0B1829",
         minHeight: "100dvh",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "flex-end",
         position: "relative",
         overflow: "hidden",
-        paddingTop: 80,
+        display: "flex",
+        alignItems: "center",
       }}
+      aria-label="Hero — Diseño web que posiciona en Google"
     >
-      {/* Noise grain on teal */}
-      <div aria-hidden="true" style={{
-        position: "absolute", inset: 0, zIndex: 0,
-        backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
-        opacity: 0.06,
-        pointerEvents: "none",
-      }} />
-
-      {/* Parallax dark shape */}
+      {/* Animated blobs — more visible than before */}
       <div
-        ref={videoRef}
-        aria-hidden="true"
+        aria-hidden
+        className="blob-1"
         style={{
-          position: "absolute", bottom: "-20%", right: "-5%",
-          width: "55vw", height: "80vh",
-          background: "rgba(0,0,0,0.08)",
-          borderRadius: "40% 60% 60% 40% / 60% 40% 60% 40%",
+          position: "absolute",
+          top: "-15%",
+          left: "-10%",
+          width: "clamp(400px, 55vw, 700px)",
+          height: "clamp(400px, 55vw, 700px)",
+          borderRadius: "50%",
+          background:
+            "radial-gradient(circle, rgba(0,196,180,0.18) 0%, transparent 70%)",
           pointerEvents: "none",
-          zIndex: 0,
+        }}
+      />
+      <div
+        aria-hidden
+        className="blob-2"
+        style={{
+          position: "absolute",
+          bottom: "-10%",
+          right: "5%",
+          width: "clamp(300px, 40vw, 560px)",
+          height: "clamp(300px, 40vw, 560px)",
+          borderRadius: "50%",
+          background:
+            "radial-gradient(circle, rgba(0,196,180,0.1) 0%, transparent 70%)",
+          pointerEvents: "none",
         }}
       />
 
-      <div style={{
-        maxWidth: 1400,
-        margin: "0 auto",
-        padding: "0 clamp(24px,5vw,80px)",
-        paddingBottom: "clamp(60px,8vw,100px)",
-        position: "relative",
-        zIndex: 1,
-        width: "100%",
-      }}>
+      {/* Subtle grid */}
+      <div
+        aria-hidden
+        className="bg-grid-dark absolute inset-0 pointer-events-none"
+      />
 
-        {/* H1 — 2 lines max, ultra-wide container */}
-        <h1 style={{
-          fontFamily: "var(--font-jakarta-sans)",
-          fontWeight: 800,
-          fontSize: "clamp(3rem, 6vw, 5.5rem)",
-          lineHeight: 1.06,
-          letterSpacing: "-0.03em",
-          color: "#040C15",
-          marginBottom: "clamp(28px,3vw,44px)",
-          maxWidth: "100%",
-          textWrap: "balance",
-        }}>
-          Diseño webs que posicionan en Google.<br />
-          <span style={{ opacity: 0.55 }}>Sin agencia. Con resultados.</span>
+      {/* Content */}
+      <div
+        style={{
+          maxWidth: 1160,
+          margin: "0 auto",
+          padding:
+            "clamp(96px,11vh,140px) clamp(24px,5vw,60px) clamp(64px,8vh,96px)",
+          width: "100%",
+          boxSizing: "border-box",
+          position: "relative",
+          zIndex: 1,
+        }}
+      >
+        {/* H1 — word-by-word spring stagger */}
+        <h1
+          style={{
+            margin: "0 0 clamp(20px,2.5vw,32px)",
+            fontFamily: "var(--font-jakarta)",
+            lineHeight: 0.96,
+            letterSpacing: "-0.04em",
+            textWrap: "balance",
+          }}
+        >
+          {/* Line 1: "Diseño web" — massive white */}
+          <motion.span
+            variants={container}
+            initial="hidden"
+            animate="visible"
+            style={{ display: "block", marginBottom: "0.12em" }}
+            aria-label="Diseño web"
+          >
+            {H1_LINE1.map((w) => (
+              <motion.span
+                key={w}
+                variants={word}
+                style={{
+                  display: "inline-block",
+                  marginRight: "0.25em",
+                  fontSize: "clamp(3.8rem,9vw,9.5rem)",
+                  fontWeight: 800,
+                  color: "#F7F5F0",
+                }}
+              >
+                {w}
+              </motion.span>
+            ))}
+          </motion.span>
+
+          {/* Line 2: "que posiciona en Google." — teal, smaller contrast */}
+          <motion.span
+            variants={container}
+            initial="hidden"
+            animate="visible"
+            style={{ display: "block" }}
+            aria-label="que posiciona en Google."
+          >
+            {H1_LINE2.map((w, i) => (
+              <motion.span
+                key={`${w}-${i}`}
+                variants={word}
+                style={{
+                  display: "inline-block",
+                  marginRight: "0.22em",
+                  fontSize: "clamp(2rem,4.5vw,4.75rem)",
+                  fontWeight: 700,
+                  color: "#00C4B4",
+                }}
+              >
+                {w}
+              </motion.span>
+            ))}
+          </motion.span>
         </h1>
 
-        {/* Subtitle — max 65ch */}
-        <p style={{
-          fontFamily: "var(--font-dm-sans)",
-          fontSize: "clamp(16px, 1.2vw, 20px)",
-          lineHeight: 1.7,
-          color: "rgba(4,12,21,0.65)",
-          maxWidth: "52ch",
-          marginBottom: "clamp(36px,4vw,56px)",
-        }}>
-          WordPress y Shopify con SEO integrado desde el primer elemento. Un solo profesional — diseño, posicionamiento y estrategia.
-        </p>
+        {/* Subtitle */}
+        <motion.p
+          variants={fadeIn}
+          initial="hidden"
+          animate="visible"
+          style={{
+            fontFamily: "var(--font-sans)",
+            fontSize: "clamp(1rem,1.4vw,1.125rem)",
+            lineHeight: 1.72,
+            color: "rgba(247,245,240,0.52)",
+            maxWidth: "44ch",
+            margin: "0 0 clamp(32px,3.5vw,48px)",
+            textWrap: "pretty",
+          }}
+        >
+          WordPress y Shopify con SEO desde el primer elemento. Un solo
+          profesional que diseña, posiciona y mide.
+        </motion.p>
 
         {/* CTAs */}
-        <div style={{ display: "flex", gap: 14, flexWrap: "wrap", alignItems: "center" }}>
-          <a
-            href={CALENDLY_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              display: "inline-flex", alignItems: "center", gap: 10,
-              background: "#040C15", color: "#00C4B4",
-              fontFamily: "var(--font-jakarta-sans)", fontSize: 15, fontWeight: 700,
-              padding: "14px 18px 14px 26px", borderRadius: 99,
-              textDecoration: "none",
-              transition: "transform 120ms ease-out, box-shadow 200ms ease-out",
-              boxShadow: "0 4px 20px rgba(4,12,21,0.25)",
-            }}
-          >
-            Agendar llamada gratis
-            <span style={{
-              width: 34, height: 34, borderRadius: "50%",
-              background: "rgba(0,196,180,0.15)",
-              display: "inline-flex", alignItems: "center", justifyContent: "center",
-              fontSize: 18,
-            }}>→</span>
-          </a>
+        <motion.div
+          initial={{ opacity: 0, y: reduce ? 0 : 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ ...SPRING, delay: 0.75 }}
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "clamp(12px,2vw,20px)",
+            flexWrap: "wrap",
+          }}
+        >
+          <MagneticBtn href={CALENDLY_URL}>Agendar llamada gratis</MagneticBtn>
+
           <Link
-            href="/servicios/"
+            href="#trabajo"
             style={{
-              fontFamily: "var(--font-dm-sans)", fontSize: 15, fontWeight: 600,
-              color: "rgba(4,12,21,0.55)",
+              color: "rgba(247,245,240,0.4)",
+              fontFamily: "var(--font-jakarta)",
+              fontSize: "0.9375rem",
+              fontWeight: 500,
               textDecoration: "none",
-              borderBottom: "1px solid rgba(4,12,21,0.25)",
-              paddingBottom: 2,
-              transition: "color 180ms ease-out",
+              transition: "color 200ms",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 6,
             }}
+            onMouseEnter={(e) =>
+              ((e.currentTarget as HTMLElement).style.color =
+                "rgba(247,245,240,0.85)")
+            }
+            onMouseLeave={(e) =>
+              ((e.currentTarget as HTMLElement).style.color =
+                "rgba(247,245,240,0.4)")
+            }
           >
-            Ver servicios
+            Ver proyectos ↓
           </Link>
-        </div>
-
+        </motion.div>
       </div>
 
-      {/* Bottom: credential strip on dark band */}
-      <div style={{
-        background: "#040C15",
-        padding: "20px clamp(24px,5vw,80px)",
-        display: "flex", alignItems: "center", gap: 40, flexWrap: "wrap",
-        position: "relative", zIndex: 1,
-      }}>
-        {[
-          { v: "9+",    l: "años de experiencia" },
-          { v: "40+",   l: "proyectos entregados" },
-          { v: "+280%", l: "tráfico promedio en 6 meses" },
-          { v: "100",   l: "SEO Score Lighthouse" },
-        ].map(({ v, l }) => (
-          <div key={l} style={{ display: "flex", alignItems: "baseline", gap: 8 }}>
-            <span style={{
-              fontFamily: "var(--font-jakarta-sans)", fontWeight: 800,
-              fontSize: "clamp(20px,2vw,28px)",
-              color: "#00C4B4", letterSpacing: "-0.5px",
-            }}>{v}</span>
-            <span style={{
-              fontFamily: "var(--font-dm-sans)", fontSize: 12,
-              color: "rgba(255,255,255,0.3)", whiteSpace: "nowrap",
-            }}>{l}</span>
-          </div>
-        ))}
+      {/* Floating project pills — bottom right */}
+      <div
+        aria-hidden
+        style={{ position: "absolute", right: "5%", bottom: "8%", display: "flex", flexDirection: "column", gap: 10 }}
+      >
+        <ProjectPill
+          name="Évora Eterno"
+          tag="Shopify + SEO · +22 keywords"
+          delay={1.1}
+          top="auto"
+          right="auto"
+        />
+        <ProjectPill
+          name="Renovista"
+          tag="WordPress + SEO · +180% tráfico"
+          delay={1.3}
+          top="auto"
+          right="auto"
+        />
       </div>
+
+      {/* Mobile: hide pills */}
+      <style>{`
+        @media (max-width: 767px) {
+          [data-hero-pills] { display: none !important; }
+        }
+      `}</style>
     </section>
   );
 }
