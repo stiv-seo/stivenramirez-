@@ -96,3 +96,23 @@ body {
 .hero-anim-up   { animation: heroFadeUp  0.6s ease-out both; }
 .hero-anim-fade { animation: heroFadeIn  0.6s ease-out both; }
 .hero-anim-scale{ animation: heroScale   0.7s ease-out both; }
+
+/* ─── Marquee ticker ────────────────────────────────────────────────────────── */
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 36s linear infinite;
+}
+.marquee-track:hover { animation-play-state: paused; }
+
+/* ─── Service row hover ─────────────────────────────────────────────────────── */
+
+.service-row {
+  transition: background-color 220ms cubic-bezier(0.32,0.72,0,1);
+}
+.service-row:hover { background-color: rgba(0,196,180,0.04); }

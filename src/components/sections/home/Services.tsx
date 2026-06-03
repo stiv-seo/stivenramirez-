@@ -1,122 +1,228 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { FadeIn } from "@/components/ui/FadeIn";
-import { services } from "@/data/services";
+
+const rows = [
+  {
+    num: "01",
+    title: "Diseño Web WordPress con SEO",
+    price: "Desde $3.500.000",
+    tag: "Más popular",
+    description: "Sitio profesional construido con arquitectura SEO, velocidad optimizada y on-page completo. URLs semánticas, schema markup, Core Web Vitals en verde. Posiciona desde el día del lanzamiento.",
+    href: "/servicios/diseno-web/wordpress/",
+    details: ["Arquitectura SEO desde el wireframe", "Core Web Vitals ≥ 90 en mobile", "Schema markup + Search Console", "3–4 semanas de entrega"],
+  },
+  {
+    num: "02",
+    title: "Tienda Shopify con SEO",
+    price: "Desde $3.000.000",
+    tag: "E-commerce",
+    description: "E-commerce con SEO de colecciones y productos, pasarelas de pago colombianas (PSE, Nequi, Bancolombia) y optimización de conversión integrada desde el día 1.",
+    href: "/servicios/diseno-web/shopify/",
+    details: ["SEO de colecciones y productos", "Pasarelas locales: PSE, Nequi, Bancolombia", "Core Web Vitals optimizados", "4–5 semanas de entrega"],
+  },
+  {
+    num: "03",
+    title: "SEO Continuo Mensual",
+    price: "Desde $1.300.000/mes",
+    tag: "Recurrente",
+    description: "Posicionamiento orgánico mes a mes con estrategia, contenido y resultados medibles. Para negocios que ya tienen sitio y quieren crecer en Google de forma sostenida.",
+    href: "/servicios/seo/",
+    details: ["Auditoría técnica mensual", "Estrategia de keywords y contenido", "Link building de calidad", "Reporte mensual de posiciones"],
+  },
+  {
+    num: "04",
+    title: "Google, Meta y TikTok Ads",
+    price: "Desde $1.500.000/mes",
+    tag: "Pauta",
+    description: "Campañas pagadas para acelerar resultados mientras el SEO orgánico madura. Sin porcentaje sobre el presupuesto de pauta — tarifa fija por gestión.",
+    href: "/servicios/pauta/",
+    details: ["Google Search + Display Ads", "Meta Ads (Facebook + Instagram)", "TikTok Ads", "Sin % sobre inversión"],
+  },
+];
 
 export function Services() {
-  const [featured, ...rest] = services;
+  const [open, setOpen] = useState<string | null>(null);
 
   return (
     <section
-      className="bg-off-white"
-      style={{ paddingTop: "120px", paddingBottom: "120px" }}
+      style={{
+        background: "#F7F5F0",
+        paddingTop: "120px",
+        paddingBottom: "120px",
+      }}
     >
       <Container>
 
-        {/* Header — editorial asymmetric */}
+        {/* Header */}
         <FadeIn className="mb-16">
-          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4">
             <div>
-              <p className="font-sans text-[10px] font-semibold tracking-[4px] uppercase text-teal mb-4">
+              <p className="font-sans text-[10px] font-semibold tracking-[4px] uppercase mb-3"
+                style={{ color: "#00C4B4" }}>
                 01 — Servicios
               </p>
               <h2
-                className="font-jakarta font-extrabold text-text-dark leading-[1.05] tracking-[-1.5px]"
-                style={{ fontSize: "clamp(32px, 4.5vw, 56px)" }}
+                className="font-jakarta font-extrabold leading-[1.02] tracking-[-2px]"
+                style={{ fontSize: "clamp(36px, 5vw, 64px)", color: "#0B1829" }}
               >
-                SEO integrado<br />en cada sitio.
+                Lo que construyo<br />para ti.
               </h2>
             </div>
-            <p className="font-sans text-text-mid leading-[1.75] max-w-[340px] lg:text-right">
-              No vendas diseño web. No vendas SEO. Vende el resultado: un sitio que posiciona y convierte desde el día del lanzamiento.
+            <p className="font-sans leading-[1.75] max-w-[300px] lg:text-right"
+              style={{ fontSize: "15px", color: "#3D5166" }}>
+              SEO integrado desde el primer elemento. No diseño y luego posiciono — lo hago simultáneamente.
             </p>
           </div>
         </FadeIn>
 
-        {/* Asymmetric bento grid */}
-        <div className="grid gap-4 lg:grid-cols-5 lg:grid-rows-2">
+        {/* Row table */}
+        <div
+          style={{ borderTop: "1px solid rgba(0,0,0,0.1)" }}
+        >
+          {rows.map((row) => {
+            const isOpen = open === row.num;
+            return (
+              <FadeIn key={row.num}>
+                <div style={{ borderBottom: "1px solid rgba(0,0,0,0.08)" }}>
 
-          {/* Featured card — large, col-span-3 row-span-2 */}
-          <FadeIn className="lg:col-span-3 lg:row-span-2">
-            <Link
-              href={featured.href}
-              className="group relative flex flex-col h-full rounded-[1.5rem] overflow-hidden bg-midnight border border-white/[0.07] hover:border-teal/25 p-8 min-h-[300px] lg:min-h-[380px]"
-              style={{ boxShadow: "0 24px 60px rgba(0,0,0,0.18)", transition: "border-color 220ms ease-out" }}
-            >
-              {/* Ambient glow */}
-              <div
-                aria-hidden="true"
-                style={{
-                  position: "absolute", top: "-80px", right: "-80px",
-                  width: "320px", height: "320px", borderRadius: "50%",
-                  background: "radial-gradient(circle, rgba(0,196,180,0.10) 0%, transparent 70%)",
-                  pointerEvents: "none",
-                }}
-              />
+                  {/* Trigger row */}
+                  <button
+                    onClick={() => setOpen(isOpen ? null : row.num)}
+                    aria-expanded={isOpen}
+                    className="service-row w-full text-left"
+                    style={{ padding: "28px 0", cursor: "pointer" }}
+                  >
+                    <div className="flex items-center gap-6 lg:gap-10">
 
-              {/* Accent tag */}
-              <span className="inline-flex self-start items-center gap-1.5 rounded-full border border-teal/20 bg-teal/[0.08] px-3 py-1 font-sans text-[10px] font-semibold tracking-[2px] uppercase text-teal">
-                <span className="w-1 h-1 rounded-full bg-teal" aria-hidden="true" />
-                Más popular
-              </span>
+                      {/* Number */}
+                      <span
+                        className="font-jakarta font-bold shrink-0 w-10"
+                        style={{
+                          fontSize: "12px",
+                          letterSpacing: "2px",
+                          color: isOpen ? "#00C4B4" : "rgba(0,0,0,0.25)",
+                          transition: "color 220ms ease-out",
+                        }}
+                      >
+                        {row.num}
+                      </span>
 
-              <div className="mt-auto">
-                <p className="font-sans text-[11px] font-semibold tracking-[2px] uppercase text-slate mb-4">
-                  {featured.price}
-                </p>
-                <h3
-                  className="font-jakarta font-extrabold text-white leading-[1.1] tracking-[-1px] mb-4"
-                  style={{ fontSize: "clamp(24px, 2.8vw, 36px)" }}
-                >
-                  {featured.title}
-                </h3>
-                <p className="font-sans text-slate-light leading-[1.75] mb-8 max-w-[380px]">
-                  {featured.description}
-                </p>
-                <span className="inline-flex items-center gap-2 text-teal font-jakarta font-bold text-[14px]">
-                  {featured.cta}
-                </span>
-              </div>
-            </Link>
-          </FadeIn>
+                      {/* Title */}
+                      <span
+                        className="font-jakarta font-extrabold flex-1 leading-tight"
+                        style={{
+                          fontSize: "clamp(18px, 2.5vw, 30px)",
+                          letterSpacing: "-0.5px",
+                          color: isOpen ? "#00C4B4" : "#0B1829",
+                          transition: "color 220ms ease-out",
+                        }}
+                      >
+                        {row.title}
+                      </span>
 
-          {/* Secondary cards — col-span-2 each */}
-          {rest.map((service, i) => (
-            <FadeIn key={service.id} delay={i * 0.08} className="lg:col-span-2">
-              <Link
-                href={service.href}
-                className="group relative flex flex-col h-full rounded-[1.25rem] bg-warm-white border border-black/[0.06] hover:border-teal/30 hover:-translate-y-0.5 hover:shadow-lg p-6 min-h-[180px]"
-                style={{
-                  transition: "border-color 220ms ease-out, transform 220ms cubic-bezier(0.32,0.72,0,1), box-shadow 220ms ease-out",
-                }}
-              >
-                <p className="font-sans text-[10px] font-semibold tracking-[2px] uppercase text-slate mb-3">
-                  {service.price}
-                </p>
-                <h3 className="font-jakarta font-bold text-text-dark text-[17px] leading-tight mb-3 flex-1">
-                  {service.title}
-                </h3>
-                <p className="font-sans text-text-mid text-sm leading-[1.7] mb-5">
-                  {service.description}
-                </p>
-                <span className="inline-flex items-center gap-1.5 text-teal font-jakarta font-bold text-[13px]">
-                  {service.cta}
-                </span>
-              </Link>
-            </FadeIn>
-          ))}
+                      {/* Tag (hidden on small) */}
+                      <span
+                        className="hidden md:inline-flex shrink-0 items-center font-sans text-[10px] font-semibold tracking-[2px] uppercase rounded-full px-3 py-1"
+                        style={{
+                          border: "1px solid rgba(0,0,0,0.1)",
+                          color: "rgba(0,0,0,0.35)",
+                          background: "transparent",
+                        }}
+                      >
+                        {row.tag}
+                      </span>
 
+                      {/* Price */}
+                      <span
+                        className="font-jakarta font-bold shrink-0 hidden lg:block"
+                        style={{
+                          fontSize: "clamp(13px, 1vw, 15px)",
+                          color: "rgba(0,0,0,0.45)",
+                          letterSpacing: "-0.3px",
+                        }}
+                      >
+                        {row.price}
+                      </span>
+
+                      {/* Toggle icon */}
+                      <span
+                        className="shrink-0 w-8 h-8 rounded-full flex items-center justify-center ml-auto"
+                        style={{
+                          border: isOpen ? "1px solid #00C4B4" : "1px solid rgba(0,0,0,0.12)",
+                          background: isOpen ? "#00C4B4" : "transparent",
+                          color: isOpen ? "#0B1829" : "rgba(0,0,0,0.4)",
+                          transition: "all 220ms ease-out",
+                          fontSize: "16px",
+                          transform: isOpen ? "rotate(45deg)" : "none",
+                        }}
+                        aria-hidden="true"
+                      >
+                        +
+                      </span>
+                    </div>
+                  </button>
+
+                  {/* Expandable detail */}
+                  <div
+                    style={{
+                      maxHeight: isOpen ? "320px" : "0",
+                      overflow: "hidden",
+                      opacity: isOpen ? 1 : 0,
+                      transition: "max-height 320ms cubic-bezier(0.32,0.72,0,1), opacity 280ms ease-out",
+                    }}
+                  >
+                    <div
+                      className="grid md:grid-cols-[2fr_1fr] gap-8 pb-10 pl-16"
+                    >
+                      <div>
+                        <p className="font-sans leading-[1.8] mb-6"
+                          style={{ fontSize: "15px", color: "#3D5166" }}>
+                          {row.description}
+                        </p>
+                        <ul className="flex flex-wrap gap-2">
+                          {row.details.map((d) => (
+                            <li key={d}
+                              className="font-sans text-[11px] font-semibold tracking-[1px] uppercase rounded-full px-3 py-1.5"
+                              style={{
+                                background: "rgba(0,196,180,0.08)",
+                                color: "#00C4B4",
+                                border: "1px solid rgba(0,196,180,0.15)",
+                              }}
+                            >
+                              {d}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      <div className="flex flex-col gap-4 justify-start">
+                        <p className="font-jakarta font-extrabold"
+                          style={{ fontSize: "24px", color: "#0B1829", letterSpacing: "-1px" }}>
+                          {row.price}
+                        </p>
+                        <Link
+                          href={row.href}
+                          className="inline-flex items-center gap-2 font-jakarta font-bold rounded-full px-5 py-3 text-sm self-start"
+                          style={{
+                            background: "#0B1829",
+                            color: "#F7F5F0",
+                            transition: "background-color 180ms ease-out",
+                          }}
+                        >
+                          Ver qué incluye →
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </FadeIn>
+            );
+          })}
         </div>
-
-        <FadeIn className="mt-8 text-center" delay={0.2}>
-          <Link
-            href="/servicios/"
-            className="inline-flex items-center gap-2 font-sans text-sm text-slate hover:text-teal"
-            style={{ transition: "color 180ms ease-out" }}
-          >
-            Ver todos los servicios <span>→</span>
-          </Link>
-        </FadeIn>
 
       </Container>
     </section>
