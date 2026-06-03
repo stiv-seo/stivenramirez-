@@ -1,16 +1,12 @@
 import type { Metadata } from "next";
 import { Hero } from "@/components/sections/home/Hero";
-import { StatsStrip } from "@/components/sections/home/StatsStrip";
-import { Agitation } from "@/components/sections/home/Agitation";
-import { Services } from "@/components/sections/home/Services";
-import { WhyStiven } from "@/components/sections/home/WhyStiven";
-import { Process } from "@/components/sections/home/Process";
-import { AboutPreview } from "@/components/sections/home/AboutPreview";
-import { Testimonials } from "@/components/sections/home/Testimonials";
-import { BlogPreview } from "@/components/sections/home/BlogPreview";
-import { FAQ } from "@/components/sections/home/FAQ";
-import { TechStack } from "@/components/sections/home/TechStack";
-import { CTAFinal } from "@/components/sections/home/CTAFinal";
+import { LogoStrip } from "@/components/sections/home-v2/LogoStrip";
+import { PricingServices } from "@/components/sections/home-v2/PricingServices";
+import { BigStatement } from "@/components/sections/home-v2/BigStatement";
+import { StatsFull } from "@/components/sections/home-v2/StatsFull";
+import { TestimonialSpotlight } from "@/components/sections/home-v2/TestimonialSpotlight";
+import { AboutEditorial } from "@/components/sections/home-v2/AboutEditorial";
+import { CTACommand } from "@/components/sections/home-v2/CTACommand";
 import { localBusinessSchema } from "@/lib/schema";
 import { SITE_URL } from "@/lib/constants";
 
@@ -36,46 +32,27 @@ const person = {
   name: "Stiven Ramírez",
   url: SITE_URL,
   jobTitle: "Consultor SEO",
-  description:
-    "Consultor SEO freelance y diseñador web en Medellín con más de 4 años posicionando pymes colombianas en Google.",
+  description: "Consultor SEO freelance y diseñador web en Medellín con más de 9 años posicionando pymes colombianas en Google.",
   homeLocation: {
     "@type": "Place",
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Medellín",
-      addressRegion: "Antioquia",
-      addressCountry: "CO",
-    },
+    address: { "@type": "PostalAddress", addressLocality: "Medellín", addressRegion: "Antioquia", addressCountry: "CO" },
   },
-  sameAs: [
-    "https://www.instagram.com/stiv.seo/",
-    "https://www.linkedin.com/in/stivenramirez/",
-  ],
+  sameAs: ["https://www.instagram.com/stiv.seo/", "https://www.linkedin.com/in/stivenramirez/"],
 };
 
 export default function HomePage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBiz) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(person) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBiz) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(person) }} />
       <Hero />
-      <StatsStrip />
-      <Agitation />
-      <Services />
-      <WhyStiven />
-      <Process />
-      <AboutPreview />
-      <Testimonials />
-      <BlogPreview />
-      <FAQ />
-      <TechStack />
-      <CTAFinal />
+      <LogoStrip />
+      <PricingServices />
+      <BigStatement />
+      <StatsFull />
+      <TestimonialSpotlight />
+      <AboutEditorial />
+      <CTACommand />
     </>
   );
 }
