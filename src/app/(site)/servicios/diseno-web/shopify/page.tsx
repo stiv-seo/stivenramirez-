@@ -194,6 +194,11 @@ export default function TiendaShopifySeoPage() {
             href: "/servicios/seo/shopify/",
             description: "Optimización de colecciones, productos y velocidad para tiendas Shopify existentes que dependen de pauta.",
           },
+          {
+            label: "WordPress vs Shopify en Colombia: cuál elegir",
+            href: "/blog/wordpress-vs-shopify-colombia/",
+            description: "Precios reales en COP, Nequi, PSE y por qué Shopify Payments no funciona en Colombia.",
+          },
         ]}
       />
       <SubpageCTA

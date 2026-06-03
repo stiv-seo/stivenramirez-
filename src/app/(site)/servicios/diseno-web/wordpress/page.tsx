@@ -194,6 +194,11 @@ export default function DisenoWordPressSeoPage() {
             href: "/servicios/seo/wordpress/",
             description: "Optimización técnica y de contenido para sitios WordPress existentes que no están posicionando.",
           },
+          {
+            label: "WordPress vs Shopify en Colombia: cuál elegir",
+            href: "/blog/wordpress-vs-shopify-colombia/",
+            description: "Comparativa honesta con precios reales en COP y el problema de las pasarelas de pago que nadie menciona.",
+          },
         ]}
       />
       <SubpageCTA
