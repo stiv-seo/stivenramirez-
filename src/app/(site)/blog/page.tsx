@@ -7,7 +7,7 @@ import { BlogCTA } from "@/components/sections/blog/BlogCTA";
 export const metadata: Metadata = {
   title: "Blog SEO y Diseño Web Medellín",
   description:
-    "Guías de SEO, diseño web y e-commerce para pymes en Medellín y Colombia. WordPress, Shopify y Google Ads sin relleno.",
+    "Guías prácticas de SEO, diseño web y e-commerce para pymes en Medellín y Colombia. WordPress, Shopify, Google Ads y posicionamiento orgánico sin relleno.",
   keywords: [
     "blog seo colombia",
     "blog diseño web colombia",

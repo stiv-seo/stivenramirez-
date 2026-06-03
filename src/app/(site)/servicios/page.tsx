@@ -9,7 +9,7 @@ import { ServicesCTA } from "@/components/sections/servicios/ServicesCTA";
 export const metadata: Metadata = {
   title: "Servicios SEO y Diseño Web",
   description:
-    "Diseño web WordPress y Shopify con SEO integrado, SEO mensual y Google Ads. Freelance independiente para pymes en Medellín.",
+    "Diseño web WordPress y Shopify con SEO integrado, SEO mensual y Google Ads para pymes en Medellín y Colombia. Freelance independiente, sin intermediarios.",
   keywords: [
     "servicios seo diseño web colombia",
     "consultor seo colombia",
