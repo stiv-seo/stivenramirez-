@@ -1,140 +1,253 @@
 import Image from "next/image";
-import { Button } from "@/components/ui/Button";
+import Link from "next/link";
 import { Container } from "@/components/ui/Container";
-import { CALENDLY_URL } from "@/lib/constants";
+import { CALENDLY_URL, WA_URL } from "@/lib/constants";
 
 const toolPills = [
-  {
-    label: "Google Search Console",
-    abbr: "GSC",
-    icon: (
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/>
-      </svg>
-    ),
-  },
-  {
-    label: "Google Analytics 4",
-    abbr: "GA4",
-    icon: (
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d="M21 21H3V3h9v2H5v14h14v-7h2v9z M21 3h-7v2h4.59L9 14.59l1.41 1.41L20 6.41V11h2V3z"/>
-      </svg>
-    ),
-  },
-  {
-    label: "WordPress",
-    abbr: "WordPress",
-    icon: (
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zM3.107 12c0-1.073.202-2.1.568-3.044l3.128 8.567A8.929 8.929 0 013.107 12zM12 20.893a8.934 8.934 0 01-2.544-.371l2.701-7.845 2.768 7.584a.96.96 0 00.072.139A8.94 8.94 0 0112 20.893zm1.237-13.244c.54-.028 1.027-.084 1.027-.084.483-.057.427-.765-.057-.737 0 0-1.453.114-2.39.114-.881 0-2.362-.114-2.362-.114-.484-.028-.54.708-.057.737 0 0 .458.056.94.084l1.397 3.825-1.963 5.888-3.263-9.713c.54-.028 1.026-.084 1.026-.084.484-.057.427-.765-.056-.737 0 0-1.454.114-2.391.114-.168 0-.365-.004-.575-.011A8.928 8.928 0 0112 3.107c2.331 0 4.459.892 6.054 2.353-.039-.002-.076-.008-.116-.008-1.188 0-2.031 1.034-2.031 2.146 0 .997.576 1.84 1.188 2.833.461.808.999 1.841.999 3.339 0 1.037-.398 2.24-.921 3.913l-1.207 4.031-4.729-14.066zM17.3 19.965l2.752-7.954c.513-1.283.683-2.309.683-3.223 0-.33-.022-.637-.06-.928A8.927 8.927 0 0120.893 12c0 3.181-1.719 5.966-4.293 7.465h-.001l.701.5z"/>
-      </svg>
-    ),
-  },
-  {
-    label: "Shopify",
-    abbr: "Shopify",
-    icon: (
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d="M15.337.395s-.275-.015-.726.015c-.045 0-.09.045-.135.045-.275-.726-1.091-2.272-2.452-2.272h-.09C11.479-1.727 11.069-2 10.479-2c-3.723 0-5.539 4.633-6.099 6.99-1.455.45-2.497.77-2.632.815-.816.255-.846.285-.951 1.061C.677 7.366 0 12.905 0 12.905L11.339 15l6.09-1.455S15.427.605 15.337.395zM11.579.18c-.726 1.046-1.636 2.317-1.666 4.393-.95.285-1.9.576-2.861.861C7.552 3.73 8.963.18 11.579.18zM10.479 8.908l.455 2.317s-1.001-.525-2.002-.525c-1.606 0-1.696.996-1.696 1.246 0 1.366 3.573 1.891 3.573 5.098 0 2.527-1.601 4.153-3.753 4.153-2.587 0-3.903-1.606-3.903-1.606l.696-2.272s1.356 1.155 2.497 1.155c.74 0 1.05-.586 1.05-1.016 0-1.771-2.932-1.846-2.932-4.773 0-2.452 1.756-4.828 5.299-4.828.816 0 1.716.226 1.716.226v.025z"/>
-      </svg>
-    ),
-  },
+  { label: "Google Search Console", abbr: "GSC" },
+  { label: "Google Analytics 4",   abbr: "GA4" },
+  { label: "WordPress",            abbr: "WordPress" },
+  { label: "Shopify",              abbr: "Shopify" },
+  { label: "Semrush",              abbr: "Semrush" },
 ];
 
 export function Hero() {
   return (
     <section
-      className="relative bg-midnight bg-grid-dark overflow-hidden"
-      style={{ paddingTop: "80px", paddingBottom: "100px" }}
+      className="relative bg-midnight overflow-hidden flex items-center"
+      style={{ minHeight: "100dvh", paddingTop: "96px", paddingBottom: "80px" }}
     >
-      {/* Glow orb */}
+      {/* Ambient glow — teal top-right */}
       <div
-        className="glow-teal absolute pointer-events-none"
-        style={{ top: "-100px", right: "-100px", opacity: 0.6 }}
         aria-hidden="true"
+        style={{
+          position: "absolute", top: "-160px", right: "-120px",
+          width: "700px", height: "700px", borderRadius: "50%",
+          background: "radial-gradient(circle, rgba(0,196,180,0.09) 0%, transparent 68%)",
+          pointerEvents: "none",
+        }}
+      />
+      {/* Ambient glow — subtle bottom-left */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: "absolute", bottom: "-120px", left: "-160px",
+          width: "500px", height: "500px", borderRadius: "50%",
+          background: "radial-gradient(circle, rgba(0,196,180,0.05) 0%, transparent 70%)",
+          pointerEvents: "none",
+        }}
       />
 
       <Container>
         <div
-          className="grid items-center gap-12 lg:gap-8"
+          className="grid items-center gap-16 lg:gap-20"
           style={{ gridTemplateColumns: "1fr" }}
         >
-          <div className="lg:grid lg:items-center lg:gap-16"
-            style={{ gridTemplateColumns: "60fr 40fr" }}
+          <div
+            className="lg:grid lg:items-center lg:gap-16"
+            style={{ gridTemplateColumns: "56fr 44fr" }}
           >
-            {/* Left — copy */}
+            {/* ── Left: Copy ─────────────────────────────────────── */}
             <div>
-              <p
-                className="hero-anim-up font-sans text-[11px] font-semibold tracking-[4px] uppercase text-teal mb-5"
+
+              {/* Eyebrow pill */}
+              <div
+                className="hero-anim-up inline-flex items-center gap-2.5 rounded-full border border-teal/20 bg-teal/[0.07] px-4 py-2 mb-8"
                 style={{ animationDelay: "0s" }}
               >
-                Freelance SEO &amp; Diseño Web · Medellín, Colombia
-              </p>
+                <span className="w-1.5 h-1.5 rounded-full bg-teal shrink-0" aria-hidden="true" />
+                <span className="font-sans text-[11px] font-semibold tracking-[3px] uppercase text-teal">
+                  Consultor SEO · Medellín, Colombia
+                </span>
+              </div>
 
+              {/* H1 */}
               <h1
-                className="hero-anim-up font-jakarta font-extrabold text-white leading-[1.05] tracking-[-1.5px] mb-6"
-                style={{ fontSize: "clamp(40px, 5vw, 64px)", animationDelay: "0.1s" }}
+                className="hero-anim-up font-jakarta font-extrabold text-white leading-[1.02] tracking-[-2px] mb-7"
+                style={{ fontSize: "clamp(42px, 5.5vw, 76px)", animationDelay: "0.1s" }}
               >
-                Diseño webs que posicionan en Google y generan ventas.
+                Diseño webs que{" "}
+                <span
+                  className="relative"
+                  style={{
+                    backgroundImage: "linear-gradient(90deg, #00C4B4 0%, #00E5D3 100%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
+                  }}
+                >
+                  posicionan
+                </span>{" "}
+                en Google<br className="hidden sm:block" /> y generan ventas.
               </h1>
 
+              {/* Subtitle */}
               <p
-                className="hero-anim-up font-sans text-slate-light leading-[1.75] mb-8 max-w-[560px]"
+                className="hero-anim-up font-sans text-slate-light leading-[1.8] mb-10 max-w-[500px]"
                 style={{ fontSize: "clamp(16px, 1.2vw, 18px)", animationDelay: "0.2s" }}
               >
-                Sitios WordPress y Shopify con SEO integrado desde el primer elemento. No contratas a un diseñador y luego a un SEO — lo tienes todo en uno.
+                Sitios WordPress y Shopify con SEO integrado desde el primer elemento.
+                No contratas a un diseñador y luego a un SEO —{" "}
+                <span className="text-white/80">lo tienes todo en uno.</span>
               </p>
 
+              {/* CTAs */}
               <div
                 className="hero-anim-up flex flex-wrap gap-3 mb-10"
                 style={{ animationDelay: "0.3s" }}
               >
-                <Button variant="primary" size="lg" href={CALENDLY_URL} external>
-                  Agendar llamada gratis →
-                </Button>
-                <Button variant="border" size="lg" href="/servicios/">
+                {/* Primary — button-in-button architecture */}
+                <a
+                  href={CALENDLY_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center gap-2 rounded-full pl-6 pr-1.5 py-1.5 font-jakarta font-bold text-[14px] bg-teal hover:bg-teal-bright text-midnight active:scale-[0.97]"
+                  style={{ transition: "background-color 180ms ease-out, transform 120ms ease-out" }}
+                >
+                  Agendar llamada gratis
+                  <span
+                    className="w-8 h-8 rounded-full bg-midnight/20 flex items-center justify-center text-base group-hover:translate-x-0.5 group-hover:-translate-y-px"
+                    style={{ transition: "transform 180ms ease-out" }}
+                  >
+                    →
+                  </span>
+                </a>
+
+                {/* Secondary */}
+                <Link
+                  href="/servicios/"
+                  className="inline-flex items-center gap-2 border border-white/15 text-white rounded-full px-6 py-3 font-jakarta font-bold text-[14px] hover:border-white/30 hover:bg-white/[0.05] active:scale-[0.97]"
+                  style={{ transition: "border-color 180ms ease-out, background-color 180ms ease-out, transform 120ms ease-out" }}
+                >
                   Ver servicios
-                </Button>
+                </Link>
               </div>
 
               {/* Tool pills */}
               <div
                 className="hero-anim-fade flex flex-wrap gap-2"
-                style={{ animationDelay: "0.45s" }}
+                style={{ animationDelay: "0.48s" }}
               >
                 {toolPills.map((pill) => (
                   <span
                     key={pill.abbr}
                     title={pill.label}
-                    className="inline-flex items-center gap-1.5 font-sans text-[11px] font-semibold text-slate-light bg-white/5 border border-white/10 rounded-full px-3 py-1.5"
+                    className="inline-flex items-center font-sans text-[11px] font-semibold text-slate-light bg-white/[0.05] border border-white/[0.09] rounded-full px-3 py-1.5 hover:border-teal/30 hover:text-teal/80"
+                    style={{ transition: "border-color 180ms ease-out, color 180ms ease-out" }}
                   >
-                    <span className="text-teal">{pill.icon}</span>
                     {pill.abbr}
                   </span>
                 ))}
               </div>
             </div>
 
-            {/* Right — foto */}
+            {/* ── Right: Double-bezel photo + floating proof cards ── */}
             <div
-              className="hero-anim-scale hidden lg:block"
-              style={{ animationDelay: "0.2s" }}
+              className="hero-anim-scale hidden lg:block relative"
+              style={{ animationDelay: "0.18s" }}
             >
+
+              {/* Double-bezel outer shell */}
               <div
-                className="relative w-full rounded-2xl overflow-hidden bg-navy"
-                style={{ aspectRatio: "4/5" }}
+                className="rounded-[2rem] p-[7px]"
+                style={{
+                  background: "rgba(255,255,255,0.04)",
+                  boxShadow: "0 0 0 1px rgba(255,255,255,0.08), 0 32px 80px rgba(0,0,0,0.5)",
+                }}
               >
-                <Image
-                  src="/images/stiven-ramirez.webp"
-                  alt="Stiven Ramírez — Consultor SEO y diseño web en Medellín"
-                  fill
-                  className="object-cover"
-                  priority
-                  sizes="(max-width: 1024px) 0px, 40vw"
-                />
-                <div className="absolute inset-0 rounded-2xl ring-1 ring-white/5" aria-hidden="true" />
+                {/* Inner core */}
+                <div
+                  className="relative overflow-hidden bg-navy"
+                  style={{
+                    borderRadius: "calc(2rem - 7px)",
+                    aspectRatio: "4/5",
+                    boxShadow: "inset 0 1px 1px rgba(255,255,255,0.08)",
+                  }}
+                >
+                  <Image
+                    src="/images/stiven-ramirez.webp"
+                    alt="Stiven Ramírez — Consultor SEO y diseñador web en Medellín, Colombia"
+                    fill
+                    className="object-cover"
+                    priority
+                    sizes="(max-width: 1024px) 0px, 42vw"
+                  />
+                  {/* Subtle inner ring */}
+                  <div
+                    className="absolute inset-0 pointer-events-none"
+                    style={{
+                      borderRadius: "calc(2rem - 7px)",
+                      boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.06)",
+                    }}
+                    aria-hidden="true"
+                  />
+                </div>
               </div>
+
+              {/* Floating proof card — GSC */}
+              <div
+                className="absolute -top-5 -left-10 rounded-2xl border border-white/10 p-4"
+                style={{
+                  background: "rgba(11,24,41,0.92)",
+                  backdropFilter: "blur(16px)",
+                  boxShadow: "0 8px 32px rgba(0,0,0,0.4)",
+                  minWidth: "164px",
+                  animation: "heroFadeUp 0.7s ease-out 0.45s both",
+                }}
+              >
+                <p className="font-sans text-[9px] font-semibold tracking-[2.5px] uppercase text-slate mb-1.5">
+                  GSC · Orgánico
+                </p>
+                <p
+                  className="font-jakarta font-extrabold text-teal leading-none mb-1"
+                  style={{ fontSize: "26px" }}
+                >
+                  +280%
+                </p>
+                <p className="font-sans text-[11px] text-slate-light">tráfico en 6 meses</p>
+              </div>
+
+              {/* Floating badge — experiencia */}
+              <div
+                className="absolute -bottom-5 -right-5 rounded-2xl p-4"
+                style={{
+                  background: "#00C4B4",
+                  boxShadow: "0 8px 32px rgba(0,196,180,0.35)",
+                  animation: "heroFadeUp 0.7s ease-out 0.5s both",
+                }}
+              >
+                <p
+                  className="font-jakarta font-extrabold text-midnight leading-none"
+                  style={{ fontSize: "30px" }}
+                >
+                  9+
+                </p>
+                <p className="font-sans text-[11px] font-semibold text-midnight/65 mt-0.5">
+                  años de experiencia
+                </p>
+              </div>
+
+              {/* Floating projects badge — mid-right */}
+              <div
+                className="absolute top-1/2 -right-12 -translate-y-1/2 rounded-2xl border border-white/10 px-4 py-3"
+                style={{
+                  background: "rgba(11,24,41,0.92)",
+                  backdropFilter: "blur(16px)",
+                  boxShadow: "0 8px 24px rgba(0,0,0,0.3)",
+                  animation: "heroFadeUp 0.7s ease-out 0.55s both",
+                }}
+              >
+                <p
+                  className="font-jakarta font-extrabold text-white leading-none"
+                  style={{ fontSize: "22px" }}
+                >
+                  40+
+                </p>
+                <p className="font-sans text-[9px] font-semibold tracking-[1.5px] uppercase text-slate mt-1">
+                  Proyectos
+                </p>
+              </div>
+
             </div>
           </div>
         </div>
