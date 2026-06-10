@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   },
 };
 
-const schema = personSchema({
+const personData = personSchema({
   name: "Stiven Ramírez",
   url: "https://stivenramirez.com",
   jobTitle: "Consultor SEO y Diseñador Web",
@@ -47,12 +47,19 @@ const schema = personSchema({
   ],
 });
 
+const profilePageSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  url: "https://stivenramirez.com/sobre-mi/",
+  mainEntity: personData,
+};
+
 export default function SobreMiPage() {
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(profilePageSchema) }}
       />
       <SobreMiHero />
       <SobreMiStory />
