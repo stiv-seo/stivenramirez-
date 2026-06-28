@@ -26,7 +26,7 @@
 | Fecha | Post | Cluster | Keyword principal | Página linked |
 |-------|------|---------|------------------|--------------|
 | Jun 2 | Cuánto cobra un diseñador web en Colombia | Diseño Web | cuánto cobra diseñador web colombia | /servicios/diseno-web/ |
-| Jun 16 | Por qué tu sitio web no genera clientes (y cómo arreglarlo) | Estrategia | sitio web sin clientes colombia | /servicios/seo/auditoria/ |
+| Jun 16 | Por qué tu sitio web no genera clientes (y cómo arreglarlo) | Estrategia | sitio web sin clientes colombia | /servicios/seo/auditoria/ | ✅ 2026-06-27 |
 
 ---
 
@@ -34,7 +34,7 @@
 
 | Fecha | Post | Cluster | Keyword principal |
 |-------|------|---------|------------------|
-| Jul 1 | SEO local para restaurantes en Medellín: guía 2026 | SEO Local | seo restaurantes medellín |
+| Jul 1 | SEO local para restaurantes en Medellín: guía 2026 | SEO Local | seo restaurantes medellín | ✅ 2026-07-01 |
 | Jul 15 | Cómo vender más en Shopify Colombia: 12 estrategias | E-commerce | vender shopify colombia |
 | Jul 29 | Shopify vs WooCommerce en Colombia: comparativa honesta | E-commerce | shopify vs woocommerce colombia |
 
@@ -119,3 +119,7 @@
 | WordPress vs Shopify en Colombia | /blog/wordpress-vs-shopify-colombia/ | ✅ | Cada enero |
 | 7 errores de diseño web que destruyen tu SEO | /blog/errores-diseno-web-seo/ | ✅ | Cada 6 meses |
 | SEO para restaurantes en Colombia | /blog/seo-para-restaurantes-colombia/ | ✅ 2026-05-19 | Cada 6 meses |
+| Cuánto cuesta el SEO en Colombia | /blog/cuanto-cuesta-el-seo-colombia/ | ✅ 2026-05-26 | Cada enero |
+| Cuánto cobra un diseñador web en Colombia | /blog/cuanto-cobra-disenador-web-colombia/ | ✅ 2026-06-02 | Cada enero |
+| SEO para clínicas y consultorios en Colombia | /blog/seo-para-clinicas-colombia/ | ✅ 2026-06-09 | Cada 6 meses |
+| Por qué tu sitio web no genera clientes | /blog/por-que-tu-sitio-web-no-genera-clientes/ | ✅ 2026-06-27 | Cada 6 meses |
