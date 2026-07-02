@@ -799,6 +799,49 @@ function RestaurantesOG() {
   );
 }
 
+// ─── SEO para clínicas y consultorios — ECG + cruz médica ────────────────────
+
+function ClinicasOG() {
+  const bg = "radial-gradient(800px 540px at 38% 50%, rgba(0,196,180,0.10) 0%, rgba(0,196,180,0.03) 35%, transparent 65%), linear-gradient(180deg, #11141c 0%, #0d1117 50%, #0a0c12 100%)";
+
+  return (
+    <div style={{ ...stage, background: bg }}>
+      <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, backgroundImage: "linear-gradient(to right, rgba(255,255,255,0.06) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.06) 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
+      <Corner />
+      <ScanLine />
+
+      {/* LEFT: ECG trace */}
+      <div style={{ position: "absolute", top: 0, left: 0, width: 600, bottom: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <svg width={460} height={200} style={{ position: "absolute" }}>
+          <g stroke="rgba(255,255,255,0.10)" strokeWidth="1" fill="none">
+            <line x1="0" y1="100" x2="460" y2="100" />
+          </g>
+          <g stroke="rgba(0,196,180,0.75)" strokeWidth="2" fill="none">
+            <polyline points="0,100 90,100 115,100 130,40 145,160 160,100 220,100 260,100 280,60 300,140 320,100 460,100" />
+          </g>
+          <circle cx="280" cy="60" r="4" fill="#5beedc" style={{ filter: "drop-shadow(0 0 10px rgba(0,196,180,0.7))" }} />
+        </svg>
+      </div>
+
+      {/* RIGHT: medical cross + rings */}
+      <div style={{ position: "absolute", top: 0, right: 0, width: 600, bottom: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <div style={{ position: "relative", width: 360, height: 360, display: "flex", alignItems: "center", justifyContent: "center" }}>
+          {[320, 230, 130].map((s, i) => (
+            <div key={i} style={{ position: "absolute", width: s, height: s, borderRadius: "50%", border: `1px solid ${i === 2 ? "rgba(0,196,180,0.45)" : i === 1 ? "rgba(255,255,255,0.10)" : "rgba(255,255,255,0.06)"}` }} />
+          ))}
+          <div style={{ position: "absolute", left: -40, right: -40, height: 1, top: "50%", background: "linear-gradient(90deg, transparent, rgba(0,196,180,0.45), transparent)" }} />
+          <div style={{ position: "absolute", top: -40, bottom: -40, width: 1, left: "50%", background: "linear-gradient(180deg, transparent, rgba(0,196,180,0.45), transparent)" }} />
+          {/* Cross */}
+          <div style={{ position: "relative", width: 90, height: 90, display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <div style={{ position: "absolute", width: 90, height: 28, background: "linear-gradient(135deg, #5beedc 0%, #00C4B4 60%, rgba(0,196,180,0.6) 100%)", boxShadow: "0 0 40px rgba(0,196,180,0.55)" }} />
+            <div style={{ position: "absolute", width: 28, height: 90, background: "linear-gradient(135deg, #5beedc 0%, #00C4B4 60%, rgba(0,196,180,0.6) 100%)", boxShadow: "0 0 40px rgba(0,196,180,0.55)" }} />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // ─── Generic fallback ─────────────────────────────────────────────────────────
 
 function GenericOG({ title, category }: { title: string; category: string }) {
