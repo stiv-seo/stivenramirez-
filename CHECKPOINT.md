@@ -23,7 +23,8 @@
 | Fase 8 — QA completo (Rondas 1–3) | ✅ |
 | Fase 8.5 — Correcciones pre-deploy | ✅ |
 | Fase 8.6 — Menú dropdown Servicios | ✅ |
-| Fase 9 — Deploy Hostinger | ⏳ Pendiente reinicio MCP |
+| Fase 9 — Deploy Vercel (producción) | ⏳ Pendiente |
+| Fase 10 — Pruebas Hostinger | ⏳ En ~2 meses |
 
 ---
 

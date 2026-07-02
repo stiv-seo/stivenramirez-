@@ -40,6 +40,9 @@ export default async function Image({
   if (slug === "seo-para-restaurantes-colombia") {
     return new ImageResponse(<RestaurantesOG />, { width: 1200, height: 630 });
   }
+  if (slug === "seo-para-clinicas-colombia") {
+    return new ImageResponse(<ClinicasOG />, { width: 1200, height: 630 });
+  }
 
   // Generic fallback for posts without a custom banner
   return new ImageResponse(
