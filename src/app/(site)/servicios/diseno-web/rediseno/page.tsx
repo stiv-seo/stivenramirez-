@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   description:
     "Rediseño web sin perder posicionamiento: auditoría previa, redirecciones 301 y migración que protege tu SEO. Freelance en Medellín.",
   keywords: ["rediseño web medellin", "rediseño web sin perder seo", "migración web colombia", "actualizar sitio web colombia"],
-  alternates: { canonical: "https://stivenramirez.com/servicios/diseno-web/rediseno/" },
+  alternates: { canonical: "https://stivenramirez.com/servicios/diseno-web/rediseno/", languages: { "es-CO": "https://stivenramirez.com/servicios/diseno-web/rediseno/", "x-default": "https://stivenramirez.com/servicios/diseno-web/rediseno/" } },
   openGraph: {
     title: "Rediseño Web sin perder SEO | Medellín",
     description: "Rediseña tu sitio sin destruir el posicionamiento que tardaste años en construir. Freelance en Medellín.",

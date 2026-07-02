@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: { absolute: `${ciudad.keyword_h1} con SEO | Stiven Ramírez` },
     description: ciudad.meta_description,
     keywords: ciudad.keywords,
-    alternates: { canonical: `${SITE_URL}/diseno-web/${ciudad.slug}/` },
+    alternates: { canonical: `${SITE_URL}/diseno-web/${ciudad.slug}/`, languages: { "es-CO": `${SITE_URL}/diseno-web/${ciudad.slug}/`, "x-default": `${SITE_URL}/diseno-web/${ciudad.slug}/` } },
     openGraph: {
       title: `${ciudad.keyword_h1} con SEO | Stiven Ramírez`,
       description: ciudad.meta_description,

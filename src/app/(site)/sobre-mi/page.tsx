@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     "experto seo colombia",
     "diseño web seo medellin colombia",
   ],
-  alternates: { canonical: "https://stivenramirez.com/sobre-mi/" },
+  alternates: { canonical: "https://stivenramirez.com/sobre-mi/", languages: { "es-CO": "https://stivenramirez.com/sobre-mi/", "x-default": "https://stivenramirez.com/sobre-mi/" } },
   openGraph: {
     title: "Sobre mí",
     description:

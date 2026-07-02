@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     "presupuesto diseño web seo",
     "stiven ramirez contacto",
   ],
-  alternates: { canonical: "https://stivenramirez.com/contacto/" },
+  alternates: { canonical: "https://stivenramirez.com/contacto/", languages: { "es-CO": "https://stivenramirez.com/contacto/", "x-default": "https://stivenramirez.com/contacto/" } },
   openGraph: {
     title: "Contacto",
     description:

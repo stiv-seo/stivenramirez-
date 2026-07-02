@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       `agencia seo ${ciudad.nombre.toLowerCase()}`,
       `seo ${ciudad.departamento.toLowerCase()}`,
     ],
-    alternates: { canonical: `${SITE_URL}/seo/${ciudad.slug}/` },
+    alternates: { canonical: `${SITE_URL}/seo/${ciudad.slug}/`, languages: { "es-CO": `${SITE_URL}/seo/${ciudad.slug}/`, "x-default": `${SITE_URL}/seo/${ciudad.slug}/` } },
     openGraph: {
       title,
       description,

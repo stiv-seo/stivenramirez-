@@ -4,7 +4,7 @@ import { Container } from "@/components/ui/Container";
 export const metadata: Metadata = {
   title: "Términos de Uso",
   description: "Términos y condiciones de uso del sitio web stivenramirez.com.",
-  alternates: { canonical: "https://stivenramirez.com/terminos/" },
+  alternates: { canonical: "https://stivenramirez.com/terminos/", languages: { "es-CO": "https://stivenramirez.com/terminos/", "x-default": "https://stivenramirez.com/terminos/" } },
   robots: { index: false, follow: false },
 };
 

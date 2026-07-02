@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   description:
     "Google Ads, Meta Ads y TikTok Ads para pymes en Medellín. Sin porcentaje sobre inversión. Freelance independiente con resultados medibles desde el primer mes.",
   keywords: ["pauta digital colombia", "publicidad digital colombia", "google ads meta ads colombia", "tiktok ads colombia", "agencia pauta digital colombia"],
-  alternates: { canonical: "https://stivenramirez.com/servicios/pauta/" },
+  alternates: { canonical: "https://stivenramirez.com/servicios/pauta/", languages: { "es-CO": "https://stivenramirez.com/servicios/pauta/", "x-default": "https://stivenramirez.com/servicios/pauta/" } },
   openGraph: {
     title: "Pauta Digital Colombia",
     description: "Google Ads, Meta Ads y TikTok Ads para pymes colombianas. Sin porcentaje sobre inversión. Resultados medibles.",

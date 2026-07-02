@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   description:
     "Meta Ads y TikTok Ads para pymes en Medellín: audiencias precisas, lineamientos creativos y Pixel bien configurado. Sin porcentaje sobre inversión.",
   keywords: ["meta ads medellin", "facebook ads colombia", "instagram ads medellin", "tiktok ads colombia", "publicidad redes sociales pymes colombia"],
-  alternates: { canonical: "https://stivenramirez.com/servicios/pauta/meta-ads/" },
+  alternates: { canonical: "https://stivenramirez.com/servicios/pauta/meta-ads/", languages: { "es-CO": "https://stivenramirez.com/servicios/pauta/meta-ads/", "x-default": "https://stivenramirez.com/servicios/pauta/meta-ads/" } },
   openGraph: {
     title: "Meta y TikTok Ads | Medellín",
     description: "Meta Ads y TikTok Ads para pymes en Medellín. Audiencias precisas y lineamientos creativos efectivos. Sin % sobre inversión.",

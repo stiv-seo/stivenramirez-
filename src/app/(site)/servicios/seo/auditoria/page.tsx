@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   description:
     "Auditoría SEO para pymes en Medellín: diagnóstico técnico, análisis de keywords y plan de acción 90 días. Freelance sin agencia. Desde $550.000 COP.",
   keywords: ["auditoria seo colombia", "auditoria seo gratis colombia", "diagnostico seo sitio web colombia"],
-  alternates: { canonical: "https://stivenramirez.com/servicios/seo/auditoria/" },
+  alternates: { canonical: "https://stivenramirez.com/servicios/seo/auditoria/", languages: { "es-CO": "https://stivenramirez.com/servicios/seo/auditoria/", "x-default": "https://stivenramirez.com/servicios/seo/auditoria/" } },
   openGraph: {
     title: "Auditoría SEO para pymes | Medellín",
     description: "Diagnóstico técnico completo, análisis de keywords y plan de acción en 90 días para tu sitio.",

@@ -4,7 +4,7 @@ import { Container } from "@/components/ui/Container";
 export const metadata: Metadata = {
   title: "Política de Privacidad",
   description: "Política de privacidad y tratamiento de datos personales de stivenramirez.com.",
-  alternates: { canonical: "https://stivenramirez.com/privacidad/" },
+  alternates: { canonical: "https://stivenramirez.com/privacidad/", languages: { "es-CO": "https://stivenramirez.com/privacidad/", "x-default": "https://stivenramirez.com/privacidad/" } },
   robots: { index: false, follow: false },
 };
 

@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   description:
     "Tienda Shopify con SEO de colecciones, pasarelas de pago locales y conversión optimizada desde el lanzamiento. Freelance para pymes. Medellín.",
   keywords: ["tienda shopify colombia", "shopify seo colombia", "crear tienda shopify colombia", "ecommerce shopify colombia"],
-  alternates: { canonical: "https://stivenramirez.com/servicios/diseno-web/shopify/" },
+  alternates: { canonical: "https://stivenramirez.com/servicios/diseno-web/shopify/", languages: { "es-CO": "https://stivenramirez.com/servicios/diseno-web/shopify/", "x-default": "https://stivenramirez.com/servicios/diseno-web/shopify/" } },
   openGraph: {
     title: "Shopify con SEO para pymes",
     description: "Shopify con SEO de colecciones, velocidad optimizada y pasarelas de pago locales. Colombia.",

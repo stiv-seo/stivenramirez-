@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     "como posicionar en google colombia",
     "diseño web seo articulos",
   ],
-  alternates: { canonical: "https://stivenramirez.com/blog/" },
+  alternates: { canonical: "https://stivenramirez.com/blog/", languages: { "es-CO": "https://stivenramirez.com/blog/", "x-default": "https://stivenramirez.com/blog/" } },
   openGraph: {
     title: "Blog SEO y Diseño Web Colombia",
     description:

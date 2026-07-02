@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     "diseño web colombia resultados",
     "agencia seo colombia portafolio",
   ],
-  alternates: { canonical: "https://stivenramirez.com/portafolio/" },
+  alternates: { canonical: "https://stivenramirez.com/portafolio/", languages: { "es-CO": "https://stivenramirez.com/portafolio/", "x-default": "https://stivenramirez.com/portafolio/" } },
   robots: { index: false, follow: false },
   openGraph: {
     title: "Portafolio SEO y Diseño Web Colombia",

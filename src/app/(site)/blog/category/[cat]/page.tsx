@@ -27,7 +27,7 @@ export async function generateMetadata({
   return {
     title: `Blog de ${label}`,
     description: `Artículos sobre ${label.toLowerCase()} para pymes colombianas. Guías prácticas sin relleno por Stiven Ramírez.`,
-    alternates: { canonical: `https://stivenramirez.com/blog/category/${cat}/` },
+    alternates: { canonical: `https://stivenramirez.com/blog/category/${cat}/`, languages: { "es-CO": `https://stivenramirez.com/blog/category/${cat}/`, "x-default": `https://stivenramirez.com/blog/category/${cat}/` } },
     openGraph: {
       title: `Blog de ${label} para pymes colombianas`,
       description: `Artículos sobre ${label.toLowerCase()} para pymes en Colombia.`,

@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   title: { absolute: "Stiven Ramírez | Consultor SEO & Diseño Web Medellín" },
   description:
     "Consultor SEO y diseñador web freelance en Medellín. WordPress y Shopify que posicionan en Google desde el día 1. Sin agencia, resultados medibles.",
-  alternates: { canonical: "https://stivenramirez.com/" },
+  alternates: { canonical: "https://stivenramirez.com/", languages: { "es-CO": "https://stivenramirez.com/", "x-default": "https://stivenramirez.com/" } },
 };
 
 const localBiz = localBusinessSchema({

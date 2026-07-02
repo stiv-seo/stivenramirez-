@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   description:
     "SEO local en Medellín: aparece en Google Maps y búsquedas cercanas. Optimización de Google Business Profile, reseñas y NAP para negocios físicos en Colombia.",
   keywords: ["seo local colombia", "aparecer google maps colombia", "google business profile colombia", "seo local medellin bogota"],
-  alternates: { canonical: "https://stivenramirez.com/servicios/seo/local/" },
+  alternates: { canonical: "https://stivenramirez.com/servicios/seo/local/", languages: { "es-CO": "https://stivenramirez.com/servicios/seo/local/", "x-default": "https://stivenramirez.com/servicios/seo/local/" } },
   openGraph: {
     title: "SEO Local Medellín | Google Maps",
     description: "Aparece primero cuando alguien busca tu negocio cerca. Google Business Profile y SEO local.",

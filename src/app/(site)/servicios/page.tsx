@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     "shopify seo colombia",
     "google ads colombia",
   ],
-  alternates: { canonical: "https://stivenramirez.com/servicios/" },
+  alternates: { canonical: "https://stivenramirez.com/servicios/", languages: { "es-CO": "https://stivenramirez.com/servicios/", "x-default": "https://stivenramirez.com/servicios/" } },
   openGraph: {
     title: "Servicios SEO y Diseño Web",
     description:

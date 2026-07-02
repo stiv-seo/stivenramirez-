@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description:
     "Consultoría SEO para pymes en Medellín: posicionamiento técnico, de contenido y local. Freelance sin agencia. Shopify, WordPress, e-commerce y más.",
   keywords: ["consultor seo medellin", "seo pymes colombia", "posicionamiento google medellin", "seo freelance medellin"],
-  alternates: { canonical: "https://stivenramirez.com/servicios/seo/" },
+  alternates: { canonical: "https://stivenramirez.com/servicios/seo/", languages: { "es-CO": "https://stivenramirez.com/servicios/seo/", "x-default": "https://stivenramirez.com/servicios/seo/" } },
   openGraph: {
     title: "SEO para pymes Medellín",
     description: "SEO mensual, técnico, local y de plataforma para pymes en Medellín. Sin agencia, sin permanencia forzada.",

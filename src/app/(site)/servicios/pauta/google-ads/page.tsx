@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   description:
     "Google Ads para pymes en Medellín sin porcentaje sobre inversión. Configuración, optimización y reporte mensual. Freelance independiente.",
   keywords: ["google ads medellin", "google ads pymes colombia", "publicidad google medellin", "contratar google ads colombia"],
-  alternates: { canonical: "https://stivenramirez.com/servicios/pauta/google-ads/" },
+  alternates: { canonical: "https://stivenramirez.com/servicios/pauta/google-ads/", languages: { "es-CO": "https://stivenramirez.com/servicios/pauta/google-ads/", "x-default": "https://stivenramirez.com/servicios/pauta/google-ads/" } },
   openGraph: {
     title: "Google Ads para pymes | Medellín",
     description: "Aparece primero en Google cuando te buscan. Sin porcentaje sobre inversión. Freelance en Medellín.",

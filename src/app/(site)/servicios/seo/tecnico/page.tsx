@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description:
     "SEO técnico en Medellín: velocidad, indexación, canonicals y Core Web Vitals. Para sitios que no posicionan a pesar del contenido.",
   keywords: ["seo tecnico colombia", "auditoria tecnica seo", "core web vitals colombia", "indexacion google colombia"],
-  alternates: { canonical: "https://stivenramirez.com/servicios/seo/tecnico/" },
+  alternates: { canonical: "https://stivenramirez.com/servicios/seo/tecnico/", languages: { "es-CO": "https://stivenramirez.com/servicios/seo/tecnico/", "x-default": "https://stivenramirez.com/servicios/seo/tecnico/" } },
   openGraph: {
     title: "SEO Técnico Colombia",
     description: "Velocidad, rastreo, indexación y datos estructurados. Los cimientos que el SEO necesita.",

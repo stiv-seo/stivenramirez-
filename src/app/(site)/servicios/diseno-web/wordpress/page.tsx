@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   description:
     "WordPress con SEO integrado: diseño personalizado, velocidad optimizada y posicionamiento desde el lanzamiento. Freelance para pymes en Medellín.",
   keywords: ["diseño web wordpress colombia", "wordpress seo colombia", "crear sitio wordpress colombia seo"],
-  alternates: { canonical: "https://stivenramirez.com/servicios/diseno-web/wordpress/" },
+  alternates: { canonical: "https://stivenramirez.com/servicios/diseno-web/wordpress/", languages: { "es-CO": "https://stivenramirez.com/servicios/diseno-web/wordpress/", "x-default": "https://stivenramirez.com/servicios/diseno-web/wordpress/" } },
   openGraph: {
     title: "WordPress con SEO | Freelance Medellín",
     description: "WordPress con SEO integrado desde el día 1. Velocidad, diseño y posicionamiento en un solo proyecto.",

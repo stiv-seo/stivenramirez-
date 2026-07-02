@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     "precio diseño web medellín",
     "cuánto cuesta seo colombia",
   ],
-  alternates: { canonical: "https://stivenramirez.com/servicios/precios/" },
+  alternates: { canonical: "https://stivenramirez.com/servicios/precios/", languages: { "es-CO": "https://stivenramirez.com/servicios/precios/", "x-default": "https://stivenramirez.com/servicios/precios/" } },
   openGraph: {
     title: "Precios y Tarifas | SEO y Diseño Web Colombia",
     description:

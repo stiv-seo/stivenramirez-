@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   description:
     "WordPress optimizado para Google: SEO técnico, velocidad y contenido estratégico. Freelance independiente en Medellín, Colombia.",
   keywords: ["seo wordpress colombia", "optimizar wordpress seo", "posicionar wordpress google colombia"],
-  alternates: { canonical: "https://stivenramirez.com/servicios/seo/wordpress/" },
+  alternates: { canonical: "https://stivenramirez.com/servicios/seo/wordpress/", languages: { "es-CO": "https://stivenramirez.com/servicios/seo/wordpress/", "x-default": "https://stivenramirez.com/servicios/seo/wordpress/" } },
   openGraph: {
     title: "SEO para WordPress Colombia",
     description: "WordPress optimizado para Google: técnico, contenido y velocidad. Colombia.",

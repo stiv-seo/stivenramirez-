@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   description:
     "SEO para tiendas Shopify: colecciones, productos, velocidad y Core Web Vitals optimizados. Freelance independiente en Medellín.",
   keywords: ["seo shopify colombia", "optimizar tienda shopify", "posicionar shopify google colombia"],
-  alternates: { canonical: "https://stivenramirez.com/servicios/seo/shopify/" },
+  alternates: { canonical: "https://stivenramirez.com/servicios/seo/shopify/", languages: { "es-CO": "https://stivenramirez.com/servicios/seo/shopify/", "x-default": "https://stivenramirez.com/servicios/seo/shopify/" } },
   openGraph: {
     title: "SEO para Shopify Colombia",
     description: "Colecciones, productos y velocidad optimizados para que tu tienda Shopify aparezca en Google.",

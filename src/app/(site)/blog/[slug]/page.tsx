@@ -28,7 +28,7 @@ export async function generateMetadata({
   return {
     title: post.metaTitle ?? post.title,
     description: post.description,
-    alternates: { canonical: `https://stivenramirez.com/blog/${slug}/` },
+    alternates: { canonical: `https://stivenramirez.com/blog/${slug}/`, languages: { "es-CO": `https://stivenramirez.com/blog/${slug}/`, "x-default": `https://stivenramirez.com/blog/${slug}/` } },
     openGraph: {
       title: post.title,
       description: post.description,
