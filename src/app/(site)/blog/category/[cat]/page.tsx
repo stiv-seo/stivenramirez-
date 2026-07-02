@@ -10,6 +10,7 @@ import { Badge } from "@/components/ui/Badge";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { BlogCTA } from "@/components/sections/blog/BlogCTA";
 import { formatDate } from "@/lib/utils";
+import { collectionPageSchema } from "@/lib/schema";
 
 export function generateStaticParams() {
   return getActiveCategorySlugs().map((cat) => ({ cat }));
@@ -56,8 +57,23 @@ export default async function CategoryPage({
 
   const posts = getPostsByCategory(cat);
 
+  const schema = collectionPageSchema({
+    name: `Blog de ${label}`,
+    description: `Artículos sobre ${label.toLowerCase()} para pymes colombianas.`,
+    url: `https://stivenramirez.com/blog/category/${cat}/`,
+    author: "Stiven Ramírez",
+    items: posts.map((post) => ({
+      name: post.title,
+      url: `https://stivenramirez.com/blog/${post.slug}/`,
+    })),
+  });
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
       {/* Hero */}
       <section
         className="relative bg-midnight bg-grid-dark overflow-hidden pt-20 md:pt-[140px]"
