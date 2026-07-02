@@ -236,7 +236,7 @@ Pauta: google-ads, meta-ads
       "type": "stdio",
       "command": "hostinger-api-mcp",
       "env": {
-        "APITOKEN": "6Ck4UKx82Ih3ckbDousEsKQy0txq7qr8hTdWQOJb48e899fa",
+        "APITOKEN": "REDACTED — ver 1Password/gestor de secretos",
         "DEBUG": "false"
       }
     }
@@ -270,7 +270,7 @@ Pauta: google-ads, meta-ads
 
 ```env
 NEXT_PUBLIC_WA_NUMBER=573015787350
-RESEND_API_KEY=re_QtGu3aot_5WqiHva5thGxzS2JjEVhCSdW
+RESEND_API_KEY=REDACTED — ver 1Password/gestor de secretos
 CONTACT_EMAIL=hola@stivenramirez.com
 NODE_ENV=production
 ```
@@ -339,7 +339,7 @@ cd /Users/stiven/stivenramirez && npm run dev
 ```bash
 # .env.local
 NEXT_PUBLIC_WA_NUMBER=573015787350
-RESEND_API_KEY=re_QtGu3aot_5WqiHva5thGxzS2JjEVhCSdW
+RESEND_API_KEY=REDACTED — ver 1Password/gestor de secretos
 CONTACT_EMAIL=hola@stivenramirez.com
 ```
 
