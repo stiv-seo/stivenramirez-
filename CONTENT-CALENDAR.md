@@ -35,8 +35,8 @@
 | Fecha | Post | Cluster | Keyword principal |
 |-------|------|---------|------------------|
 | Jul 1 | SEO local para restaurantes en Medellín: guía 2026 | SEO Local | seo restaurantes medellín | ✅ 2026-07-01 |
-| Jul 15 | Cómo vender más en Shopify Colombia: 12 estrategias | E-commerce | vender shopify colombia |
-| Jul 29 | Shopify vs WooCommerce en Colombia: comparativa honesta | E-commerce | shopify vs woocommerce colombia |
+| Jul 15 | Cómo vender más en Shopify Colombia: 12 estrategias | E-commerce | vender shopify colombia | ✅ 2026-07-18 (retrasado) |
+| Jul 29 | Shopify vs WooCommerce en Colombia: comparativa honesta | E-commerce | shopify vs woocommerce colombia | ✅ 2026-07-18 (adelantado) |
 
 ---
 
@@ -123,3 +123,6 @@
 | Cuánto cobra un diseñador web en Colombia | /blog/cuanto-cobra-disenador-web-colombia/ | ✅ 2026-06-02 | Cada enero |
 | SEO para clínicas y consultorios en Colombia | /blog/seo-para-clinicas-colombia/ | ✅ 2026-06-09 | Cada 6 meses |
 | Por qué tu sitio web no genera clientes | /blog/por-que-tu-sitio-web-no-genera-clientes/ | ✅ 2026-06-27 | Cada 6 meses |
+| SEO local para restaurantes en Medellín | /blog/seo-local-restaurantes-medellin/ | ✅ 2026-07-01 | Cada 6 meses |
+| Cómo vender más en Shopify Colombia: 12 estrategias | /blog/vender-mas-shopify-colombia/ | ✅ 2026-07-18 | Cada 6 meses |
+| Shopify vs WooCommerce en Colombia | /blog/shopify-vs-woocommerce-colombia/ | ✅ 2026-07-18 | Cada enero |

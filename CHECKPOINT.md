@@ -1,9 +1,16 @@
 # CHECKPOINT — stivenramirez.com
 
-**Última actualización:** 2026-04-16  
-**Estado:** ✅ Build limpio — 32 páginas — 0 errores — Listo para deploy  
-**Repo GitHub:** `stiv-seo/stivenramirez-` (branch: `main`) — push completado  
-**Dev server:** `http://localhost:3000` — funcionando (200 OK en todas las rutas)
+**Última actualización:** 2026-07-18
+**Estado:** ✅ Build limpio — 61 páginas — 0 errores — En producción (Vercel)
+**Repo GitHub:** `stiv-seo/stivenramirez-` (branch: `main`)
+**Nota:** este archivo no se había actualizado desde el 16 de abril — el resto del documento (fases 0-8.6) describe el estado de esa fecha y ya está superado. Fase 9 (deploy) sí se completó. Para el estado real y reciente, ver `git log` — el sitio ha tenido trabajo constante de SEO técnico, schema y contenido de blog entre mayo y julio 2026.
+
+## Estado real — julio 2026
+
+- 17 posts de blog publicados (calendario en `CONTENT-CALENDAR.md`), incluyendo los 2 de julio ("Cómo vender más en Shopify Colombia" y "Shopify vs WooCommerce Colombia") escritos y publicados el 2026-07-18 tras detectar que llevaban hasta 3 días de atraso frente al calendario.
+- Auditoría SEO de mayo 2026 (`/Users/stiven/Documents/08-Marcas SEO/Stiven/Auditoría-Mayo-2026/ACTION-PLAN.md`) — todos los ítems Crítico/Alto ya resueltos en código (cross-links, homepage dinámica, meta descriptions, OG images, ProfilePage schema). El único ítem que seguía marcado "pendiente" (hreflang no renderiza) resultó ser un falso positivo: el tag sí existe en el HTML, solo con casing `hrefLang` en vez de `hreflang` — válido en HTML, sin impacto real.
+- **Pendiente real detectado 2026-07-18:** Search Console muestra caída sostenida — clics últimos 28 días -58% vs período anterior, posición promedio empeoró de 22.1 a 28.9, 0 quick wins (ninguna query en posición 4-10). Causa más probable: 17 días sin commits (1-18 julio) mientras el calendario prometía contenido nuevo. Monitorear si publicar los 2 posts atrasados revierte la tendencia en las próximas 2-4 semanas.
+- Backlog real pendiente: caso de estudio ("De 0 a X visitas en Y meses") mencionado como prioridad de julio en la auditoría de mayo — no se ha empezado.
 
 ---
 

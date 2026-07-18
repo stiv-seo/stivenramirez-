@@ -11,6 +11,8 @@ import { BannerCuantoCobraDiseñadorWeb } from "./BannerCuantoCobraDiseñadorWeb
 import { BannerSitioWebSinClientes } from "./BannerSitioWebSinClientes";
 import { BannerSeoRestaurantesMedellin } from "./BannerSeoRestaurantesMedellin";
 import { BannerSeoClinicasColombia } from "./BannerSeoClinicasColombia";
+import { BannerVenderShopifyColombia } from "./BannerVenderShopifyColombia";
+import { BannerShopifyVsWoocommerce } from "./BannerShopifyVsWoocommerce";
 
 export const bannerRegistry: Record<string, ComponentType> = {
   "wordpress-vs-shopify-colombia":              BannerWordpressVsShopify,
@@ -26,4 +28,6 @@ export const bannerRegistry: Record<string, ComponentType> = {
   "por-que-tu-sitio-web-no-genera-clientes":    BannerSitioWebSinClientes,
   "seo-local-restaurantes-medellin":            BannerSeoRestaurantesMedellin,
   "seo-para-clinicas-colombia":                 BannerSeoClinicasColombia,
+  "vender-mas-shopify-colombia":                BannerVenderShopifyColombia,
+  "shopify-vs-woocommerce-colombia":            BannerShopifyVsWoocommerce,
 };
