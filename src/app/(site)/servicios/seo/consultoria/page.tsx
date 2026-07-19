@@ -12,14 +12,14 @@ import { Container } from "@/components/ui/Container";
 import { FadeIn } from "@/components/ui/FadeIn";
 
 export const metadata: Metadata = {
-  title: "Consultor SEO Freelance Medellín",
+  title: "Consultor SEO Medellín — Sin Agencia",
   description:
-    "Consultoría SEO mensual sin agencia para pymes en Medellín. Estrategia, contenido y link building con resultados medibles. Sin contratos de permanencia.",
+    "SEO mensual directo conmigo, sin ejecutivos de cuenta ni contratos largos. Estrategia y resultados medibles para pymes en Medellín. Agenda una llamada gratis.",
   keywords: ["consultor seo medellin", "seo freelance colombia", "posicionamiento google medellin", "seo sin agencia colombia"],
   alternates: { canonical: "https://stivenramirez.com/servicios/seo/consultoria/", languages: { "es-CO": "https://stivenramirez.com/servicios/seo/consultoria/", "x-default": "https://stivenramirez.com/servicios/seo/consultoria/" } },
   openGraph: {
-    title: "Consultor SEO Freelance | Medellín",
-    description: "SEO mensual sin agencia para pymes en Medellín. Estrategia, contenido y resultados medibles.",
+    title: "Consultor SEO Freelance en Medellín — Sin Agencia",
+    description: "SEO mensual directo conmigo, sin ejecutivos de cuenta ni contratos largos. Estrategia, contenido y resultados medibles.",
     url: "https://stivenramirez.com/servicios/seo/consultoria/",
     type: "website",
     locale: "es_CO",
