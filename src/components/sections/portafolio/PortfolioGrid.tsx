@@ -23,12 +23,20 @@ export function PortfolioGrid() {
             className="font-jakarta font-extrabold text-text-dark leading-[1.1] tracking-[-1px] mb-4"
             style={{ fontSize: "clamp(28px, 4vw, 48px)" }}
           >
-            Resultados para negocios reales
+            Casos de estudio en construcción
           </h2>
           <p className="font-sans text-text-mid leading-[1.75] max-w-[500px]">
-            Desde e-commerce hasta negocios locales — estrategias distintas, mismo enfoque en resultados.
+            Estoy documentando los primeros casos con métricas verificables (Search Console, GA4) antes de publicarlos acá. Mientras tanto, mira el trabajo reciente en el <a href="/blog/" className="text-teal underline underline-offset-2 hover:no-underline">blog</a>.
           </p>
         </FadeIn>
+
+        {portfolioCases.length === 0 && (
+          <FadeIn delay={0.1} className="mt-8 rounded-2xl border border-dashed border-[rgba(0,0,0,0.12)] bg-warm-white p-10 text-center">
+            <p className="font-sans text-text-mid leading-[1.75] max-w-[440px] mx-auto">
+              Todavía no hay casos publicados con datos verificados. Si quieres ver ejemplos concretos de tu sector mientras tanto, <a href="/contacto/" className="text-teal underline underline-offset-2 hover:no-underline">escríbeme directamente</a>.
+            </p>
+          </FadeIn>
+        )}
 
         <div className="grid gap-6 md:grid-cols-3">
           {portfolioCases.map((caso, i) => (

@@ -31,7 +31,7 @@ export function PortfolioHero() {
           </nav>
 
           <p className="font-sans text-[11px] font-semibold tracking-[4px] uppercase text-teal mb-5">
-            Casos reales · Resultados medibles
+            En construcción · Resultados medibles
           </p>
 
           <h1
@@ -40,15 +40,15 @@ export function PortfolioHero() {
           >
             Proyectos que
             <br />
-            <span className="text-teal">hablan por sí solos.</span>
+            <span className="text-teal">van a hablar por sí solos.</span>
           </h1>
 
           <p
             className="font-sans text-slate-light leading-[1.75] max-w-[520px]"
             style={{ fontSize: "clamp(16px, 1.5vw, 18px)" }}
           >
-            Cada caso tiene una historia de tráfico, conversiones y posiciones reales.
-            Sin pantallazos editados — solo resultados documentados.
+            Cada caso que publico aquí tiene datos verificables de tráfico, conversiones y posiciones —
+            sin pantallazos editados. Esta sección está creciendo con los primeros casos documentados.
           </p>
         </FadeIn>
       </Container>
