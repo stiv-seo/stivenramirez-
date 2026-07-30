@@ -7,13 +7,13 @@ import { SubpageCTA } from "@/components/sections/subpage/SubpageCTA";
 import { SubpageMidCTA } from "@/components/sections/subpage/SubpageMidCTA";
 
 export const metadata: Metadata = {
-  title: "Diseño Web con SEO | Freelance Medellín",
+  title: "Diseño Web con SEO Integrado desde el Día 1 | Medellín",
   description:
     "Sitios web con SEO integrado desde el día 1: arquitectura, velocidad y contenido optimizados para Google. Freelance independiente en Medellín.",
   keywords: ["diseño web con seo colombia", "diseño web seo integrado", "sitio web posicionamiento google colombia"],
   alternates: { canonical: "https://stivenramirez.com/servicios/diseno-web/seo/", languages: { "es-CO": "https://stivenramirez.com/servicios/diseno-web/seo/", "x-default": "https://stivenramirez.com/servicios/diseno-web/seo/" } },
   openGraph: {
-    title: "Diseño Web con SEO | Freelance Medellín",
+    title: "Diseño Web con SEO Integrado desde el Día 1 | Medellín",
     description: "Sitio web que posiciona en Google desde el día 1. SEO integrado en diseño, velocidad y contenido.",
     url: "https://stivenramirez.com/servicios/diseno-web/seo/",
     type: "website",

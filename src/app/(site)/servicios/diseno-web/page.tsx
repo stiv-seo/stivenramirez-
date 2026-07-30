@@ -7,13 +7,13 @@ import { FadeIn } from "@/components/ui/FadeIn";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 
 export const metadata: Metadata = {
-  title: "Diseño Web con SEO | Freelance Medellín",
+  title: "Servicios de Diseño Web con SEO | Freelance Medellín",
   description:
     "Diseño web con SEO integrado para pymes en Medellín: WordPress, Shopify y rediseños que posicionan en Google desde el día 1. Freelance independiente.",
   keywords: ["diseño web medellin", "diseño web seo colombia", "wordpress shopify medellin", "diseño web pymes colombia"],
   alternates: { canonical: "https://stivenramirez.com/servicios/diseno-web/", languages: { "es-CO": "https://stivenramirez.com/servicios/diseno-web/", "x-default": "https://stivenramirez.com/servicios/diseno-web/" } },
   openGraph: {
-    title: "Diseño Web con SEO | Freelance Medellín",
+    title: "Servicios de Diseño Web con SEO | Freelance Medellín",
     description: "WordPress, Shopify y rediseños con SEO integrado desde el día 1. Para pymes en Medellín.",
     url: "https://stivenramirez.com/servicios/diseno-web/",
     type: "website",
