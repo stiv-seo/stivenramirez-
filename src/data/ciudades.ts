@@ -34,6 +34,66 @@ export interface Ciudad {
 
 export const CIUDADES: Ciudad[] = [
   {
+    nombre: "Medellín",
+    slug: "medellin",
+    departamento: "Antioquia",
+    descripcion: "Capital de Antioquia y del Valle de Aburrá. Base real de operación, en el área metropolitana (Sabaneta).",
+    mercado: "moda y confecciones, tecnología, innovación, salud, servicios profesionales",
+    poblacion: "4 millones (área metropolitana)",
+    empresas: "pymes de moda, tecnología, salud y servicios profesionales",
+    oportunidad: "conocimiento directo del mercado local, sin intermediarios ni tercerización",
+    keyword_h1: "Diseño Web en Medellín",
+    keyword_meta: "diseño web Medellín",
+    meta_description:
+      "Diseño web en Medellín con SEO integrado, hecho desde el Valle de Aburrá. WordPress y Shopify que posicionan en Google desde el día 1. Trabajo directo, sin intermediarios.",
+    keywords: ["diseño web medellin", "consultor seo medellin", "consultor seo freelance medellin", "wordpress medellin", "shopify medellin", "seo local medellin"],
+    sectorEconomicoPrincipal: "Moda, tecnología e innovación",
+    poblacionAprox: "4 millones de habitantes en el área metropolitana",
+    oportunidadLocal: "Base real de operación — conocimiento directo del mercado del Valle de Aburrá, sin intermediarios ni tercerización",
+    ejemplosSectores: ["Moda y confecciones", "Tecnología e innovación (Ruta N)", "Salud y bienestar", "Servicios profesionales"],
+    marketSection: {
+      h2: "Diseño web en Medellín: hecho desde el Valle de Aburrá, no vendido a distancia",
+      paragraph:
+        "Medellín es mi base — vivo en el área metropolitana (Sabaneta) y trabajo con negocios de Medellín, Envigado, Itagüí y Sabaneta todos los días. Conozco el mercado local: la industria de la moda (confecciones, Colombiamoda), el ecosistema tech impulsado por Ruta N, y un sector servicios que compite duro por visibilidad en Google. La diferencia frente a una agencia: no hay ejecutivo de ventas ni equipo tercerizado — hablas conmigo, y yo ejecuto.",
+      cards: [
+        {
+          icon: "🧵",
+          title: "Moda y confecciones",
+          description:
+            "Medellín es la capital textil de Colombia. SEO + e-commerce bien construido compite con marketplaces grandes en búsquedas de nicho.",
+        },
+        {
+          icon: "💻",
+          title: "Tecnología e innovación",
+          description:
+            "El ecosistema de Ruta N y las startups del Valle de Aburrá necesitan SEO técnico real, no solo un sitio bonito, para escalar tráfico orgánico.",
+        },
+        {
+          icon: "🏥",
+          title: "Salud y bienestar",
+          description:
+            "Clínicas, IPS y centros de estética del área metropolitana. SEO local bien hecho trae pacientes por Google, no solo por referidos.",
+        },
+        {
+          icon: "💼",
+          title: "Servicios profesionales",
+          description:
+            "Abogados, contadores y consultoras en Medellín, Envigado y Sabaneta compitiendo por búsquedas locales de alto valor.",
+        },
+      ],
+    },
+    faqsLocal: [
+      {
+        q: "¿De verdad trabajas desde Medellín o es solo una página más de la lista?",
+        a: "Vivo en Sabaneta, área metropolitana de Medellín. No es una ciudad más agregada por SEO — es donde trabajo todos los días y donde conozco el mercado de primera mano.",
+      },
+      {
+        q: "¿Atiendes también Envigado, Itagüí y Sabaneta?",
+        a: "Sí, todo el Valle de Aburrá. Al estar en la zona puedo reunirme presencialmente si el proyecto lo amerita, algo que no ofrezco en las demás ciudades donde trabajo 100% remoto.",
+      },
+    ],
+  },
+  {
     nombre: "Cali",
     slug: "cali",
     departamento: "Valle del Cauca",

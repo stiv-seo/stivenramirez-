@@ -30,6 +30,7 @@ export const FOOTER_LINKS = {
     { label: "Contacto",    href: "/contacto/" },
   ],
   ciudades: [
+    { label: "Diseño Web en Medellín",     href: "/diseno-web/medellin/" },
     { label: "Diseño Web en Bogotá",       href: "/diseno-web/bogota/" },
     { label: "Diseño Web en Cali",         href: "/diseno-web/cali/" },
     { label: "Diseño Web en Barranquilla", href: "/diseno-web/barranquilla/" },

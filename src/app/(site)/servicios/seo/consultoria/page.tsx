@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { serviceSchema } from "@/lib/schema";
 import { SubpageHero } from "@/components/sections/subpage/SubpageHero";
 import { SubpageFeatures } from "@/components/sections/subpage/SubpageFeatures";
@@ -108,6 +109,17 @@ export default function SeoConsultoriaPage() {
             </h2>
             <p className="font-sans text-text-mid leading-[1.85] text-[16px]">
               El mayor malentendido es pensar que SEO es publicar artículos y esperar que Google los indexe. SEO real es un ciclo: investigar qué buscan en tu mercado, escribir contenido que responda mejor que tus competidores, conseguir enlaces desde sitios de autoridad, monitorear posiciones semana a semana y ajustar. Cada posición que ganas en Google es porque hiciste algo que tus competidores no hicieron. Eso requiere inversión continua, no un pago único.
+            </p>
+            <p className="font-sans text-text-mid leading-[1.85] mt-5 text-[16px]">
+              Trabajo desde el Valle de Aburrá (Sabaneta) y atiendo directamente negocios de{" "}
+              <Link href="/seo/medellin/" className="text-teal underline underline-offset-2">
+                SEO en Medellín
+              </Link>{" "}
+              y{" "}
+              <Link href="/diseno-web/medellin/" className="text-teal underline underline-offset-2">
+                diseño web en Medellín
+              </Link>
+              , además de todo el país de forma remota.
             </p>
           </div>
         </Container>
