@@ -30,6 +30,10 @@ export interface Ciudad {
   };
   // FAQs específicas de ciudad (reemplazan las últimas 2 del template)
   faqsLocal: Array<{ q: string; a: string }>;
+  // true solo para la ciudad donde el negocio tiene domicilio real — controla si el
+  // schema LocalBusiness declara una dirección física ahí (evita declarar una
+  // "sede" falsa por ciudad, que Google puede leer como señal de doorway pages)
+  esSedeReal?: boolean;
 }
 
 export const CIUDADES: Ciudad[] = [
@@ -37,6 +41,7 @@ export const CIUDADES: Ciudad[] = [
     nombre: "Medellín",
     slug: "medellin",
     departamento: "Antioquia",
+    esSedeReal: true,
     descripcion: "Capital de Antioquia y del Valle de Aburrá. Base real de operación, en el área metropolitana (Sabaneta).",
     mercado: "moda y confecciones, tecnología, innovación, salud, servicios profesionales",
     poblacion: "4 millones (área metropolitana)",

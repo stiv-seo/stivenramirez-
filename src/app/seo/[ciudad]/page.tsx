@@ -73,6 +73,9 @@ export default async function SeoCiudadPage({ params }: Props) {
     ],
   };
 
+  // LocalBusiness con address solo para la ciudad de domicilio real. En las demás,
+  // solo Service + areaServed — declarar una "sede" en cada ciudad es inexacto y
+  // se lee como señal de doorway pages.
   const localBusiness = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
@@ -86,12 +89,16 @@ export default async function SeoCiudadPage({ params }: Props) {
       name: ciudad.nombre,
       containedInPlace: { "@type": "State", name: ciudad.departamento },
     },
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: ciudad.nombre,
-      addressRegion: ciudad.departamento,
-      addressCountry: "CO",
-    },
+    ...(ciudad.esSedeReal
+      ? {
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: ciudad.nombre,
+            addressRegion: ciudad.departamento,
+            addressCountry: "CO",
+          },
+        }
+      : {}),
   };
 
   const service = {
@@ -125,7 +132,7 @@ export default async function SeoCiudadPage({ params }: Props) {
     {
       icon: "📍",
       title: "SEO Local",
-      desc: "Para negocios físicos o de servicio a domicilio en ${ciudad.nombre}. Google Business Profile, reseñas, schema local y posicionamiento en búsquedas con intención local.",
+      desc: `Para negocios físicos o de servicio a domicilio en ${ciudad.nombre}. Google Business Profile, reseñas, schema local y posicionamiento en búsquedas con intención local.`,
       price: "Desde $1.600.000 COP/mes",
       href: "/servicios/seo/local/",
       linkText: "Ver SEO local →",
@@ -158,7 +165,7 @@ export default async function SeoCiudadPage({ params }: Props) {
     {
       number: 2,
       title: "Estrategia y keywords",
-      description: "Defino las palabras clave con mayor potencial para tu negocio en ${ciudad.nombre} y diseño la arquitectura de contenido.",
+      description: `Defino las palabras clave con mayor potencial para tu negocio en ${ciudad.nombre} y diseño la arquitectura de contenido.`,
       duration: "Semana 2",
     },
     {

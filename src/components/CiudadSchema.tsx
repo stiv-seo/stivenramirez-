@@ -20,6 +20,9 @@ export function CiudadSchema({ ciudad, slug, descripcion }: CiudadSchemaProps) {
     ],
   };
 
+  // LocalBusiness con address solo para la ciudad de domicilio real. En las demás,
+  // solo Service + areaServed — declarar una "sede" en cada ciudad es inexacto y
+  // se lee como señal de doorway pages.
   const localBusiness = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
@@ -33,12 +36,16 @@ export function CiudadSchema({ ciudad, slug, descripcion }: CiudadSchemaProps) {
       name: ciudad.nombre,
       containedInPlace: { "@type": "State", name: ciudad.departamento },
     },
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: ciudad.nombre,
-      addressRegion: ciudad.departamento,
-      addressCountry: "CO",
-    },
+    ...(ciudad.esSedeReal
+      ? {
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: ciudad.nombre,
+            addressRegion: ciudad.departamento,
+            addressCountry: "CO",
+          },
+        }
+      : {}),
   };
 
   const service = {
