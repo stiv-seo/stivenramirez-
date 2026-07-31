@@ -285,14 +285,9 @@ export default function PreciosPage() {
 
       {/* ── SEO ────────────────────────────────────────────────────────────── */}
       <section
-        className="relative bg-midnight bg-grid-dark overflow-hidden"
+        className="relative bg-midnight bg-grain overflow-hidden"
         style={{ paddingTop: "80px", paddingBottom: "80px" }}
       >
-        <div
-          className="glow-teal absolute pointer-events-none"
-          style={{ top: "-80px", right: "-100px" }}
-          aria-hidden="true"
-        />
         <Container>
           <FadeIn className="mb-10">
             <p className="font-sans text-[11px] font-semibold tracking-[4px] uppercase text-teal mb-3">

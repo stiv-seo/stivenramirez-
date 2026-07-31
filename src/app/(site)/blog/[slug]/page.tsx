@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import Link from "next/link";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import { getAllPosts, getPostBySlug } from "@/lib/mdx";
@@ -168,28 +169,23 @@ export default async function BlogPostPage({
       <article>
       {/* Hero */}
       <section
-        className="relative bg-midnight bg-grid-dark overflow-hidden"
+        className="relative bg-midnight bg-grain overflow-hidden"
         style={{ paddingTop: "120px", paddingBottom: "80px" }}
       >
-        <div
-          className="glow-teal absolute pointer-events-none"
-          style={{ top: "-80px", right: "-80px" }}
-          aria-hidden="true"
-        />
         <Container>
           {/* Breadcrumb */}
           <nav aria-label="Breadcrumb" className="mb-6">
             <ol className="flex items-center gap-2 font-sans text-xs text-slate">
               <li>
-                <a href="/" className="hover:text-teal transition-colors duration-150">
+                <Link href="/" className="hover:text-teal transition-colors duration-150">
                   Inicio
-                </a>
+                </Link>
               </li>
               <li aria-hidden="true">›</li>
               <li>
-                <a href="/blog/" className="hover:text-teal transition-colors duration-150">
+                <Link href="/blog/" className="hover:text-teal transition-colors duration-150">
                   Blog
-                </a>
+                </Link>
               </li>
               <li aria-hidden="true">›</li>
               <li className="text-slate-light truncate max-w-[200px]" aria-current="page">
