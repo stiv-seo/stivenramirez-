@@ -5,11 +5,9 @@ import { Tilt } from "@/components/ui/Tilt";
 import { CALENDLY_URL } from "@/lib/constants";
 
 // A literal, illustrative SERP mock — makes the ranking problem visible
-// instead of describing it through icon+text cards.
-const competitors = [
-  { domain: "agenciadigitalbogota.co", title: "Diseño Web en Bogotá | Agencia Digital Bogotá" },
-  { domain: "webexpertos.com.co", title: "Diseñador Web Profesional Bogotá — Cotiza Gratis" },
-];
+// instead of describing it through icon+text cards. Kept industry-agnostic
+// ("tu competencia" / "tu sitio") so it works for any client's business,
+// not just web design.
 
 export function Agitation() {
   return (
@@ -58,18 +56,15 @@ export function Agitation() {
                     <path fill="#FBBC05" d="M5.84 14.09A6.6 6.6 0 015.5 12c0-.73.13-1.43.34-2.09V7.06H2.18A11 11 0 001 12c0 1.78.43 3.46 1.18 4.94l3.66-2.85z"/>
                     <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1a11 11 0 00-9.82 6.06l3.66 2.85C6.71 7.31 9.14 5.38 12 5.38z"/>
                   </svg>
-                  <span className="font-sans text-[12px] text-text-mid">diseño web bogotá</span>
+                  <span className="font-sans text-[12px] text-text-mid">[tu producto o servicio] en [tu ciudad]</span>
                 </div>
 
-                {/* Competitor rows */}
+                {/* Competitor rows — generic on purpose, works for any industry */}
                 <div className="space-y-4 mb-3">
-                  {competitors.map((c, i) => (
-                    <div key={c.domain}>
+                  {[1, 2].map((n) => (
+                    <div key={n}>
                       <p className="font-sans text-[10px] text-slate mb-0.5">
-                        <span className="text-slate/70">#{i + 1}</span> · {c.domain}
-                      </p>
-                      <p className="font-sans text-[13px] text-navy font-medium leading-tight mb-1.5">
-                        {c.title}
+                        <span className="text-slate/70">#{n}</span> · Tu competencia
                       </p>
                       <div className="h-1.5 rounded-full bg-black/[0.06] w-[92%] mb-1" />
                       <div className="h-1.5 rounded-full bg-black/[0.06] w-[70%]" />
@@ -81,11 +76,8 @@ export function Agitation() {
 
                 {/* "You" row — the point of the whole mock */}
                 <div className="rounded-xl border-[1.5px] border-dashed border-amber/50 bg-amber-dim/40 p-3.5">
-                  <p className="font-sans text-[10px] text-amber font-semibold mb-0.5">
-                    #7 · tu-sitio.com
-                  </p>
-                  <p className="font-sans text-[13px] text-text-dark font-medium leading-tight mb-1.5">
-                    Diseño Web Bogotá | Tu Negocio
+                  <p className="font-sans text-[10px] text-amber font-semibold mb-1.5">
+                    #7 · Tu sitio
                   </p>
                   <p className="font-sans text-[11px] text-text-mid">
                     Así te ve hoy un cliente que te busca en Google.

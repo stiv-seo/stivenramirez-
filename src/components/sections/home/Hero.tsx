@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
-import { Tilt } from "@/components/ui/Tilt";
 import { CALENDLY_URL } from "@/lib/constants";
 
 const toolPills = [
@@ -111,14 +110,12 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Right — photo, bleeds full-bleed to the edge and below the fold on desktop.
-              Cursor-driven 3D tilt (CSS transform only, no 3D library) is the page's one
-              signature motion moment. */}
+          {/* Right — photo, bleeds full-bleed to the edge and below the fold on desktop. */}
           <div
             className="hero-anim-scale relative hidden lg:block"
             style={{ animationDelay: "0.15s", marginBottom: "-40px" }}
           >
-            <Tilt max={5} lift={0} className="relative w-full h-full min-h-[560px]">
+            <div className="relative w-full h-full min-h-[560px]">
               <Image
                 src="/images/stiven-ramirez.webp"
                 alt="Stiven Ramírez — Consultor SEO y diseño web en Medellín"
@@ -141,7 +138,7 @@ export function Hero() {
                 style={{ backgroundColor: "#0B1829", opacity: 0.15 }}
                 aria-hidden="true"
               />
-            </Tilt>
+            </div>
           </div>
         </div>
       </Container>

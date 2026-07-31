@@ -71,11 +71,60 @@ function CWVBadge() {
   );
 }
 
+/* URL/content architecture tree — shown in the Strategy step */
+function ArchitectureVisual() {
+  const nodes = [
+    { label: "/", indent: 0 },
+    { label: "/servicios/seo/", indent: 1 },
+    { label: "/blog/[keyword]/", indent: 1 },
+    { label: "/ciudad/[ciudad]/", indent: 2 },
+  ];
+  return (
+    <div className="mt-5 rounded-xl bg-teal/[0.06] border border-teal/20 px-4 pt-3 pb-3.5 min-w-0">
+      <p className="font-sans text-[9px] font-semibold tracking-[2px] uppercase text-slate mb-2.5">
+        Arquitectura de URLs
+      </p>
+      <div className="space-y-1.5">
+        {nodes.map((n) => (
+          <div key={n.label} className="flex items-center gap-1.5" style={{ paddingLeft: n.indent * 14 }}>
+            {n.indent > 0 && <span className="text-teal/40 font-mono text-[10px]">└</span>}
+            <span className="font-mono text-[11px] text-navy">{n.label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/* Launch checklist — shown in the Launch step */
+function LaunchChecklist() {
+  const items = ["CMS configurado", "Google Search Console", "30 días de soporte"];
+  return (
+    <div className="mt-5 rounded-xl bg-teal/[0.06] border border-teal/20 px-4 pt-3 pb-3.5 min-w-0">
+      <p className="font-sans text-[9px] font-semibold tracking-[2px] uppercase text-slate mb-2.5">
+        Checklist de lanzamiento
+      </p>
+      <div className="space-y-1.5">
+        {items.map((item) => (
+          <div key={item} className="flex items-center gap-2">
+            <span className="w-3.5 h-3.5 rounded-full bg-teal/15 text-teal flex items-center justify-center shrink-0">
+              <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </span>
+            <span className="font-sans text-[11px] text-navy">{item}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 const steps = [
   { number: "01", title: "Diagnóstico", text: "Analizo tu negocio, competencia y oportunidades de keywords antes de proponer nada. Sin atajos.", visual: <TrafficChart /> },
-  { number: "02", title: "Estrategia SEO", text: "Defino la arquitectura, URLs y contenido con intención de búsqueda desde el inicio del proyecto.", visual: null },
+  { number: "02", title: "Estrategia SEO", text: "Defino la arquitectura, URLs y contenido con intención de búsqueda desde el inicio del proyecto.", visual: <ArchitectureVisual /> },
   { number: "03", title: "Diseño & Build", text: "Construyo con SEO integrado en cada elemento. Velocidad, schema markup y Core Web Vitals desde el código.", visual: <CWVBadge /> },
-  { number: "04", title: "Lanzamiento", text: "Capacitación en el CMS, configuración de Google Search Console y 30 días de soporte post-lanzamiento.", visual: null },
+  { number: "04", title: "Lanzamiento", text: "Capacitación en el CMS, configuración de Google Search Console y 30 días de soporte post-lanzamiento.", visual: <LaunchChecklist /> },
 ];
 
 export function Process() {

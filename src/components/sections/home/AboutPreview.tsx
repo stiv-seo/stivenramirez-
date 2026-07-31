@@ -3,7 +3,6 @@ import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Button } from "@/components/ui/Button";
 import { FadeIn } from "@/components/ui/FadeIn";
-import { Tilt } from "@/components/ui/Tilt";
 
 const credentials = [
   "Especialista WordPress & Shopify",
@@ -24,21 +23,19 @@ export function AboutPreview() {
         <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
           {/* Left — foto */}
           <FadeIn direction="left">
-            <Tilt max={4} lift={4}>
-              <div
-                className="relative w-full rounded-2xl overflow-hidden bg-navy"
-                style={{ aspectRatio: "4/5", maxHeight: "500px" }}
-              >
-                <Image
-                  src="/images/stiven-ramirez-consultor-seo-medellin.webp"
-                  alt="Stiven Ramírez — Consultor SEO freelance en Medellín, Colombia"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 45vw"
-                />
-                <div className="absolute inset-0 rounded-2xl ring-1 ring-white/5" aria-hidden="true" />
-              </div>
-            </Tilt>
+            <div
+              className="relative w-full rounded-2xl overflow-hidden bg-navy"
+              style={{ aspectRatio: "4/5", maxHeight: "500px" }}
+            >
+              <Image
+                src="/images/stiven-ramirez-consultor-seo-medellin.webp"
+                alt="Stiven Ramírez — Consultor SEO freelance en Medellín, Colombia"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 45vw"
+              />
+              <div className="absolute inset-0 rounded-2xl ring-1 ring-white/5" aria-hidden="true" />
+            </div>
           </FadeIn>
 
           {/* Right — copy */}

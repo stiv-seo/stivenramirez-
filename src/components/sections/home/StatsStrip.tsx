@@ -41,32 +41,30 @@ function useCountUp(target: number, active: boolean, duration = 1400, decimal = 
   return count;
 }
 
-function StatRow({ stat, active, delay }: { stat: Stat; active: boolean; delay: number }) {
+function StatColumn({ stat, active, delay }: { stat: Stat; active: boolean; delay: number }) {
   const count = useCountUp(stat.value, active, 1400, stat.decimal);
 
   return (
-    <div className="grid grid-cols-[1fr_auto] items-end gap-6 py-5 border-t border-white/[0.06] first:border-t-0">
-      <div>
-        <p className="font-sans text-white text-[13px] font-semibold mb-1">{stat.label}</p>
-        <p className="font-sans text-slate-light/70 text-[11px] mb-3">{stat.sublabel}</p>
-        <div className="h-[3px] rounded-full bg-white/[0.06] overflow-hidden">
-          <div
-            className="h-full rounded-full bg-teal"
-            style={{
-              width: active ? `${stat.fillPct}%` : "0%",
-              transition: `width 1s cubic-bezier(0.16, 1, 0.3, 1) ${delay}s`,
-            }}
-          />
-        </div>
-      </div>
+    <div className="flex flex-col lg:pl-6 lg:border-l border-white/[0.07] lg:first:border-l-0 lg:first:pl-0">
+      <p className="font-sans text-white text-[12.5px] font-semibold leading-tight mb-1">{stat.label}</p>
+      <p className="font-sans text-slate-light/60 text-[11px] mb-4">{stat.sublabel}</p>
       <p
-        className="font-jakarta font-extrabold text-white leading-none tabular-nums shrink-0"
-        style={{ fontSize: "clamp(30px, 3vw, 42px)" }}
+        className="font-jakarta font-extrabold text-white leading-none tabular-nums mb-4"
+        style={{ fontSize: "clamp(28px, 2.6vw, 38px)" }}
       >
         {stat.prefix}
         {stat.decimal ? count.toFixed(1) : Math.round(count)}
         {stat.suffix}
       </p>
+      <div className="h-[3px] rounded-full bg-white/[0.06] overflow-hidden mt-auto">
+        <div
+          className="h-full rounded-full bg-teal"
+          style={{
+            width: active ? `${stat.fillPct}%` : "0%",
+            transition: `width 1s cubic-bezier(0.16, 1, 0.3, 1) ${delay}s`,
+          }}
+        />
+      </div>
     </div>
   );
 }
@@ -92,18 +90,20 @@ export function StatsStrip() {
   }, []);
 
   return (
-    <section className="bg-midnight bg-grid-dark" style={{ paddingTop: "80px", paddingBottom: "80px" }}>
+    <section className="bg-midnight bg-grid-dark" style={{ paddingTop: "64px", paddingBottom: "64px" }}>
       <Container>
         <div
           ref={ref}
-          className="max-w-[720px] mx-auto rounded-3xl border border-white/[0.08] bg-white/[0.02] p-8 sm:p-10"
+          className="rounded-3xl border border-white/[0.08] bg-white/[0.02] p-8 sm:p-10"
         >
-          <p className="font-sans text-[11px] font-semibold tracking-[3px] uppercase text-slate-light/60 mb-1">
+          <p className="font-sans text-[11px] font-semibold tracking-[3px] uppercase text-slate-light/60 mb-6">
             Panel de resultados — clientes 2020–2026
           </p>
-          {stats.map((stat, i) => (
-            <StatRow key={stat.label} stat={stat} active={active} delay={i * 0.1} />
-          ))}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-8">
+            {stats.map((stat, i) => (
+              <StatColumn key={stat.label} stat={stat} active={active} delay={i * 0.1} />
+            ))}
+          </div>
         </div>
       </Container>
     </section>
