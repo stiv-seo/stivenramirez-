@@ -99,7 +99,7 @@ export function FAQ() {
         <div className="grid gap-16 lg:grid-cols-[1fr_1.6fr] lg:items-start">
           {/* Left */}
           <FadeIn>
-            <Eyebrow>08 — Preguntas frecuentes</Eyebrow>
+            <Eyebrow>Preguntas frecuentes</Eyebrow>
             <h2
               className="font-jakarta font-extrabold text-text-dark leading-[1.1] tracking-[-1px] mb-5"
               style={{ fontSize: "clamp(28px, 4vw, 40px)" }}

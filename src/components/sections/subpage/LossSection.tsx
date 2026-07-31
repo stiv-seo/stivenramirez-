@@ -1,7 +1,6 @@
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { FadeIn } from "@/components/ui/FadeIn";
-import { cn } from "@/lib/utils";
 
 export interface LossItem {
   label: string;
@@ -56,7 +55,7 @@ export function LossSection({
         <div className="grid md:grid-cols-2 gap-6">
           {/* Loss column — amber */}
           <FadeIn>
-            <div className="bg-amber/[0.04] border border-amber/25 rounded-2xl p-7 h-full">
+            <div className="bg-amber/[0.07] rounded-2xl p-7 h-full">
               <div className="flex items-center gap-3 mb-6">
                 <span className="text-4xl" aria-hidden="true">
                   {lossColumn.icon}
@@ -90,17 +89,12 @@ export function LossSection({
 
           {/* Gain column — teal */}
           <FadeIn>
-            <div
-              className={cn(
-                "border border-teal/25 rounded-2xl p-7 h-full",
-                "bg-teal/[0.04]"
-              )}
-            >
+            <div className="rounded-2xl p-7 h-full bg-midnight">
               <div className="flex items-center gap-3 mb-6">
                 <span className="text-4xl" aria-hidden="true">
                   {gainColumn.icon}
                 </span>
-                <h3 className="font-jakarta font-bold text-text-dark text-[18px]">
+                <h3 className="font-jakarta font-bold text-white text-[18px]">
                   {gainColumn.heading}
                 </h3>
               </div>
@@ -117,7 +111,7 @@ export function LossSection({
                       <p className="font-jakarta font-semibold text-teal text-[14px] mb-0.5">
                         {item.label}
                       </p>
-                      <p className="font-sans text-slate text-[13px] leading-[1.7]">
+                      <p className="font-sans text-slate-light text-[13px] leading-[1.7]">
                         {item.description}
                       </p>
                     </div>

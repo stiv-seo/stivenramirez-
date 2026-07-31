@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Badge } from "@/components/ui/Badge";
 import { FadeIn } from "@/components/ui/FadeIn";
@@ -26,21 +27,21 @@ export function BlogGrid() {
             Todos
           </span>
           {Object.entries(CATEGORIES).map(([slug, name]) => (
-            <a
+            <Link
               key={slug}
               href={`/blog/category/${slug}/`}
-              className="font-sans text-xs text-slate hover:text-teal border border-[rgba(0,0,0,0.1)] hover:border-teal/40 px-4 py-1.5 rounded-full transition-all duration-150"
+              className="font-sans text-xs text-slate hover:text-teal bg-warm-white hover:bg-teal-dim px-4 py-1.5 rounded-full transition-colors duration-150"
             >
               {name}
-            </a>
+            </Link>
           ))}
         </FadeIn>
 
         {/* Featured post — first item */}
         <FadeIn className="mb-8">
-          <a
+          <Link
             href={`/blog/${posts[0].slug}/`}
-            className="group block bg-warm-white rounded-2xl overflow-hidden border border-[rgba(0,0,0,0.05)] hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+            className="group block bg-warm-white rounded-2xl overflow-hidden hover:-translate-y-1 transition-transform duration-300"
             aria-label={`Leer: ${posts[0].title}`}
           >
             <div className="grid md:grid-cols-[1fr_420px]">
@@ -86,16 +87,16 @@ export function BlogGrid() {
                 </div>
               </div>
             </div>
-          </a>
+          </Link>
         </FadeIn>
 
         {/* Remaining posts grid */}
         <div className="grid gap-6 md:grid-cols-2">
           {posts.slice(1).map((post, i) => (
             <FadeIn key={post.slug} delay={i * 0.1}>
-              <a
+              <Link
                 href={`/blog/${post.slug}/`}
-                className="group block bg-warm-white rounded-2xl overflow-hidden border border-[rgba(0,0,0,0.05)] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full"
+                className="group block bg-warm-white rounded-2xl overflow-hidden hover:-translate-y-1 transition-transform duration-300 h-full"
                 aria-label={`Leer: ${post.title}`}
               >
                 {/* Card image */}
@@ -138,7 +139,7 @@ export function BlogGrid() {
                     </span>
                   </div>
                 </div>
-              </a>
+              </Link>
             </FadeIn>
           ))}
         </div>
@@ -147,9 +148,9 @@ export function BlogGrid() {
         <FadeIn delay={0.25} className="mt-10 text-center">
           <p className="font-sans text-sm text-slate">
             Más artículos en camino.{" "}
-            <a href="/contacto/" className="text-teal underline underline-offset-2 hover:no-underline">
+            <Link href="/contacto/" className="text-teal underline underline-offset-2 hover:no-underline">
               ¿Hay un tema que quieres que cubra?
-            </a>
+            </Link>
           </p>
         </FadeIn>
       </Container>

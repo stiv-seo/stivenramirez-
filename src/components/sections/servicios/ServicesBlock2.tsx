@@ -82,7 +82,7 @@ export function ServicesBlock2() {
     >
       <Container>
         <FadeIn className="mb-12">
-          <Eyebrow>02 — SEO Continuo</Eyebrow>
+          <Eyebrow>SEO Continuo</Eyebrow>
           <h2
             className="font-jakarta font-extrabold text-text-dark leading-[1.1] tracking-[-1px] mb-4"
             style={{ fontSize: "clamp(28px, 4vw, 48px)" }}
@@ -99,10 +99,8 @@ export function ServicesBlock2() {
           {plans.map((plan, i) => (
             <FadeIn key={plan.id} delay={i * 0.08}>
               <div
-                className={`rounded-2xl p-8 flex flex-col h-full border ${
-                  plan.dark
-                    ? "bg-midnight border-teal ring-2 ring-teal text-white"
-                    : "bg-off-white border-[rgba(0,0,0,0.05)]"
+                className={`rounded-2xl p-8 flex flex-col h-full ${
+                  plan.dark ? "bg-midnight ring-2 ring-teal text-white" : "bg-off-white"
                 }`}
               >
                 <Badge variant={plan.badge.variant} className="mb-4 self-start">
@@ -170,8 +168,7 @@ export function ServicesBlock2() {
                 key={s.href}
                 href={s.href}
                 className="group flex items-center justify-between bg-off-white rounded-xl p-4
-                  border border-[rgba(0,0,0,0.05)] hover:border-teal hover:bg-teal/5
-                  transition-all duration-150"
+                  hover:bg-teal-dim transition-colors duration-150"
               >
                 <span className="font-jakarta font-bold text-sm text-text-dark group-hover:text-teal transition-colors duration-150 flex items-center gap-2">
                   {s.label}

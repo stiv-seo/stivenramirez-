@@ -10,7 +10,7 @@ const credentials = [
   "Google Search Console certificado",
   "Google Ads Partner",
   "+40 proyectos en Colombia y Latam",
-  "Proyectos con Bancolombia, Éxito, Levi's y más",
+  "Bancolombia, Éxito, Levi's y más",
 ];
 
 export function AboutPreview() {
@@ -21,7 +21,7 @@ export function AboutPreview() {
     >
       <Container>
         <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
-          {/* Left — foto placeholder */}
+          {/* Left — foto */}
           <FadeIn direction="left">
             <div
               className="relative w-full rounded-2xl overflow-hidden bg-navy"
@@ -40,7 +40,7 @@ export function AboutPreview() {
 
           {/* Right — copy */}
           <FadeIn delay={0.1}>
-            <Eyebrow>04 — Sobre mí</Eyebrow>
+            <Eyebrow>Sobre mí</Eyebrow>
             <h2
               className="font-jakarta font-extrabold text-text-dark leading-[1.1] tracking-[-1px] mb-5"
               style={{ fontSize: "clamp(28px, 4vw, 48px)" }}
@@ -51,15 +51,17 @@ export function AboutPreview() {
               Con base en Medellín, Colombia. Más de 9 años construyendo presencias digitales que posicionan en Google y generan ventas reales. Me especializo en WordPress y Shopify con un enfoque que integra diseño, posicionamiento y estrategia en cada proyecto.
             </p>
 
-            {/* Credentials */}
-            <ul className="space-y-3 mb-8">
+            {/* Credentials — chips, not a checklist */}
+            <div className="flex flex-wrap gap-2 mb-8">
               {credentials.map((c) => (
-                <li key={c} className="flex items-center gap-3 font-sans text-sm text-text-mid">
-                  <span className="text-teal text-base shrink-0">✓</span>
+                <span
+                  key={c}
+                  className="font-sans text-[12px] text-text-dark bg-off-white rounded-full px-3.5 py-2"
+                >
                   {c}
-                </li>
+                </span>
               ))}
-            </ul>
+            </div>
 
             <Button variant="outline" href="/sobre-mi/">
               Conocer más →

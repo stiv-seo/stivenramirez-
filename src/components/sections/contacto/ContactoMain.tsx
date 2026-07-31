@@ -249,7 +249,7 @@ export function ContactoMain() {
                   href={ch.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`group flex flex-col sm:flex-row items-start gap-4 rounded-2xl p-5 border transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md ${ch.bg}`}
+                  className={`group flex flex-col sm:flex-row items-start gap-4 rounded-2xl p-5 transition-transform duration-200 hover:-translate-y-0.5 ${ch.bg}`}
                   aria-label={`${ch.label}: ${ch.description}`}
                 >
                   <span className={`mt-0.5 shrink-0 ${ch.accent}`}>{ch.icon}</span>
@@ -269,7 +269,7 @@ export function ContactoMain() {
             </div>
 
             {/* Trust note */}
-            <div className="mt-8 bg-warm-white rounded-2xl p-6 border border-[rgba(0,0,0,0.05)]">
+            <div className="mt-8 bg-warm-white rounded-2xl p-6">
               <p className="font-jakarta font-bold text-text-dark text-[15px] mb-3">
                 ¿No sabes qué necesitas?
               </p>

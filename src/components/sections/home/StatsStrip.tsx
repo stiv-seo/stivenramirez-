@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Container } from "@/components/ui/Container";
-import { Divider } from "@/components/ui/Divider";
 
 interface Stat {
   prefix?: string;
@@ -11,79 +10,101 @@ interface Stat {
   label: string;
   sublabel: string;
   decimal?: boolean;
+  /** Visual bar fill — illustrative weighting, not a literal percent of the raw value. */
+  fillPct: number;
 }
 
 const stats: Stat[] = [
-  { prefix: "+", value: 280, suffix: "%", label: "Tráfico orgánico promedio", sublabel: "en 6 meses con SEO" },
-  { value: 3.2, suffix: "x", label: "ROAS promedio en pauta", sublabel: "Google & Meta Ads", decimal: true },
-  { prefix: "+", value: 45, suffix: "%", label: "Conversiones e-commerce", sublabel: "Shopify + SEO combinado" },
-  { prefix: "", value: 40, suffix: "+", label: "Proyectos entregados", sublabel: "desde 2020 en Colombia" },
+  { prefix: "+", value: 280, suffix: "%", label: "Tráfico orgánico promedio", sublabel: "en 6 meses con SEO", fillPct: 92 },
+  { value: 3.2, suffix: "x", label: "ROAS promedio en pauta", sublabel: "Google & Meta Ads", decimal: true, fillPct: 58 },
+  { prefix: "+", value: 45, suffix: "%", label: "Conversiones e-commerce", sublabel: "Shopify + SEO combinado", fillPct: 45 },
+  { value: 40, suffix: "+", label: "Proyectos entregados", sublabel: "desde 2020 en Colombia", fillPct: 74 },
 ];
 
-function useCountUp(target: number, duration = 2000, decimal = false) {
-  const [count, setCount] = useState(target); // real value on SSR/initial paint
+function useCountUp(target: number, active: boolean, duration = 1400, decimal = false) {
+  const [count, setCount] = useState(0);
+  const done = useRef(false);
+
+  useEffect(() => {
+    if (!active || done.current) return;
+    done.current = true;
+    const start = performance.now();
+    const step = (now: number) => {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCount(parseFloat((eased * target).toFixed(decimal ? 1 : 0)));
+      if (progress < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }, [active, target, duration, decimal]);
+
+  return count;
+}
+
+function StatColumn({ stat, active, delay }: { stat: Stat; active: boolean; delay: number }) {
+  const count = useCountUp(stat.value, active, 1400, stat.decimal);
+
+  return (
+    <div className="flex flex-col lg:pl-6 lg:border-l border-white/[0.07] lg:first:border-l-0 lg:first:pl-0">
+      <p className="font-sans text-white text-[12.5px] font-semibold leading-tight mb-1">{stat.label}</p>
+      <p className="font-sans text-slate-light/60 text-[11px] mb-4">{stat.sublabel}</p>
+      <p
+        className="font-jakarta font-extrabold text-white leading-none tabular-nums mb-4"
+        style={{ fontSize: "clamp(28px, 2.6vw, 38px)" }}
+      >
+        {stat.prefix}
+        {stat.decimal ? count.toFixed(1) : Math.round(count)}
+        {stat.suffix}
+      </p>
+      <div className="h-[3px] rounded-full bg-white/[0.06] overflow-hidden mt-auto">
+        <div
+          className="h-full rounded-full bg-teal"
+          style={{
+            width: active ? `${stat.fillPct}%` : "0%",
+            transition: `width 1s cubic-bezier(0.16, 1, 0.3, 1) ${delay}s`,
+          }}
+        />
+      </div>
+    </div>
+  );
+}
+
+export function StatsStrip() {
   const ref = useRef<HTMLDivElement>(null);
-  const hasAnimated = useRef(false);
+  const [active, setActive] = useState(false);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && !hasAnimated.current) {
-          hasAnimated.current = true;
-          const start = performance.now();
-          const step = (now: number) => {
-            const progress = Math.min((now - start) / duration, 1);
-            const eased = 1 - Math.pow(1 - progress, 3);
-            setCount(parseFloat((eased * target).toFixed(decimal ? 1 : 0)));
-            if (progress < 1) requestAnimationFrame(step);
-          };
-          requestAnimationFrame(step);
+        if (entry.isIntersecting) {
+          setActive(true);
+          observer.disconnect();
         }
       },
-      { threshold: 0.5 }
+      { threshold: 0.4 }
     );
     observer.observe(el);
     return () => observer.disconnect();
-  }, [target, duration, decimal]);
-
-  return { count, ref };
-}
-
-function StatItem({ stat }: { stat: Stat }) {
-  const { count, ref } = useCountUp(stat.value, 2000, stat.decimal);
+  }, []);
 
   return (
-    <div ref={ref} className="flex flex-col items-center text-center px-4">
-      <p className="font-jakarta font-extrabold text-white leading-none mb-2"
-        style={{ fontSize: "clamp(36px, 4vw, 52px)", letterSpacing: "-1px" }}
-      >
-        {stat.prefix}
-        {stat.decimal ? count.toFixed(1) : Math.round(count)}
-        {stat.suffix}
-      </p>
-      <p className="font-sans text-slate-light text-sm leading-tight max-w-[140px]">
-        {stat.label}
-      </p>
-      <p className="font-sans text-slate/60 text-[11px] leading-tight max-w-[140px] mt-1">
-        {stat.sublabel}
-      </p>
-    </div>
-  );
-}
-
-export function StatsStrip() {
-  return (
-    <section className="bg-midnight" style={{ paddingTop: "60px", paddingBottom: "60px" }}>
+    <section className="bg-midnight bg-grid-dark" style={{ paddingTop: "64px", paddingBottom: "64px" }}>
       <Container>
-        <Divider direction="center" className="mb-10 opacity-[0.12]" />
-        <div className="grid grid-cols-2 gap-10 lg:grid-cols-4">
-          {stats.map((stat) => (
-            <StatItem key={stat.label} stat={stat} />
-          ))}
+        <div
+          ref={ref}
+          className="rounded-3xl border border-white/[0.08] bg-white/[0.02] p-8 sm:p-10"
+        >
+          <p className="font-sans text-[11px] font-semibold tracking-[3px] uppercase text-slate-light/60 mb-6">
+            Panel de resultados — clientes 2020–2026
+          </p>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-8">
+            {stats.map((stat, i) => (
+              <StatColumn key={stat.label} stat={stat} active={active} delay={i * 0.1} />
+            ))}
+          </div>
         </div>
-        <Divider direction="center" className="mt-10 opacity-[0.12]" />
       </Container>
     </section>
   );

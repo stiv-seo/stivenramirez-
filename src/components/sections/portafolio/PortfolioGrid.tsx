@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Badge } from "@/components/ui/Badge";
@@ -18,7 +19,7 @@ export function PortfolioGrid() {
     >
       <Container>
         <FadeIn className="mb-12">
-          <Eyebrow>01 — Casos de estudio</Eyebrow>
+          <Eyebrow>Casos de estudio</Eyebrow>
           <h2
             className="font-jakarta font-extrabold text-text-dark leading-[1.1] tracking-[-1px] mb-4"
             style={{ fontSize: "clamp(28px, 4vw, 48px)" }}
@@ -26,14 +27,14 @@ export function PortfolioGrid() {
             Casos de estudio en construcción
           </h2>
           <p className="font-sans text-text-mid leading-[1.75] max-w-[500px]">
-            Estoy documentando los primeros casos con métricas verificables (Search Console, GA4) antes de publicarlos acá. Mientras tanto, mira el trabajo reciente en el <a href="/blog/" className="text-teal underline underline-offset-2 hover:no-underline">blog</a>.
+            Estoy documentando los primeros casos con métricas verificables (Search Console, GA4) antes de publicarlos acá. Mientras tanto, mira el trabajo reciente en el <Link href="/blog/" className="text-teal underline underline-offset-2 hover:no-underline">blog</Link>.
           </p>
         </FadeIn>
 
         {portfolioCases.length === 0 && (
-          <FadeIn delay={0.1} className="mt-8 rounded-2xl border border-dashed border-[rgba(0,0,0,0.12)] bg-warm-white p-10 text-center">
+          <FadeIn delay={0.1} className="mt-8 rounded-2xl bg-warm-white p-10 text-center">
             <p className="font-sans text-text-mid leading-[1.75] max-w-[440px] mx-auto">
-              Todavía no hay casos publicados con datos verificados. Si quieres ver ejemplos concretos de tu sector mientras tanto, <a href="/contacto/" className="text-teal underline underline-offset-2 hover:no-underline">escríbeme directamente</a>.
+              Todavía no hay casos publicados con datos verificados. Si quieres ver ejemplos concretos de tu sector mientras tanto, <Link href="/contacto/" className="text-teal underline underline-offset-2 hover:no-underline">escríbeme directamente</Link>.
             </p>
           </FadeIn>
         )}
@@ -41,7 +42,7 @@ export function PortfolioGrid() {
         <div className="grid gap-6 md:grid-cols-3">
           {portfolioCases.map((caso, i) => (
             <FadeIn key={caso.id} delay={i * 0.1}>
-              <article className="group bg-warm-white rounded-2xl overflow-hidden border border-[rgba(0,0,0,0.05)] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full">
+              <article className="group bg-warm-white rounded-2xl overflow-hidden hover:-translate-y-1 transition-transform duration-300 flex flex-col h-full">
 
                 {/* Card header with bg color */}
                 <div
@@ -91,7 +92,7 @@ export function PortfolioGrid() {
 
                 {/* CTA */}
                 <div className="p-6 mt-auto">
-                  <a
+                  <Link
                     href={caso.href}
                     className="flex items-center justify-between font-jakarta font-bold text-sm text-text-dark group-hover:text-teal transition-colors duration-150"
                     aria-label={`Ver caso de estudio: ${caso.client}`}
@@ -100,7 +101,7 @@ export function PortfolioGrid() {
                     <span className="text-teal transition-transform duration-150 group-hover:translate-x-1">
                       →
                     </span>
-                  </a>
+                  </Link>
                 </div>
               </article>
             </FadeIn>
@@ -111,12 +112,12 @@ export function PortfolioGrid() {
         <FadeIn delay={0.3} className="mt-12 text-center">
           <p className="font-sans text-sm text-slate">
             Más casos en camino —{" "}
-            <a
+            <Link
               href="/contacto/"
               className="text-teal underline underline-offset-2 hover:no-underline"
             >
               escríbeme si quieres ver ejemplos de tu sector
-            </a>
+            </Link>
             .
           </p>
         </FadeIn>

@@ -31,7 +31,7 @@ export function PortfolioProcess() {
     >
       <Container>
         <FadeIn className="mb-12">
-          <Eyebrow>02 — Cómo trabajo</Eyebrow>
+          <Eyebrow>Cómo trabajo</Eyebrow>
           <h2
             className="font-jakarta font-extrabold text-text-dark leading-[1.1] tracking-[-1px] mb-4"
             style={{ fontSize: "clamp(28px, 4vw, 48px)" }}
@@ -43,31 +43,28 @@ export function PortfolioProcess() {
           </p>
         </FadeIn>
 
-        <div className="grid gap-6 md:grid-cols-3">
-          {steps.map((step, i) => (
-            <FadeIn key={step.number} delay={i * 0.1}>
-              <div className="relative bg-off-white rounded-2xl p-8 border border-[rgba(0,0,0,0.05)] h-full">
-                {/* Ghost number */}
-                <span
-                  className="absolute top-4 right-6 font-jakarta font-extrabold text-[72px] leading-none select-none pointer-events-none"
-                  style={{ color: "rgba(0,196,180,0.08)" }}
-                  aria-hidden="true"
-                >
-                  {step.number}
-                </span>
-
-                <p className="font-sans text-[11px] font-semibold tracking-[3px] uppercase text-teal mb-4">
-                  Paso {step.number}
-                </p>
-                <h3 className="font-jakarta font-bold text-text-dark text-[20px] leading-tight mb-3">
-                  {step.title}
-                </h3>
-                <p className="font-sans text-text-mid text-sm leading-[1.75]">
-                  {step.description}
-                </p>
-              </div>
-            </FadeIn>
-          ))}
+        <div className="relative">
+          <div
+            className="hidden md:block absolute top-[19px] left-0 right-0 h-px bg-gradient-to-r from-teal/40 via-teal/15 to-transparent"
+            aria-hidden="true"
+          />
+          <div className="grid gap-10 md:grid-cols-3">
+            {steps.map((step, i) => (
+              <FadeIn key={step.number} delay={i * 0.1}>
+                <div className="relative flex flex-col">
+                  <div className="relative z-10 w-10 h-10 rounded-full bg-midnight text-teal font-jakarta font-bold text-[13px] flex items-center justify-center mb-5">
+                    {step.number}
+                  </div>
+                  <h3 className="font-jakarta font-bold text-text-dark text-[19px] leading-tight mb-2.5">
+                    {step.title}
+                  </h3>
+                  <p className="font-sans text-text-mid text-sm leading-[1.75]">
+                    {step.description}
+                  </p>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
         </div>
       </Container>
     </section>

@@ -14,16 +14,9 @@ export const metadata: Metadata = {
 export default function GraciasPage() {
   return (
     <section
-      className="relative bg-midnight bg-grid-dark overflow-hidden"
+      className="relative bg-midnight bg-grain overflow-hidden"
       style={{ minHeight: "100dvh", display: "flex", alignItems: "center" }}
     >
-      {/* Glow */}
-      <div
-        className="glow-teal absolute pointer-events-none"
-        style={{ top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
-        aria-hidden="true"
-      />
-
       <Container>
         <div className="max-w-lg mx-auto text-center py-24">
           {/* Check icon */}

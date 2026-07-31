@@ -44,101 +44,107 @@ const toolPills = [
 
 export function Hero() {
   return (
-    <section
-      className="relative bg-midnight bg-grid-dark overflow-hidden"
-      style={{ paddingTop: "80px", paddingBottom: "100px" }}
-    >
-      {/* Glow orb */}
-      <div
-        className="glow-teal absolute pointer-events-none"
-        style={{ top: "-100px", right: "-100px", opacity: 0.6 }}
-        aria-hidden="true"
-      />
-
-      <Container>
-        <div
-          className="grid items-center gap-12 lg:gap-8"
-          style={{ gridTemplateColumns: "1fr" }}
-        >
-          <div className="lg:grid lg:items-center lg:gap-16"
-            style={{ gridTemplateColumns: "60fr 40fr" }}
+    <section className="relative bg-midnight bg-grain overflow-hidden">
+      <Container className="relative">
+        <div className="grid lg:grid-cols-[1fr_460px] items-stretch">
+          {/* Left — copy, offset up over the photo column on desktop */}
+          <div
+            className="relative z-10 flex flex-col justify-center"
+            style={{ paddingTop: "96px", paddingBottom: "72px" }}
           >
-            {/* Left — copy */}
-            <div>
-              <p
-                className="hero-anim-up font-sans text-[11px] font-semibold tracking-[4px] uppercase text-teal mb-5"
-                style={{ animationDelay: "0s" }}
-              >
-                Freelance SEO &amp; Diseño Web · Medellín, Colombia
-              </p>
+            <p
+              className="hero-anim-up font-sans text-[11px] font-semibold tracking-[4px] uppercase text-teal mb-6"
+              style={{ animationDelay: "0s" }}
+            >
+              Freelance SEO &amp; Diseño Web — Medellín, Colombia
+            </p>
 
-              <h1
-                className="hero-anim-up font-jakarta font-extrabold text-white leading-[1.05] tracking-[-1.5px] mb-6"
-                style={{ fontSize: "clamp(40px, 5vw, 64px)", animationDelay: "0.1s" }}
-              >
-                Diseño webs que posicionan en Google y generan ventas.
-              </h1>
+            <h1
+              className="hero-anim-up font-jakarta font-extrabold text-white leading-[0.98] tracking-[-2px] mb-7"
+              style={{
+                fontSize: "clamp(42px, 6vw, 78px)",
+                animationDelay: "0.1s",
+                textWrap: "balance",
+              }}
+            >
+              Sitios que <span className="text-teal">posicionan</span> en
+              Google, no solo se ven bien.
+            </h1>
 
-              <p
-                className="hero-anim-up font-sans text-slate-light leading-[1.75] mb-8 max-w-[560px]"
-                style={{ fontSize: "clamp(16px, 1.2vw, 18px)", animationDelay: "0.2s" }}
-              >
-                Sitios WordPress y Shopify con SEO integrado desde el primer elemento. No contratas a un diseñador y luego a un SEO — lo tienes todo en uno.
-              </p>
+            <p
+              className="hero-anim-up font-sans text-slate-light leading-[1.75] mb-9 max-w-[480px]"
+              style={{ fontSize: "clamp(16px, 1.2vw, 18px)", animationDelay: "0.2s" }}
+            >
+              WordPress y Shopify con SEO integrado desde el primer elemento.
+              No contratas a un diseñador y luego a un SEO por separado — lo
+              tienes todo en una sola persona.
+            </p>
 
-              <div
-                className="hero-anim-up flex flex-wrap gap-3 mb-10"
-                style={{ animationDelay: "0.3s" }}
-              >
-                <Button variant="primary" size="lg" href={CALENDLY_URL} external>
-                  Agendar llamada gratis →
-                </Button>
-                <Button variant="border" size="lg" href="/servicios/">
-                  Ver servicios
-                </Button>
-              </div>
-
-              {/* Tool pills */}
-              <div
-                className="hero-anim-fade flex flex-wrap gap-2"
-                style={{ animationDelay: "0.45s" }}
-              >
-                {toolPills.map((pill) => (
-                  <span
-                    key={pill.abbr}
-                    title={pill.label}
-                    className="inline-flex items-center gap-1.5 font-sans text-[11px] font-semibold text-slate-light bg-white/5 border border-white/10 rounded-full px-3 py-1.5"
-                  >
-                    <span className="text-teal">{pill.icon}</span>
-                    {pill.abbr}
-                  </span>
-                ))}
-              </div>
+            <div
+              className="hero-anim-up flex flex-wrap items-center gap-x-8 gap-y-4 mb-12"
+              style={{ animationDelay: "0.3s" }}
+            >
+              <Button variant="primary" size="lg" href={CALENDLY_URL} external>
+                Agendar llamada gratis →
+              </Button>
+              <Button variant="ghost" href="/servicios/">
+                Ver servicios y precios
+              </Button>
             </div>
 
-            {/* Right — foto */}
+            {/* Tool pills */}
             <div
-              className="hero-anim-scale hidden lg:block"
-              style={{ animationDelay: "0.2s" }}
+              className="hero-anim-fade flex flex-wrap gap-2"
+              style={{ animationDelay: "0.45s" }}
             >
+              {toolPills.map((pill) => (
+                <span
+                  key={pill.abbr}
+                  title={pill.label}
+                  className="inline-flex items-center gap-1.5 font-sans text-[11px] font-semibold text-slate-light bg-white/5 border border-white/10 rounded-full px-3 py-1.5"
+                >
+                  <span className="text-teal">{pill.icon}</span>
+                  {pill.abbr}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Right — photo, bleeds full-bleed to the edge and below the fold on desktop. */}
+          <div
+            className="hero-anim-scale relative hidden lg:block"
+            style={{ animationDelay: "0.15s", marginBottom: "-40px" }}
+          >
+            <div className="relative w-full h-full min-h-[560px]">
+              <Image
+                src="/images/stiven-ramirez.webp"
+                alt="Stiven Ramírez — Consultor SEO y diseño web en Medellín"
+                fill
+                className="object-cover"
+                priority
+                sizes="(max-width: 1024px) 0px, 460px"
+              />
+              {/* Duotone integration — ties the photo into the dark background instead of floating in an isolated card */}
               <div
-                className="relative w-full rounded-2xl overflow-hidden bg-navy"
-                style={{ aspectRatio: "4/5" }}
-              >
-                <Image
-                  src="/images/stiven-ramirez.webp"
-                  alt="Stiven Ramírez — Consultor SEO y diseño web en Medellín"
-                  fill
-                  className="object-cover"
-                  priority
-                  sizes="(max-width: 1024px) 0px, 40vw"
-                />
-                <div className="absolute inset-0 rounded-2xl ring-1 ring-white/5" aria-hidden="true" />
-              </div>
+                className="absolute inset-0"
+                style={{
+                  background:
+                    "linear-gradient(180deg, rgba(11,24,41,0.75) 0%, rgba(11,24,41,0.05) 30%, rgba(11,24,41,0.1) 65%, #0B1829 100%), linear-gradient(90deg, #0B1829 0%, rgba(11,24,41,0.15) 12%, transparent 30%)",
+                }}
+                aria-hidden="true"
+              />
+              <div
+                className="absolute inset-0 mix-blend-color"
+                style={{ backgroundColor: "#0B1829", opacity: 0.15 }}
+                aria-hidden="true"
+              />
             </div>
           </div>
         </div>
       </Container>
+
+      {/* Baseline rule — replaces the old radial glow orb as the section's signature detail */}
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-teal/40 to-transparent" aria-hidden="true" />
     </section>
   );
 }

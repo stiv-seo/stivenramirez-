@@ -1,19 +1,14 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { FadeIn } from "@/components/ui/FadeIn";
 
 export function SobreMiHero() {
   return (
     <section
-      className="relative bg-midnight bg-grid-dark overflow-hidden pt-20 md:pt-[140px]"
+      className="relative bg-midnight bg-grain overflow-hidden pt-20 md:pt-[140px]"
       style={{ paddingBottom: "100px" }}
     >
-      <div
-        className="glow-teal absolute pointer-events-none"
-        style={{ top: "-80px", right: "-80px" }}
-        aria-hidden="true"
-      />
-
       <Container>
         <div className="grid gap-12 md:grid-cols-[1fr_340px] items-center">
           {/* Text */}
@@ -21,9 +16,9 @@ export function SobreMiHero() {
             <nav aria-label="Breadcrumb" className="mb-6">
               <ol className="flex items-center gap-2 font-sans text-xs text-slate">
                 <li>
-                  <a href="/" className="hover:text-teal transition-colors duration-150">
+                  <Link href="/" className="hover:text-teal transition-colors duration-150">
                     Inicio
-                  </a>
+                  </Link>
                 </li>
                 <li aria-hidden="true">›</li>
                 <li className="text-slate-light" aria-current="page">Sobre mí</li>

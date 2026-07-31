@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import Link from "next/link";
 import {
   CATEGORIES,
   getPostsByCategory,
@@ -76,28 +77,23 @@ export default async function CategoryPage({
       />
       {/* Hero */}
       <section
-        className="relative bg-midnight bg-grid-dark overflow-hidden pt-20 md:pt-[140px]"
+        className="relative bg-midnight bg-grain overflow-hidden pt-20 md:pt-[140px]"
         style={{ paddingBottom: "80px" }}
       >
-        <div
-          className="glow-teal absolute pointer-events-none"
-          style={{ top: "-100px", right: "-80px" }}
-          aria-hidden="true"
-        />
         <Container>
           <FadeIn>
             <nav aria-label="Breadcrumb" className="mb-6">
               <ol className="flex items-center gap-2 font-sans text-xs text-slate">
                 <li>
-                  <a href="/" className="hover:text-teal transition-colors duration-150">
+                  <Link href="/" className="hover:text-teal transition-colors duration-150">
                     Inicio
-                  </a>
+                  </Link>
                 </li>
                 <li aria-hidden="true">›</li>
                 <li>
-                  <a href="/blog/" className="hover:text-teal transition-colors duration-150">
+                  <Link href="/blog/" className="hover:text-teal transition-colors duration-150">
                     Blog
-                  </a>
+                  </Link>
                 </li>
                 <li aria-hidden="true">›</li>
                 <li className="text-slate-light" aria-current="page">{label}</li>
@@ -119,24 +115,24 @@ export default async function CategoryPage({
 
             {/* Category nav */}
             <div className="flex flex-wrap gap-2 mt-8">
-              <a
+              <Link
                 href="/blog/"
-                className="font-sans text-xs text-slate hover:text-teal border border-[rgba(255,255,255,0.1)] hover:border-teal/40 px-4 py-1.5 rounded-full transition-all duration-150"
+                className="font-sans text-xs text-slate-light hover:text-teal bg-white/5 hover:bg-white/10 px-4 py-1.5 rounded-full transition-colors duration-150"
               >
                 Todos
-              </a>
+              </Link>
               {Object.entries(CATEGORIES).map(([slug, name]) => (
-                <a
+                <Link
                   key={slug}
                   href={`/blog/category/${slug}/`}
-                  className={`font-sans text-xs px-4 py-1.5 rounded-full border transition-all duration-150 ${
+                  className={`font-sans text-xs px-4 py-1.5 rounded-full transition-colors duration-150 ${
                     slug === cat
-                      ? "bg-teal text-midnight border-teal font-semibold"
-                      : "text-slate hover:text-teal border-[rgba(255,255,255,0.1)] hover:border-teal/40"
+                      ? "bg-teal text-midnight font-semibold"
+                      : "text-slate-light hover:text-teal bg-white/5 hover:bg-white/10"
                   }`}
                 >
                   {name}
-                </a>
+                </Link>
               ))}
             </div>
           </FadeIn>
@@ -156,9 +152,9 @@ export default async function CategoryPage({
             <div className="grid gap-6 md:grid-cols-2">
               {posts.map((post, i) => (
                 <FadeIn key={post.slug} delay={i * 0.08}>
-                  <a
+                  <Link
                     href={`/blog/${post.slug}/`}
-                    className="group block bg-warm-white rounded-2xl overflow-hidden border border-[rgba(0,0,0,0.05)] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full"
+                    className="group block bg-warm-white rounded-2xl overflow-hidden hover:-translate-y-1 transition-transform duration-300 h-full"
                     aria-label={`Leer: ${post.title}`}
                   >
                     <div
@@ -196,19 +192,19 @@ export default async function CategoryPage({
                         </span>
                       </div>
                     </div>
-                  </a>
+                  </Link>
                 </FadeIn>
               ))}
             </div>
           )}
 
           <FadeIn delay={0.2} className="mt-10 text-center">
-            <a
+            <Link
               href="/blog/"
               className="font-sans text-sm text-teal underline underline-offset-2 hover:no-underline"
             >
               ← Ver todos los artículos
-            </a>
+            </Link>
           </FadeIn>
         </Container>
       </section>

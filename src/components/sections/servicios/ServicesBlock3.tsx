@@ -51,7 +51,7 @@ export function ServicesBlock3() {
     >
       <Container>
         <FadeIn className="mb-12">
-          <Eyebrow>03 — Pauta Digital</Eyebrow>
+          <Eyebrow>Pauta Digital</Eyebrow>
           <h2
             className="font-jakarta font-extrabold text-text-dark leading-[1.1] tracking-[-1px] mb-4"
             style={{ fontSize: "clamp(28px, 4vw, 48px)" }}
@@ -66,7 +66,7 @@ export function ServicesBlock3() {
         <div className="grid gap-6 md:grid-cols-2">
           {adServices.map((s, i) => (
             <FadeIn key={s.id} delay={i * 0.08}>
-              <div className="bg-warm-white rounded-2xl p-8 border border-[rgba(0,0,0,0.05)] hover:-translate-y-1 hover:shadow-xl transition-all duration-300 flex flex-col h-full">
+              <div className="bg-warm-white rounded-2xl p-8 hover:-translate-y-1 transition-transform duration-300 flex flex-col h-full">
                 <span className="text-3xl mb-4 block">{s.icon}</span>
                 <Badge variant="teal" className="mb-4 self-start">
                   {s.price}

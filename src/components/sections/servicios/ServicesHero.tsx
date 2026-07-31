@@ -6,16 +6,9 @@ import { FadeIn } from "@/components/ui/FadeIn";
 export function ServicesHero() {
   return (
     <section
-      className="relative bg-midnight bg-grid-dark overflow-hidden"
+      className="relative bg-midnight bg-grain overflow-hidden"
       style={{ paddingTop: "80px", paddingBottom: "100px" }}
     >
-      {/* Glow */}
-      <div
-        className="glow-teal absolute pointer-events-none"
-        style={{ top: "-100px", right: "-100px", opacity: 0.5 }}
-        aria-hidden="true"
-      />
-
       <Container>
         {/* Breadcrumb */}
         <FadeIn>
