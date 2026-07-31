@@ -7,7 +7,7 @@ import { FadeIn } from "@/components/ui/FadeIn";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 
 export const metadata: Metadata = {
-  title: "SEO para pymes Medellín | Consultor SEO",
+  title: "SEO para Pymes en Medellín",
   description:
     "Consultoría SEO para pymes en Medellín: posicionamiento técnico, de contenido y local. Freelance sin agencia. Shopify, WordPress, e-commerce y más.",
   keywords: ["consultor seo medellin", "seo pymes colombia", "posicionamiento google medellin", "seo freelance medellin"],

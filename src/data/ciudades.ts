@@ -50,7 +50,7 @@ export const CIUDADES: Ciudad[] = [
     keyword_h1: "Diseño Web en Medellín",
     keyword_meta: "diseño web Medellín",
     meta_description:
-      "Diseño web en Medellín con SEO integrado, hecho desde el Valle de Aburrá. WordPress y Shopify que posicionan en Google desde el día 1. Trabajo directo, sin intermediarios.",
+      "Diseño web en Medellín con SEO integrado, hecho desde el Valle de Aburrá. WordPress y Shopify que posicionan en Google desde el día 1. Trabajo directo.",
     keywords: ["diseño web medellin", "consultor seo medellin", "consultor seo freelance medellin", "wordpress medellin", "shopify medellin", "seo local medellin"],
     sectorEconomicoPrincipal: "Moda, tecnología e innovación",
     poblacionAprox: "4 millones de habitantes en el área metropolitana",

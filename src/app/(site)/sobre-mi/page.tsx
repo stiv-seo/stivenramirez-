@@ -8,9 +8,9 @@ import { SobreMiValues } from "@/components/sections/sobre-mi/SobreMiValues";
 import { SobreMiCTA } from "@/components/sections/sobre-mi/SobreMiCTA";
 
 export const metadata: Metadata = {
-  title: "Sobre mí",
+  title: "Sobre Mí: Consultor SEO en Medellín",
   description:
-    "Consultor SEO freelance y diseñador web con 9 años de experiencia en Medellín. Trabajo con pymes colombianas que quieren crecer en Google sin depender de una agencia.",
+    "Consultor SEO freelance y diseñador web con 9 años de experiencia en Medellín. Trabajo con pymes colombianas que quieren crecer en Google sin agencia.",
   keywords: [
     "stiven ramirez consultor seo colombia",
     "diseñador web seo colombia",

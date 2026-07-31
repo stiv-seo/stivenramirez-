@@ -7,9 +7,9 @@ import { SubpageCTA } from "@/components/sections/subpage/SubpageCTA";
 import { SubpageMidCTA } from "@/components/sections/subpage/SubpageMidCTA";
 
 export const metadata: Metadata = {
-  title: "SEO Técnico | Velocidad y Rastreo | Medellín",
+  title: "SEO Técnico | Velocidad y Rastreo",
   description:
-    "SEO técnico en Medellín: velocidad, indexación, canonicals y Core Web Vitals. Para sitios que no posicionan a pesar del contenido.",
+    "SEO técnico en Medellín: velocidad, indexación, canonicals y Core Web Vitals. Para sitios que no posicionan a pesar de tener buen contenido.",
   keywords: ["seo tecnico colombia", "auditoria tecnica seo", "core web vitals colombia", "indexacion google colombia"],
   alternates: { canonical: "https://stivenramirez.com/servicios/seo/tecnico/", languages: { "es-CO": "https://stivenramirez.com/servicios/seo/tecnico/", "x-default": "https://stivenramirez.com/servicios/seo/tecnico/" } },
   openGraph: {

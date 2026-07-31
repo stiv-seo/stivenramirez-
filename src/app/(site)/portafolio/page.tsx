@@ -7,7 +7,7 @@ import { PortfolioCTA } from "@/components/sections/portafolio/PortfolioCTA";
 export const metadata: Metadata = {
   title: "Portafolio SEO y Diseño Web Colombia",
   description:
-    "Casos de estudio de SEO y diseño web en Medellín y Colombia, en construcción. E-commerce Shopify, WordPress para pymes y Google Ads con métricas verificables.",
+    "Casos de estudio de SEO y diseño web en Medellín y Colombia, en construcción. E-commerce Shopify, WordPress para pymes y Google Ads verificables.",
   keywords: [
     "portafolio diseño web seo colombia",
     "casos de estudio seo colombia",

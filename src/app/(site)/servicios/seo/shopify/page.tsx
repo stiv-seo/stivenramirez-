@@ -15,7 +15,7 @@ import { FadeIn } from "@/components/ui/FadeIn";
 export const metadata: Metadata = {
   title: "SEO para Shopify | Freelance Medellín",
   description:
-    "SEO para tiendas Shopify: colecciones, productos, velocidad y Core Web Vitals optimizados. Freelance independiente en Medellín.",
+    "SEO para tiendas Shopify: colecciones, productos, velocidad y Core Web Vitals optimizados. Freelance independiente en Medellín, Colombia.",
   keywords: ["seo shopify colombia", "optimizar tienda shopify", "posicionar shopify google colombia"],
   alternates: { canonical: "https://stivenramirez.com/servicios/seo/shopify/", languages: { "es-CO": "https://stivenramirez.com/servicios/seo/shopify/", "x-default": "https://stivenramirez.com/servicios/seo/shopify/" } },
   openGraph: {

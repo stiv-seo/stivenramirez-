@@ -10,7 +10,7 @@ import { SubpageMidCTA } from "@/components/sections/subpage/SubpageMidCTA";
 export const metadata: Metadata = {
   title: "SEO Local Medellín | Google Maps",
   description:
-    "SEO local en Medellín: aparece en Google Maps y búsquedas cercanas. Optimización de Google Business Profile, reseñas y NAP para negocios físicos en Colombia.",
+    "SEO local en Medellín: aparece en Google Maps y búsquedas cercanas. Optimización de Google Business Profile, reseñas y NAP para negocios físicos.",
   keywords: ["seo local colombia", "aparecer google maps colombia", "google business profile colombia", "seo local medellin bogota"],
   alternates: { canonical: "https://stivenramirez.com/servicios/seo/local/", languages: { "es-CO": "https://stivenramirez.com/servicios/seo/local/", "x-default": "https://stivenramirez.com/servicios/seo/local/" } },
   openGraph: {

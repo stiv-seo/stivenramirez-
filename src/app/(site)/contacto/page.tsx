@@ -3,9 +3,9 @@ import { ContactoHero } from "@/components/sections/contacto/ContactoHero";
 import { ContactoMain } from "@/components/sections/contacto/ContactoMain";
 
 export const metadata: Metadata = {
-  title: "Contacto",
+  title: "Contacto — Consultor SEO Medellín",
   description:
-    "Escríbeme para tu proyecto de diseño web o SEO en Colombia. Freelance en Medellín. Respondo en menos de 24 horas con diagnóstico honesto y sin compromiso inicial.",
+    "Escríbeme para tu proyecto de diseño web o SEO en Colombia. Freelance en Medellín, respondo en menos de 24 horas con diagnóstico honesto.",
   keywords: [
     "contactar consultor seo colombia",
     "contratar diseñador web colombia",

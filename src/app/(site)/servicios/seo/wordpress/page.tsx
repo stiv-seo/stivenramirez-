@@ -13,9 +13,9 @@ import { Container } from "@/components/ui/Container";
 import { FadeIn } from "@/components/ui/FadeIn";
 
 export const metadata: Metadata = {
-  title: "SEO para WordPress | Freelance Medellín",
+  title: "SEO para WordPress en Medellín",
   description:
-    "WordPress optimizado para Google: SEO técnico, velocidad y contenido estratégico. Freelance independiente en Medellín, Colombia.",
+    "WordPress optimizado para Google: SEO técnico, velocidad y contenido estratégico. Freelance independiente en Medellín, Colombia, sin agencia.",
   keywords: ["seo wordpress colombia", "optimizar wordpress seo", "posicionar wordpress google colombia"],
   alternates: { canonical: "https://stivenramirez.com/servicios/seo/wordpress/", languages: { "es-CO": "https://stivenramirez.com/servicios/seo/wordpress/", "x-default": "https://stivenramirez.com/servicios/seo/wordpress/" } },
   openGraph: {

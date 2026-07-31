@@ -7,9 +7,9 @@ import { SubpageCTA } from "@/components/sections/subpage/SubpageCTA";
 import { SubpageMidCTA } from "@/components/sections/subpage/SubpageMidCTA";
 
 export const metadata: Metadata = {
-  title: "SEO para E-commerce | Freelance Medellín",
+  title: "SEO para E-commerce Medellín",
   description:
-    "SEO para tiendas online en Colombia: categorías, productos y velocidad optimizados. Freelance para pymes y e-commerce en Medellín.",
+    "SEO para tiendas online en Colombia: categorías, productos y velocidad optimizados. Freelance para pymes y e-commerce en Medellín, sin agencia.",
   keywords: ["seo ecommerce colombia", "seo tienda online colombia", "posicionar ecommerce google colombia"],
   alternates: { canonical: "https://stivenramirez.com/servicios/seo/ecommerce/", languages: { "es-CO": "https://stivenramirez.com/servicios/seo/ecommerce/", "x-default": "https://stivenramirez.com/servicios/seo/ecommerce/" } },
   openGraph: {

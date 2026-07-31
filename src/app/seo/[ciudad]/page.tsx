@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const ciudad = getCiudad(slug);
   if (!ciudad) return {};
   const ogImage = `${SITE_URL}/opengraph-image`;
-  const title = `Consultor SEO en ${ciudad.nombre} | Stiven Ramírez`;
+  const title = `Consultor SEO Local en ${ciudad.nombre} | Stiven Ramírez`;
   const description = `Consultor SEO freelance en ${ciudad.nombre}. Posicionamiento orgánico en Google para pymes de ${ciudad.departamento}. Sin agencia, resultados medibles desde el mes 3.`;
   return {
     title: { absolute: title },

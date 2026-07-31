@@ -8,9 +8,9 @@ import { Button } from "@/components/ui/Button";
 import { CALENDLY_URL, WA_URL } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Precios y Tarifas | SEO y Diseño Web Colombia",
+  title: "Precios SEO y Diseño Web Colombia",
   description:
-    "Precios reales de consultoría SEO, diseño web y Google Ads en Colombia. Sin paquetes ocultos: tarifa de gestión e inversión publicitaria son costos separados.",
+    "Precios reales de consultoría SEO, diseño web y Google Ads en Colombia. Sin paquetes ocultos: gestión e inversión publicitaria son costos separados.",
   keywords: [
     "precio consultor seo colombia",
     "cuánto cuesta diseño web colombia",
