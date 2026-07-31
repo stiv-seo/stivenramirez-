@@ -239,14 +239,9 @@ export default async function SeoCiudadPage({ params }: Props) {
 
       {/* ── S1 Hero ─────────────────────────────────────────────────────────── */}
       <section
-        className="relative bg-midnight bg-grid-dark overflow-hidden"
+        className="relative bg-midnight bg-grain overflow-hidden"
         style={{ paddingTop: "80px", paddingBottom: "100px" }}
       >
-        <div
-          className="glow-teal absolute pointer-events-none"
-          style={{ top: "-100px", right: "-80px" }}
-          aria-hidden="true"
-        />
         <Container>
           <nav aria-label="Breadcrumb" className="mb-6">
             <ol className="flex items-center gap-2 font-sans text-xs text-slate flex-wrap">
@@ -394,13 +389,17 @@ export default async function SeoCiudadPage({ params }: Props) {
               {ciudad.mercado.charAt(0).toUpperCase() + ciudad.mercado.slice(1)} — sectores activos en {ciudad.nombre} con alta competencia offline pero poca inversión en SEO. El negocio que construya presencia orgánica hoy domina las búsquedas por años.
             </p>
           </FadeIn>
-          <div className="grid sm:grid-cols-2 gap-5 max-w-[860px]">
-            {ciudad.marketSection.cards.map((card) => (
-              <FadeIn key={card.title}>
-                <div className="bg-white rounded-2xl p-6 border border-[rgba(0,0,0,0.06)] h-full">
-                  <span className="text-3xl mb-4 block" aria-hidden="true">{card.icon}</span>
-                  <h3 className="font-jakarta font-bold text-text-dark text-[16px] mb-2">{card.title}</h3>
-                  <p className="font-sans text-text-mid text-[14px] leading-[1.8]">{card.description}</p>
+          <div className="grid sm:grid-cols-2 gap-x-10 max-w-[860px]">
+            {ciudad.marketSection.cards.map((card, i) => (
+              <FadeIn
+                key={card.title}
+                delay={i * 0.06}
+                className={`flex gap-4 py-5 border-t border-black/[0.07] ${i < 2 ? "sm:border-t-0" : ""} ${i === 0 ? "border-t-0" : ""}`}
+              >
+                <span className="text-2xl shrink-0" aria-hidden="true">{card.icon}</span>
+                <div>
+                  <h3 className="font-jakarta font-bold text-text-dark text-[16px] mb-1.5">{card.title}</h3>
+                  <p className="font-sans text-text-mid text-[14px] leading-[1.75]">{card.description}</p>
                 </div>
               </FadeIn>
             ))}
@@ -424,22 +423,30 @@ export default async function SeoCiudadPage({ params }: Props) {
             </p>
           </FadeIn>
           <div className="grid sm:grid-cols-2 gap-5">
-            {services.map((s) => (
-              <FadeIn key={s.title}>
-                <div className="bg-white rounded-2xl p-7 border border-[rgba(0,0,0,0.06)] h-full flex flex-col">
+            {services.map((s, i) => (
+              <FadeIn key={s.title} delay={i * 0.06}>
+                <Link
+                  href={s.href}
+                  className={`group flex flex-col h-full rounded-2xl p-7 transition-colors duration-200 ${
+                    i === 0 ? "bg-midnight hover:bg-[#0f2035]" : "bg-off-white hover:bg-teal-dim"
+                  }`}
+                >
                   <span className="text-4xl mb-5 block" aria-hidden="true">{s.icon}</span>
-                  <h3 className="font-jakarta font-bold text-text-dark text-[18px] mb-2">{s.title}</h3>
-                  <p className="font-sans text-text-mid text-[14px] leading-[1.8] mb-5 flex-1">{s.desc}</p>
-                  <div className="flex items-center justify-between gap-3 mt-auto">
-                    <span className="font-jakarta font-semibold text-slate text-[13px]">{s.price}</span>
-                    <Link
-                      href={s.href}
-                      className="font-jakarta font-semibold text-teal text-[13px] hover:text-teal-bright transition-colors duration-150 shrink-0"
-                    >
+                  <h3 className={`font-jakarta font-bold text-[18px] mb-2 ${i === 0 ? "text-white" : "text-text-dark"}`}>
+                    {s.title}
+                  </h3>
+                  <p className={`font-sans text-[14px] leading-[1.8] mb-5 flex-1 ${i === 0 ? "text-slate-light" : "text-text-mid"}`}>
+                    {s.desc}
+                  </p>
+                  <div className={`flex items-center justify-between gap-3 mt-auto pt-5 border-t ${i === 0 ? "border-white/10" : "border-black/[0.08]"}`}>
+                    <span className={`font-jakarta font-semibold text-[13px] ${i === 0 ? "text-slate-light" : "text-slate"}`}>
+                      {s.price}
+                    </span>
+                    <span className="font-jakarta font-semibold text-teal text-[13px] inline-flex items-center gap-1.5 group-hover:gap-2.5 transition-all duration-200 shrink-0">
                       {s.linkText}
-                    </Link>
+                    </span>
                   </div>
-                </div>
+                </Link>
               </FadeIn>
             ))}
           </div>
@@ -529,7 +536,7 @@ export default async function SeoCiudadPage({ params }: Props) {
           <div className="grid sm:grid-cols-3 gap-5">
             {/* Plan 1 — Auditoría */}
             <FadeIn>
-              <div className="bg-white rounded-2xl p-7 border border-[rgba(0,0,0,0.06)] h-full flex flex-col">
+              <div className="bg-warm-white rounded-2xl p-7 h-full flex flex-col">
                 <Badge variant="teal" className="mb-4 self-start">Punto de entrada</Badge>
                 <h3 className="font-jakarta font-bold text-text-dark text-[18px] mb-2">Auditoría SEO</h3>
                 <p className="font-sans text-text-mid text-[14px] leading-[1.7] mb-6">
@@ -593,7 +600,7 @@ export default async function SeoCiudadPage({ params }: Props) {
 
             {/* Plan 3 — SEO Local */}
             <FadeIn>
-              <div className="bg-white rounded-2xl p-7 border border-[rgba(0,0,0,0.06)] h-full flex flex-col">
+              <div className="bg-warm-white rounded-2xl p-7 h-full flex flex-col">
                 <Badge variant="teal" className="mb-4 self-start">Negocio local</Badge>
                 <h3 className="font-jakarta font-bold text-text-dark text-[18px] mb-2">SEO Local</h3>
                 <p className="font-sans text-text-mid text-[14px] leading-[1.7] mb-6">
@@ -622,7 +629,7 @@ export default async function SeoCiudadPage({ params }: Props) {
           </div>
 
           <FadeIn delay={0.1} className="mt-6">
-            <div className="rounded-2xl border border-[rgba(0,0,0,0.06)] bg-white p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="rounded-2xl bg-white p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <p className="font-sans text-text-mid text-sm leading-[1.7]">
                 ¿Ya tienes un sitio pero no sabes si está bien optimizado? La <strong>Auditoría SEO a $550.000</strong> es el punto de partida sin riesgo.
               </p>
