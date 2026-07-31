@@ -6,16 +6,9 @@ import { WA_URL, CALENDLY_URL } from "@/lib/constants";
 export function CTAFinal() {
   return (
     <section
-      className="relative bg-midnight bg-grid-dark overflow-hidden"
+      className="relative bg-midnight bg-grain overflow-hidden"
       style={{ paddingTop: "100px", paddingBottom: "100px" }}
     >
-      {/* Glow */}
-      <div
-        className="glow-teal absolute pointer-events-none"
-        style={{ bottom: "-200px", left: "50%", transform: "translateX(-50%)" }}
-        aria-hidden="true"
-      />
-
       <Container>
         <FadeIn className="text-center max-w-2xl mx-auto">
           <p className="font-sans text-[11px] font-semibold tracking-[4px] uppercase text-teal mb-5">

@@ -20,7 +20,7 @@ export function Services() {
       <Container>
         {/* Header */}
         <FadeIn className="mb-14 max-w-[640px]">
-          <Eyebrow>01 — Qué hago</Eyebrow>
+          <Eyebrow>Qué hago</Eyebrow>
           <h2
             className="font-jakarta font-extrabold text-text-dark leading-[1.05] tracking-[-1.5px] mb-4"
             style={{ fontSize: "clamp(30px, 4.5vw, 52px)", textWrap: "balance" }}
