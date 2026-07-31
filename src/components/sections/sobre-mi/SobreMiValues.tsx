@@ -31,36 +31,28 @@ export function SobreMiValues() {
     >
       <Container>
         <FadeIn className="mb-12">
-          <Eyebrow>03 — Cómo trabajo</Eyebrow>
+          <Eyebrow>Cómo trabajo</Eyebrow>
           <h2
             className="font-jakarta font-extrabold text-text-dark leading-[1.1] tracking-[-1px] mb-4"
             style={{ fontSize: "clamp(28px, 4vw, 48px)" }}
           >
-            Lo que no negocia
+            Lo que no negocio
           </h2>
         </FadeIn>
 
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-x-10 md:grid-cols-3">
           {values.map((v, i) => (
-            <FadeIn key={v.number} delay={i * 0.1}>
-              <div className="relative bg-off-white rounded-2xl p-8 border border-[rgba(0,0,0,0.05)] h-full overflow-hidden">
-                <span
-                  className="absolute top-4 right-6 font-jakarta font-extrabold text-[72px] leading-none select-none pointer-events-none"
-                  style={{ color: "rgba(0,196,180,0.07)" }}
-                  aria-hidden="true"
-                >
-                  {v.number}
-                </span>
-                <p className="font-sans text-[11px] font-semibold tracking-[3px] uppercase text-teal mb-4">
-                  {v.number}
-                </p>
-                <h3 className="font-jakarta font-bold text-text-dark text-[19px] leading-tight mb-3">
-                  {v.title}
-                </h3>
-                <p className="font-sans text-text-mid text-sm leading-[1.75]">
-                  {v.description}
-                </p>
-              </div>
+            <FadeIn
+              key={v.number}
+              delay={i * 0.1}
+              className={`py-6 border-t border-black/[0.08] md:border-t-0 md:border-l first:border-t-0 md:first:border-l-0 ${i === 0 ? "md:pl-0" : "md:pl-8"}`}
+            >
+              <h3 className="font-jakarta font-bold text-text-dark text-[19px] leading-tight mb-3">
+                {v.title}
+              </h3>
+              <p className="font-sans text-text-mid text-sm leading-[1.75]">
+                {v.description}
+              </p>
             </FadeIn>
           ))}
         </div>

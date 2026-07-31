@@ -18,7 +18,7 @@ export function SobreMiStory() {
         <div className="grid gap-16 md:grid-cols-2 items-start">
           {/* Story */}
           <FadeIn>
-            <Eyebrow>01 — Mi historia</Eyebrow>
+            <Eyebrow>Mi historia</Eyebrow>
             <h2
               className="font-jakarta font-extrabold text-text-dark leading-[1.1] tracking-[-1px] mb-6"
               style={{ fontSize: "clamp(26px, 3vw, 40px)" }}
@@ -34,7 +34,7 @@ export function SobreMiStory() {
               </p>
               <p>
                 Desde entonces trabajo los dos juntos desde el día 1. No diseño primero
-                y luego "le pongo SEO". La estrategia de contenido, la estructura de
+                y luego &ldquo;le pongo SEO&rdquo;. La estrategia de contenido, la estructura de
                 URLs y la velocidad son decisiones de diseño.
               </p>
               <p>
@@ -56,7 +56,7 @@ export function SobreMiStory() {
               {stats.map((s) => (
                 <div
                   key={s.label}
-                  className="flex items-center gap-6 bg-off-white rounded-2xl p-6 border border-[rgba(0,0,0,0.05)]"
+                  className="flex items-center gap-6 bg-off-white rounded-2xl p-6"
                 >
                   <span className="font-jakarta font-extrabold text-teal text-4xl tracking-[-1px] shrink-0 w-20 text-right">
                     {s.value}
@@ -70,7 +70,7 @@ export function SobreMiStory() {
               {/* Quote */}
               <blockquote className="bg-midnight rounded-2xl p-6 mt-2">
                 <p className="font-jakarta font-bold text-white text-[17px] leading-[1.5] mb-3">
-                  "Un sitio bien construido es la mejor inversión de marketing que puede hacer una pyme."
+                  &ldquo;Un sitio bien construido es la mejor inversión de marketing que puede hacer una pyme.&rdquo;
                 </p>
                 <footer className="font-sans text-sm text-teal">
                   — Stiven Ramírez

@@ -26,7 +26,7 @@ export function SobreMiCredentials() {
     >
       <Container>
         <FadeIn className="mb-12">
-          <Eyebrow>02 — Stack y certificaciones</Eyebrow>
+          <Eyebrow>Stack y certificaciones</Eyebrow>
           <h2
             className="font-jakarta font-extrabold text-text-dark leading-[1.1] tracking-[-1px] mb-4"
             style={{ fontSize: "clamp(28px, 4vw, 48px)" }}
@@ -45,7 +45,7 @@ export function SobreMiCredentials() {
               {tools.map((tool) => (
                 <div
                   key={tool.name}
-                  className="flex items-center justify-between bg-warm-white rounded-xl px-4 py-3.5 border border-[rgba(0,0,0,0.05)]"
+                  className="flex items-center justify-between bg-warm-white rounded-xl px-4 py-3.5"
                 >
                   <span className="font-jakarta font-bold text-sm text-text-dark">
                     {tool.name}
@@ -67,7 +67,7 @@ export function SobreMiCredentials() {
               {certifications.map((cert) => (
                 <div
                   key={cert.title}
-                  className="flex items-start gap-4 bg-warm-white rounded-xl p-5 border border-[rgba(0,0,0,0.05)]"
+                  className="flex items-start gap-4 bg-warm-white rounded-xl p-5"
                 >
                   <span className="text-teal text-sm mt-0.5 shrink-0">✓</span>
                   <div>

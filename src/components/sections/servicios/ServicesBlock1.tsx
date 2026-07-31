@@ -63,7 +63,7 @@ export function ServicesBlock1() {
     >
       <Container>
         <FadeIn className="mb-12">
-          <Eyebrow>01 — Diseño Web con SEO</Eyebrow>
+          <Eyebrow>Diseño Web con SEO</Eyebrow>
           <h2
             className="font-jakarta font-extrabold text-text-dark leading-[1.1] tracking-[-1px] mb-4"
             style={{ fontSize: "clamp(28px, 4vw, 48px)" }}
@@ -78,7 +78,7 @@ export function ServicesBlock1() {
         <div className="grid gap-6 md:grid-cols-2">
           {/* Card WordPress */}
           <FadeIn delay={0.05}>
-            <div className="bg-warm-white rounded-2xl p-8 border border-[rgba(0,0,0,0.05)] hover:-translate-y-1 hover:shadow-xl transition-all duration-300 flex flex-col h-full">
+            <div className="bg-warm-white rounded-2xl p-8 hover:-translate-y-1 transition-transform duration-300 flex flex-col h-full">
               <Badge variant="teal" className="mb-4 self-start">
                 Desde $3.500.000 COP · 3–4 semanas
               </Badge>
@@ -109,7 +109,7 @@ export function ServicesBlock1() {
 
           {/* Card Shopify */}
           <FadeIn delay={0.1}>
-            <div className="bg-warm-white rounded-2xl p-8 border border-[rgba(0,0,0,0.05)] hover:-translate-y-1 hover:shadow-xl transition-all duration-300 flex flex-col h-full">
+            <div className="bg-warm-white rounded-2xl p-8 hover:-translate-y-1 transition-transform duration-300 flex flex-col h-full">
               <Badge variant="teal" className="mb-4 self-start">
                 Desde $3.000.000 COP · 4–5 semanas
               </Badge>
