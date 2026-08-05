@@ -2,18 +2,18 @@ import { Container } from "@/components/ui/Container";
 import { FadeIn } from "@/components/ui/FadeIn";
 
 const tools = [
-  { name: "Semrush",          category: "SEO Research",         abbr: "SE",  color: "#FF642D" },
-  { name: "Ahrefs",           category: "Backlinks",            abbr: "AH",  color: "#0E90FF" },
-  { name: "Screaming Frog",   category: "Auditoría Técnica",    abbr: "SF",  color: "#6DBE45" },
-  { name: "GSC",              category: "Rendimiento Orgánico", abbr: "GSC", color: "#00C4B4" },
-  { name: "Shopify",          category: "E-commerce",           abbr: "SH",  color: "#96BF48" },
-  { name: "WordPress",        category: "CMS",                  abbr: "WP",  color: "#21759B" },
-  { name: "PageSpeed",        category: "Core Web Vitals",      abbr: "PS",  color: "#F59E0B" },
-  { name: "Google Ads",       category: "Pauta SEM",            abbr: "GA",  color: "#4285F4" },
-  { name: "Meta Ads",         category: "Social Ads",           abbr: "MA",  color: "#1877F2" },
-  { name: "Hotjar",           category: "Heatmaps & UX",        abbr: "HJ",  color: "#FF3C00" },
-  { name: "GTM",              category: "Tag Manager",          abbr: "GTM", color: "#2563EB" },
-  { name: "Figma",            category: "Diseño UI",            abbr: "FG",  color: "#A259FF" },
+  { name: "Semrush",          category: "SEO Research",         abbr: "SE" },
+  { name: "Ahrefs",           category: "Backlinks",            abbr: "AH" },
+  { name: "Screaming Frog",   category: "Auditoría Técnica",    abbr: "SF" },
+  { name: "GSC",              category: "Rendimiento Orgánico", abbr: "GSC" },
+  { name: "Shopify",          category: "E-commerce",           abbr: "SH" },
+  { name: "WordPress",        category: "CMS",                  abbr: "WP" },
+  { name: "PageSpeed",        category: "Core Web Vitals",      abbr: "PS" },
+  { name: "Google Ads",       category: "Pauta SEM",            abbr: "GA" },
+  { name: "Meta Ads",         category: "Social Ads",           abbr: "MA" },
+  { name: "Hotjar",           category: "Heatmaps & UX",        abbr: "HJ" },
+  { name: "GTM",              category: "Tag Manager",          abbr: "GTM" },
+  { name: "Figma",            category: "Diseño UI",            abbr: "FG" },
 ];
 
 export function TechStack() {
@@ -44,12 +44,10 @@ export function TechStack() {
                 className="inline-flex items-center gap-2.5 bg-white/[0.05] border border-white/[0.08] rounded-full pl-1.5 pr-4 py-1.5 hover:border-teal/40 hover:bg-white/[0.09] transition-all duration-200"
                 title={tool.category}
               >
-                {/* Icon pill */}
+                {/* Icon pill — single-signal teal treatment, no per-tool brand colors */}
                 <span
-                  className="w-7 h-7 rounded-full flex items-center justify-center font-jakarta font-extrabold shrink-0"
+                  className="w-7 h-7 rounded-full flex items-center justify-center font-jakarta font-extrabold text-teal bg-teal/[0.14] shrink-0"
                   style={{
-                    background: `${tool.color}22`,
-                    color: tool.color,
                     fontSize: tool.abbr.length > 2 ? "8px" : "10px",
                     letterSpacing: "-0.3px",
                   }}

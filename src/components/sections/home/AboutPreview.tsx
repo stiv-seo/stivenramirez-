@@ -40,7 +40,7 @@ export function AboutPreview() {
 
           {/* Right — copy */}
           <FadeIn delay={0.1}>
-            <Eyebrow>Sobre mí</Eyebrow>
+            <Eyebrow tone="muted">Sobre mí</Eyebrow>
             <h2
               className="font-jakarta font-extrabold text-text-dark leading-[1.1] tracking-[-1px] mb-5"
               style={{ fontSize: "clamp(28px, 4vw, 48px)" }}

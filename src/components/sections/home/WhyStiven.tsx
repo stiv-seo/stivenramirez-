@@ -45,7 +45,7 @@ export function WhyStiven() {
         <div className="grid gap-16 lg:grid-cols-[0.85fr_1fr] lg:items-start">
           {/* Left — sticky-feel copy */}
           <FadeIn className="lg:sticky lg:top-28">
-            <Eyebrow>Por qué Stiven</Eyebrow>
+            <Eyebrow tone="muted">Por qué Stiven</Eyebrow>
             <h2
               className="font-jakarta font-extrabold text-text-dark leading-[1.1] tracking-[-1px] mb-6"
               style={{ fontSize: "clamp(28px, 3.6vw, 46px)", textWrap: "balance" }}

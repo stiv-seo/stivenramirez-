@@ -16,7 +16,7 @@ export function BlogPreview() {
         {/* Header */}
         <FadeIn className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-12 gap-4">
           <div>
-            <Eyebrow>Blog</Eyebrow>
+            <Eyebrow tone="muted">Blog</Eyebrow>
             <h2
               className="font-jakarta font-extrabold text-text-dark leading-[1.1] tracking-[-1.5px]"
               style={{ fontSize: "clamp(28px, 4vw, 48px)", textWrap: "balance" }}

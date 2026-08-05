@@ -63,7 +63,7 @@ export function Testimonials() {
     <section className="bg-off-white" style={{ paddingTop: "100px", paddingBottom: "100px" }}>
       <Container>
         <FadeIn className="mb-14 max-w-[560px]">
-          <Eyebrow>Testimonios</Eyebrow>
+          <Eyebrow tone="muted">Testimonios</Eyebrow>
           <h2
             className="font-jakarta font-extrabold text-text-dark leading-[1.1] tracking-[-1.5px]"
             style={{ fontSize: "clamp(28px, 4vw, 48px)", textWrap: "balance" }}

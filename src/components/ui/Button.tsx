@@ -59,7 +59,9 @@ const sizeClasses: Record<ButtonSize, string> = {
 
 const baseClasses =
   "inline-flex items-center justify-center gap-2 font-jakarta rounded-md " +
-  "leading-none whitespace-nowrap cursor-pointer select-none";
+  "leading-none whitespace-nowrap cursor-pointer select-none " +
+  "active:scale-[0.97] " +
+  "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal";
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (

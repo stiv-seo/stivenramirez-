@@ -23,7 +23,7 @@ function TrafficChart() {
           GSC · Clics orgánicos
         </p>
         <span className="font-sans text-[9px] font-bold text-teal bg-teal/10 rounded-full px-2 py-0.5">
-          +280%
+          +120%
         </span>
       </div>
       <svg width="100%" height={h} viewBox={`0 0 ${w} ${h}`} preserveAspectRatio="none" aria-hidden="true">
@@ -132,7 +132,7 @@ export function Process() {
     <section className="bg-off-white" style={{ paddingTop: "100px", paddingBottom: "100px" }}>
       <Container>
         <FadeIn className="max-w-[520px] mb-16">
-          <Eyebrow>Proceso</Eyebrow>
+          <Eyebrow tone="muted">Proceso</Eyebrow>
           <h2
             className="font-jakarta font-extrabold text-text-dark leading-[1.1] tracking-[-1.5px]"
             style={{ fontSize: "clamp(28px, 4vw, 48px)", textWrap: "balance" }}

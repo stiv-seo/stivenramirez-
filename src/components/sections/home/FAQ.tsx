@@ -50,16 +50,17 @@ function FaqAccordionItem({
       </button>
 
       <div
-        className="overflow-hidden"
-        style={{
-          maxHeight: isOpen ? "400px" : "0",
-          opacity: isOpen ? 1 : 0,
-          transition: "max-height 0.28s ease-in-out, opacity 0.28s ease-in-out",
-        }}
+        className="grid transition-[grid-template-rows] duration-300 ease-out"
+        style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}
       >
-        <p className="font-sans text-text-mid text-sm leading-[1.75] pb-5 pr-10">
-          {item.answer}
-        </p>
+        <div className="overflow-hidden">
+          <p
+            className="font-sans text-text-mid text-sm leading-[1.75] pb-5 pr-10 transition-opacity duration-200"
+            style={{ opacity: isOpen ? 1 : 0 }}
+          >
+            {item.answer}
+          </p>
+        </div>
       </div>
     </div>
   );
@@ -99,7 +100,7 @@ export function FAQ() {
         <div className="grid gap-16 lg:grid-cols-[1fr_1.6fr] lg:items-start">
           {/* Left */}
           <FadeIn>
-            <Eyebrow>Preguntas frecuentes</Eyebrow>
+            <Eyebrow tone="muted">Preguntas frecuentes</Eyebrow>
             <h2
               className="font-jakarta font-extrabold text-text-dark leading-[1.1] tracking-[-1px] mb-5"
               style={{ fontSize: "clamp(28px, 4vw, 40px)" }}

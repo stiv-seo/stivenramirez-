@@ -96,9 +96,15 @@ function ChevronDown({ open }: { open: boolean }) {
 
 // ─── Services Dropdown Panel ──────────────────────────────────────────────────
 
-function ServicesDropdown({ onClose }: { onClose: () => void }) {
+function ServicesDropdown({ open, onClose }: { open: boolean; onClose: () => void }) {
   return (
-    <div className="absolute top-full left-0 z-[9998] pt-3 w-[660px]">
+    <div
+      className={cn(
+        "absolute top-full left-0 z-[9998] pt-3 w-[660px] transition-all duration-200 ease-out",
+        open ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-1 pointer-events-none"
+      )}
+      inert={!open}
+    >
       <div
         className="bg-[rgba(11,24,41,0.98)] backdrop-blur-[20px] rounded-2xl border border-white/[0.08]
           shadow-[0_24px_60px_rgba(0,0,0,0.5)] p-6"
@@ -222,11 +228,7 @@ export function Header() {
                 <ChevronDown open={dropdownOpen} />
               </button>
 
-              {dropdownOpen && (
-                <div onMouseEnter={openDropdown} onMouseLeave={scheduleCloseDropdown}>
-                  <ServicesDropdown onClose={() => setDropdownOpen(false)} />
-                </div>
-              )}
+              <ServicesDropdown open={dropdownOpen} onClose={() => setDropdownOpen(false)} />
             </div>
 
             {/* Remaining nav links */}
