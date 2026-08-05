@@ -1,0 +1,194 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-05T21:57:24Z",
+  "title": "Design System: Stiven Ramírez — Diseño Web & SEO",
+  "extensions": {
+    "colorMeta": {
+      "deep-signal-navy": {
+        "role": "neutral",
+        "displayName": "Deep Signal Navy",
+        "canonical": "#0B1829",
+        "tonalRamp": ["#050A11", "#0B1829", "#0F2D52", "#173A63", "#2A5378", "#4E7896", "#8AACC1", "#C9DCE8"]
+      },
+      "navy-secondary": {
+        "role": "neutral",
+        "displayName": "Navy Secondary",
+        "canonical": "#0F2D52",
+        "tonalRamp": ["#081120", "#0F2D52", "#163F70", "#1E5490", "#3A72AC", "#6B9AC4", "#A6C4DE", "#DCEAF4"]
+      },
+      "beacon-teal": {
+        "role": "primary",
+        "displayName": "Beacon Teal",
+        "canonical": "#00C4B4",
+        "tonalRamp": ["#003531", "#006058", "#008C80", "#00B0A2", "#00C4B4", "#00E5D3", "#5FF0E2", "#B3F7EF"]
+      },
+      "beacon-teal-bright": {
+        "role": "primary",
+        "displayName": "Beacon Teal Bright",
+        "canonical": "#00E5D3",
+        "tonalRamp": ["#003D38", "#006B60", "#00998A", "#00C4B0", "#00E5D3", "#4FF0E1", "#93F5EA", "#D2FAF3"]
+      },
+      "urgency-amber": {
+        "role": "secondary",
+        "displayName": "Urgency Amber",
+        "canonical": "#F59E0B",
+        "tonalRamp": ["#4A2E00", "#7A4C00", "#A96B00", "#D68C05", "#F59E0B", "#F8B444", "#FBCE84", "#FDE7C2"]
+      },
+      "off-white": {
+        "role": "neutral",
+        "displayName": "Off-White",
+        "canonical": "#F5F2EC",
+        "tonalRamp": ["#3A3730", "#5C5850", "#8C877C", "#BDB7AB", "#DAD5C9", "#F5F2EC", "#FAF8F4", "#FDFCFA"]
+      },
+      "warm-white": {
+        "role": "neutral",
+        "displayName": "Warm White",
+        "canonical": "#FDFCFA",
+        "tonalRamp": ["#3D3B37", "#615E58", "#918D84", "#C1BDB4", "#E2DFD9", "#F2F0EC", "#F9F8F5", "#FDFCFA"]
+      },
+      "slate": {
+        "role": "neutral",
+        "displayName": "Slate",
+        "canonical": "#5E6E82",
+        "tonalRamp": ["#1B2129", "#2D3542", "#3F4B5B", "#4E5E71", "#5E6E82", "#7C8B9C", "#A7B2BF", "#D3D9E0"]
+      },
+      "slate-light": {
+        "role": "neutral",
+        "displayName": "Slate Light",
+        "canonical": "#94A3B8",
+        "tonalRamp": ["#2A3038", "#454E5A", "#606B79", "#7A869599", "#94A3B8", "#B2BECC", "#CFD7E0", "#EBEFF3"]
+      },
+      "text-dark": {
+        "role": "neutral",
+        "displayName": "Text Dark",
+        "canonical": "#1A2B3C",
+        "tonalRamp": ["#0A1119", "#132132", "#1A2B3C", "#2B4356", "#436075", "#6B8598", "#A3B7C4", "#D6E1E8"]
+      },
+      "whatsapp-green": {
+        "role": "accent",
+        "displayName": "WhatsApp Green",
+        "canonical": "#25D366",
+        "tonalRamp": ["#0A3D1E", "#12622F", "#1B8C43", "#20B858", "#25D366", "#5CE08C", "#93EBB2", "#CDF6DA"]
+      },
+      "footer-black": {
+        "role": "neutral",
+        "displayName": "Footer Black",
+        "canonical": "#060F1A",
+        "tonalRamp": ["#000000", "#040C15", "#060F1A", "#0C1B2C", "#16304A", "#2D5578", "#6B93B4", "#B8D0E2"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero H1 only, one word set in Beacon Teal for emphasis." },
+      "headline": { "displayName": "Headline", "purpose": "Section H2s across all pages." },
+      "title": { "displayName": "Title", "purpose": "H3 card and subsection titles." },
+      "body": { "displayName": "Body", "purpose": "Paragraph copy; capped near 480px in hero/lead contexts." },
+      "label": { "displayName": "Label / Eyebrow", "purpose": "Small uppercase kicker above hero and section headings, always Beacon Teal." }
+    },
+    "shadows": [
+      { "name": "floating-panel", "value": "0 24px 60px rgba(0,0,0,0.5)", "purpose": "Services dropdown — genuinely detached overlay above dark content." },
+      { "name": "fab-glow", "value": "0 4px 24px rgba(37,211,102,0.35)", "purpose": "Fixed WhatsApp floating action button, tinted to its own accent." },
+      { "name": "cta-hover-glow", "value": "0 4px 20px rgba(0,196,180,0.35)", "purpose": "Primary button hover state, the one deliberate ambient-glow exception." },
+      { "name": "scrolled-header-hairline", "value": "0 1px 0 rgba(255,255,255,0.05)", "purpose": "1px seam marking the header once scrolled, not a drop shadow." }
+    ],
+    "motion": [
+      { "name": "hero-fade-up", "value": "translateY(20px) -> none, 0.6s ease-out", "purpose": "Hero copy entrance, staggered by 0.1s per element." },
+      { "name": "hero-scale", "value": "scale(0.97) -> scale(1), 0.7s ease-out", "purpose": "Hero photo entrance." },
+      { "name": "fade-in-observer", "value": "opacity + translateY(24px) -> none, 0.6s ease-out, IntersectionObserver-triggered", "purpose": "Scroll-triggered section reveals via the FadeIn component." },
+      { "name": "reduced-motion-override", "value": "animation/transition duration 0.01ms, scroll-behavior auto", "purpose": "prefers-reduced-motion: reduce fallback, applied globally." }
+    ],
+    "breakpoints": [
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Main CTA — Beacon Teal fill, lifts and glows teal on hover.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">Agendar llamada gratis →</a>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-weight: 700; font-size: 14px; padding: 16px 36px; border-radius: 8px; background: #00C4B4; color: #0B1829; text-decoration: none; white-space: nowrap; box-shadow: 0 0 0 0 rgba(0,196,180,0); transition: background 0.2s, transform 0.2s, box-shadow 0.2s; } .ds-btn-primary:hover { background: #00E5D3; transform: translateY(-1px); box-shadow: 0 4px 20px rgba(0,196,180,0.35); } .ds-btn-primary:focus-visible { outline: 2px solid #00C4B4; outline-offset: 2px; }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Lowest-emphasis action — teal underline text link, no fill.",
+      "html": "<a class=\"ds-btn-ghost\" href=\"#\">Ver servicios y precios</a>",
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-weight: 700; font-size: 13px; color: #00C4B4; border-bottom: 1px solid #00C4B4; padding-bottom: 2px; text-decoration: none; transition: opacity 0.15s; } .ds-btn-ghost:hover { opacity: 0.75; } .ds-btn-ghost:focus-visible { outline: 2px solid #00C4B4; outline-offset: 2px; }"
+    },
+    {
+      "name": "Input Field",
+      "kind": "input",
+      "refersTo": "input-field",
+      "description": "Off-white text input, teal ring on focus.",
+      "html": "<input class=\"ds-input\" type=\"text\" placeholder=\"Tu nombre\" />",
+      "css": ".ds-input { width: 100%; font-family: 'DM Sans', system-ui, sans-serif; font-size: 14px; color: #1A2B3C; background: #F5F2EC; border: 1px solid rgba(0,0,0,0.1); border-radius: 16px; padding: 12px 16px; transition: border-color 0.15s, box-shadow 0.15s; } .ds-input::placeholder { color: #5E6E82; } .ds-input:focus { outline: none; border-color: #00C4B4; box-shadow: 0 0 0 4px rgba(0,196,180,0.2); }"
+    },
+    {
+      "name": "Badge",
+      "kind": "chip",
+      "refersTo": "badge-teal",
+      "description": "Full-pill uppercase tag, tinted background matching its accent.",
+      "html": "<span class=\"ds-badge\">Nuevo</span>",
+      "css": ".ds-badge { display: inline-block; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 10px; border-radius: 9999px; line-height: 1; background: rgba(0,196,180,0.1); color: #00C4B4; }"
+    },
+    {
+      "name": "Stat Card",
+      "kind": "card",
+      "refersTo": "stat-card",
+      "description": "Tinted, borderless-shadow card for stats/results — tint + border only, no drop shadow at rest.",
+      "html": "<div class=\"ds-stat-card\"><p class=\"ds-stat-value\">3.2x</p><p class=\"ds-stat-label\">Más tráfico orgánico</p><p class=\"ds-stat-desc\">En los primeros 6 meses tras el lanzamiento.</p></div>",
+      "css": ".ds-stat-card { position: relative; border-radius: 20px; padding: 24px; border: 1px solid rgba(0,196,180,0.2); background: rgba(0,196,180,0.06); transition: transform 0.3s; } .ds-stat-card:hover { transform: translateY(-4px); } .ds-stat-value { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-weight: 800; font-size: 2.25rem; line-height: 1; color: #00C4B4; margin-bottom: 8px; } .ds-stat-label { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-weight: 700; font-size: 14px; color: #1A2B3C; margin-bottom: 4px; } .ds-stat-desc { font-family: 'DM Sans', system-ui, sans-serif; font-size: 13px; line-height: 1.7; color: #5E6E82; }"
+    },
+    {
+      "name": "Nav Link",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Header nav item — quiet slate-light at rest, white when active or hovered.",
+      "html": "<a class=\"ds-nav-link\" href=\"#\">Servicios</a>",
+      "css": ".ds-nav-link { font-family: 'DM Sans', system-ui, sans-serif; font-weight: 500; font-size: 13px; padding: 8px 14px; border-radius: 8px; color: #94A3B8; text-decoration: none; transition: color 0.15s; } .ds-nav-link:hover, .ds-nav-link.is-active { color: #FFFFFF; }"
+    },
+    {
+      "name": "Eyebrow Label",
+      "kind": "custom",
+      "refersTo": "eyebrow",
+      "description": "Small uppercase kicker line above hero/section headings.",
+      "html": "<p class=\"ds-eyebrow\">Freelance SEO &amp; Diseño Web — Medellín, Colombia</p>",
+      "css": ".ds-eyebrow { font-family: 'DM Sans', system-ui, sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: #00C4B4; line-height: 1; margin-bottom: 14px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Signal in the Dark",
+    "overview": "The system is built on one idea: a signal cutting through a dark, quiet field. Every surface starts from a near-black navy (Deep Signal Navy, #0B1829) and the only thing allowed to glow is Beacon Teal (#00C4B4) — the color of \"your site is now visible.\" That's not incidental: the product itself sells visibility (Google rankings), so the palette performs the pitch. Amber exists only as a second, rarer signal — urgency and time-sensitive callouts — never mixed with teal on the same element.\n\nThe system explicitly rejects the SaaS-landing cliché of a radial \"glow orb\" behind the hero headline. Instead, depth comes from a film-grain texture overlay (.bg-grain, replacing flat blur) and a single hairline gradient rule at the base of the hero section. Photography is integrated via duotone treatment (a navy color-overlay + gradient mask tying the portrait into the dark background) rather than floating in an isolated card. This is a solo consultant's site, not an agency's — the tone is confident and specific, never generic-corporate, and never dressed up as a bigger operation than it is.",
+    "keyCharacteristics": [
+      "Dark-first hero and header (Deep Signal Navy), alternating with warm off-white content sections — never pure white.",
+      "Beacon Teal is the only \"loud\" color; it marks CTAs, active states, and the literal idea of a visibility signal.",
+      "No glow-orb hero decoration, no gradient text, no glassmorphism-as-decoration. Depth comes from grain texture, duotone photography, and a single baseline rule.",
+      "Generous corner rounding across buttons, cards, and pills (8px–20px, full-pill for tags) — soft but not cartoonish.",
+      "Shadows are structural, reserved for things that are actually floating (dropdown panel, WhatsApp FAB), never decorative on static cards."
+    ],
+    "rules": [
+      { "name": "The One Signal Rule", "body": "Beacon Teal and Urgency Amber never appear combined on the same element or in the same visual unit (badge, card, icon group). Each is its own signal; mixing them reads as noise, not urgency.", "section": "colors" },
+      { "name": "The No-Pure-White Rule", "body": "Light sections use Warm White or Off-White, never #FFFFFF, except for small isolated surfaces (outline button fill, form card background) that need to pop against an off-white section.", "section": "colors" },
+      { "name": "The Extrabold-Only Headline Rule", "body": "Headings never drop below weight 700; the hierarchy is carried by size and negative letter-spacing, not by lightweight display type.", "section": "typography" },
+      { "name": "The Structural-Only Rule", "body": "If an element isn't detached from the page flow (an overlay, a fixed element, or a button announcing its own hover state), it does not get a shadow. Depth on static content comes from color, border, or tint — never blur.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep Beacon Teal as the only saturated accent used for interactive/primary emphasis; everything else is navy, off-white, or a rare amber flag.",
+      "Do use the film-grain texture (.bg-grain) and duotone photo treatment for depth in dark hero sections — this is the system's substitute for glow/blur decoration.",
+      "Do reserve shadows for genuinely floating elements (dropdowns, fixed FAB, hover-state glow); static cards use tint + border instead.",
+      "Do keep headings at weight 700+ in Plus Jakarta Sans with negative letter-spacing; carry hierarchy through size, not lighter weights.",
+      "Do write copy that leads with a business result (\"tu sitio va a posicionar desde el día del lanzamiento\"), matching PRODUCT.md's brand voice — direct, business-focused, never jargon-first."
+    ],
+    "donts": [
+      "Don't add a radial \"glow orb\" behind hero headlines — explicitly rejected in favor of grain texture and the baseline rule (see PRODUCT.md anti-reference: generic SaaS landing template).",
+      "Don't combine Beacon Teal and Urgency Amber on the same element.",
+      "Don't use pure white (#FFFFFF) as a section background; use Warm White or Off-White.",
+      "Don't apply a drop shadow to a static, at-rest card or section — shadow is a state response or an overlay cue only, never ambient decoration.",
+      "Don't use border-left/border-right as a colored stripe accent; borders in this system are full 1px outlines tinted to match the element's accent.",
+      "Don't write generic agency copy without a differentiator (PRODUCT.md anti-reference: \"los mejores estándares del mercado\", listing services without a hook) — every section should sound like one specialist speaking, not an agency team."
+    ]
+  }
+}
