@@ -27,5 +27,6 @@ export const portfolioCases: PortfolioCase[] = [
       "Sitio para compra y refinación de plata con calculadora de cotización en vivo, tema a medida sobre WordPress + GeneratePress. Lanzado recientemente — cifras de tráfico y conversión se suman en los próximos meses.",
     href: "https://ayasasmp.com",
     bgColor: "#0B1829",
+    image: "/images/portafolio/aya-hero.webp",
   },
 ];
