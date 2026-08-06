@@ -49,7 +49,7 @@ const person = {
   },
   sameAs: [
     "https://www.instagram.com/stiv.seo/",
-    "https://www.linkedin.com/in/stivenramirez/",
+    "https://www.linkedin.com/in/stiven-ramirez-0a0332199/",
   ],
 };
 

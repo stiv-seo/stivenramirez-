@@ -42,7 +42,7 @@ const personData = personSchema({
   description:
     "Consultor SEO y diseñador web con base en Colombia. Especializado en pymes y emprendedores que quieren crecer en Google con diseño web y SEO integrados.",
   sameAs: [
-    "https://www.linkedin.com/in/stivenramirez/",
+    "https://www.linkedin.com/in/stiven-ramirez-0a0332199/",
     INSTAGRAM_URL,
   ],
 });

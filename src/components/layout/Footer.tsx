@@ -104,7 +104,7 @@ export function Footer() {
                 external
               />
               <SocialLink
-                href="https://linkedin.com/in/stivenramirez"
+                href="https://www.linkedin.com/in/stiven-ramirez-0a0332199/"
                 label="LinkedIn"
                 icon={<LinkedInIcon />}
                 external
