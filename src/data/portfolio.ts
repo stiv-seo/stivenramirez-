@@ -17,4 +17,15 @@ export const portfolioCases: PortfolioCase[] = [
     bgColor: "#0B1829",
     image: "/images/portafolio/imporprex-hero.webp",
   },
+  {
+    id: "aya",
+    client: "AyA",
+    category: "Negocio local",
+    services: "WordPress · GeneratePress · Cotizador en vivo",
+    metrics: [],
+    scopeNote:
+      "Sitio para compra y refinación de plata con calculadora de cotización en vivo, tema a medida sobre WordPress + GeneratePress. Lanzado recientemente — cifras de tráfico y conversión se suman en los próximos meses.",
+    href: "https://ayasasmp.com",
+    bgColor: "#0B1829",
+  },
 ];
