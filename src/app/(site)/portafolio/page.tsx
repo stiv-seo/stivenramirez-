@@ -5,9 +5,9 @@ import { PortfolioProcess } from "@/components/sections/portafolio/PortfolioProc
 import { PortfolioCTA } from "@/components/sections/portafolio/PortfolioCTA";
 
 export const metadata: Metadata = {
-  title: "Portafolio SEO y Diseño Web Colombia",
+  title: "Portafolio de Diseño Web y SEO en Colombia",
   description:
-    "Casos de estudio de SEO y diseño web en Medellín y Colombia, en construcción. E-commerce Shopify, WordPress para pymes y Google Ads verificables.",
+    "Casos reales de diseño web y SEO en Colombia: e-commerce Shopify, WordPress para pymes, con alcance y resultados verificables por cliente.",
   keywords: [
     "portafolio diseño web seo colombia",
     "casos de estudio seo colombia",
@@ -16,11 +16,11 @@ export const metadata: Metadata = {
     "agencia seo colombia portafolio",
   ],
   alternates: { canonical: "https://stivenramirez.com/portafolio/", languages: { "es-CO": "https://stivenramirez.com/portafolio/", "x-default": "https://stivenramirez.com/portafolio/" } },
-  robots: { index: false, follow: false },
+  robots: { index: true, follow: true },
   openGraph: {
     title: "Portafolio SEO y Diseño Web Colombia",
     description:
-      "E-commerce Shopify, WordPress local y Google Ads. Casos de estudio con métricas verificables, en construcción. Colombia.",
+      "E-commerce Shopify y WordPress local en Colombia. Casos reales, con alcance y resultados verificables.",
     url: "https://stivenramirez.com/portafolio/",
     type: "website",
     locale: "es_CO",

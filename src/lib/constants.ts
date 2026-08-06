@@ -9,6 +9,7 @@ export const BRIEF_URL = "/contacto"; // brief.stivenramirez.com — fuera del s
 
 export const NAV_LINKS = [
   { label: "Servicios",  href: "/servicios/" },
+  { label: "Portafolio", href: "/portafolio/" },
   { label: "Blog",       href: "/blog/" },
   { label: "Sobre mí",   href: "/sobre-mi/" },
 ] as const;
@@ -24,6 +25,7 @@ export const FOOTER_LINKS = {
     { label: "Auditoría SEO",         href: "/servicios/seo/auditoria/" },
   ],
   recursos: [
+    { label: "Portafolio",  href: "/portafolio/" },
     { label: "Blog",        href: "/blog/" },
     { label: "Precios",     href: "/servicios/precios/" },
     { label: "Sobre mí",    href: "/sobre-mi/" },
