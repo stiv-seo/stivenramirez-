@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Badge } from "@/components/ui/Badge";
@@ -35,14 +36,25 @@ export function PortfolioPreview() {
             <FadeIn key={c.id} delay={i * 0.1}>
               <Link
                 href={c.href}
+                target={c.href.startsWith("http") ? "_blank" : undefined}
+                rel={c.href.startsWith("http") ? "noopener noreferrer" : undefined}
                 className="group block rounded-2xl overflow-hidden
                   hover:-translate-y-1 hover:shadow-xl transition-all duration-300"
               >
-                {/* Visual placeholder */}
+                {/* Visual */}
                 <div
-                  className="w-full h-48 flex items-end p-6 relative"
+                  className="w-full h-48 flex items-end p-6 relative overflow-hidden"
                   style={{ backgroundColor: c.bgColor }}
                 >
+                  {c.image && (
+                    <Image
+                      src={c.image}
+                      alt={`Captura del sitio de ${c.client}`}
+                      fill
+                      className="object-cover object-top opacity-40"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                  )}
                   <div className="absolute inset-0 bg-grid-dark opacity-60" />
                   <div className="relative z-10">
                     <Badge variant="teal">{c.services}</Badge>
@@ -71,7 +83,7 @@ export function PortfolioPreview() {
                   </div>
 
                   <span className="font-jakarta font-bold text-teal text-sm group-hover:gap-2 transition-all">
-                    Ver caso completo →
+                    Ver sitio en vivo →
                   </span>
                 </div>
               </Link>

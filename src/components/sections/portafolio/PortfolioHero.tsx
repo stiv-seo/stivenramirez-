@@ -42,8 +42,8 @@ export function PortfolioHero() {
             className="font-sans text-slate-light leading-[1.75] max-w-[520px]"
             style={{ fontSize: "clamp(16px, 1.5vw, 18px)" }}
           >
-            Cada caso que publico aquí tiene datos verificables de tráfico, conversiones y posiciones —
-            sin pantallazos editados. Esta sección está creciendo con los primeros casos documentados.
+            Publico cada proyecto con el alcance real del trabajo apenas se lanza. Cuando hay datos de
+            tráfico, conversiones o posiciones, los muestro tal cual — sin pantallazos editados.
           </p>
         </FadeIn>
       </Container>

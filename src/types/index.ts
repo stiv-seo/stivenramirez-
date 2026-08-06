@@ -40,6 +40,8 @@ export interface PortfolioCase {
   metrics: { label: string; value: string }[];
   href: string;
   bgColor: string;
+  image?: string;
+  scopeNote?: string;
 }
 
 export interface Tool {
