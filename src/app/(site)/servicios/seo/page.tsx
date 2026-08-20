@@ -5,6 +5,7 @@ import { SubpageCTA } from "@/components/sections/subpage/SubpageCTA";
 import { Container } from "@/components/ui/Container";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { Eyebrow } from "@/components/ui/Eyebrow";
+import { CIUDADES } from "@/data/ciudades";
 
 export const metadata: Metadata = {
   title: "SEO para Pymes en Medellín",
@@ -121,6 +122,30 @@ export default function SeoHubPage() {
               </FadeIn>
             ))}
           </div>
+        </Container>
+      </section>
+      <section className="bg-white" style={{ paddingTop: "60px", paddingBottom: "60px" }}>
+        <Container>
+          <FadeIn>
+            <Eyebrow>Ciudades</Eyebrow>
+            <h2
+              className="font-jakarta font-extrabold text-text-dark leading-[1.05] tracking-[-1px] mb-6"
+              style={{ fontSize: "clamp(20px, 2.4vw, 28px)" }}
+            >
+              SEO local en tu ciudad
+            </h2>
+            <div className="flex flex-wrap gap-3">
+              {CIUDADES.map((c) => (
+                <Link
+                  key={c.slug}
+                  href={`/seo/${c.slug}/`}
+                  className="font-jakarta font-semibold text-[13px] text-text-mid hover:text-teal border border-[rgba(0,0,0,0.08)] hover:border-teal/30 rounded-full px-4 py-2 transition-colors duration-150"
+                >
+                  SEO en {c.nombre}
+                </Link>
+              ))}
+            </div>
+          </FadeIn>
         </Container>
       </section>
       <SubpageCTA
