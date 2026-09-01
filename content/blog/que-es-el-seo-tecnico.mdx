@@ -1,0 +1,153 @@
+---
+title: "¿Qué es el SEO técnico? Guía sin tecnicismos para dueños de negocios"
+metaTitle: "¿Qué es el SEO técnico? Guía sin tecnicismos"
+description: "SEO técnico explicado para dueños de pymes en Colombia: velocidad, indexación, canonicals y Core Web Vitals sin jerga, con checklist de los 5 puntos clave."
+date: "2026-09-01"
+category: "SEO"
+readTime: "8 min"
+slug: "que-es-el-seo-tecnico"
+---
+
+Si has leído algo sobre [qué es el SEO](/blog/que-es-el-seo-colombia/) en general, probablemente ya viste mencionado el término "SEO técnico" sin mucha explicación. Y si buscaste más sobre el tema específicamente, seguro encontraste un artículo lleno de términos como "crawl budget", "canonical tags" o "render blocking resources" — escrito por y para desarrolladores. Útil si programas. Inútil si eres el dueño del negocio y solo quieres saber si tu sitio tiene un problema y qué pedirle a quien te lo va a arreglar.
+
+Esta guía es para esa segunda persona.
+
+---
+
+## SEO técnico vs. SEO de contenido: cuál es cuál
+
+El SEO se divide, a grandes rasgos, en dos mundos que se complementan pero resuelven problemas distintos.
+
+**SEO de contenido** es lo que la mayoría entiende como "hacer SEO": escribir artículos, optimizar palabras clave, estructurar títulos y descripciones. Responde a la pregunta "¿qué le digo a Google que tengo?".
+
+**SEO técnico** es todo lo que pasa antes de esa pregunta — si Google puede siquiera *ver* lo que tienes, entenderlo correctamente y mostrarlo rápido a quien lo busca. Responde a "¿puede Google acceder, leer y confiar en mi sitio?".
+
+La comparación más simple: si tu negocio fuera un restaurante, el SEO de contenido es el menú — bien escrito, con fotos, con los platos que la gente busca. El SEO técnico es que la puerta esté abierta, las luces prendidas y el mesero hable el mismo idioma que el cliente. Puedes tener el mejor menú del mundo, pero si la puerta está cerrada, nadie entra a leerlo.
+
+Por eso un sitio con contenido excelente puede no aparecer en Google — no porque el contenido esté mal, sino porque un problema técnico le está impidiendo a Google acceder a él, entenderlo o confiar en él.
+
+---
+
+## Por qué el SEO técnico importa (aunque no seas programador)
+
+No necesitas saber programar para que esto te importe. Necesitas saber que existe, para poder detectarlo y pedir que lo arreglen — de la misma forma que no necesitas saber de mecánica para notar que el carro hace un ruido raro y llevarlo al taller correcto.
+
+Tres razones concretas por las que esto afecta directamente tu negocio:
+
+**Google no puede recomendar lo que no puede ver.** Si tu sitio tiene un error que bloquea el acceso de Google a una página, esa página simplemente no existe para efectos de búsqueda — sin importar qué tan bueno sea el contenido que tiene adentro.
+
+**La velocidad y la experiencia de uso son factores de ranking directos.** Google mide activamente qué tan rápido carga tu sitio y qué tan estable es la experiencia (esto se llama Core Web Vitals, lo explico abajo) y lo usa como una señal para decidir tu posición — no es solo "buena práctica", es un criterio medido.
+
+**Un problema técnico afecta a todo el sitio a la vez, no a una sola página.** Si escribes un mal artículo, ese artículo rankea mal. Si tu sitio tiene un problema técnico de fondo — por ejemplo, URLs duplicadas sitewide — puede estar frenando el posicionamiento de *todas* tus páginas simultáneamente. Es la inversión con mayor apalancamiento en SEO: arreglar un problema técnico de raíz puede mover más que escribir diez artículos nuevos.
+
+---
+
+## Los 5 problemas técnicos que más afectan el posicionamiento
+
+No existen cientos de problemas técnicos igual de importantes. En la práctica, la gran mayoría de los sitios de pymes en Colombia que no posicionan bien tienen uno o más de estos cinco problemas.
+
+### 1. Velocidad del sitio (Core Web Vitals)
+
+Core Web Vitals es el nombre que le da Google a tres métricas concretas de qué tan rápida y estable se siente una página al cargar: qué tan rápido aparece el contenido principal, qué tan rápido responde a la primera interacción, y si los elementos de la página "saltan" mientras carga (por ejemplo, un botón que se mueve justo cuando ibas a hacer clic).
+
+Un sitio lento no solo pierde posiciones en Google — pierde visitantes antes de que lean una sola palabra. La mayoría de los sitios lentos en Colombia tienen la misma causa raíz: imágenes sin comprimir subidas directo desde el celular o la cámara, sin ningún proceso de optimización antes de publicarlas.
+
+**Qué pedirle a tu desarrollador:** que corra tu sitio por PageSpeed Insights (herramienta gratuita de Google) y te muestre el resultado de "Core Web Vitals" en móvil, no solo en escritorio — la mayoría de tu tráfico real llega desde el celular, y ahí es donde más se sienten los problemas de velocidad.
+
+### 2. El sitio no está indexado correctamente
+
+"Indexado" significa que Google ya conoce esa página y la tiene guardada para poder mostrarla en resultados. Una página que no está indexada no puede aparecer en Google — sin importar qué tan bien escrita esté.
+
+Las causas más comunes: una etiqueta técnica (`noindex`) que le dice explícitamente a Google "no muestres esto" — a veces dejada por error desde una versión de prueba del sitio; páginas nuevas que nunca se le avisaron a Google porque nadie las envió a indexar; o un archivo `robots.txt` mal configurado que bloquea secciones enteras del sitio sin que nadie lo note.
+
+**Qué pedirle a tu desarrollador:** revisar en Google Search Console (gratuita, la herramienta oficial de Google para dueños de sitios) cuántas páginas están indexadas vs. cuántas tiene realmente el sitio. Si el número no cuadra, hay páginas invisibles para Google.
+
+### 3. URLs duplicadas y canonicals
+
+Es común que la misma página sea accesible por más de una URL sin que el dueño del sitio lo sepa — por ejemplo, `tusitio.com` y `www.tusitio.com`, o una versión con `/` al final y otra sin él. Para una persona esto no importa, la página se ve igual. Para Google, son URLs distintas que compiten entre sí por la misma búsqueda, dividiendo la autoridad de la página en vez de sumarla.
+
+La solución técnica se llama "canonical" — una etiqueta que le dice a Google "esta es la versión oficial de esta página, ignora las demás". Cuando no está bien configurada, el sitio compite consigo mismo.
+
+**Qué pedirle a tu desarrollador:** confirmar que el sitio redirige automáticamente todas las variantes de una URL (con/sin `www`, con/sin `/` final) a una sola versión, y que cada página tiene su etiqueta canonical apuntando a sí misma.
+
+### 4. El sitio no funciona bien en móvil
+
+Google usa principalmente la versión móvil de tu sitio para decidir cómo posicionarlo — no la de escritorio, aunque tu equipo revise el sitio siempre desde una laptop. Si en el celular el menú no funciona, el texto es ilegible sin hacer zoom, o los botones están tan juntos que es fácil tocar el equivocado, eso afecta directamente tu posicionamiento, no solo la experiencia del visitante.
+
+Esto es especialmente relevante en Colombia, donde la mayoría del tráfico de búsqueda de pymes llega desde celular, no desde computador. Este mismo problema — un sitio que se ve mal o no funciona en móvil — suele venir acompañado de otros [errores de diseño web que afectan directamente el SEO](/blog/errores-diseno-web-seo/), no solo la velocidad de carga.
+
+**Qué pedirle a tu desarrollador:** abrir el sitio en un celular real (no solo simularlo en el navegador de escritorio) y navegar el flujo completo — desde llegar a una página hasta encontrar el número de contacto o el formulario — para confirmar que nada se rompe en el camino.
+
+### 5. Datos estructurados ausentes o mal configurados
+
+Los datos estructurados (o "schema") son código adicional, invisible para el usuario, que le describe a Google exactamente qué es tu negocio: el nombre, la dirección, el teléfono, los horarios, o qué tipo de contenido tiene una página. No cambian cómo se ve tu sitio para una persona, pero le dan a Google contexto adicional que puede traducirse en resultados enriquecidos — como estrellas de reseñas, horarios o migas de pan directamente en el resultado de búsqueda.
+
+Un schema mal configurado no suele romper el sitio, pero sí es una oportunidad perdida — específicamente en negocios locales, donde el schema `LocalBusiness` bien implementado puede ser la diferencia entre aparecer con toda tu información (dirección, teléfono, horario) directamente en el resultado, o aparecer como un link genérico más.
+
+**Qué pedirle a tu desarrollador:** que valide el sitio con la herramienta gratuita "Rich Results Test" de Google y confirme que el schema de negocio (`LocalBusiness` u otro tipo relevante) está presente y sin errores.
+
+---
+
+## Checklist básico: cómo saber si tu sitio tiene problemas técnicos
+
+Sin tocar código, puedes hacer esta revisión rápida tú mismo en menos de 15 minutos:
+
+- **Velocidad:** pega la URL de tu sitio en PageSpeed Insights (pagespeed.web.dev) y revisa el puntaje móvil. Por debajo de 50 es una señal clara de problema.
+- **Indexación:** busca en Google `site:tudominio.com` y compara cuántos resultados aparecen contra cuántas páginas reales tiene tu sitio.
+- **Mobile:** abre tu sitio desde tu propio celular, con datos móviles (no wifi), y navega como si fueras un cliente nuevo.
+- **URLs duplicadas:** escribe tu dominio en el navegador de tres formas distintas (`tusitio.com`, `www.tusitio.com`, `http://tusitio.com`) y confirma que las tres terminan en la misma URL final.
+- **Datos estructurados:** copia la URL de tu página de inicio en la herramienta "Rich Results Test" de Google y revisa si detecta algún tipo de schema.
+
+Si alguno de estos cinco puntos falla, ya tienes algo concreto y verificable para llevarle a tu desarrollador o agencia — en vez de la queja genérica de "no aparezco en Google".
+
+---
+
+## ¿Lo puedo arreglar yo o necesito un experto?
+
+Depende del problema y de qué tan cómodo estés tocando el código o la configuración de tu sitio.
+
+**Puedes intentarlo tú mismo** si el problema es de configuración simple en una plataforma con interfaz gráfica — por ejemplo, activar la versión con `www` como predeterminada en la configuración de dominio, o subir imágenes ya comprimidas antes de publicarlas (herramientas gratuitas como TinyPNG lo hacen en segundos).
+
+**Necesitas un desarrollador** cuando el problema requiere tocar código directamente — corregir un `robots.txt` mal configurado, implementar redirecciones a nivel de servidor, o instalar datos estructurados en las plantillas del sitio. Intentar esto sin experiencia tiene un riesgo real de romper algo más grande de lo que se intentaba arreglar, especialmente en sitios con muchas páginas o con un CMS complejo.
+
+La señal más clara de que necesitas ayuda profesional no es "no sé programar" — es "no tengo forma de verificar si lo que hice funcionó o empeoró las cosas". El SEO técnico bien hecho siempre se verifica con datos reales (Search Console, PageSpeed, el Rich Results Test), no a ojo.
+
+---
+
+## Preguntas frecuentes
+
+<details>
+<summary><strong>¿El SEO técnico es un trabajo de una sola vez o hay que revisarlo seguido?</strong></summary>
+
+Es un trabajo inicial más mantenimiento continuo. La primera revisión resuelve los problemas estructurales de fondo (indexación, canonicals, velocidad base). Pero cada vez que agregas contenido nuevo, cambias de plataforma, o instalas un plugin o app adicional, puedes introducir un problema técnico nuevo sin darte cuenta — por eso vale la pena una revisión periódica, no solo una vez al año.
+</details>
+
+<details>
+<summary><strong>¿Cuánto tiempo toma ver resultados después de arreglar problemas técnicos?</strong></summary>
+
+Más rápido que el SEO de contenido, en general. Un problema de indexación bloqueante, una vez corregido, puede resolverse en días a un par de semanas conforme Google vuelve a rastrear el sitio. Las mejoras de velocidad suelen reflejarse en el ranking en 4 a 8 semanas, porque Google necesita varias semanas de datos reales de usuarios para actualizar su medición de Core Web Vitals.
+</details>
+
+<details>
+<summary><strong>¿Necesito arreglar los 5 problemas antes de seguir escribiendo contenido nuevo?</strong></summary>
+
+No necesariamente los cinco, pero sí los que sean bloqueantes — sobre todo indexación. No tiene sentido invertir en escribir artículos nuevos si Google no puede indexarlos por un problema técnico de fondo. La velocidad y el schema, en cambio, se pueden mejorar en paralelo mientras sigues publicando contenido.
+</details>
+
+<details>
+<summary><strong>¿Plataformas como Shopify o Wix ya resuelven el SEO técnico automáticamente?</strong></summary>
+
+Resuelven una parte, no todo. Estas plataformas manejan bien lo básico (certificado SSL, sitemap automático, estructura de URLs razonable), pero siguen dependiendo de que el dueño del sitio configure bien las cosas que sí controla: qué páginas indexar, qué imágenes subir sin comprimir, o qué apps de terceros instalar — cada app adicional es código extra que puede afectar la velocidad. "Está en una plataforma buena" no es lo mismo que "está técnicamente bien configurado".
+</details>
+
+<details>
+<summary><strong>¿Cómo sé si el problema de que no aparezco en Google es técnico o de contenido?</strong></summary>
+
+Empieza por el checklist de esta guía. Si tu sitio pasa las cinco verificaciones (velocidad, indexación, mobile, URLs duplicadas, schema) y aun así no aparece para las búsquedas que te interesan, el problema probablemente es de contenido o de competencia — no tienes suficiente contenido relevante, o tu competencia lo tiene mejor trabajado. Si falla alguna de las cinco, ahí está tu prioridad antes de invertir en más contenido.
+</details>
+
+---
+
+El SEO técnico no es el lado "difícil" del SEO reservado para programadores — es la base sobre la que todo lo demás funciona o no funciona. Puedes tener el mejor contenido del mercado, pero si Google no puede acceder a tu sitio, entenderlo o confiar en que carga rápido, ese contenido nunca vas a verlo posicionado.
+
+¿Sospechas que tu sitio tiene alguno de estos problemas? [Solicita una auditoría técnica](/servicios/seo/tecnico/) o [cuéntame tu caso directamente](/contacto/).
