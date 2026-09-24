@@ -38,7 +38,7 @@ export interface PortfolioCase {
   category: string;
   services: string;
   metrics: { label: string; value: string }[];
-  href: string;
+  href?: string;
   bgColor: string;
   image?: string;
   scopeNote?: string;

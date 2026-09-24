@@ -43,6 +43,15 @@ export default async function Image({
   if (slug === "seo-para-clinicas-colombia") {
     return new ImageResponse(<ClinicasOG />, { width: 1200, height: 630 });
   }
+  if (slug === "caso-axis33-fisioterapia-brisbane") {
+    return new ImageResponse(<Axis33CaseOG />, { width: 1200, height: 630 });
+  }
+  if (slug === "que-es-el-seo-tecnico") {
+    return new ImageResponse(<SeoTecnicoOG />, { width: 1200, height: 630 });
+  }
+  if (slug === "seo-para-inmobiliarias-colombia") {
+    return new ImageResponse(<InmobiliariasOG />, { width: 1200, height: 630 });
+  }
 
   // Generic fallback for posts without a custom banner
   return new ImageResponse(
@@ -835,6 +844,216 @@ function ClinicasOG() {
           <div style={{ position: "relative", width: 90, height: 90, display: "flex", alignItems: "center", justifyContent: "center" }}>
             <div style={{ position: "absolute", width: 90, height: 28, background: "linear-gradient(135deg, #5beedc 0%, #00C4B4 60%, rgba(0,196,180,0.6) 100%)", boxShadow: "0 0 40px rgba(0,196,180,0.55)" }} />
             <div style={{ position: "absolute", width: 28, height: 90, background: "linear-gradient(135deg, #5beedc 0%, #00C4B4 60%, rgba(0,196,180,0.6) 100%)", boxShadow: "0 0 40px rgba(0,196,180,0.55)" }} />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ─── Caso Axis33 — de identidad rota a columna alineada ──────────────────────
+
+const BROKEN_TILES = [
+  { x: 90,  y: 90,  s: 46, rot: -12 },
+  { x: 210, y: 60,  s: 34, rot: 18  },
+  { x: 260, y: 190, s: 52, rot: -6  },
+  { x: 110, y: 240, s: 30, rot: 24  },
+  { x: 350, y: 110, s: 38, rot: -20 },
+  { x: 60,  y: 340, s: 44, rot: 10  },
+  { x: 300, y: 320, s: 28, rot: -30 },
+];
+
+function Axis33CaseOG() {
+  const bg = "radial-gradient(900px 600px at 78% 50%, rgba(0,196,180,0.10) 0%, rgba(0,196,180,0.03) 35%, transparent 65%), linear-gradient(180deg, #11141c 0%, #0f1117 50%, #0c0e15 100%)";
+  const spineY = [96, 176, 256, 336, 416, 496];
+
+  return (
+    <div style={{ ...stage, background: bg }}>
+      <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, backgroundImage: "linear-gradient(to right, rgba(255,255,255,0.06) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.06) 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
+      <Corner />
+      <ScanLine />
+
+      {/* LEFT: scattered, misaligned tiles — the broken identity */}
+      <div style={{ position: "absolute", top: 0, left: 0, width: 600, bottom: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <div style={{ position: "relative", width: 420, height: 420, display: "flex" }}>
+          <svg width={420} height={420} style={{ position: "absolute", top: 0, left: 0 }}>
+            <g stroke="rgba(255,255,255,0.08)" strokeWidth="1" strokeDasharray="3 5" fill="none">
+              {BROKEN_TILES.map((t, i) => (
+                <line key={i} x1={210} y1={210} x2={t.x + t.s / 2} y2={t.y + t.s / 2} />
+              ))}
+            </g>
+          </svg>
+          {BROKEN_TILES.map((t, i) => (
+            <div
+              key={i}
+              style={{
+                position: "absolute", left: t.x, top: t.y, width: t.s, height: t.s,
+                border: "1px solid rgba(255,255,255,0.18)",
+                background: "rgba(255,255,255,0.04)",
+                transform: `rotate(${t.rot}deg)`,
+              }}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* RIGHT: aligned vertical spine — the corrected structure */}
+      <div style={{ position: "absolute", top: 0, right: 0, width: 600, bottom: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <div style={{ position: "relative", width: 200, height: 460, display: "flex", alignItems: "center", justifyContent: "center" }}>
+          {/* guide line through the spine */}
+          <div style={{ position: "absolute", left: "50%", top: 0, bottom: 0, width: 1, background: "linear-gradient(180deg, transparent 0%, rgba(0,196,180,0.45) 12%, rgba(0,196,180,0.45) 88%, transparent 100%)" }} />
+          {spineY.map((y, i) => {
+            const focal = i === 2;
+            const s = focal ? 46 : 34;
+            return (
+              <div
+                key={i}
+                style={{
+                  position: "absolute", top: y - s / 2, left: 100 - s / 2, width: s, height: s,
+                  borderRadius: "50%",
+                  background: focal
+                    ? "linear-gradient(135deg, #5beedc 0%, #00C4B4 60%, rgba(0,196,180,0) 100%)"
+                    : "rgba(255,255,255,0.14)",
+                  border: focal ? "none" : "1px solid rgba(255,255,255,0.22)",
+                  boxShadow: focal ? "0 0 40px rgba(0,196,180,0.55)" : "none",
+                }}
+              />
+            );
+          })}
+          {/* reticle around the focal vertebra */}
+          <div style={{ position: "absolute", left: 100 - 55, top: 256 - 55, width: 110, height: 110, display: "flex" }}>
+            <div style={{ position: "absolute", top: 0, left: 0, width: 14, height: 14, borderTop: `1px solid ${TEAL}`, borderLeft: `1px solid ${TEAL}` }} />
+            <div style={{ position: "absolute", top: 0, right: 0, width: 14, height: 14, borderTop: `1px solid ${TEAL}`, borderRight: `1px solid ${TEAL}` }} />
+            <div style={{ position: "absolute", bottom: 0, left: 0, width: 14, height: 14, borderBottom: `1px solid ${TEAL}`, borderLeft: `1px solid ${TEAL}` }} />
+            <div style={{ position: "absolute", bottom: 0, right: 0, width: 14, height: 14, borderBottom: `1px solid ${TEAL}`, borderRight: `1px solid ${TEAL}` }} />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ─── Qué es el SEO técnico — capas apiladas bajo inspección ──────────────────
+
+const TECH_LAYERS = [
+  { w: 480, label: false },
+  { w: 420, label: false },
+  { w: 460, label: true  },
+  { w: 400, label: false },
+  { w: 440, label: false },
+];
+
+function SeoTecnicoOG() {
+  const bg = "radial-gradient(700px 540px at 50% 50%, rgba(0,196,180,0.10) 0%, rgba(0,196,180,0.03) 35%, transparent 65%), linear-gradient(180deg, #11141c 0%, #0d1117 50%, #0a0c12 100%)";
+  const stackTop = 140, layerH = 62, gap = 10;
+  const focalIdx = 2;
+  const focalY = stackTop + focalIdx * (layerH + gap) + layerH / 2;
+
+  return (
+    <div style={{ ...stage, background: bg }}>
+      <div style={{ position: "absolute", top: 0, left: 0, width: 1200, height: 630, backgroundImage: "linear-gradient(to right, rgba(255,255,255,0.06) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.06) 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
+      <Corner />
+
+      {/* Stacked layers, centered */}
+      <div style={{ position: "absolute", top: 0, left: 300, width: 600, height: 630, display: "flex" }}>
+        {TECH_LAYERS.map((l, i) => (
+          <div
+            key={i}
+            style={{
+              position: "absolute", top: stackTop + i * (layerH + gap), left: (600 - l.w) / 2,
+              width: l.w, height: layerH,
+              background: l.label ? "linear-gradient(90deg, rgba(0,196,180,0.28) 0%, rgba(0,196,180,0.08) 100%)" : "rgba(255,255,255,0.06)",
+              border: l.label ? "1px solid rgba(0,196,180,0.55)" : "1px solid rgba(255,255,255,0.12)",
+              boxShadow: l.label ? "0 0 30px rgba(0,196,180,0.25)" : "none",
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Magnifier ring + reticle over the focal layer */}
+      <div style={{ position: "absolute", left: 600 - 90, top: focalY - 90, width: 180, height: 180, borderRadius: "50%", border: `1px solid rgba(0,196,180,0.5)` }} />
+      <div style={{ position: "absolute", left: 600 - 55, top: focalY - 55, width: 110, height: 110, display: "flex" }}>
+        <div style={{ position: "absolute", top: 0, left: 0, width: 14, height: 14, borderTop: `1px solid ${TEAL}`, borderLeft: `1px solid ${TEAL}` }} />
+        <div style={{ position: "absolute", top: 0, right: 0, width: 14, height: 14, borderTop: `1px solid ${TEAL}`, borderRight: `1px solid ${TEAL}` }} />
+        <div style={{ position: "absolute", bottom: 0, left: 0, width: 14, height: 14, borderBottom: `1px solid ${TEAL}`, borderLeft: `1px solid ${TEAL}` }} />
+        <div style={{ position: "absolute", bottom: 0, right: 0, width: 14, height: 14, borderBottom: `1px solid ${TEAL}`, borderRight: `1px solid ${TEAL}` }} />
+      </div>
+      {/* magnifier handle */}
+      <div style={{ position: "absolute", left: 600 + 90, top: focalY + 90, width: 70, height: 3, background: `linear-gradient(90deg, rgba(0,196,180,0.6), transparent)`, transform: "rotate(45deg)" }} />
+
+      {/* Focal diamond, right panel */}
+      <div style={{ position: "absolute", right: 140, top: focalY - 30, width: 60, height: 60, background: "linear-gradient(135deg, #5beedc 0%, #00C4B4 55%, rgba(0,196,180,0) 100%)", boxShadow: "0 0 50px rgba(0,196,180,0.55)", transform: "rotate(45deg)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <div style={{ width: 22, height: 22, background: "#fff", boxShadow: "0 0 12px rgba(255,255,255,0.85)" }} />
+      </div>
+    </div>
+  );
+}
+
+// ─── SEO para inmobiliarias — pines de propiedades + casa focal ──────────────
+
+const PROPERTY_PINS = [
+  { x: 130, y: 150, dim: true  }, { x: 210, y: 270, dim: false },
+  { x: 340, y: 110, dim: false }, { x: 400, y: 300, dim: true  },
+  { x: 270, y: 400, dim: true  }, { x: 460, y: 200, dim: false },
+  { x: 170, y: 430, dim: true  },
+];
+
+function InmobiliariasOG() {
+  const bg = "radial-gradient(700px 540px at 50% 50%, rgba(0,196,180,0.10) 0%, rgba(0,196,180,0.03) 35%, transparent 65%), linear-gradient(180deg, #11141c 0%, #0d1117 50%, #0a0c12 100%)";
+  const fx = 290, fy = 260;
+
+  return (
+    <div style={{ ...stage, background: bg }}>
+      <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, backgroundImage: "linear-gradient(to right, rgba(255,255,255,0.06) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.06) 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
+      <Corner />
+      <ScanLine />
+
+      {/* LEFT: property pins converging on the focal listing */}
+      <div style={{ position: "absolute", top: 0, left: 0, width: 600, bottom: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <div style={{ position: "relative", width: 600, height: 630, display: "flex" }}>
+          <svg width={600} height={630} style={{ position: "absolute", top: 0, left: 0 }}>
+            <g stroke="rgba(0,196,180,0.35)" strokeWidth="1" strokeDasharray="3 5" fill="none">
+              <line x1={PROPERTY_PINS[1].x} y1={PROPERTY_PINS[1].y} x2={fx} y2={fy} />
+              <line x1={PROPERTY_PINS[2].x} y1={PROPERTY_PINS[2].y} x2={fx} y2={fy} />
+              <line x1={PROPERTY_PINS[5].x} y1={PROPERTY_PINS[5].y} x2={fx} y2={fy} />
+            </g>
+          </svg>
+          {PROPERTY_PINS.map((p, i) => (
+            <div key={i} style={{ position: "absolute", left: p.x - 8, top: p.y - 24, width: 16, height: 24, display: "flex" }}>
+              <div style={{ width: 16, height: 16, transform: "rotate(45deg)", border: `1px solid ${p.dim ? "rgba(255,255,255,0.18)" : "rgba(255,255,255,0.35)"}`, background: "rgba(255,255,255,0.03)", margin: "auto" }} />
+            </div>
+          ))}
+          {/* focal house pictogram: square body + triangle roof */}
+          <div style={{ position: "absolute", left: fx - 26, top: fy - 8, width: 52, height: 40, background: "linear-gradient(180deg, rgba(0,196,180,0.35) 0%, rgba(0,196,180,0.12) 100%)", border: `1px solid ${TEAL}`, boxShadow: "0 0 40px rgba(0,196,180,0.5)" }} />
+          <div
+            style={{
+              position: "absolute", left: fx - 32, top: fy - 40, width: 0, height: 0,
+              borderLeft: "32px solid transparent", borderRight: "32px solid transparent",
+              borderBottom: `32px solid ${TEAL}`,
+            }}
+          />
+          {[110, 76].map((s, i) => (
+            <div key={i} style={{ position: "absolute", left: fx - s / 2, top: fy + 12 - s / 2, width: s, height: s, borderRadius: "50%", border: `1px solid ${i === 1 ? "rgba(0,196,180,0.4)" : "rgba(255,255,255,0.10)"}` }} />
+          ))}
+        </div>
+      </div>
+
+      {/* RIGHT: rings + search reticle */}
+      <div style={{ position: "absolute", top: 0, right: 0, width: 600, bottom: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <div style={{ position: "relative", width: 380, height: 380, display: "flex", alignItems: "center", justifyContent: "center" }}>
+          {[340, 250, 140].map((s, i) => (
+            <div key={i} style={{ position: "absolute", width: s, height: s, borderRadius: "50%", border: `1px solid ${i === 2 ? "rgba(0,196,180,0.45)" : i === 1 ? "rgba(255,255,255,0.10)" : "rgba(255,255,255,0.06)"}` }} />
+          ))}
+          <div style={{ position: "absolute", left: -40, right: -40, height: 1, top: "50%", background: "linear-gradient(90deg, transparent, rgba(0,196,180,0.45), transparent)" }} />
+          <div style={{ position: "absolute", top: -40, bottom: -40, width: 1, left: "50%", background: "linear-gradient(180deg, transparent, rgba(0,196,180,0.45), transparent)" }} />
+          <div style={{ position: "absolute", width: 140, height: 140, display: "flex" }}>
+            <div style={{ position: "absolute", top: 0, left: 0, width: 14, height: 14, borderTop: `1px solid ${TEAL}`, borderLeft: `1px solid ${TEAL}` }} />
+            <div style={{ position: "absolute", top: 0, right: 0, width: 14, height: 14, borderTop: `1px solid ${TEAL}`, borderRight: `1px solid ${TEAL}` }} />
+            <div style={{ position: "absolute", bottom: 0, left: 0, width: 14, height: 14, borderBottom: `1px solid ${TEAL}`, borderLeft: `1px solid ${TEAL}` }} />
+            <div style={{ position: "absolute", bottom: 0, right: 0, width: 14, height: 14, borderBottom: `1px solid ${TEAL}`, borderRight: `1px solid ${TEAL}` }} />
+          </div>
+          <div style={{ position: "relative", width: 80, height: 80, background: "linear-gradient(135deg, #5beedc 0%, #00C4B4 55%, rgba(0,196,180,0) 100%)", boxShadow: "0 0 50px rgba(0,196,180,0.55)", transform: "rotate(45deg)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <div style={{ width: 28, height: 28, background: "#fff", boxShadow: "0 0 12px rgba(255,255,255,0.85)" }} />
           </div>
         </div>
       </div>

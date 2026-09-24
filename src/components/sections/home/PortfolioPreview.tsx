@@ -32,15 +32,9 @@ export function PortfolioPreview() {
 
         {/* Cases grid */}
         <div className="grid gap-6 md:grid-cols-3">
-          {portfolioCases.map((c, i) => (
-            <FadeIn key={c.id} delay={i * 0.1}>
-              <Link
-                href={c.href}
-                target={c.href.startsWith("http") ? "_blank" : undefined}
-                rel={c.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                className="group block rounded-2xl overflow-hidden
-                  hover:-translate-y-1 hover:shadow-xl transition-all duration-300"
-              >
+          {portfolioCases.map((c, i) => {
+            const content = (
+              <>
                 {/* Visual */}
                 <div
                   className="w-full h-48 flex items-end p-6 relative overflow-hidden"
@@ -83,12 +77,30 @@ export function PortfolioPreview() {
                   </div>
 
                   <span className="font-jakarta font-bold text-teal text-sm group-hover:gap-2 transition-all">
-                    Ver sitio en vivo →
+                    {c.href ? "Ver sitio en vivo →" : "En camino a producción"}
                   </span>
                 </div>
-              </Link>
-            </FadeIn>
-          ))}
+              </>
+            );
+
+            return (
+              <FadeIn key={c.id} delay={i * 0.1}>
+                {c.href ? (
+                  <Link
+                    href={c.href}
+                    target={c.href.startsWith("http") ? "_blank" : undefined}
+                    rel={c.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                    className="group block rounded-2xl overflow-hidden
+                      hover:-translate-y-1 hover:shadow-xl transition-all duration-300"
+                  >
+                    {content}
+                  </Link>
+                ) : (
+                  <div className="group block rounded-2xl overflow-hidden">{content}</div>
+                )}
+              </FadeIn>
+            );
+          })}
         </div>
       </Container>
     </section>

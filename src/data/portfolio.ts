@@ -36,8 +36,7 @@ export const portfolioCases: PortfolioCase[] = [
     services: "WordPress a medida · Reposicionamiento · Reservas online",
     metrics: [],
     scopeNote:
-      "Reconstrucción completa de una clínica de fisioterapia en Brisbane (Australia) que se comunicaba como estudio de Pilates: 11 páginas, contenido real por servicio y reservas online conectadas al sistema real de la clínica. Cifras de tráfico y conversión se suman una vez el sitio esté en producción.",
-    href: "https://mediumblue-reindeer-639588.hostingersite.com/",
+      "Reconstrucción completa de una clínica de fisioterapia en Brisbane (Australia) que se comunicaba como estudio de Pilates: 11 páginas, contenido real por servicio y reservas online conectadas al sistema real de la clínica. Sitio terminado, en espera del corte de dominio del cliente para salir a producción.",
     bgColor: "#022A52",
     image: "/images/portafolio/axis33-hero.webp",
   },

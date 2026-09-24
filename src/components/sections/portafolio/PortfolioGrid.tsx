@@ -118,18 +118,24 @@ export function PortfolioGrid() {
 
                 {/* CTA */}
                 <div className="p-6 mt-auto">
-                  <Link
-                    href={caso.href}
-                    target={caso.href.startsWith("http") ? "_blank" : undefined}
-                    rel={caso.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                    className="flex items-center justify-between font-jakarta font-bold text-sm text-text-dark group-hover:text-teal transition-colors duration-150"
-                    aria-label={`Ver sitio en vivo: ${caso.client}`}
-                  >
-                    <span>Ver sitio en vivo</span>
-                    <span className="text-teal transition-transform duration-150 group-hover:translate-x-1">
-                      →
+                  {caso.href ? (
+                    <Link
+                      href={caso.href}
+                      target={caso.href.startsWith("http") ? "_blank" : undefined}
+                      rel={caso.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                      className="flex items-center justify-between font-jakarta font-bold text-sm text-text-dark group-hover:text-teal transition-colors duration-150"
+                      aria-label={`Ver sitio en vivo: ${caso.client}`}
+                    >
+                      <span>Ver sitio en vivo</span>
+                      <span className="text-teal transition-transform duration-150 group-hover:translate-x-1">
+                        →
+                      </span>
+                    </Link>
+                  ) : (
+                    <span className="flex items-center justify-between font-jakarta font-bold text-sm text-text-mid">
+                      <span>En camino a producción</span>
                     </span>
-                  </Link>
+                  )}
                 </div>
               </article>
             </FadeIn>
