@@ -1,0 +1,127 @@
+---
+title: "Google Search Console: guía práctica para negocios colombianos"
+metaTitle: "Google Search Console: guía para negocios"
+description: "Guía de Google Search Console para dueños de negocios en Colombia: cómo configurarlo, qué reportes mirar y cómo saber si Google ya indexó tus páginas."
+date: "2026-09-24"
+category: "SEO"
+readTime: "10 min"
+slug: "google-search-console-guia-negocios-colombia"
+---
+
+Casi todos los dueños de negocio con los que hablo tienen Google Analytics instalado. Muy pocos tienen Google Search Console, y entre los que lo tienen, casi nadie lo abre. Es una lástima, porque Analytics te dice qué hace la gente *después* de llegar a tu sitio, pero Search Console es la única herramienta que te dice qué pasa *antes*: por qué búsquedas apareces en Google, en qué posición, cuántas veces te vieron y cuántas veces te dieron clic.
+
+Es gratis, es de Google, y la información que tiene no la puedes conseguir en ningún otro lado. Esta guía está escrita para el dueño del negocio, no para el desarrollador: qué configurar, qué cinco reportes mirar, y cómo usarlo 15 minutos al mes para tomar mejores decisiones.
+
+---
+
+## Qué es Google Search Console (y en qué se diferencia de Analytics)
+
+Search Console es el panel donde Google te muestra cómo ve tu sitio. No mide visitas: mide tu presencia en los resultados de búsqueda.
+
+| | Google Search Console | Google Analytics |
+|---|---|---|
+| Qué mide | Lo que pasa en Google antes del clic | Lo que pasa en tu sitio después del clic |
+| Preguntas que responde | ¿Por qué búsquedas aparezco? ¿En qué posición? ¿Google indexó mi página? | ¿Cuánta gente entró? ¿Qué páginas vio? ¿Compró o llenó el formulario? |
+| Alertas | Sí: errores de indexación, problemas de seguridad, penalizaciones | No sobre Google |
+
+Los dos se complementan. Pero si tu pregunta es "¿por qué no aparezco en Google?", la respuesta está en Search Console, no en Analytics.
+
+## Cómo configurarlo en 10 minutos
+
+1. Entra a Google Search Console con la cuenta de Google del negocio (no con tu correo personal, para que el acceso no se vaya contigo si cambias de proveedor).
+2. Elige el tipo de propiedad. **"Dominio"** cubre todo tu sitio (con y sin www, http y https) y se verifica con un registro DNS en tu proveedor de dominio. **"Prefijo de URL"** cubre solo una versión exacta y se verifica más fácil, por ejemplo con tu cuenta de Google Analytics. Si puedes, usa "Dominio".
+3. Una vez verificado, ve a **Sitemaps** y envía la dirección de tu sitemap (normalmente `tusitio.com/sitemap.xml`). Así Google tiene la lista de todas tus páginas.
+4. En **Configuración → Usuarios y permisos**, agrega a quien te ayude con el sitio con permiso de lectura o completo, en vez de compartirle tu contraseña.
+
+## Los 5 reportes que sí vale la pena mirar
+
+### 1. Rendimiento: tus búsquedas reales
+
+Es el reporte más valioso. Te muestra cuatro números para cualquier período:
+
+- **Clics:** cuántas veces alguien hizo clic en tu sitio desde Google.
+- **Impresiones:** cuántas veces apareciste en resultados, aunque nadie hiciera clic.
+- **CTR:** el porcentaje de impresiones que se convirtieron en clic.
+- **Posición media:** en qué lugar sales, en promedio.
+
+Debajo de la gráfica, en la pestaña **Consultas**, está la lista de búsquedas exactas por las que Google te mostró. Esa lista es oro: son las palabras reales que usan tus clientes, no las que tú crees que usan. En la pestaña **Páginas** ves cuáles de tus páginas reciben esas impresiones.
+
+### 2. Indexación de páginas: si Google ya te tiene en cuenta
+
+Una página que Google no ha indexado no puede aparecer en ninguna búsqueda, por buena que sea. Este reporte te dice cuántas páginas están indexadas y, sobre todo, cuáles no y por qué. Los motivos más comunes:
+
+- **"Descubierta: actualmente sin indexar":** Google sabe que la página existe, pero todavía no la ha visitado. Pasa mucho con sitios nuevos o con poca autoridad.
+- **"Rastreada: actualmente sin indexar":** Google la visitó y decidió no incluirla. Suele ser señal de contenido muy corto o muy parecido a otras páginas.
+- **"Página alternativa con etiqueta canónica adecuada"** o **"Excluida por la etiqueta noindex":** normalmente es intencional, pero vale la pena revisar que no esté pasando con una página importante.
+
+### 3. Inspección de URL: el diagnóstico de una página
+
+Pegas la dirección de una página en la barra de arriba y Google te dice si está indexada, cuándo la rastreó por última vez y si ve algún problema. Si acabas de publicar o corregir algo, desde aquí puedes pedir que la vuelva a rastrear con **"Solicitar indexación"**.
+
+Un ejemplo real, de mi propio sitio: publiqué las páginas de SEO y diseño web en Medellín, las incluí en el sitemap y esperé. Casi dos meses después, la inspección de URL decía "Google no reconoce esta URL": nunca la había rastreado. Las demás ciudades sí estaban indexadas. El problema no era el contenido, sino que casi ninguna página importante del sitio las enlazaba, así que Google les daba la mínima prioridad. Sin Search Console no me habría enterado; habría seguido esperando.
+
+### 4. Sitemaps: la lista que le das a Google
+
+Aquí confirmas que Google leyó tu sitemap sin errores y cuántas páginas descubrió en él. Si el número de páginas "descubiertas" es muy distinto al número real de páginas de tu sitio, algo está mal en el sitemap.
+
+### 5. Experiencia: velocidad y móvil
+
+El informe de **Métricas web principales** (Core Web Vitals) agrupa tus páginas en "buenas", "necesitan mejorar" y "deficientes" según la experiencia real de tus visitantes, sobre todo en celular. Si ves muchas URLs en rojo, la velocidad le está quitando posiciones a tu sitio. Aquí te explico [qué es el SEO técnico](/blog/que-es-el-seo-tecnico/) y cuáles son los problemas que más pesan.
+
+## Cómo leer los números sin engañarte
+
+Tres lecturas que hago siempre y que casi nadie hace:
+
+**Posición 20 y cero clics no es "casi en primera página".** La posición 20 está en la segunda página de resultados, donde casi nadie llega. Si una página tiene cientos de impresiones pero posición entre 15 y 30, Google ya la considera relevante: le falta autoridad o un mejor contenido para subir. Esa es la oportunidad más barata que tienes.
+
+**Impresiones altas con CTR muy bajo en posiciones altas es otra cosa.** Si estás en posición 3 a 6 y casi nadie hace clic, el problema suele ser el título y la descripción que ve la gente en Google: no convencen. Se corrige reescribiendo esos textos, sin tocar el resto de la página.
+
+**Cuidado con las búsquedas raras.** A veces aparecen consultas entre comillas, o frases copiadas de tu propio texto, con muchas impresiones y posición "buena". Suelen ser herramientas automáticas, no clientes. No tomes decisiones con base en ellas.
+
+## Una rutina de 15 minutos al mes
+
+1. **Rendimiento, últimos 28 días comparados con los 28 anteriores:** ¿subieron o bajaron clics e impresiones?
+2. **Consultas con más impresiones:** ¿hay búsquedas nuevas que no esperabas? ¿Tienes una página que las responda?
+3. **Páginas en posición 8 a 20:** son las candidatas a mejorar primero.
+4. **Indexación de páginas:** ¿alguna página importante apareció como no indexada?
+5. **Mensajes o alertas de Google:** el ícono de campana arriba a la derecha. Si hay una alerta de seguridad o de acciones manuales, es prioridad.
+
+Con eso sabes, cada mes, si tu sitio va hacia arriba o hacia abajo y dónde está la próxima oportunidad, sin depender de lo que te diga tu proveedor.
+
+---
+
+## Preguntas frecuentes
+
+<details>
+<summary><strong>¿Google Search Console cuesta algo?</strong></summary>
+
+No. Es una herramienta gratuita de Google, sin planes pagos. Lo único que necesitas es una cuenta de Google y poder demostrar que el sitio es tuyo, ya sea con un registro DNS en tu dominio o con una etiqueta en el sitio.
+</details>
+
+<details>
+<summary><strong>¿Cada cuánto se actualizan los datos?</strong></summary>
+
+Los datos de rendimiento llegan con uno o dos días de retraso, y Search Console guarda hasta 16 meses de historial. Por eso conviene comparar períodos de 28 días en vez de mirar día por día: los números diarios suben y bajan sin que signifique nada.
+</details>
+
+<details>
+<summary><strong>Si pido "Solicitar indexación", ¿Google indexa la página de inmediato?</strong></summary>
+
+No necesariamente. La solicitud pone la página en la cola de rastreo, pero la decisión de indexarla sigue siendo de Google. Si una página lleva semanas sin indexarse pese a pedirlo, revisa que otras páginas importantes de tu sitio la enlacen y que su contenido sea útil y distinto al del resto del sitio.
+</details>
+
+<details>
+<summary><strong>¿Search Console me dice cuánto vendí por SEO?</strong></summary>
+
+No. Search Console llega hasta el clic. Para saber qué hicieron esas visitas dentro del sitio (llenar un formulario, escribir por WhatsApp, comprar) necesitas Google Analytics con las conversiones bien configuradas. Lo ideal es tener los dos conectados.
+</details>
+
+<details>
+<summary><strong>¿Tengo que revisar Search Console aunque tenga a alguien encargado del SEO?</strong></summary>
+
+Sí, al menos una vez al mes. Es la forma más directa de comprobar que el trabajo que pagas se está reflejando en Google. Un buen proveedor de SEO no tiene problema en que lo mires; al contrario, te va a explicar los números.
+</details>
+
+---
+
+Search Console no reemplaza una estrategia, pero te quita la venda: sabes exactamente dónde estás en Google y qué está frenando tu sitio. Si lo abres y no sabes por dónde empezar, o encuentras páginas sin indexar que no sabes cómo destrabar, [una auditoría SEO](/servicios/seo/auditoria/) te da el diagnóstico completo y el orden de prioridades. También puedes [contarme tu caso directamente](/contacto/).
