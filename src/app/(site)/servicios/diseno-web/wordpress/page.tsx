@@ -195,6 +195,11 @@ export default function DisenoWordPressSeoPage() {
             description: "Optimización técnica y de contenido para sitios WordPress existentes que no están posicionando.",
           },
           {
+            label: "Diseño web en Medellín",
+            href: "/diseno-web/medellin/",
+            description: "Sitios WordPress para negocios de Medellín y el Valle de Aburrá, desde Sabaneta.",
+          },
+          {
             label: "WordPress vs Shopify en Colombia: cuál elegir",
             href: "/blog/wordpress-vs-shopify-colombia/",
             description: "Comparativa honesta con precios reales en COP y el problema de las pasarelas de pago que nadie menciona.",

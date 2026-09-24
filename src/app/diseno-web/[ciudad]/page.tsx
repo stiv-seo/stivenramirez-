@@ -274,9 +274,9 @@ export default async function CiudadPage({ params }: Props) {
 
                 <div className="space-y-2.5 mb-5">
                   {[
-                    { kw: `"${ciudad.keyword_meta}"`, pos: "#2" },
-                    { kw: `"wordpress ${ciudad.nombre.toLowerCase()}"`, pos: "#4" },
-                    { kw: `"seo ${ciudad.nombre.toLowerCase()}"`, pos: "#1", highlight: true },
+                    { kw: `"tu servicio + ${ciudad.nombre.toLowerCase()}"`, pos: "#3" },
+                    { kw: `"tu producto + ${ciudad.nombre.toLowerCase()}"`, pos: "#5" },
+                    { kw: `"tu marca"`, pos: "#1", highlight: true },
                   ].map(({ kw, pos, highlight }) => (
                     <div key={kw} className="flex items-center justify-between gap-2">
                       <span className="font-sans text-[11px] text-slate truncate">{kw}</span>
@@ -288,8 +288,8 @@ export default async function CiudadPage({ params }: Props) {
                 </div>
 
                 <div className="pt-4 border-t border-white/[0.06]">
-                  <p className="font-sans text-[10px] text-slate/50">
-                    Ejemplo de resultados | datos enmascarados
+                  <p className="font-sans text-[11px] text-slate">
+                    Ilustración del reporte de posiciones que recibes
                   </p>
                 </div>
               </div>
@@ -580,6 +580,24 @@ export default async function CiudadPage({ params }: Props) {
         titleLine2="con SEO que funciona."
         subtitle={`Atiendo clientes en ${ciudad.nombre} de forma 100% remota. Cotización gratis, sin compromiso. Cuéntame tu proyecto.`}
       />
+
+      {/* ── S9b Enlace cruzado diseño web ↔ SEO de la misma ciudad ─────────────── */}
+      <section className="bg-off-white" style={{ paddingTop: "48px", paddingBottom: "48px" }}>
+        <Container>
+          <div className="max-w-2xl mx-auto">
+            <Link
+              href={`/seo/${ciudad.slug}/`}
+              className="group flex flex-col gap-1.5 bg-warm-white rounded-2xl p-6 border border-[rgba(0,0,0,0.05)] hover:border-teal hover:bg-teal/5 transition-all duration-150"
+            >
+              <span className="font-sans text-[13px] text-text-mid">¿Ya tienes sitio y lo que necesitas es posicionarlo?</span>
+              <span className="font-jakarta font-bold text-text-dark text-[18px] group-hover:text-teal transition-colors duration-150">
+                {`SEO en ${ciudad.nombre}`} →
+              </span>
+              <span className="font-sans text-[14px] text-text-mid leading-[1.7]">Auditoría, contenido y SEO local para que tu negocio aparezca cuando te buscan en Google.</span>
+            </Link>
+          </div>
+        </Container>
+      </section>
 
       {/* ── S10 Navegación entre ciudades ────────────────────────────────────── */}
       <section

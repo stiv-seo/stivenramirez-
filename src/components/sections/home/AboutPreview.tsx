@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 import { Button } from "@/components/ui/Button";
@@ -48,7 +49,9 @@ export function AboutPreview() {
               Soy Stiven Ramírez.<br />Consultor SEO & Diseñador Web.
             </h2>
             <p className="font-sans text-text-mid leading-[1.75] mb-8">
-              Con base en Medellín, Colombia. Más de 9 años construyendo presencias digitales que posicionan en Google y generan ventas reales. Me especializo en WordPress y Shopify con un enfoque que integra diseño, posicionamiento y estrategia en cada proyecto.
+              Con base en Medellín, Colombia, donde atiendo{" "}
+              <Link href="/seo/medellin/" className="text-teal underline underline-offset-2">SEO en Medellín</Link> y{" "}
+              <Link href="/diseno-web/medellin/" className="text-teal underline underline-offset-2">diseño web en Medellín</Link>. Más de 9 años construyendo presencias digitales que posicionan en Google y generan ventas reales. Me especializo en WordPress y Shopify con un enfoque que integra diseño, posicionamiento y estrategia en cada proyecto.
             </p>
 
             {/* Credentials — chips, not a checklist */}

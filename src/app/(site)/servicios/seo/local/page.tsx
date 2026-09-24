@@ -6,6 +6,7 @@ import { SubpageProcess } from "@/components/sections/subpage/SubpageProcess";
 import { SubpageCTA } from "@/components/sections/subpage/SubpageCTA";
 import { SubpageFAQ } from "@/components/sections/subpage/SubpageFAQ";
 import { SubpageMidCTA } from "@/components/sections/subpage/SubpageMidCTA";
+import { SubpageRelated } from "@/components/sections/subpage/SubpageRelated";
 
 export const metadata: Metadata = {
   title: "SEO Local Medellín | Google Maps",
@@ -86,6 +87,21 @@ export default function SeoLocalPage() {
           {
             q: "¿Funciona el SEO local en toda Colombia o solo en ciudades grandes?",
             a: "Funciona en cualquier ciudad. De hecho, en ciudades intermedias y municipios la competencia es menor y los resultados llegan más rápido. El SEO local es especialmente poderoso en mercados donde los competidores no han optimizado su presencia digital.",
+          },
+        ]}
+      />
+      <SubpageRelated
+        title="SEO local en Medellín"
+        links={[
+          {
+            label: "SEO en Medellín",
+            href: "/seo/medellin/",
+            description: "Posicionamiento para negocios de Medellín, Sabaneta, Envigado e Itagüí, desde el Valle de Aburrá.",
+          },
+          {
+            label: "SEO local para restaurantes en Medellín",
+            href: "/blog/seo-local-restaurantes-medellin/",
+            description: "Cómo aparecer en Google Maps cuando alguien busca dónde comer en El Poblado, Laureles o Envigado.",
           },
         ]}
       />

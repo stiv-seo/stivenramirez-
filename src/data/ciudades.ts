@@ -230,16 +230,16 @@ export const CIUDADES: Ciudad[] = [
     keyword_h1: "Diseño Web en Barranquilla",
     keyword_meta: "diseño web Barranquilla",
     meta_description:
-      "Diseño web en Barranquilla con SEO para empresas de comercio e importación. WordPress y Shopify que posicionan en Google. Trabajo 100% remoto.",
-    keywords: ["diseño web barranquilla", "consultor seo barranquilla", "wordpress barranquilla", "shopify barranquilla", "seo barranquilla"],
+      "Diseño de páginas web en Barranquilla con SEO: sitios y tiendas online para comercio e importación, en WordPress y Shopify. Trabajo 100% remoto.",
+    keywords: ["diseño de páginas web barranquilla", "diseño web barranquilla", "diseño de ecommerce barranquilla", "wordpress barranquilla", "shopify barranquilla"],
     sectorEconomicoPrincipal: "Comercio exterior y logística portuaria",
     poblacionAprox: "1.2 millones de habitantes",
     oportunidadLocal: "Mercado digital menos saturado que Bogotá y Medellín",
     ejemplosSectores: ["Comercio exterior", "Logística y puertos", "Agroindustria", "Servicios portuarios"],
     marketSection: {
-      h2: "Diseño web en Barranquilla: la puerta digital del Caribe colombiano",
+      h2: "Diseño de páginas web en Barranquilla: la puerta digital del Caribe",
       paragraph:
-        "Barranquilla es el principal hub comercial de la Costa Atlántica. Importación, logística, comercio, agroindustria — sectores con alta competencia offline pero poca presencia digital bien construida. La oportunidad: pocas empresas en Barranquilla tienen un sitio web técnicamente correcto. Quien entre primero con SEO real gana posiciones por años.",
+        "Barranquilla es el principal hub comercial de la Costa Atlántica. Importación, logística, comercio, agroindustria — sectores con alta competencia offline pero poca presencia digital bien construida. La oportunidad: pocas empresas en Barranquilla tienen un sitio web técnicamente correcto. Y para quien vende en línea, una tienda en Shopify o WooCommerce bien hecha llega a clientes de toda la costa, no solo del barrio. Quien entre primero con SEO real gana posiciones por años.",
       cards: [
         {
           icon: "📦",
