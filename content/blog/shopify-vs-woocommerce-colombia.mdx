@@ -4,7 +4,7 @@ metaTitle: "Shopify vs WooCommerce Colombia 2026"
 description: "Comparativa honesta entre Shopify y WooCommerce para tiendas online en Colombia: costos en COP, pasarelas de pago y cuándo elegir cada uno."
 date: "2026-07-29"
 category: "E-commerce"
-readTime: "12 min"
+readTime: "15 min"
 slug: "shopify-vs-woocommerce-colombia"
 ---
 
@@ -89,6 +89,31 @@ Esto no significa que WooCommerce sea inseguro por diseño — significa que la 
 - Necesitas personalización muy específica que Shopify no permite fácilmente.
 - Tienes o vas a contratar soporte técnico de WordPress de todas formas.
 
+## Mantenimiento mensual: lo que cuesta sostener cada tienda
+
+La pregunta de "cuánto cuesta" casi siempre se queda en el lanzamiento, pero lo que define si la tienda es sostenible es lo que pagas cada mes después. Con las cifras de la tabla de arriba:
+
+- **Shopify:** el plan (~COP 160.000) más las apps que uses (US$10-50 al mes acumulado) te deja en un rango aproximado de **COP 200.000 a 360.000 mensuales**, sin tener que pensar en servidores ni actualizaciones.
+- **WooCommerce:** el hosting (COP 30.000 a 150.000) es el único pago fijo obligatorio. Lo que no aparece en esa cifra es el tiempo de mantenimiento: actualizaciones, respaldos y revisión de seguridad. Si lo haces tú, cuesta horas; si lo delegas, es un costo mensual adicional que conviene presupuestar desde el principio.
+
+En otras palabras: Shopify cobra el mantenimiento dentro de la mensualidad; WooCommerce te lo deja a ti. Ninguna de las dos es "gratis" a largo plazo.
+
+## Migrar de WooCommerce a Shopify en Colombia: qué se mueve y qué se puede perder
+
+Muchas tiendas colombianas empiezan en WooCommerce porque ya tenían WordPress y, cuando el mantenimiento se vuelve una carga, piensan en pasarse a Shopify. Es una migración muy común y perfectamente viable, pero tiene tres puntos donde se pierde dinero si se hace a la carrera.
+
+**Lo que sí se migra:** productos con sus variantes e imágenes, colecciones, clientes e historial de pedidos. Para catálogos grandes se usan herramientas de importación (por ejemplo, apps de migración de la tienda de Shopify o importación por CSV); para catálogos pequeños, a veces es más limpio cargarlos de nuevo.
+
+**Lo que no se migra igual:**
+
+- **Contraseñas de clientes.** Por seguridad, ninguna plataforma las exporta. Tus clientes registrados tendrán que crear una contraseña nueva; conviene avisarles con un correo antes del cambio.
+- **Las URLs.** Shopify usa una estructura fija (`/products/`, `/collections/`, `/pages/`) que casi nunca coincide con la de WooCommerce. Si no rediriges cada URL vieja a su equivalente nueva con una redirección 301, pierdes las posiciones que ya tenías en Google. Este es el error más caro de toda la migración.
+- **La pasarela de pago.** Hay que volver a configurar Wompi, ePayco o PayU en Shopify con su app, y probar una compra real de punta a punta antes de anunciar el cambio.
+
+**El orden que funciona:** inventario de todas las URLs actuales → mapa de redirecciones → montar la tienda nueva sin publicarla → prueba de compra real → cambio de dominio → revisar en Google Search Console durante las semanas siguientes que no aparezcan errores 404.
+
+La migración contraria, de Shopify a WooCommerce, sigue la misma lógica (y el mismo riesgo con las URLs), con un punto adicional: a partir de ese día, el mantenimiento técnico pasa a ser tuyo.
+
 ---
 
 ## Preguntas frecuentes
@@ -102,7 +127,7 @@ WooCommerce suele ser más barato mes a mes si ya tienes o consigues hosting eco
 <details>
 <summary><strong>¿Puedo migrar de WooCommerce a Shopify (o viceversa) más adelante?</strong></summary>
 
-Sí, es posible migrar en ambas direcciones, aunque requiere planeación — hay que exportar catálogo, clientes e historial de pedidos, y hay herramientas y agencias especializadas en esta migración. No es una decisión permanente, pero tampoco es trivial, así que vale la pena elegir bien desde el inicio si es posible.
+Sí, es posible migrar en ambas direcciones, aunque requiere planeación: hay que exportar catálogo, clientes e historial de pedidos, y sobre todo redirigir las URLs viejas para no perder posiciones en Google. En la sección sobre migración, más arriba, explico qué se mueve y qué se puede perder. No es una decisión permanente, pero tampoco es trivial, así que vale la pena elegir bien desde el inicio si es posible.
 </details>
 
 <details>
