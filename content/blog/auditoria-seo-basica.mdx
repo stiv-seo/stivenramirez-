@@ -1,0 +1,226 @@
+---
+title: "Cómo hacer una auditoría SEO básica a tu sitio web (guía paso a paso 2026)"
+metaTitle: "Auditoría SEO básica: guía paso a paso gratis"
+description: "Auditoría SEO básica en 5 pasos con herramientas gratuitas, para dueños de negocios en Colombia que quieren saber por qué su sitio no aparece en Google."
+date: "2026-10-09"
+category: "SEO"
+readTime: "9 min"
+slug: "auditoria-seo-basica"
+---
+
+Tienes un sitio web, lleva meses publicado y casi nadie llega desde Google. Antes de pagar por más contenido, por pauta o por un rediseño, vale la pena responder una pregunta más simple: ¿qué le está pasando hoy al sitio?
+
+Eso es una auditoría SEO. Y la versión básica la puedes hacer tú, en una tarde, sin pagar ninguna herramienta.
+
+Esta guía usa solo herramientas gratuitas y está pensada para el dueño del negocio, no para un programador. Si quieres entender primero los conceptos, empieza por [qué es el SEO](/blog/que-es-el-seo-colombia/) y vuelve aquí.
+
+---
+
+## ¿Qué es una auditoría SEO y para qué sirve?
+
+Una auditoría SEO es una revisión ordenada del sitio para encontrar lo que le impide aparecer en Google. No es escribir contenido ni conseguir enlaces: es el diagnóstico que va antes.
+
+Sirve para tres cosas:
+
+- **Saber si Google puede ver tu sitio.** Parece obvio, pero es el problema más común y el más caro.
+- **Ordenar el trabajo por impacto.** Sin diagnóstico, se termina arreglando lo fácil en vez de lo importante.
+- **Tener con qué exigir.** Si contratas a alguien, llegas con una lista concreta en lugar de un "quiero salir en Google".
+
+Una auditoría básica no reemplaza una profesional. Te dice dónde duele; no siempre te dice por qué. Pero resuelve la mayoría de los casos de sitios pequeños.
+
+---
+
+## Herramientas gratuitas que vas a necesitar
+
+Las cinco son gratis. Las dos primeras son de Google.
+
+1. **Google Search Console.** Muestra cómo ve Google tu sitio: qué páginas tiene indexadas, por cuáles búsquedas apareces y qué errores encuentra. Si aún no la tienes configurada, sigue la [guía de Search Console para negocios](/blog/google-search-console-guia-negocios-colombia/).
+2. **PageSpeed Insights.** Mide la velocidad de una página y las métricas de experiencia que Google usa (Core Web Vitals).
+3. **Screaming Frog SEO Spider, versión gratuita.** Un programa que recorre tu sitio como lo haría Google. La versión gratis analiza hasta 500 direcciones, suficiente para la mayoría de sitios de pymes.
+4. **Lighthouse.** Viene dentro del navegador Chrome (clic derecho → Inspeccionar → pestaña Lighthouse). Simula un celular y revisa rendimiento, accesibilidad y buenas prácticas.
+5. **Una hoja de cálculo.** Para anotar lo que encuentres. Sin esto, la auditoría se queda en la cabeza y no se convierte en tareas.
+
+Una aclaración: muchas guías todavía recomiendan la "Prueba de optimización para móviles" de Google. Google retiró esa herramienta; hoy la revisión en móvil se hace con Lighthouse y PageSpeed Insights.
+
+---
+
+## Paso 1 — Verificar que Google puede indexar tu sitio
+
+Si Google no tiene tus páginas en su índice, nada de lo demás importa. Por eso este paso va primero.
+
+### Google Search Console: qué buscar
+
+Entra a **Indexación → Páginas**. Vas a ver dos números: páginas indexadas y páginas sin indexar, con el motivo de cada grupo. Estos son los motivos que más aparecen:
+
+- **"Descubierta: actualmente sin indexar".** Google sabe que la página existe, pero todavía no la ha visitado. Es frecuente en sitios nuevos o con poca autoridad.
+- **"Rastreada: actualmente sin indexar".** Google la visitó y decidió no incluirla. Suele indicar contenido muy parecido a otro o de poco valor.
+- **"Excluida por una etiqueta noindex".** Alguien le dijo a Google que no la indexara. A veces es intencional; muchas veces es un descuido que quedó desde el desarrollo.
+- **"Página con redirección" o "No se ha encontrado (404)".** Direcciones viejas que ya no existen o que apuntan a otro lado.
+
+Para revisar una página puntual, pega su dirección en la barra superior de Search Console. Te dice si está en Google y cuándo fue la última visita.
+
+Un ejemplo real: en mi propio sitio tengo páginas que llevan semanas en "Descubierta: actualmente sin indexar", aunque están en el sitemap y enlazadas desde el menú. El sitio no tiene nada roto; lo que le falta es autoridad. Saberlo cambia la prioridad: ahí el trabajo no es técnico, es conseguir que otros sitios enlacen al mío.
+
+### robots.txt: la trampa que nadie revisa
+
+El archivo `robots.txt` le indica a Google qué partes del sitio puede visitar. Lo ves escribiendo `tusitio.com/robots.txt` en el navegador.
+
+Busca esta línea:
+
+```
+Disallow: /
+```
+
+Si aparece sola, debajo de `User-agent: *`, le estás prohibiendo a Google entrar a todo el sitio. Pasa más de lo que se cree: se deja así mientras el sitio está en construcción y nadie lo quita al publicar.
+
+De paso, confirma que el archivo mencione tu sitemap (una línea que empieza por `Sitemap:`) y que esa dirección abra.
+
+---
+
+## Paso 2 — Revisar la velocidad del sitio
+
+Un sitio lento pierde visitas antes de que la página termine de cargar, y Google lo tiene en cuenta al ordenar los resultados.
+
+### PageSpeed Insights: qué significa cada número
+
+Pega la dirección de tu página de inicio y espera el análisis. Fíjate primero en la parte de arriba, **"Descubre lo que experimentan tus usuarios reales"**. Son datos de visitantes de verdad, no una simulación. Si tu sitio tiene poco tráfico, esa sección sale vacía y solo vas a ver la simulación de abajo.
+
+Las tres métricas que importan:
+
+| Métrica | Qué mide | Valor bueno |
+|---|---|---|
+| LCP | Cuánto tarda en aparecer el contenido principal | 2,5 segundos o menos |
+| INP | Cuánto tarda la página en responder cuando tocas algo | 200 milisegundos o menos |
+| CLS | Cuánto se mueve el contenido mientras carga | 0,1 o menos |
+
+El puntaje de 0 a 100 es un resumen útil, pero no es lo que Google usa para posicionar. Usa las tres métricas de la tabla.
+
+### El umbral crítico en móvil
+
+PageSpeed muestra dos pestañas: móvil y ordenador. Mira siempre la de móvil. Google evalúa tu sitio con la versión de celular, y es normal que un sitio saque 90 en ordenador y 40 en móvil.
+
+Repite la prueba con dos o tres páginas distintas: el inicio, una página de servicio y un artículo. Suelen tener problemas diferentes.
+
+Las causas más comunes de un mal resultado son imágenes muy pesadas, demasiados complementos instalados y un hosting lento. Las dos primeras tienen arreglo sin cambiar de proveedor.
+
+---
+
+## Paso 3 — Auditar los títulos y descripciones
+
+El título y la descripción son lo que la gente lee en Google antes de decidir si entra. Un sitio puede estar bien posicionado y aun así no recibir clics porque su resultado no dice nada.
+
+Abre Screaming Frog, escribe la dirección de tu sitio y pulsa "Start". Cuando termine, usa las pestañas **Page Titles** y **Meta Description**.
+
+### Cómo detectar títulos duplicados
+
+En la pestaña de títulos, filtra por **Duplicate**. Cada página debería tener un título distinto que diga de qué trata.
+
+Revisa también:
+
+- **Títulos muy largos.** Por encima de unos 60 caracteres, Google los corta.
+- **Títulos muy cortos o genéricos.** "Inicio", "Servicios" o "Contacto" no le dicen nada a quien busca.
+- **Páginas sin título.** Filtro **Missing**.
+
+Cuando hice esta revisión en mi sitio, 33 de 54 páginas estaban fuera del rango recomendado: algunas con títulos de casi 100 caracteres y otras con solo "Contacto". Ninguna estaba "rota", pero todas se veían peor de lo necesario en los resultados.
+
+### Meta descriptions vacías o repetidas
+
+En la pestaña de descripciones, usa los mismos filtros: **Missing** y **Duplicate**. Cuando una página no tiene descripción, Google toma un fragmento cualquiera del texto.
+
+Una buena descripción tiene entre 135 y 155 caracteres, dice qué va a encontrar la persona y por qué le conviene entrar. No hace falta repetir la palabra clave tres veces.
+
+---
+
+## Paso 4 — Revisar los links internos y rotos
+
+Los enlaces internos son los caminos por los que Google y tus visitantes recorren el sitio. Cuando se rompen, las dos cosas se frenan.
+
+En Screaming Frog, ve a la pestaña **Response Codes** y revisa estos filtros:
+
+- **Client Error (4xx).** Enlaces que llevan a páginas que no existen. Selecciona cada uno y abre la pestaña inferior **Inlinks** para ver desde qué página sale el enlace roto.
+- **Redirection (3xx).** Enlaces que pasan por una redirección antes de llegar. No están rotos, pero conviene que apunten directo a la dirección final.
+
+Después revisa lo contrario: las páginas importantes a las que casi nadie enlaza. En la columna **Inlinks** de la pestaña **Internal**, ordena de menor a mayor. Si tu página de servicio principal recibe un solo enlace interno, para Google no es tan importante como tú crees.
+
+Search Console complementa esto en **Enlaces → Páginas más enlazadas internamente**.
+
+---
+
+## Paso 5 — Revisar las imágenes (alt text y peso)
+
+Las imágenes son la causa más frecuente de un sitio lento y la más fácil de arreglar.
+
+En Screaming Frog, pestaña **Images**:
+
+- **Over 100 KB.** Lista las imágenes pesadas. Una foto de portada puede pesar más, pero una imagen de 2 MB dentro de un artículo no tiene justificación.
+- **Missing Alt Text.** El texto alternativo describe la imagen para quien no puede verla y para Google. Debe decir lo que muestra la foto, sin llenarlo de palabras clave.
+
+Dos cambios resuelven casi todo: guardar las imágenes en formato WebP y subirlas al tamaño en que se van a mostrar, no al tamaño con que salieron de la cámara.
+
+---
+
+## Qué hacer con los resultados de la auditoría
+
+Al terminar vas a tener una lista larga. No intentes arreglar todo a la vez. Ordénala así:
+
+1. **Lo que impide que Google vea el sitio.** Un `robots.txt` que bloquea, etiquetas noindex equivocadas, páginas clave sin indexar. Esto va primero siempre.
+2. **Lo que rompe la experiencia.** Enlaces rotos y páginas muy lentas en móvil.
+3. **Lo que mejora los clics.** Títulos y descripciones duplicados, largos o vacíos.
+4. **Lo que suma poco a poco.** Texto alternativo, enlaces internos hacia las páginas importantes.
+
+Anota cada hallazgo con tres datos: qué página, qué problema y quién lo va a arreglar. Si no tiene responsable, no se arregla.
+
+Repite la auditoría cada tres o cuatro meses, y siempre después de un rediseño o de cambiar de plataforma. Para entender mejor los problemas del primer grupo, lee [qué es el SEO técnico](/blog/que-es-el-seo-tecnico/).
+
+---
+
+## ¿Cuándo vale la pena contratar una auditoría profesional?
+
+La auditoría básica alcanza cuando el sitio es pequeño y los problemas son los de esta guía. Conviene pasar a una profesional en estos casos:
+
+- **Hiciste los cinco pasos, corregiste lo encontrado y sigues sin aparecer.** El problema ya no es básico: puede ser de contenido, de competencia o de autoridad.
+- **El sitio tiene más de 500 páginas** o es una tienda en línea con filtros y variantes. Ahí aparecen problemas de duplicados que la versión gratuita no alcanza a mostrar.
+- **Vas a migrar o rediseñar.** Una auditoría antes del cambio evita perder el posicionamiento que ya tienes.
+- **Tuviste una caída fuerte de tráfico** y no sabes qué la causó.
+
+Una auditoría profesional agrega lo que esta guía no cubre: análisis de la competencia, de los enlaces externos, de la estructura del contenido y un plan de trabajo con prioridades. Si quieres saber cuánto cuesta ese tipo de trabajo, lo explico en [cuánto cuesta el SEO en Colombia](/blog/cuanto-cuesta-el-seo-colombia/).
+
+---
+
+## Preguntas frecuentes
+
+<details>
+<summary><strong>¿Cuánto tiempo toma hacer una auditoría SEO básica?</strong></summary>
+
+Entre dos y cuatro horas para un sitio de menos de 50 páginas, si ya tienes Search Console configurada. La primera vez toma más porque estás aprendiendo las herramientas; las siguientes son mucho más rápidas.
+</details>
+
+<details>
+<summary><strong>¿Necesito saber programar para hacerla?</strong></summary>
+
+No. Los cinco pasos consisten en leer informes y anotar lo que encuentres. Para corregir algunos problemas sí puedes necesitar ayuda, por ejemplo para cambiar el archivo robots.txt o comprimir imágenes en lote, pero el diagnóstico lo puedes hacer tú.
+</details>
+
+<details>
+<summary><strong>¿Sirve si mi sitio está en Shopify, Wix o WordPress?</strong></summary>
+
+Sí. Las herramientas analizan el sitio desde afuera, igual que Google, así que no importa en qué plataforma esté. Lo que cambia es dónde se corrige cada cosa.
+</details>
+
+<details>
+<summary><strong>Mi sitio tiene muy poco tráfico y Search Console casi no muestra datos. ¿Igual puedo auditarlo?</strong></summary>
+
+Sí. El informe de indexación, PageSpeed, Lighthouse y Screaming Frog funcionan aunque no tengas visitas. Lo único que no vas a ver son los datos de usuarios reales en PageSpeed y las búsquedas por las que apareces.
+</details>
+
+<details>
+<summary><strong>¿Una auditoría sin errores significa que voy a posicionar?</strong></summary>
+
+No. Un sitio sin errores técnicos puede seguir sin aparecer si no tiene contenido útil para lo que la gente busca o si compite con sitios con mucha más autoridad. La auditoría quita los frenos; no reemplaza el contenido ni los enlaces.
+</details>
+
+---
+
+Una auditoría básica no necesita herramientas de pago ni conocimientos técnicos: necesita orden. Cinco pasos, una hoja de cálculo y una tarde te dicen si el problema de tu sitio es que Google no lo ve, que carga lento, que sus resultados no invitan al clic o que tiene caminos rotos por dentro.
+
+¿Quieres que la haga yo? [Auditoría SEO completa con informe y plan de acción](/servicios/seo/auditoria/), o [cuéntame tu caso directamente](/contacto/).

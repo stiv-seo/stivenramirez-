@@ -59,6 +59,7 @@ URL: https://stivenramirez.com/blog/
 - Google Search Console: guía práctica para negocios colombianos: https://stivenramirez.com/blog/google-search-console-guia-negocios-colombia/
 - ¿Vale la pena el SEO para una pyme colombiana? Análisis honesto: https://stivenramirez.com/blog/vale-la-pena-seo-pyme-colombia/
 - SEO para abogados en Colombia: cómo aparecer cuando te buscan: https://stivenramirez.com/blog/seo-para-abogados-colombia/
+- Cómo hacer una auditoría SEO básica a tu sitio web (guía paso a paso 2026): https://stivenramirez.com/blog/auditoria-seo-basica/
 
 ## Sobre Stiven Ramírez
 Consultor SEO y diseñador web freelance con experiencia en Next.js, WordPress y Shopify. Trabaja directamente con el cliente — sin ejecutivos de cuentas ni tercerización. Medellín, Colombia (opera en todo el país y LATAM).
