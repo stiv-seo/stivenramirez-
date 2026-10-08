@@ -1,4 +1,4 @@
-import type { PortfolioCase } from "@/types";
+import type { PortfolioCase, RedesignCase } from "@/types";
 
 // Sección en construcción — se agregan casos reales a medida que se documentan
 // con métricas verificables (GSC, GA4) y permiso del cliente para publicarlas.
@@ -36,8 +36,50 @@ export const portfolioCases: PortfolioCase[] = [
     services: "WordPress a medida · Reposicionamiento · Reservas online",
     metrics: [],
     scopeNote:
-      "Reconstrucción completa de una clínica de fisioterapia en Brisbane (Australia) que se comunicaba como estudio de Pilates: 11 páginas, contenido real por servicio y reservas online conectadas al sistema real de la clínica. Sitio terminado, en espera del corte de dominio del cliente para salir a producción.",
+      "Reconstrucción completa de una clínica de fisioterapia en Brisbane (Australia) que se comunicaba como estudio de Pilates: 11 páginas, contenido real por servicio y reservas online conectadas al sistema real de la clínica. En producción desde octubre de 2026; las cifras de tráfico y reservas se suman en los próximos meses.",
+    href: "https://axis33physio.com",
     bgColor: "#022A52",
     image: "/images/portafolio/axis33-hero.webp",
+  },
+];
+
+// Rediseños con captura real del sitio anterior (tomada antes de empezar el
+// proyecto) y del sitio en producción. Solo entran casos con un "antes" real.
+export const redesignCases: RedesignCase[] = [
+  {
+    id: "the-loan-ranger",
+    client: "The Loan Ranger",
+    sector: "Créditos hipotecarios · Colorado, EE. UU.",
+    services: "Next.js · Arquitectura SEO · Contenido",
+    summary:
+      "El sitio anterior, hecho en Wix, era una portada con un botón de «Apply» y casi nada de texto. El nuevo explica qué hace Max, para quién y en qué zonas, y pone la llamada a un clic.",
+    changes: [
+      "De Wix a un sitio propio en Next.js",
+      "Páginas por tipo de crédito, por zona y guías para compradores",
+      "La ilustración original de la marca se conservó como identidad",
+    ],
+    href: "https://theloanrangercolorado.com",
+    before: "/images/portafolio/loan-ranger-antes.webp",
+    after: "/images/portafolio/loan-ranger-despues.webp",
+    width: 1400,
+    height: 710,
+  },
+  {
+    id: "oralmaax",
+    client: "Oralmaax",
+    sector: "Odontología y cirugía maxilofacial · Medellín",
+    services: "WordPress a medida · Rediseño · Versión en inglés",
+    summary:
+      "La clínica tenía un sitio de plantilla con un carrusel y un mensaje genérico. El rediseño parte de lo que la diferencia: 30 años en Medellín y un equipo fijo de especialistas.",
+    changes: [
+      "Tema de WordPress hecho a medida, sin constructor visual",
+      "Una página por servicio, con fotos reales del equipo y la clínica",
+      "Versión en inglés para pacientes internacionales",
+    ],
+    href: "https://oralmaax.com.co",
+    before: "/images/portafolio/oralmaax-antes.webp",
+    after: "/images/portafolio/oralmaax-despues.webp",
+    width: 1400,
+    height: 545,
   },
 ];

@@ -44,6 +44,20 @@ export interface PortfolioCase {
   scopeNote?: string;
 }
 
+export interface RedesignCase {
+  id: string;
+  client: string;
+  sector: string;
+  services: string;
+  summary: string;
+  changes: string[];
+  href: string;
+  before: string;
+  after: string;
+  width: number;
+  height: number;
+}
+
 export interface Tool {
   name: string;
   category: "seo" | "analytics" | "dev" | "design";
