@@ -196,6 +196,7 @@ export default async function BlogPostPage({
             </ol>
           </nav>
 
+          <div className={Banner ? "grid items-center gap-10 grid-cols-[minmax(0,1fr)] xl:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] xl:gap-14" : undefined}>
           <div className="max-w-[760px]">
             <div className="flex items-center gap-3 mb-5">
               <Badge variant={categoryVariant[post.category] ?? "teal"}>
@@ -221,6 +222,13 @@ export default async function BlogPostPage({
               <time dateTime={post.date}>{formatDate(post.date)}</time>
             </div>
           </div>
+          {/* Ilustración del artículo: la misma que se ve en el listado del blog */}
+          {Banner && (
+            <div className="min-w-0 max-w-[760px] rounded-2xl ring-1 ring-white/10">
+              <Banner />
+            </div>
+          )}
+          </div>
         </Container>
       </section>
 
@@ -228,12 +236,6 @@ export default async function BlogPostPage({
       <section className="bg-warm-white" style={{ paddingTop: "72px", paddingBottom: "100px" }}>
         <Container>
           <div className="max-w-[760px] mx-auto">
-            {/* Ilustración del artículo: la misma que se ve en el listado del blog */}
-            {Banner && (
-              <div className="mb-12">
-                <Banner />
-              </div>
-            )}
             <MDXRemote
               source={post.content}
               components={components}
