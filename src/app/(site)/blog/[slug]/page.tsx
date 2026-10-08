@@ -8,6 +8,7 @@ import { articleSchema, breadcrumbSchema } from "@/lib/schema";
 import { Container } from "@/components/ui/Container";
 import { Badge } from "@/components/ui/Badge";
 import { formatDate } from "@/lib/utils";
+import { bannerRegistry } from "@/components/blog/banners/registry";
 
 // ─── Static params ─────────────────────────────────────────────────────────────
 
@@ -130,6 +131,7 @@ export default async function BlogPostPage({
   const { slug } = await params;
   const post = getPostBySlug(slug);
   if (!post) notFound();
+  const Banner = bannerRegistry[slug];
 
   const schema = articleSchema({
     title: post.title,
@@ -226,6 +228,12 @@ export default async function BlogPostPage({
       <section className="bg-warm-white" style={{ paddingTop: "72px", paddingBottom: "100px" }}>
         <Container>
           <div className="max-w-[760px] mx-auto">
+            {/* Ilustración del artículo: la misma que se ve en el listado del blog */}
+            {Banner && (
+              <div className="mb-12">
+                <Banner />
+              </div>
+            )}
             <MDXRemote
               source={post.content}
               components={components}
