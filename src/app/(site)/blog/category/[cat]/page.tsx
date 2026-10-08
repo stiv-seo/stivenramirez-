@@ -12,6 +12,8 @@ import { FadeIn } from "@/components/ui/FadeIn";
 import { BlogCTA } from "@/components/sections/blog/BlogCTA";
 import { formatDate } from "@/lib/utils";
 import { collectionPageSchema } from "@/lib/schema";
+import { BannerThumbnail } from "@/components/blog/banners/BannerThumbnail";
+import { bannerRegistry } from "@/components/blog/banners/registry";
 
 export function generateStaticParams() {
   return getActiveCategorySlugs().map((cat) => ({ cat }));
@@ -157,18 +159,19 @@ export default async function CategoryPage({
                     className="group block bg-warm-white rounded-2xl overflow-hidden hover:-translate-y-1 transition-transform duration-300 h-full"
                     aria-label={`Leer: ${post.title}`}
                   >
-                    <div
-                      className="bg-navy flex items-center justify-center"
-                      style={{ height: "160px" }}
-                    >
-                      <div
-                        className="w-full h-full flex items-center justify-center opacity-30"
-                        style={{
-                          backgroundImage:
-                            "radial-gradient(circle at 50% 50%, #00C4B4 0%, transparent 70%)",
-                        }}
-                        aria-hidden="true"
-                      />
+                    <div className="relative bg-midnight" style={{ height: "160px" }}>
+                      {bannerRegistry[post.slug] ? (
+                        <BannerThumbnail slug={post.slug} />
+                      ) : (
+                        <div
+                          className="absolute inset-0 opacity-30"
+                          style={{
+                            backgroundImage:
+                              "radial-gradient(circle at 50% 50%, #00C4B4 0%, transparent 70%)",
+                          }}
+                          aria-hidden="true"
+                        />
+                      )}
                     </div>
                     <div className="p-6">
                       <div className="flex items-center gap-3 mb-3">

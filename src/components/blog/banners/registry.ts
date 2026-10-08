@@ -13,6 +13,13 @@ import { BannerSeoRestaurantesMedellin } from "./BannerSeoRestaurantesMedellin";
 import { BannerSeoClinicasColombia } from "./BannerSeoClinicasColombia";
 import { BannerVenderShopifyColombia } from "./BannerVenderShopifyColombia";
 import { BannerShopifyVsWoocommerce } from "./BannerShopifyVsWoocommerce";
+import { BannerAuditoriaSeo } from "./BannerAuditoriaSeo";
+import { BannerSeoTecnico } from "./BannerSeoTecnico";
+import { BannerSearchConsole } from "./BannerSearchConsole";
+import { BannerSeoAbogados } from "./BannerSeoAbogados";
+import { BannerSeoInmobiliarias } from "./BannerSeoInmobiliarias";
+import { BannerValeLaPenaSeo } from "./BannerValeLaPenaSeo";
+import { BannerCasoAxis33 } from "./BannerCasoAxis33";
 
 export const bannerRegistry: Record<string, ComponentType> = {
   "wordpress-vs-shopify-colombia":              BannerWordpressVsShopify,
@@ -30,4 +37,11 @@ export const bannerRegistry: Record<string, ComponentType> = {
   "seo-para-clinicas-colombia":                 BannerSeoClinicasColombia,
   "vender-mas-shopify-colombia":                BannerVenderShopifyColombia,
   "shopify-vs-woocommerce-colombia":            BannerShopifyVsWoocommerce,
+  "auditoria-seo-basica":                       BannerAuditoriaSeo,
+  "que-es-el-seo-tecnico":                      BannerSeoTecnico,
+  "google-search-console-guia-negocios-colombia": BannerSearchConsole,
+  "seo-para-abogados-colombia":                 BannerSeoAbogados,
+  "seo-para-inmobiliarias-colombia":            BannerSeoInmobiliarias,
+  "vale-la-pena-seo-pyme-colombia":             BannerValeLaPenaSeo,
+  "caso-axis33-fisioterapia-brisbane":          BannerCasoAxis33,
 };
