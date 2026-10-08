@@ -41,6 +41,18 @@ export const portfolioCases: PortfolioCase[] = [
     bgColor: "#022A52",
     image: "/images/portafolio/axis33-hero.webp",
   },
+  {
+    id: "renovista",
+    client: "Renovista",
+    category: "Construcción",
+    services: "WordPress · Tema a medida · Portafolio de proyectos",
+    metrics: [],
+    scopeNote:
+      "Sitio para una firma de construcción y estructuración de Medellín, con tema propio sobre WordPress: cada proyecto tiene su ficha con galería y descripción que el cliente administra por su cuenta. En producción; las cifras de tráfico se suman cuando haya datos verificables.",
+    href: "https://renovista.com.co",
+    bgColor: "#0B1829",
+    image: "/images/portafolio/renovista-hero.webp",
+  },
 ];
 
 // Rediseños con captura real del sitio anterior (tomada antes de empezar el
