@@ -53,6 +53,18 @@ export const portfolioCases: PortfolioCase[] = [
     bgColor: "#0B1829",
     image: "/images/portafolio/renovista-hero.webp",
   },
+  {
+    id: "factum",
+    client: "Factum & Asociados",
+    category: "Servicios profesionales",
+    services: "Next.js · Sitio multipágina · Blog · Simulador",
+    metrics: [],
+    scopeNote:
+      "Firma contable de Sabaneta que pasó de una sola página con anclas a un sitio con una página por servicio, blog y un simulador. En producción; las cifras de tráfico y contactos se suman cuando haya datos verificables.",
+    href: "https://factumasociados.com",
+    bgColor: "#0B1829",
+    image: "/images/portafolio/factum-hero.webp",
+  },
 ];
 
 // Rediseños con captura real del sitio anterior (tomada antes de empezar el
