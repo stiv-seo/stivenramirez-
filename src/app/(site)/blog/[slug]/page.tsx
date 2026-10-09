@@ -265,8 +265,27 @@ export default async function BlogPostPage({
               </div>
             </div>
 
+            {/* Herramienta gratis */}
+            <a
+              href="/herramientas/revision-seo/"
+              className="group mt-10 flex flex-col gap-4 rounded-2xl bg-teal p-7 sm:flex-row sm:items-center sm:justify-between"
+            >
+              <span>
+                <span className="block font-jakarta text-[20px] font-extrabold leading-tight text-midnight">
+                  ¿Cómo está el SEO de tu página?
+                </span>
+                <span className="mt-1.5 block font-sans text-[15px] leading-[1.6] text-midnight/85">
+                  Revisa gratis 17 puntos en segundos. Sin registro.
+                </span>
+              </span>
+              <span className="inline-flex shrink-0 items-center gap-2 self-start rounded-md bg-midnight px-5 py-3 font-jakarta text-sm font-bold text-white sm:self-auto">
+                Revisar mi página
+                <span aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-1">→</span>
+              </span>
+            </a>
+
             {/* CTA */}
-            <div className="mt-10 bg-midnight rounded-2xl p-8 text-center">
+            <div className="mt-6 bg-midnight rounded-2xl p-8 text-center">
               <p className="font-jakarta font-extrabold text-white text-[20px] mb-3">
                 ¿Quieres aplicar esto a tu negocio?
               </p>

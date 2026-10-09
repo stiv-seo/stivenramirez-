@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 import { z } from "zod";
 import { revisar, RevisionError } from "@/lib/revision-seo/analizar";
-import { htmlAviso, htmlInforme } from "@/lib/revision-seo/correo";
+import { htmlAviso, htmlInforme, textoInforme } from "@/lib/revision-seo/correo";
 import { crearLimite, ipDe } from "@/lib/revision-seo/limite";
 
 export const runtime = "nodejs";
@@ -54,8 +54,9 @@ export async function POST(req: NextRequest) {
     from: "Stiven Ramírez <hola@stivenramirez.com>",
     to: email,
     replyTo: yo,
-    subject: `Tu revisión SEO: ${revision.puntaje}/100 · ${new URL(revision.urlFinal).hostname}`,
+    subject: `Tu revisión SEO de ${new URL(revision.urlFinal).hostname}`,
     html: htmlInforme(nombre, revision),
+    text: textoInforme(nombre, revision),
   });
   if (error) {
     console.error("[revision-seo/informe] Resend:", error);

@@ -62,3 +62,29 @@ export function htmlAviso(datos: { nombre: string; email: string; telefono?: str
     <ul style="font-size:14px;line-height:1.7;padding-left:18px;">${peores}</ul>
   </div>`;
 }
+
+// Versión en texto plano del informe. Los filtros de correo desconfían de los mensajes que solo traen HTML.
+export function textoInforme(nombre: string, r: Revision): string {
+  const pendientes = r.puntos.filter((p) => p.estado !== "bien");
+  const lineas = [
+    `Hola ${nombre},`,
+    "",
+    `Este es el resultado de la revisión de ${r.urlFinal}: ${r.puntaje} de 100.`,
+    `${r.resumen.critico} críticos, ${r.resumen.mejorar} por mejorar, ${r.resumen.bien} bien.`,
+    "",
+  ];
+  if (pendientes.length) {
+    lineas.push("Qué arreglar:", "");
+    for (const p of pendientes) lineas.push(`- ${p.titulo} (${marca[p.estado].texto}): ${p.hallazgo}`, `  Cómo arreglarlo: ${p.arreglo}`, "");
+  } else {
+    lineas.push("Los 17 puntos están bien.", "");
+  }
+  lineas.push(
+    "Esta revisión es automática y mira una sola página. Si quieres verla conmigo, agenda 30 minutos sin costo:",
+    CALENDLY_URL,
+    "",
+    "Stiven Ramírez",
+    "Diseño web y SEO · https://stivenramirez.com",
+  );
+  return lineas.join("\n");
+}
