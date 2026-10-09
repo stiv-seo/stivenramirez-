@@ -25,6 +25,7 @@ export const FOOTER_LINKS = {
     { label: "Auditoría SEO",         href: "/servicios/seo/auditoria/" },
   ],
   recursos: [
+    { label: "Revisión SEO gratis", href: "/herramientas/revision-seo/" },
     { label: "Portafolio",  href: "/portafolio/" },
     { label: "Blog",        href: "/blog/" },
     { label: "Precios",     href: "/servicios/precios/" },
