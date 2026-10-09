@@ -16,6 +16,9 @@ Especializado en pymes latinoamericanas que quieren posicionar en Google sin dep
 - Meta Ads (Facebook e Instagram): https://stivenramirez.com/servicios/pauta/meta-ads/
 - Precios y tarifas: https://stivenramirez.com/servicios/precios/
 
+## Herramientas gratuitas
+- [Revisión SEO express](https://stivenramirez.com/herramientas/revision-seo/): revisa gratis 17 puntos de SEO de una página (título, descripción, indexación, sitemap, datos estructurados, velocidad) y explica por dónde empezar.
+
 ## Cobertura por ciudades
 ### Diseño Web por ciudad
 - Diseño web en Bogotá: https://stivenramirez.com/diseno-web/bogota/
