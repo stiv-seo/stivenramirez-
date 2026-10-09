@@ -10,6 +10,7 @@ import { Testimonials } from "@/components/sections/home/Testimonials";
 import { BlogPreview } from "@/components/sections/home/BlogPreview";
 import { FAQ } from "@/components/sections/home/FAQ";
 import { TechStack } from "@/components/sections/home/TechStack";
+import { RevisionSeoCTA } from "@/components/sections/herramientas/RevisionSeoCTA";
 import { CTAFinal } from "@/components/sections/home/CTAFinal";
 import { localBusinessSchema } from "@/lib/schema";
 import { SITE_URL } from "@/lib/constants";
@@ -67,6 +68,7 @@ export default function HomePage() {
       <Hero />
       <StatsStrip />
       <Agitation />
+      <RevisionSeoCTA origen="inicio" />
       <Services />
       <WhyStiven />
       <Process />

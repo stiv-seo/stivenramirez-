@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SubpageHero } from "@/components/sections/subpage/SubpageHero";
+import { RevisionSeoCTA } from "@/components/sections/herramientas/RevisionSeoCTA";
 import { SubpageCTA } from "@/components/sections/subpage/SubpageCTA";
 import { Container } from "@/components/ui/Container";
 import { FadeIn } from "@/components/ui/FadeIn";
@@ -148,6 +149,7 @@ export default function SeoHubPage() {
           </FadeIn>
         </Container>
       </section>
+      <RevisionSeoCTA origen="servicio-seo" />
       <SubpageCTA
         eyebrow="¿No sabes por dónde empezar?"
         title="30 minutos para saber"

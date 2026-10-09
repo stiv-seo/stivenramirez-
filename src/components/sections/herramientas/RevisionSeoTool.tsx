@@ -208,9 +208,27 @@ export function RevisionSeoTool() {
     if (revision) resultadoRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   }, [revision, vez]);
 
-  async function revisar(e: FormEvent) {
+  function revisar(e: FormEvent) {
     e.preventDefault();
-    if (cargando || !url.trim()) return;
+    ejecutar(url);
+  }
+
+  // Si se llega desde otra página con la dirección ya escrita (?url=), la revisión arranca sola.
+  const arranco = useRef(false);
+  useEffect(() => {
+    if (arranco.current) return;
+    arranco.current = true;
+    const inicial = new URLSearchParams(window.location.search).get("url")?.trim();
+    if (!inicial) return;
+    window.history.replaceState(null, "", window.location.pathname);
+    ejecutar(inicial);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  async function ejecutar(valor: string) {
+    const url = valor.trim();
+    if (cargando || !url) return;
+    setUrl(url);
     setCargando(true);
     setPaso(0);
     setError("");

@@ -3,6 +3,7 @@ import { serviceSchema } from "@/lib/schema";
 import { SubpageHero } from "@/components/sections/subpage/SubpageHero";
 import { SubpageFeatures } from "@/components/sections/subpage/SubpageFeatures";
 import { SubpageProcess } from "@/components/sections/subpage/SubpageProcess";
+import { RevisionSeoCTA } from "@/components/sections/herramientas/RevisionSeoCTA";
 import { SubpageCTA } from "@/components/sections/subpage/SubpageCTA";
 import { SubpageFAQ } from "@/components/sections/subpage/SubpageFAQ";
 import { SubpageRelated } from "@/components/sections/subpage/SubpageRelated";
@@ -97,6 +98,7 @@ export default function AuditoriaSeoPage() {
           },
         ]}
       />
+      <RevisionSeoCTA origen="auditoria" />
       <SubpageCTA
         eyebrow="¿Por qué no estás posicionando?"
         title="La respuesta está"
