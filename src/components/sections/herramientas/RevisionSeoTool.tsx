@@ -29,6 +29,45 @@ function Marca({ estado }: { estado: Estado }) {
   );
 }
 
+function colorPuntaje(n: number) {
+  return n >= 80 ? "#00C4B4" : n >= 50 ? "#D97706" : "#B42318";
+}
+
+// Anillo del puntaje: el arco se llena en proporción al resultado.
+function Anillo({ puntaje }: { puntaje: number }) {
+  const r = 86;
+  const largo = 2 * Math.PI * r;
+  return (
+    <div className="relative h-[136px] w-[136px] shrink-0">
+      <svg viewBox="0 0 200 200" className="h-full w-full -rotate-90" aria-hidden="true">
+        <circle cx="100" cy="100" r={r} fill="none" stroke="rgba(0,0,0,0.08)" strokeWidth="14" />
+        <circle
+          cx="100" cy="100" r={r} fill="none" stroke={colorPuntaje(puntaje)} strokeWidth="14" strokeLinecap="round"
+          strokeDasharray={largo} strokeDashoffset={largo * (1 - puntaje / 100)}
+          className="transition-[stroke-dashoffset] duration-1000 ease-out motion-reduce:transition-none"
+        />
+      </svg>
+      <p className="absolute inset-0 flex flex-col items-center justify-center">
+        <span className="font-jakarta text-[44px] font-extrabold leading-none tracking-[-1.5px] text-text-dark">{puntaje}</span>
+        <span className="mt-0.5 font-sans text-[13px] font-medium text-slate">de 100</span>
+      </p>
+    </div>
+  );
+}
+
+// Barra repartida entre críticos, por mejorar y bien.
+function Reparto({ resumen }: { resumen: Revision["resumen"] }) {
+  const total = resumen.critico + resumen.mejorar + resumen.bien || 1;
+  const tramos: [Estado, number][] = [["critico", resumen.critico], ["mejorar", resumen.mejorar], ["bien", resumen.bien]];
+  return (
+    <div className="flex h-2.5 w-full gap-[3px] overflow-hidden rounded-full" aria-hidden="true">
+      {tramos.filter(([, n]) => n > 0).map(([e, n]) => (
+        <span key={e} className={ESTADO[e].fondo} style={{ width: `${(n / total) * 100}%` }} />
+      ))}
+    </div>
+  );
+}
+
 function Fila({ p }: { p: Punto }) {
   return (
     <li className="flex gap-3.5 border-b border-black/[0.08] py-4">
@@ -180,13 +219,16 @@ export function RevisionSeoTool() {
           <Container>
             <div className="grid gap-x-16 gap-y-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
               {/* Puntaje + por dónde empezar */}
-              <div>
+              <div className="lg:sticky lg:top-24 lg:self-start [@media(max-height:859px)]:lg:static">
                 <p className="break-all font-sans text-sm text-slate">{revision.urlFinal}</p>
-                <p className="mt-3 font-jakarta font-extrabold leading-none tracking-[-3px] text-text-dark" style={{ fontSize: "clamp(72px, 9vw, 112px)" }}>
-                  {revision.puntaje}
-                  <span className="ml-2 align-baseline font-sans text-xl font-medium tracking-normal text-slate">de 100</span>
-                </p>
-                <ul className="mt-5 flex flex-wrap gap-x-5 gap-y-2 font-sans text-[15px] text-text-mid">
+                <div className="mt-4 flex items-center gap-6">
+                  <Anillo key={revision.urlFinal + revision.puntaje} puntaje={revision.puntaje} />
+                  <p className="max-w-[16ch] font-jakarta text-[22px] font-bold leading-tight tracking-[-0.5px] text-text-dark">
+                    {revision.puntaje >= 80 ? "La base está en orden." : revision.puntaje >= 50 ? "Hay base, con varios pendientes." : "Hay problemas que frenan a Google."}
+                  </p>
+                </div>
+                <div className="mt-6"><Reparto resumen={revision.resumen} /></div>
+                <ul className="mt-4 flex flex-wrap gap-x-5 gap-y-2 font-sans text-[15px] text-text-mid">
                   <li className="flex items-center gap-2"><span className={`h-2.5 w-2.5 rounded-full ${ESTADO.critico.fondo}`} aria-hidden="true" />{revision.resumen.critico} críticos</li>
                   <li className="flex items-center gap-2"><span className={`h-2.5 w-2.5 rounded-full ${ESTADO.mejorar.fondo}`} aria-hidden="true" />{revision.resumen.mejorar} por mejorar</li>
                   <li className="flex items-center gap-2"><span className={`h-2.5 w-2.5 rounded-full ${ESTADO.bien.fondo}`} aria-hidden="true" />{revision.resumen.bien} bien</li>
@@ -194,7 +236,7 @@ export function RevisionSeoTool() {
                 {revision.aviso && <p className="mt-5 rounded-lg bg-off-white p-4 font-sans text-sm leading-relaxed text-text-mid">{revision.aviso}</p>}
 
                 {/* Informe por correo */}
-                <div className="mt-10 rounded-2xl bg-midnight p-7 md:p-8">
+                <div className="mt-7 rounded-2xl bg-midnight p-6">
                   {enviado ? (
                     <div role="status">
                       <h2 className="font-jakarta text-[22px] font-bold tracking-[-0.5px] text-white">Informe enviado.</h2>
@@ -208,13 +250,13 @@ export function RevisionSeoTool() {
                       <h2 className="font-jakarta text-[22px] font-bold leading-tight tracking-[-0.5px] text-white">
                         {porMejorar > 0 ? "Recibe el paso a paso por correo." : "Guarda este resultado en tu correo."}
                       </h2>
-                      <p className="mt-3 font-sans text-[15px] leading-relaxed text-slate-light">
+                      <p className="mt-2 font-sans text-[15px] leading-relaxed text-slate-light">
                         {porMejorar > 0
                           ? `El informe completo explica cómo arreglar ${porMejorar === 1 ? "el punto pendiente" : `los ${porMejorar} puntos pendientes`}, para ti o para quien maneja tu sitio.`
                           : "Te envío el informe completo para que lo tengas a la mano."}
                       </p>
-                      <div className="mt-5 grid gap-3">
-                        <div>
+                      <div className="mt-4 grid grid-cols-2 gap-3">
+                        <div className="col-span-2">
                           <label htmlFor="rs-nombre" className="mb-1.5 block font-sans text-sm text-slate-light">Nombre</label>
                           <input id="rs-nombre" required autoComplete="name" value={lead.nombre} onChange={(e) => setLead({ ...lead, nombre: e.target.value })}
                             className="min-h-[48px] w-full rounded-md border border-white/20 bg-white/[0.06] px-4 font-sans text-base text-white focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/40" />
@@ -225,16 +267,16 @@ export function RevisionSeoTool() {
                             className="min-h-[48px] w-full rounded-md border border-white/20 bg-white/[0.06] px-4 font-sans text-base text-white focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/40" />
                         </div>
                         <div>
-                          <label htmlFor="rs-tel" className="mb-1.5 block font-sans text-sm text-slate-light">WhatsApp <span className="text-slate">(opcional)</span></label>
+                          <label htmlFor="rs-tel" className="mb-1.5 block font-sans text-sm text-slate-light">WhatsApp <span className="text-slate">(opc.)</span></label>
                           <input id="rs-tel" type="tel" autoComplete="tel" value={lead.telefono} onChange={(e) => setLead({ ...lead, telefono: e.target.value })}
                             className="min-h-[48px] w-full rounded-md border border-white/20 bg-white/[0.06] px-4 font-sans text-base text-white focus:border-teal focus:outline-none focus:ring-2 focus:ring-teal/40" />
                         </div>
                       </div>
-                      <Button type="submit" disabled={enviando} className="mt-5 w-full min-h-[50px] disabled:cursor-not-allowed disabled:opacity-60">
+                      <Button type="submit" disabled={enviando} className="mt-4 w-full min-h-[50px] disabled:cursor-not-allowed disabled:opacity-60">
                         {enviando ? "Enviando…" : "Enviarme el informe"}
                       </Button>
-                      <p role="alert" className="mt-3 min-h-[1.4em] font-sans text-sm text-[#FDA29B]">{errorLead}</p>
-                      <p className="font-sans text-[13px] leading-relaxed text-slate">
+                      {errorLead && <p role="alert" className="mt-3 font-sans text-sm text-[#FDA29B]">{errorLead}</p>}
+                      <p className="mt-3 font-sans text-[13px] leading-relaxed text-slate">
                         Te envío el informe y te escribo una vez por si tienes dudas. Nada más. <Link href="/privacidad/" className="underline hover:text-teal">Privacidad</Link>.
                       </p>
                     </form>
@@ -277,7 +319,15 @@ export function RevisionSeoTool() {
                     if (!lista.length) return null;
                     return (
                       <div key={g}>
-                        <h3 className="border-b border-black/[0.08] pb-3 font-jakarta text-lg font-bold tracking-[-0.3px] text-text-dark">{g}</h3>
+                        <div className="flex items-end justify-between gap-4 border-b border-black/[0.08] pb-3">
+                          <h3 className="font-jakarta text-lg font-bold tracking-[-0.3px] text-text-dark">{g}</h3>
+                          <p className="flex shrink-0 items-center gap-2 font-sans text-sm text-slate">
+                            <span className="flex gap-1" aria-hidden="true">
+                              {lista.map((p) => <span key={p.id} className={`h-2 w-2 rounded-full ${ESTADO[p.estado].fondo}`} />)}
+                            </span>
+                            {lista.filter((p) => p.estado === "bien").length} de {lista.length} bien
+                          </p>
+                        </div>
                         <ul>{lista.map((p) => <Fila key={p.id} p={p} />)}</ul>
                       </div>
                     );
