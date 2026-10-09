@@ -3,6 +3,7 @@ import { Resend } from "resend";
 import { z } from "zod";
 import { revisar, RevisionError } from "@/lib/revision-seo/analizar";
 import { htmlAviso, htmlInforme, textoInforme } from "@/lib/revision-seo/correo";
+import { crearSeguimiento } from "@/lib/revision-seo/seguimiento";
 import { crearLimite, ipDe } from "@/lib/revision-seo/limite";
 
 export const runtime = "nodejs";
@@ -63,14 +64,16 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "No pude enviar el informe. Revisa el correo e intenta de nuevo." }, { status: 500 });
   }
 
-  // Aviso interno: si falla no se le muestra error al visitante, su informe ya salió.
+  // Seguimiento en el portal de tareas y aviso interno: si fallan no se le muestra error
+  // al visitante, su informe ya salió.
+  const tablero = await crearSeguimiento(revision);
   await resend.emails
     .send({
       from: "Revisión SEO <hola@stivenramirez.com>",
       to: yo,
       replyTo: email,
       subject: `Revisión SEO: ${nombre} · ${new URL(revision.urlFinal).hostname} (${revision.puntaje}/100)`,
-      html: htmlAviso({ nombre, email, telefono }, revision),
+      html: htmlAviso({ nombre, email, telefono }, revision, tablero),
     })
     .catch((e) => console.error("[revision-seo/informe] aviso interno:", e));
 

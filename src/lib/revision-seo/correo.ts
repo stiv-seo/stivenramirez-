@@ -52,7 +52,7 @@ export function htmlInforme(nombre: string, r: Revision): string {
   </div>`;
 }
 
-export function htmlAviso(datos: { nombre: string; email: string; telefono?: string }, r: Revision): string {
+export function htmlAviso(datos: { nombre: string; email: string; telefono?: string }, r: Revision, tablero?: string | null): string {
   const peores = r.puntos.filter((p) => p.estado !== "bien").slice(0, 6).map((p) => `<li>${esc(p.titulo)}: ${esc(p.hallazgo)}</li>`).join("");
   return `
   <div style="font-family:Arial,Helvetica,sans-serif;max-width:600px;margin:0 auto;color:#1A2B3C;">
@@ -60,6 +60,7 @@ export function htmlAviso(datos: { nombre: string; email: string; telefono?: str
     <p style="font-size:15px;line-height:1.7;"><strong>${esc(datos.nombre)}</strong> · <a href="mailto:${esc(datos.email)}">${esc(datos.email)}</a>${datos.telefono ? ` · ${esc(datos.telefono)}` : ""}</p>
     <p style="font-size:15px;line-height:1.7;">Sitio: <a href="${esc(r.urlFinal)}">${esc(r.urlFinal)}</a><br/>Puntaje: <strong>${r.puntaje}/100</strong> (${r.resumen.critico} críticos, ${r.resumen.mejorar} por mejorar)</p>
     <ul style="font-size:14px;line-height:1.7;padding-left:18px;">${peores}</ul>
+    <p style="font-size:14px;line-height:1.7;">${tablero ? `Quedó una tarea de seguimiento en <a href="${tablero}">tu portal</a>, para escribirle en dos días.` : "No se pudo crear la tarea de seguimiento en el portal: anótala a mano."} Responder este correo le escribe directo.</p>
   </div>`;
 }
 
