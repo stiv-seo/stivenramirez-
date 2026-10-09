@@ -90,6 +90,8 @@ export function RevisionSeoTool() {
   const [error, setError] = useState("");
   const [revision, setRevision] = useState<Revision | null>(null);
   const resultadoRef = useRef<HTMLDivElement>(null);
+  const fijoRef = useRef<HTMLDivElement>(null);
+  const [topeFijo, setTopeFijo] = useState(96);
 
   const [lead, setLead] = useState({ nombre: "", email: "", telefono: "" });
   const [enviando, setEnviando] = useState(false);
@@ -101,6 +103,19 @@ export function RevisionSeoTool() {
     const id = setInterval(() => setPaso((n) => Math.min(n + 1, PASOS.length - 1)), 1600);
     return () => clearInterval(id);
   }, [cargando]);
+
+  // La columna del puntaje y el formulario acompaña el scroll. Si es más alta que la
+  // pantalla, se fija más arriba para que el formulario y su botón queden siempre a la vista.
+  useEffect(() => {
+    const el = fijoRef.current;
+    if (!el) return;
+    const medir = () => setTopeFijo(Math.min(96, window.innerHeight - el.offsetHeight - 24));
+    medir();
+    const ro = new ResizeObserver(medir);
+    ro.observe(el);
+    window.addEventListener("resize", medir);
+    return () => { ro.disconnect(); window.removeEventListener("resize", medir); };
+  }, [revision, enviado]);
 
   useEffect(() => {
     if (revision) resultadoRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -219,7 +234,7 @@ export function RevisionSeoTool() {
           <Container>
             <div className="grid gap-x-16 gap-y-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
               {/* Puntaje + por dónde empezar */}
-              <div className="lg:sticky lg:top-24 lg:self-start [@media(max-height:859px)]:lg:static">
+              <div ref={fijoRef} className="lg:sticky lg:self-start" style={{ top: topeFijo }}>
                 <p className="break-all font-sans text-sm text-slate">{revision.urlFinal}</p>
                 <div className="mt-4 flex items-center gap-6">
                   <Anillo key={revision.urlFinal + revision.puntaje} puntaje={revision.puntaje} />
