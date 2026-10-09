@@ -231,7 +231,7 @@ function analizarHtml(pagina: Descarga, robots: Descarga | null, sitemap: { url:
     id: "velocidad", grupo: "Experiencia", peso: 2,
     estado: pagina.ms < 1200 ? "bien" : pagina.ms < 2500 ? "mejorar" : "critico",
     titulo: "Tiempo de respuesta del servidor",
-    hallazgo: `El servidor tardó ${(pagina.ms / 1000).toFixed(1).replace(".", ",")} s en entregar la página (medición única, orientativa).`,
+    hallazgo: `El servidor respondió en ${pagina.ms < 500 ? "menos de medio segundo" : pagina.ms < 1200 ? "menos de un segundo" : pagina.ms < 2500 ? "entre 1 y 2,5 segundos" : "más de 2,5 segundos"} (la mejor de tres mediciones).`,
     arreglo: pagina.ms < 1200 ? "Buen tiempo de respuesta." : "Activa caché en el servidor o en tu plataforma y revisa el plan de hosting. Lo ideal es que responda en menos de un segundo.",
   });
 
@@ -272,6 +272,13 @@ export async function revisar(entrada: string): Promise<Revision> {
   }
   if (pagina.estado >= 400) {
     throw new RevisionError("sin-respuesta", `El sitio respondió con un error (código ${pagina.estado}), así que no hay página que revisar. Si es tu sitio, eso es lo primero que hay que arreglar.`);
+  }
+
+  // Una sola medición cambia mucho entre intentos (caché fría, red). Se mide tres veces
+  // la dirección final y se usa la mejor, para que el mismo sitio dé el mismo resultado.
+  for (let i = 0; i < 2; i++) {
+    const otra = await descargarOpcional(new URL(pagina.urlFinal), 5000);
+    if (otra && otra.estado < 400) pagina.ms = Math.min(pagina.ms, otra.ms);
   }
 
   const raiz = new URL("/", pagina.urlFinal);

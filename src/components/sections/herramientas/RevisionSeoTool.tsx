@@ -33,44 +33,90 @@ function colorPuntaje(n: number) {
   return n >= 80 ? "#00C4B4" : n >= 50 ? "#D97706" : "#B42318";
 }
 
-// Anillo del puntaje: el arco se llena en proporción al resultado.
+const SUAVE = "cubic-bezier(0.16, 1, 0.3, 1)";
+
+// Cuenta de 0 al valor final al aparecer (sin animación si el visitante pidió menos movimiento).
+function useConteo(objetivo: number, ms = 1300) {
+  const [n, setN] = useState(0);
+  useEffect(() => {
+    const dur = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : ms;
+    const t0 = performance.now();
+    let raf = 0;
+    const paso = (t: number) => {
+      const p = dur ? Math.min(1, (t - t0) / dur) : 1;
+      setN(objetivo * (1 - Math.pow(1 - p, 4)));
+      if (p < 1) raf = requestAnimationFrame(paso);
+    };
+    raf = requestAnimationFrame(paso);
+    return () => cancelAnimationFrame(raf);
+  }, [objetivo, ms]);
+  return n;
+}
+
+// Marca un elemento como visto la primera vez que entra en pantalla.
+function useVisto<T extends HTMLElement>() {
+  const ref = useRef<T>(null);
+  const [visto, setVisto] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const io = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) {
+        setVisto(true);
+        io.disconnect();
+      }
+    }, { rootMargin: "0px 0px -6% 0px" });
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+  return [ref, visto] as const;
+}
+
+function entrada(visto: boolean, retraso = 0) {
+  return {
+    className: `${visto ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"} motion-reduce:!translate-y-0 motion-reduce:!opacity-100 motion-reduce:!transition-none`,
+    style: { transition: `opacity 0.7s ${SUAVE} ${retraso}ms, transform 0.7s ${SUAVE} ${retraso}ms` },
+  };
+}
+
+// Anillo del puntaje: el arco se llena y el número cuenta hasta el resultado.
 function Anillo({ puntaje }: { puntaje: number }) {
   const r = 86;
   const largo = 2 * Math.PI * r;
+  const n = useConteo(puntaje);
   return (
-    <div className="relative h-[136px] w-[136px] shrink-0">
+    <div className="relative h-[136px] w-[136px] shrink-0" role="img" aria-label={`${puntaje} de 100`}>
       <svg viewBox="0 0 200 200" className="h-full w-full -rotate-90" aria-hidden="true">
         <circle cx="100" cy="100" r={r} fill="none" stroke="rgba(0,0,0,0.08)" strokeWidth="14" />
-        <circle
-          cx="100" cy="100" r={r} fill="none" stroke={colorPuntaje(puntaje)} strokeWidth="14" strokeLinecap="round"
-          strokeDasharray={largo} strokeDashoffset={largo * (1 - puntaje / 100)}
-          className="transition-[stroke-dashoffset] duration-1000 ease-out motion-reduce:transition-none"
-        />
+        <circle cx="100" cy="100" r={r} fill="none" stroke={colorPuntaje(puntaje)} strokeWidth="14" strokeLinecap="round" strokeDasharray={largo} strokeDashoffset={largo * (1 - n / 100)} />
       </svg>
-      <p className="absolute inset-0 flex flex-col items-center justify-center">
-        <span className="font-jakarta text-[44px] font-extrabold leading-none tracking-[-1.5px] text-text-dark">{puntaje}</span>
+      <p className="absolute inset-0 flex flex-col items-center justify-center" aria-hidden="true">
+        <span className="font-jakarta text-[44px] font-extrabold leading-none tracking-[-1.5px] text-text-dark tabular-nums">{Math.round(n)}</span>
         <span className="mt-0.5 font-sans text-[13px] font-medium text-slate">de 100</span>
       </p>
     </div>
   );
 }
 
-// Barra repartida entre críticos, por mejorar y bien.
+// Barra repartida entre críticos, por mejorar y bien: cada tramo crece hasta su parte.
 function Reparto({ resumen }: { resumen: Revision["resumen"] }) {
   const total = resumen.critico + resumen.mejorar + resumen.bien || 1;
   const tramos: [Estado, number][] = [["critico", resumen.critico], ["mejorar", resumen.mejorar], ["bien", resumen.bien]];
+  const p = useConteo(1, 1500);
   return (
-    <div className="flex h-2.5 w-full gap-[3px] overflow-hidden rounded-full" aria-hidden="true">
+    <div className="flex h-2.5 w-full gap-[3px] overflow-hidden rounded-full bg-black/[0.06]" aria-hidden="true">
       {tramos.filter(([, n]) => n > 0).map(([e, n]) => (
-        <span key={e} className={ESTADO[e].fondo} style={{ width: `${(n / total) * 100}%` }} />
+        <span key={e} className={ESTADO[e].fondo} style={{ width: `${(n / total) * 100 * p}%` }} />
       ))}
     </div>
   );
 }
 
-function Fila({ p }: { p: Punto }) {
+function Fila({ p, orden }: { p: Punto; orden: number }) {
+  const [ref, visto] = useVisto<HTMLLIElement>();
+  const e = entrada(visto, orden * 70);
   return (
-    <li className="flex gap-3.5 border-b border-black/[0.08] py-4">
+    <li ref={ref} className={`flex gap-3.5 border-b border-black/[0.08] py-4 ${e.className}`} style={e.style}>
       <Marca estado={p.estado} />
       <div className="min-w-0">
         <p className="font-jakarta text-[15px] font-bold leading-snug text-text-dark">
@@ -83,12 +129,53 @@ function Fila({ p }: { p: Punto }) {
   );
 }
 
+function Prioridad({ p, orden }: { p: Punto; orden: number }) {
+  const [ref, visto] = useVisto<HTMLLIElement>();
+  const e = entrada(visto, 250 + orden * 140);
+  return (
+    <li ref={ref} className={`grid grid-cols-[2.25rem_1fr] gap-x-3 ${e.className}`} style={e.style}>
+      <span className="font-jakarta text-[28px] font-extrabold leading-none text-teal" aria-hidden="true">{orden + 1}</span>
+      <div className="min-w-0">
+        <p className="font-jakarta text-[17px] font-bold leading-snug text-text-dark">
+          {p.titulo}
+          <span className={`ml-2 font-sans text-xs font-semibold ${ESTADO[p.estado].texto}`}>{ESTADO[p.estado].etiqueta}</span>
+        </p>
+        <p className="mt-1.5 break-words font-sans text-[15px] leading-relaxed text-text-mid">{p.hallazgo}</p>
+        <p className="mt-2 font-sans text-[15px] leading-relaxed text-text-dark"><strong className="font-semibold">Cómo arreglarlo:</strong> {p.arreglo}</p>
+      </div>
+    </li>
+  );
+}
+
+// Encabezado de grupo: los puntos de colores se encienden uno a uno.
+function Grupo({ nombre, lista }: { nombre: string; lista: Punto[] }) {
+  const [ref, visto] = useVisto<HTMLDivElement>();
+  return (
+    <div>
+      <div ref={ref} className="flex items-end justify-between gap-4 border-b border-black/[0.08] pb-3">
+        <h3 className="font-jakarta text-lg font-bold tracking-[-0.3px] text-text-dark">{nombre}</h3>
+        <p className="flex shrink-0 items-center gap-2 font-sans text-sm text-slate">
+          <span className="flex gap-1" aria-hidden="true">
+            {lista.map((p, i) => (
+              <span key={p.id} className={`h-2 w-2 rounded-full ${ESTADO[p.estado].fondo} ${visto ? "scale-100 opacity-100" : "scale-0 opacity-0"} motion-reduce:!scale-100 motion-reduce:!opacity-100`}
+                style={{ transition: `transform 0.5s ${SUAVE} ${200 + i * 90}ms, opacity 0.3s linear ${200 + i * 90}ms` }} />
+            ))}
+          </span>
+          {lista.filter((p) => p.estado === "bien").length} de {lista.length} bien
+        </p>
+      </div>
+      <ul>{lista.map((p, i) => <Fila key={p.id} p={p} orden={i} />)}</ul>
+    </div>
+  );
+}
+
 export function RevisionSeoTool() {
   const [url, setUrl] = useState("");
   const [cargando, setCargando] = useState(false);
   const [paso, setPaso] = useState(0);
   const [error, setError] = useState("");
   const [revision, setRevision] = useState<Revision | null>(null);
+  const [vez, setVez] = useState(0); // cambia en cada revisión para que el resultado vuelva a entrar animado
   const resultadoRef = useRef<HTMLDivElement>(null);
   const fijoRef = useRef<HTMLDivElement>(null);
   const [topeFijo, setTopeFijo] = useState(96);
@@ -115,11 +202,11 @@ export function RevisionSeoTool() {
     ro.observe(el);
     window.addEventListener("resize", medir);
     return () => { ro.disconnect(); window.removeEventListener("resize", medir); };
-  }, [revision, enviado]);
+  }, [vez, revision, enviado]);
 
   useEffect(() => {
     if (revision) resultadoRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
-  }, [revision]);
+  }, [revision, vez]);
 
   async function revisar(e: FormEvent) {
     e.preventDefault();
@@ -138,6 +225,7 @@ export function RevisionSeoTool() {
         setError(datos.error ?? "No pude revisar esa página. Intenta de nuevo.");
       } else {
         setRevision(datos.revision);
+        setVez((n) => n + 1);
         evento("revision_seo_resultado", { puntaje: datos.revision.puntaje });
       }
     } catch {
@@ -216,7 +304,11 @@ export function RevisionSeoTool() {
             </Button>
           </form>
 
-          <p id="rs-estado" role="status" aria-live="polite" className="mt-4 min-h-[1.6em] font-sans text-sm">
+          <div className="mt-4 h-[3px] max-w-[680px] overflow-hidden rounded-full bg-white/10" aria-hidden="true">
+            <div className="h-full rounded-full bg-teal motion-reduce:transition-none" style={{ width: cargando ? `${((paso + 1) / PASOS.length) * 92}%` : "0%", opacity: cargando ? 1 : 0, transition: `width 1.6s ${SUAVE}, opacity 0.3s linear` }} />
+          </div>
+
+          <p id="rs-estado" role="status" aria-live="polite" className="mt-3 min-h-[1.6em] font-sans text-sm">
             {cargando ? (
               <span className="text-slate-light">{PASOS[paso]}</span>
             ) : error ? (
@@ -232,12 +324,12 @@ export function RevisionSeoTool() {
       {revision && (
         <section ref={resultadoRef} className="scroll-mt-20 bg-warm-white" style={{ paddingTop: "72px", paddingBottom: "90px" }} aria-label="Resultado de la revisión">
           <Container>
-            <div className="grid gap-x-16 gap-y-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
+            <div key={vez} className="grid gap-x-16 gap-y-12 min-[900px]:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
               {/* Puntaje + por dónde empezar */}
-              <div ref={fijoRef} className="lg:sticky lg:self-start" style={{ top: topeFijo }}>
+              <div ref={fijoRef} className="min-[900px]:sticky min-[900px]:self-start" style={{ top: topeFijo }}>
                 <p className="break-all font-sans text-sm text-slate">{revision.urlFinal}</p>
                 <div className="mt-4 flex items-center gap-6">
-                  <Anillo key={revision.urlFinal + revision.puntaje} puntaje={revision.puntaje} />
+                  <Anillo puntaje={revision.puntaje} />
                   <p className="max-w-[16ch] font-jakarta text-[22px] font-bold leading-tight tracking-[-0.5px] text-text-dark">
                     {revision.puntaje >= 80 ? "La base está en orden." : revision.puntaje >= 50 ? "Hay base, con varios pendientes." : "Hay problemas que frenan a Google."}
                   </p>
@@ -307,19 +399,7 @@ export function RevisionSeoTool() {
                       Empieza por aquí
                     </h2>
                     <ol className="mt-6 grid gap-6">
-                      {prioridades.map((p, i) => (
-                        <li key={p.id} className="grid grid-cols-[2.25rem_1fr] gap-x-3">
-                          <span className="font-jakarta text-[28px] font-extrabold leading-none text-teal" aria-hidden="true">{i + 1}</span>
-                          <div className="min-w-0">
-                            <p className="font-jakarta text-[17px] font-bold leading-snug text-text-dark">
-                              {p.titulo}
-                              <span className={`ml-2 font-sans text-xs font-semibold ${ESTADO[p.estado].texto}`}>{ESTADO[p.estado].etiqueta}</span>
-                            </p>
-                            <p className="mt-1.5 break-words font-sans text-[15px] leading-relaxed text-text-mid">{p.hallazgo}</p>
-                            <p className="mt-2 font-sans text-[15px] leading-relaxed text-text-dark"><strong className="font-semibold">Cómo arreglarlo:</strong> {p.arreglo}</p>
-                          </div>
-                        </li>
-                      ))}
+                      {prioridades.map((p, i) => <Prioridad key={p.id} p={p} orden={i} />)}
                     </ol>
                   </>
                 ) : (
@@ -332,20 +412,7 @@ export function RevisionSeoTool() {
                   {GRUPOS.map((g) => {
                     const lista = revision.puntos.filter((p) => p.grupo === g);
                     if (!lista.length) return null;
-                    return (
-                      <div key={g}>
-                        <div className="flex items-end justify-between gap-4 border-b border-black/[0.08] pb-3">
-                          <h3 className="font-jakarta text-lg font-bold tracking-[-0.3px] text-text-dark">{g}</h3>
-                          <p className="flex shrink-0 items-center gap-2 font-sans text-sm text-slate">
-                            <span className="flex gap-1" aria-hidden="true">
-                              {lista.map((p) => <span key={p.id} className={`h-2 w-2 rounded-full ${ESTADO[p.estado].fondo}`} />)}
-                            </span>
-                            {lista.filter((p) => p.estado === "bien").length} de {lista.length} bien
-                          </p>
-                        </div>
-                        <ul>{lista.map((p) => <Fila key={p.id} p={p} />)}</ul>
-                      </div>
-                    );
+                    return <Grupo key={g} nombre={g} lista={lista} />;
                   })}
                 </div>
 
