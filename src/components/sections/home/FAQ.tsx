@@ -108,7 +108,7 @@ export function FAQ() {
               Resuelve tus dudas antes de escribirme
             </h2>
             <p className="font-sans text-text-mid text-sm leading-[1.75] mb-6">
-              Si tienes una pregunta que no está aquí, escríbeme directo por WhatsApp — respondo en menos de 2 horas en horario laboral.
+              Si tienes una pregunta que no está aquí, escríbeme directo por WhatsApp. Respondo en menos de 2 horas en horario laboral.
             </p>
             <Button variant="whatsapp" href={WA_URL} external>
               Preguntar por WhatsApp

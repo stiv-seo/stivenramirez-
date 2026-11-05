@@ -56,7 +56,7 @@ export function Hero() {
               className="hero-anim-up font-sans text-[11px] font-semibold tracking-[4px] uppercase text-teal mb-6"
               style={{ animationDelay: "0s" }}
             >
-              Freelance SEO &amp; Diseño Web — Medellín, Colombia
+              Freelance SEO &amp; Diseño Web · Medellín, Colombia
             </p>
 
             <h1
@@ -76,7 +76,7 @@ export function Hero() {
               style={{ fontSize: "clamp(16px, 1.2vw, 18px)", animationDelay: "0.2s" }}
             >
               WordPress y Shopify con SEO integrado desde el primer elemento.
-              No contratas a un diseñador y luego a un SEO por separado — lo
+              No contratas a un diseñador y luego a un SEO por separado: lo
               tienes todo en una sola persona.
             </p>
 

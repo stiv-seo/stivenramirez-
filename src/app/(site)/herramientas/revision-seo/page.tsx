@@ -9,7 +9,7 @@ import { CALENDLY_URL, SITE_URL } from "@/lib/constants";
 const URL_PAGINA = `${SITE_URL}/herramientas/revision-seo/`;
 
 export const metadata: Metadata = {
-  title: "Revisión SEO gratis de tu página web | Herramienta",
+  title: "Revisión SEO gratis de tu página web",
   description:
     "Escribe la dirección de tu sitio y revisa gratis 17 puntos de SEO: título, descripción, indexación, sitemap, datos estructurados y velocidad. Sin registro.",
   keywords: ["revisión seo gratis", "analizar seo de mi página", "auditoria seo gratis colombia", "test seo página web"],

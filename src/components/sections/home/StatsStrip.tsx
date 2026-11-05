@@ -22,23 +22,30 @@ const stats: Stat[] = [
 ];
 
 function useCountUp(target: number, active: boolean, duration = 1400, decimal = false) {
-  const [count, setCount] = useState(0);
+  // El HTML del servidor lleva el valor final (rastreadores, lectores y sin JS lo leen).
+  // La animación solo corre cuando la cifra entra en pantalla y se omite con movimiento reducido.
+  const [animating, setAnimating] = useState(false);
+  const [count, setCount] = useState(target);
   const done = useRef(false);
 
   useEffect(() => {
     if (!active || done.current) return;
     done.current = true;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    setAnimating(true);
+    setCount(0);
     const start = performance.now();
     const step = (now: number) => {
       const progress = Math.min((now - start) / duration, 1);
       const eased = 1 - Math.pow(1 - progress, 3);
       setCount(parseFloat((eased * target).toFixed(decimal ? 1 : 0)));
       if (progress < 1) requestAnimationFrame(step);
+      else setAnimating(false);
     };
     requestAnimationFrame(step);
   }, [active, target, duration, decimal]);
 
-  return count;
+  return animating ? count : target;
 }
 
 /** A single dominant number gets real visual weight; the rest stay compact — breaks the flat 4-identical-columns pattern. */
@@ -123,7 +130,7 @@ export function StatsStrip() {
           className="rounded-3xl border border-white/[0.08] bg-white/[0.02] p-8 sm:p-12"
         >
           <p className="font-sans text-[11px] font-semibold tracking-[3px] uppercase text-slate-light/60 mb-8">
-            Panel de resultados — clientes 2020–2026
+            Panel de resultados, clientes 2020–2026
           </p>
           <div className="grid gap-10 lg:grid-cols-[1.15fr_1fr] lg:items-center">
             {/* The one number that matters most gets 2-3x the visual weight of the rest */}

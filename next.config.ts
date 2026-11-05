@@ -25,6 +25,19 @@ const nextConfig: NextConfig = {
 
   async redirects() {
     return [
+      // www -> apex (el canonical ya apunta al apex; esto evita servir dos copias)
+      {
+        source: "/",
+        has: [{ type: "host", value: "www.stivenramirez.com" }],
+        destination: "https://stivenramirez.com/",
+        permanent: true,
+      },
+      {
+        source: "/:path+",
+        has: [{ type: "host", value: "www.stivenramirez.com" }],
+        destination: "https://stivenramirez.com/:path+/",
+        permanent: true,
+      },
       { source: "/servicios/diseno-web-seo/",           destination: "/servicios/diseno-web/seo/",       permanent: true },
       { source: "/servicios/diseno-web-wordpress-seo/", destination: "/servicios/diseno-web/wordpress/", permanent: true },
       { source: "/servicios/tienda-shopify-seo/",       destination: "/servicios/diseno-web/shopify/",   permanent: true },

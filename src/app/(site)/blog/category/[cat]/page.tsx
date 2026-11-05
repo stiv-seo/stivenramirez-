@@ -43,6 +43,13 @@ export async function generateMetadata({
   };
 }
 
+// Introducción breve por categoría: da contexto a la página y evita que sea solo un listado.
+const categoryIntro: Record<string, string> = {
+  seo: "Guías de SEO para negocios en Colombia: cuánto cuesta, cómo auditar tu sitio, SEO técnico y local, y cómo medir los resultados con Search Console. Cada artículo responde a una duda frecuente de dueños de pymes.",
+  "diseno-web": "Artículos sobre diseño web para pymes: qué cuesta un sitio, cuándo conviene WordPress o Shopify, qué errores de diseño afectan el posicionamiento y cómo preparar un rediseño sin perder tráfico.",
+  casos: "Proyectos documentados: cómo estaba el sitio, qué se decidió y por qué. Las cifras de tráfico solo se publican cuando hay datos verificables.",
+};
+
 const categoryVariant: Record<string, "teal" | "amber"> = {
   "Diseño Web": "teal",
   "E-commerce": "amber",
@@ -114,6 +121,9 @@ export default async function CategoryPage({
             <p className="font-sans text-slate-light leading-[1.8] max-w-[480px] text-[17px]">
               {posts.length} {posts.length === 1 ? "artículo" : "artículos"} publicados
             </p>
+            {categoryIntro[cat] ? (
+              <p className="font-sans text-slate leading-[1.8] max-w-[620px] text-[15px] mt-4">{categoryIntro[cat]}</p>
+            ) : null}
 
             {/* Category nav */}
             <div className="flex flex-wrap gap-2 mt-8">
