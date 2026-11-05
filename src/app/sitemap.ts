@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { getAllPosts, getActiveCategorySlugs } from "@/lib/mdx";
-import { CIUDADES } from "@/data/ciudades";
+import { CIUDADES_INDEXABLES } from "@/data/ciudades";
 
 const BASE = "https://stivenramirez.com";
 
@@ -39,13 +39,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   const ciudadRoutes: MetadataRoute.Sitemap = [
-    ...CIUDADES.map((c) => ({
+    ...CIUDADES_INDEXABLES.map((c) => ({
       url: `${BASE}/diseno-web/${c.slug}/`,
       lastModified: new Date(),
       changeFrequency: "monthly" as const,
       priority: 0.8,
     })),
-    ...CIUDADES.map((c) => ({
+    ...CIUDADES_INDEXABLES.map((c) => ({
       url: `${BASE}/seo/${c.slug}/`,
       lastModified: new Date(),
       changeFrequency: "monthly" as const,

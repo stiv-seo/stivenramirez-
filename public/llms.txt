@@ -21,21 +21,10 @@ Especializado en pymes latinoamericanas que quieren posicionar en Google sin dep
 
 ## Cobertura por ciudades
 ### Diseño Web por ciudad
-- Diseño web en Bogotá: https://stivenramirez.com/diseno-web/bogota/
 - Diseño web en Medellín: https://stivenramirez.com/diseno-web/medellin/
-- Diseño web en Cali: https://stivenramirez.com/diseno-web/cali/
-- Diseño web en Barranquilla: https://stivenramirez.com/diseno-web/barranquilla/
-- Diseño web en Pereira: https://stivenramirez.com/diseno-web/pereira/
-- Diseño web en Manizales: https://stivenramirez.com/diseno-web/manizales/
-- Diseño web en Armenia: https://stivenramirez.com/diseno-web/armenia/
 
 ### SEO por ciudad
-- Consultor SEO en Bogotá: https://stivenramirez.com/seo/bogota/
-- Consultor SEO en Cali: https://stivenramirez.com/seo/cali/
-- Consultor SEO en Barranquilla: https://stivenramirez.com/seo/barranquilla/
-- Consultor SEO en Pereira: https://stivenramirez.com/seo/pereira/
-- Consultor SEO en Manizales: https://stivenramirez.com/seo/manizales/
-- Consultor SEO en Armenia: https://stivenramirez.com/seo/armenia/
+- Consultor SEO en Medellín: https://stivenramirez.com/seo/medellin/
 
 ## Blog
 Artículos sobre SEO, diseño web y marketing digital para pymes colombianas.

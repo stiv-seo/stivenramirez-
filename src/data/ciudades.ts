@@ -463,3 +463,7 @@ export const CIUDADES: Ciudad[] = [
 export function getCiudad(slug: string): Ciudad | undefined {
   return CIUDADES.find((c) => c.slug === slug);
 }
+
+// Solo las ciudades con presencia real se indexan y se enlazan. Las demás páginas se
+// mantienen accesibles pero con noindex (casi-duplicados de plantilla, sin prueba local).
+export const CIUDADES_INDEXABLES = CIUDADES.filter((c) => c.esSedeReal);

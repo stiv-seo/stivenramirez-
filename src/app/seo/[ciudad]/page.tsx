@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { CIUDADES, getCiudad } from "@/data/ciudades";
+import { CIUDADES, CIUDADES_INDEXABLES, getCiudad } from "@/data/ciudades";
+import { LocalProjects } from "@/components/sections/subpage/LocalProjects";
 import { Container } from "@/components/ui/Container";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { Button } from "@/components/ui/Button";
@@ -29,6 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const description = `Consultor SEO freelance en ${ciudad.nombre}. Posicionamiento orgánico en Google para pymes de ${ciudad.departamento}. Sin agencia, resultados medibles desde el mes 3.`;
   return {
     title: { absolute: title },
+    robots: ciudad.esSedeReal ? undefined : { index: false, follow: true },
     description,
     keywords: [
       `consultor seo ${ciudad.nombre.toLowerCase()}`,
@@ -458,32 +460,8 @@ export default async function SeoCiudadPage({ params }: Props) {
         </Container>
       </section>
 
-      {/* ── S4 Testimonio ────────────────────────────────────────────────────── */}
-      <section className="bg-midnight" style={{ paddingTop: "80px", paddingBottom: "80px" }}>
-        <Container>
-          <FadeIn className="max-w-2xl mx-auto text-center">
-            <div className="flex justify-center gap-0.5 mb-6">
-              {[1, 2, 3, 4, 5].map((s) => (
-                <svg key={s} width="18" height="18" viewBox="0 0 24 24" fill="#F5A623" aria-hidden="true">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                </svg>
-              ))}
-            </div>
-            <blockquote>
-              <p className="font-jakarta font-bold text-white leading-[1.65] mb-8" style={{ fontSize: "clamp(18px, 2vw, 22px)" }}>
-                &ldquo;En 4 meses pasamos de estar en la página 5 a top 3 para nuestras keywords principales. El tráfico orgánico ahora genera el 60% de nuestros leads — sin pagar por clic.&rdquo;
-              </p>
-              <footer className="flex flex-col items-center gap-1">
-                <span className="font-jakarta font-semibold text-teal text-[15px]">Alejandro Torres</span>
-                <span className="font-sans text-slate text-[13px]">CEO | Renovista</span>
-                <span className="inline-flex items-center gap-1.5 mt-2 font-jakarta text-[12px] font-semibold text-amber bg-amber/10 border border-amber/20 rounded-full px-3 py-1">
-                  Top 3 en 4 meses | SEO orgánico
-                </span>
-              </footer>
-            </blockquote>
-          </FadeIn>
-        </Container>
-      </section>
+      {/* ── S4 Proyectos reales en la zona (solo la ciudad con sede real) ─────── */}
+      {ciudad.esSedeReal && <LocalProjects />}
 
       {/* ── S5 Comparación ───────────────────────────────────────────────────── */}
       <LossSection
@@ -692,7 +670,7 @@ export default async function SeoCiudadPage({ params }: Props) {
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-5">
             <p className="font-sans text-[11px] text-slate shrink-0">SEO también en:</p>
             <div className="flex flex-wrap gap-2">
-              {CIUDADES.map((c) => {
+              {CIUDADES_INDEXABLES.map((c) => {
                 const isActive = c.slug === ciudad.slug;
                 return (
                   <Link

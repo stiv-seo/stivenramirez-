@@ -6,7 +6,7 @@ import { SubpageCTA } from "@/components/sections/subpage/SubpageCTA";
 import { Container } from "@/components/ui/Container";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { Eyebrow } from "@/components/ui/Eyebrow";
-import { CIUDADES } from "@/data/ciudades";
+import { CIUDADES_INDEXABLES } from "@/data/ciudades";
 
 export const metadata: Metadata = {
   title: "SEO para Pymes en Medellín",
@@ -136,7 +136,7 @@ export default function SeoHubPage() {
               SEO local en tu ciudad
             </h2>
             <div className="flex flex-wrap gap-3">
-              {CIUDADES.map((c) => (
+              {CIUDADES_INDEXABLES.map((c) => (
                 <Link
                   key={c.slug}
                   href={`/seo/${c.slug}/`}
