@@ -15,19 +15,6 @@ export const testimonials: Testimonial[] = [
     },
   },
   {
-    id: "renovista",
-    name: "Alejandro Torres",
-    company: "Renovista",
-    city: "Bogotá",
-    text: "Buscábamos una presencia robusta para la constructora y Stiven lo superó. El diseño es impecable y logramos reducir el costo por lead en un 45% gracias al SEO.",
-    stars: 5,
-    metric: {
-      label: "Costo por Lead (CPL)",
-      after: "-45%",
-      note: "SEO Local",
-    },
-  },
-  {
     id: "atta",
     name: "Juan Camila",
     company: "Atta",
