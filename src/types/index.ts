@@ -20,10 +20,10 @@ export interface Testimonial {
   id: string;
   name: string;
   company: string;
-  city: string;
+  city?: string;
   text: string;
   stars: number;
-  metric: TestimonialMetric;
+  metric?: TestimonialMetric;
 }
 
 export interface FaqItem {

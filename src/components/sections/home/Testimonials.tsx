@@ -46,10 +46,10 @@ function CompactCard({ t, delay }: { t: Testimonial; delay: number }) {
         <blockquote className="font-sans text-text-mid text-[13px] leading-[1.7] mt-4 flex-1">
           &ldquo;{t.text}&rdquo;
         </blockquote>
-        <Metric metric={t.metric} />
+        {t.metric && <Metric metric={t.metric} />}
         <figcaption className="border-t border-black/[0.06] pt-4 mt-4">
           <p className="font-jakarta font-bold text-text-dark text-[14px]">{t.name}</p>
-          <p className="font-sans text-slate text-[11px] mt-0.5">{t.company} · {t.city}</p>
+          <p className="font-sans text-slate text-[11px] mt-0.5">{[t.company, t.city].filter(Boolean).join(" · ")}</p>
         </figcaption>
       </figure>
     </FadeIn>
@@ -58,6 +58,8 @@ function CompactCard({ t, delay }: { t: Testimonial; delay: number }) {
 
 export function Testimonials() {
   const [featured, ...rest] = testimonials;
+  const side = rest.slice(0, 2);
+  const more = rest.slice(2);
 
   return (
     <section className="bg-off-white" style={{ paddingTop: "100px", paddingBottom: "100px" }}>
@@ -93,10 +95,10 @@ export function Testimonials() {
                 </blockquote>
               </div>
               <div className="mt-auto relative">
-                <Metric metric={featured.metric} size="lg" />
+                {featured.metric && <Metric metric={featured.metric} size="lg" />}
                 <figcaption className="border-t border-white/10 pt-4 mt-6">
                   <p className="font-jakarta font-bold text-white text-[15px]">{featured.name}</p>
-                  <p className="font-sans text-slate-light text-[12px] mt-0.5">{featured.company} · {featured.city}</p>
+                  <p className="font-sans text-slate-light text-[12px] mt-0.5">{[featured.company, featured.city].filter(Boolean).join(" · ")}</p>
                 </figcaption>
               </div>
             </figure>
@@ -104,11 +106,19 @@ export function Testimonials() {
 
           {/* Supporting testimonials */}
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-1">
-            {rest.map((t, i) => (
+            {side.map((t, i) => (
               <CompactCard key={t.id} t={t} delay={0.1 + i * 0.1} />
             ))}
           </div>
         </div>
+
+        {more.length > 0 && (
+          <div className="grid gap-5 sm:grid-cols-2 mt-5">
+            {more.map((t, i) => (
+              <CompactCard key={t.id} t={t} delay={0.1 + i * 0.1} />
+            ))}
+          </div>
+        )}
       </Container>
     </section>
   );
