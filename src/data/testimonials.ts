@@ -6,6 +6,7 @@ export const testimonials: Testimonial[] = [
     id: "lbl",
     name: "Juan",
     company: "LBL",
+    city: "Colombia y EE. UU.",
     text: "Ha hecho un trabajo impecable en el posicionamiento SEO. Ha sabido optimizar y ajustar el sitio web estratégicamente para alcanzar grandes resultados, tanto a nivel técnico como en la experiencia de diseño.",
     stars: 5,
   },
