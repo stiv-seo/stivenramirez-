@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { RelatedGuides } from "@/components/sections/subpage/RelatedGuides";
 import { LocalCallout } from "@/components/sections/subpage/LocalCallout";
 import { serviceSchema } from "@/lib/schema";
 import { SubpageHero } from "@/components/sections/subpage/SubpageHero";
@@ -202,6 +203,15 @@ export default function TiendaShopifySeoPage() {
           },
         ]}
       />
+      <RelatedGuides
+        title="Guías sobre tiendas Shopify"
+        guides={[
+          { href: "/blog/migracion-woocommerce-shopify-colombia/", title: "Migrar de WooCommerce a Shopify", note: "Paso a paso para no perder tus posiciones en Google." },
+          { href: "/blog/seo-shopify-checklist/", title: "Checklist de SEO para Shopify", note: "20 puntos para posicionar tu tienda." },
+          { href: "/blog/vender-mas-shopify-colombia/", title: "12 estrategias para vender más", note: "Medios de pago, velocidad, checkout y retención." },
+        ]}
+      />
+
       <LocalCallout href="/diseno-web/medellin/" anchor="diseño web en Medellín con Shopify" text="¿Tu negocio está en Medellín o en el Valle de Aburrá? Trabajo con negocios de la zona. Mira la página de" />
 
       <SubpageCTA

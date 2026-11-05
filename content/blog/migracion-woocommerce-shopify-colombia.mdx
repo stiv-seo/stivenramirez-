@@ -1,0 +1,225 @@
+---
+title: "Migración de WooCommerce a Shopify en Colombia: guía paso a paso para no perder tus posiciones en Google"
+metaTitle: "Migración WooCommerce a Shopify: guía 2026"
+description: "Cómo migrar de WooCommerce a Shopify en Colombia sin perder posiciones: mapa de URLs, redirecciones 301, importación de datos y revisión en Search Console."
+date: "2026-11-05"
+category: "E-commerce"
+readTime: "12 min"
+slug: "migracion-woocommerce-shopify-colombia"
+---
+
+Pasarte de WooCommerce a Shopify casi nunca falla por la tecnología. Falla porque la tienda nueva sale al aire sin que Google sepa dónde quedó cada página de la vieja. El resultado: las posiciones que tardaste años en ganar se caen y, con ellas, las ventas orgánicas.
+
+Esta guía es el paso a paso para evitarlo. Si todavía no sabes si te conviene migrar, empieza por la [comparativa Shopify vs WooCommerce en Colombia](/blog/shopify-vs-woocommerce-colombia/) y vuelve aquí cuando lo tengas decidido.
+
+---
+
+## TL;DR
+
+- **Lo que más pesa es el mapa de redirecciones.** Cada URL vieja que ya rankea debe redirigir con un 301 a su equivalente nueva, directo y sin cadenas.
+- **Shopify usa rutas fijas** (`/products/`, `/collections/`, `/pages/`, `/blogs/`), así que tus URLs de WooCommerce casi nunca se pueden conservar iguales.
+- **Importa en este orden:** productos, clientes y, al final, pedidos históricos.
+- **Mantén las redirecciones al menos un año.** Es lo que recomienda Google.
+- **Espera fluctuaciones durante unas semanas.** Si el mapa está bien hecho, se estabiliza.
+
+---
+
+## Antes de empezar: qué necesitas tener a la mano
+
+1. Acceso de administrador a WooCommerce y a Search Console de tu dominio.
+2. Una tienda de Shopify creada (aunque no esté publicada).
+3. Una lista de lo que hoy te trae tráfico. Sin ese dato no sabes qué proteger.
+4. Un día de baja actividad para el cambio final (los domingos suelen ser buenos).
+
+---
+
+## Paso 1: inventario de URLs y de lo que rankea
+
+Necesitas dos listas y las dos importan:
+
+- **Todas las URLs de tu tienda actual:** productos, categorías, páginas, entradas del blog. Las sacas del sitemap (`/sitemap_index.xml` o `/wp-sitemap.xml`) o de un rastreo con Screaming Frog.
+- **Las URLs que traen clics o impresiones:** en Search Console, ve a Rendimiento, filtra los últimos 12 meses, agrupa por página y exporta. Son las que no puedes perder.
+
+Cruza las dos listas. Las que tienen clics son prioridad uno: cada una debe llegar a un destino equivalente, con el mismo tema. Las que no traen tráfico igual se redirigen, pero a la categoría o página más cercana.
+
+---
+
+## Paso 2: el mapa de redirecciones
+
+Aquí se gana o se pierde la migración. Cada fila de tu mapa tiene una URL vieja y una URL nueva. Google pide exactamente eso: relacionar las URLs viejas con las nuevas, y redirigir con un 301 del lado del servidor.
+
+Un patrón típico (tus rutas pueden variar según cómo configuraste WooCommerce):
+
+| Tipo | URL en WooCommerce (ejemplo) | URL en Shopify |
+|---|---|---|
+| Producto | `/producto/camiseta-algodon/` | `/products/camiseta-algodon` |
+| Categoría | `/categoria-producto/camisetas/` | `/collections/camisetas` |
+| Página | `/sobre-nosotros/` | `/pages/sobre-nosotros` |
+| Entrada del blog | `/blog/como-lavar-camisetas/` | `/blogs/news/como-lavar-camisetas` |
+
+Reglas que te ahorran problemas:
+
+- **Conserva el "handle"** (la parte final de la URL) igual que el slug de WooCommerce. Así el mapa es casi mecánico y no se te escapan casos.
+- **Redirige a la página equivalente, no a la home.** Google advierte que mandar muchas URLs viejas a una página que no tiene que ver (como la página de inicio) no es buena práctica.
+- **Evita las cadenas.** Si la URL A va a B y B va a C, redirige A directo a C. Google recomienda ir al destino final.
+- **Si un producto ya no existe,** redirige a su colección. No dejes el 404.
+
+---
+
+## Paso 3: monta la tienda nueva sin publicarla
+
+Trabaja en la tienda de Shopify mientras la vieja sigue vendiendo.
+
+### Importa los datos en el orden correcto
+
+Shopify indica un orden: **productos primero, luego clientes y, al final, los pedidos históricos.** Si lo haces al revés, los pedidos no se conectan bien con productos y clientes. Con las apps de migración puedes mover productos, clientes, pedidos históricos, blogs y páginas.
+
+Dos detalles de la documentación oficial que evitan sustos:
+
+- Si tu personal recibe notificaciones de pedidos nuevos, **desactívalas antes de importar**: llega un correo por cada pedido importado.
+- Para catálogos pequeños, a veces es más limpio **cargar los productos de nuevo** que importarlos.
+
+### Lo que no se migra igual
+
+- **Contraseñas de clientes:** no se exportan. Avisa con un correo antes del cambio para que creen una nueva.
+- **Plugins:** cualquier función que dependa de un plugin de WooCommerce hay que resolverla en Shopify con una app o con el tema.
+- **Pasarela de pago:** hay que configurar de nuevo tu medio de pago local con su app. Para el detalle por país y comisiones, mira la sección de medios de pago de la [comparativa](/blog/shopify-vs-woocommerce-colombia/).
+
+---
+
+## Paso 4: lleva contigo el SEO on-page
+
+Las redirecciones salvan las URLs, pero el contenido también cuenta. Antes del cambio:
+
+- **Títulos y descripciones:** si usas Yoast o Rank Math, esas metas no viajan solas. Expórtalas y cárgalas en Shopify (por producto, colección y página).
+- **Texto de las categorías:** en WooCommerce solían tener descripción. En Shopify va en la descripción de la colección. No lo pierdas: suele ser lo que sostiene el posicionamiento de esa categoría.
+- **Textos alternativos de las imágenes** y nombres de archivo.
+- **Contenido del blog:** mantén el mismo texto y las mismas fechas, solo cambia la plataforma.
+- **Enlaces internos:** revisa que apunten a las URLs nuevas, no a las viejas que van a redirigir.
+
+---
+
+## Paso 5: carga las redirecciones en Shopify
+
+En el administrador de Shopify, ve a **Contenido, Menús y "Ver redirecciones de URL"**. Puedes crearlas una por una o **importar un archivo CSV** con tu mapa (Shopify ofrece una plantilla de ejemplo con las columnas exactas).
+
+Lo que debes saber de las reglas de Shopify:
+
+- Una tienda admite hasta **100.000 redirecciones**.
+- **Solo puedes redirigir URLs que den error.** Si la URL vieja todavía carga una página válida en Shopify, la redirección no funciona.
+- Las rutas fijas como `/products` y `/collections` no se pueden redirigir.
+- Las URLs que terminan en `.html` no se pueden redirigir a la misma URL sin `.html`.
+
+Después de cargarlas, **prueba una muestra**: toma 20 URLs de tu lista de clics y confirma que cada una llega al destino correcto con un 301.
+
+---
+
+## Paso 6: prueba antes de anunciar
+
+Antes de cambiar el dominio:
+
+1. Haz una **compra real de punta a punta** con tu medio de pago.
+2. Revisa el carrito y el pago en celular.
+3. Confirma que llegan los correos de pedido al cliente y a ti.
+4. Revisa que los impuestos y los envíos calculen bien.
+
+---
+
+## Paso 7: el cambio de dominio
+
+El dominio es el mismo, solo cambia dónde vive la tienda. Pasos:
+
+1. Baja el tiempo de vida (TTL) del DNS un par de días antes para que el cambio se propague rápido.
+2. Haz copia de seguridad de la tienda vieja.
+3. Apunta el dominio a Shopify.
+4. Verifica que `https` funcione y que la versión con `www` y sin `www` redirijan a una sola.
+
+En este caso **no necesitas la herramienta de cambio de dirección de Search Console**: está pensada solo para cambios de dominio o subdominio.
+
+Lo que sí haces en Search Console:
+
+- **Envía el sitemap nuevo** (en Shopify es `tudominio.com/sitemap.xml`).
+- Mantén verificada la propiedad (con el método que ya tenías o uno nuevo).
+
+---
+
+## Paso 8: después del cambio
+
+- **Primera semana:** revisa a diario el informe de páginas y los errores 404. Cada 404 con tráfico previo es una redirección que falta.
+- **Semanas 2 a 6:** Google avisa que durante un movimiento de sitio puede haber **fluctuaciones temporales** y que, en sitios medianos, los cambios pueden tardar semanas o más en reflejarse. No cambies más cosas durante este periodo.
+- **Un año o más:** **mantén las redirecciones.** Google recomienda conservarlas el mayor tiempo posible, por lo general al menos un año.
+- **Cuando la tienda esté estable:** aplica el [checklist de SEO para Shopify](/blog/seo-shopify-checklist/) para optimizar colecciones, títulos y datos estructurados desde la plataforma nueva.
+
+---
+
+## Errores que más cuestan
+
+1. **Redirigir todo a la home.** Pierdes el valor de cada página.
+2. **Cambiar el diseño, las URLs y el contenido a la vez.** Si algo se mueve, no sabrás por qué.
+3. **No exportar las metas** de Yoast o Rank Math antes de apagar WordPress.
+4. **Apagar la tienda vieja el mismo día** sin haber probado las redirecciones.
+5. **Olvidar el blog.** Muchas veces es lo que más tráfico trae.
+
+---
+
+## Cuánto cuesta y cuánto tarda
+
+Depende del tamaño del catálogo, de cuántas URLs rankean y de cuánto cambia el diseño. Una tienda pequeña con pocas URLs importantes es un trabajo de días; una con miles de productos y blog activo necesita más planeación y pruebas. Para ver mis tarifas de referencia, consulta la [página de precios](/servicios/precios/); si buscas quien arme la tienda en Shopify con SEO desde el inicio, está el servicio de [desarrollo de tiendas Shopify](/servicios/diseno-web/shopify/), y para un presupuesto con tu catálogo, [escríbeme](/contacto/).
+
+---
+
+## Checklist final
+
+- [ ] Inventario de URLs y lista de las que traen clics
+- [ ] Mapa de redirecciones con destino equivalente (sin cadenas)
+- [ ] Tienda nueva montada y sin publicar
+- [ ] Datos importados en orden: productos, clientes, pedidos
+- [ ] Metas, textos de categorías y alt de imágenes cargados
+- [ ] Redirecciones importadas y probadas con una muestra
+- [ ] Compra real de punta a punta
+- [ ] Dominio cambiado y `https` funcionando
+- [ ] Sitemap nuevo enviado en Search Console
+- [ ] Revisión diaria de 404 durante la primera semana
+- [ ] Redirecciones conservadas por un año
+
+---
+
+## Preguntas frecuentes
+
+<details>
+<summary><strong>¿Voy a perder posiciones al migrar?</strong></summary>
+
+Puede haber una fluctuación temporal, y Google lo advierte para cualquier cambio de URLs. Con un mapa de redirecciones completo, el título y el contenido de cada página conservados y una revisión semanal de errores, lo normal es que se estabilice en semanas. Si se hace sin mapa, la caída puede ser permanente.
+</details>
+
+<details>
+<summary><strong>¿Puedo conservar exactamente las mismas URLs que tenía en WooCommerce?</strong></summary>
+
+Casi nunca. Shopify usa rutas fijas para productos, colecciones, páginas y blog, y esas rutas no se pueden cambiar. Lo que sí puedes conservar es la parte final de la URL (el "handle"), lo que hace el mapa de redirecciones mucho más fácil.
+</details>
+
+<details>
+<summary><strong>¿Los clientes tienen que registrarse otra vez?</strong></summary>
+
+Sus datos se pueden importar, pero las contraseñas no se exportan en ninguna plataforma. Tendrán que crear una nueva. Avísales por correo antes del cambio.
+</details>
+
+<details>
+<summary><strong>¿Cuánto tiempo debo mantener las redirecciones?</strong></summary>
+
+Al menos un año, según la recomendación de Google, y mejor si es más. Quitarlas antes puede devolver errores a quienes aún usen enlaces viejos.
+</details>
+
+<details>
+<summary><strong>¿Necesito avisar a Google del cambio?</strong></summary>
+
+Si el dominio no cambia, no hace falta la herramienta de cambio de dirección. Lo que sí debes hacer es enviar el sitemap nuevo en Search Console y vigilar los errores de las primeras semanas.
+</details>
+
+---
+
+## Fuentes
+
+- Google Search Central, [Mover un sitio con cambios de URL](https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes)
+- Shopify Help Center, [URL redirects](https://help.shopify.com/en/manual/online-store/menus-and-links/url-redirect)
+- Shopify Help Center, [Migrating to Shopify](https://help.shopify.com/en/manual/migrating-to-shopify/store-importer)
