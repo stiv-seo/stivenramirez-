@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { LocalCallout } from "@/components/sections/subpage/LocalCallout";
 import { SubpageHero } from "@/components/sections/subpage/SubpageHero";
 import { RevisionSeoCTA } from "@/components/sections/herramientas/RevisionSeoCTA";
 import { SubpageCTA } from "@/components/sections/subpage/SubpageCTA";
@@ -9,14 +10,14 @@ import { Eyebrow } from "@/components/ui/Eyebrow";
 import { CIUDADES_INDEXABLES } from "@/data/ciudades";
 
 export const metadata: Metadata = {
-  title: "SEO para Pymes en Medellín",
+  title: "Servicios de SEO en Colombia para pymes",
   description:
-    "Consultoría SEO para pymes en Medellín: posicionamiento técnico, de contenido y local. Freelance sin agencia. Shopify, WordPress, e-commerce y más.",
+    "Servicios de SEO para pymes en Colombia: SEO técnico, de contenido y local, para WordPress, Shopify y e-commerce. Freelance, sin agencia.",
   keywords: ["consultor seo medellin", "seo pymes colombia", "posicionamiento google medellin", "seo freelance medellin"],
   alternates: { canonical: "https://stivenramirez.com/servicios/seo/", languages: { "es-CO": "https://stivenramirez.com/servicios/seo/", "x-default": "https://stivenramirez.com/servicios/seo/" } },
   openGraph: {
-    title: "SEO para pymes Medellín",
-    description: "SEO mensual, técnico, local y de plataforma para pymes en Medellín. Sin agencia, sin permanencia forzada.",
+    title: "Servicios de SEO en Colombia para pymes",
+    description: "SEO mensual, técnico, local y de plataforma para pymes en Colombia. Sin agencia, sin permanencia forzada.",
     url: "https://stivenramirez.com/servicios/seo/",
     type: "website",
     locale: "es_CO",
@@ -150,6 +151,8 @@ export default function SeoHubPage() {
         </Container>
       </section>
       <RevisionSeoCTA origen="servicio-seo" />
+      <LocalCallout href="/seo/medellin/" anchor="consultor SEO en Medellín" text="¿Tu negocio está en Medellín o en el Valle de Aburrá? Trabajo con negocios de la zona y puedo atenderte de cerca. Mira la página de" />
+
       <SubpageCTA
         eyebrow="¿No sabes por dónde empezar?"
         title="30 minutos para saber"

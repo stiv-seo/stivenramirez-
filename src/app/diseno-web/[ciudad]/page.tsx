@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!ciudad) return {};
   const ogImage = `${SITE_URL}/og-diseno-web.jpg`;
   return {
-    title: { absolute: `${ciudad.keyword_h1} con SEO | Stiven Ramírez` },
+    title: { absolute: ciudad.esSedeReal ? `${ciudad.keyword_h1}: WordPress y Shopify | Stiven Ramírez` : `${ciudad.keyword_h1} con SEO | Stiven Ramírez` },
     robots: ciudad.esSedeReal ? undefined : { index: false, follow: true },
     description: ciudad.meta_description,
     keywords: ciudad.keywords,

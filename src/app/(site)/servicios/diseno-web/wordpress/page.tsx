@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { LocalCallout } from "@/components/sections/subpage/LocalCallout";
 import { serviceSchema } from "@/lib/schema";
 import { SubpageHero } from "@/components/sections/subpage/SubpageHero";
 import { SubpageFeatures } from "@/components/sections/subpage/SubpageFeatures";
@@ -13,13 +14,13 @@ import { Container } from "@/components/ui/Container";
 import { FadeIn } from "@/components/ui/FadeIn";
 
 export const metadata: Metadata = {
-  title: "WordPress con SEO | Freelance Medellín",
+  title: "Diseño web WordPress con SEO",
   description:
-    "WordPress con SEO integrado: diseño personalizado, velocidad optimizada y posicionamiento desde el lanzamiento. Freelance para pymes en Medellín.",
+    "Diseño web en WordPress con SEO integrado: diseño a medida, velocidad optimizada y posicionamiento desde el lanzamiento. Freelance para pymes en Colombia.",
   keywords: ["diseño web wordpress colombia", "wordpress seo colombia", "crear sitio wordpress colombia seo"],
   alternates: { canonical: "https://stivenramirez.com/servicios/diseno-web/wordpress/", languages: { "es-CO": "https://stivenramirez.com/servicios/diseno-web/wordpress/", "x-default": "https://stivenramirez.com/servicios/diseno-web/wordpress/" } },
   openGraph: {
-    title: "WordPress con SEO | Freelance Medellín",
+    title: "Diseño web WordPress con SEO",
     description: "WordPress con SEO integrado desde el día 1. Velocidad, diseño y posicionamiento en un solo proyecto.",
     url: "https://stivenramirez.com/servicios/diseno-web/wordpress/",
     type: "website",
@@ -206,6 +207,8 @@ export default function DisenoWordPressSeoPage() {
           },
         ]}
       />
+      <LocalCallout href="/diseno-web/medellin/" anchor="diseño web en Medellín con WordPress" text="¿Tu negocio está en Medellín o en el Valle de Aburrá? Trabajo con negocios de la zona. Mira la página de" />
+
       <SubpageCTA
         title="WordPress que trabaja para ti,"
         titleLine2="no al revés."

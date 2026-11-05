@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { LocalCallout } from "@/components/sections/subpage/LocalCallout";
 import { serviceSchema } from "@/lib/schema";
 import { SubpageHero } from "@/components/sections/subpage/SubpageHero";
 import { SubpageFeatures } from "@/components/sections/subpage/SubpageFeatures";
@@ -9,13 +10,13 @@ import { SubpageMidCTA } from "@/components/sections/subpage/SubpageMidCTA";
 import { SubpageRelated } from "@/components/sections/subpage/SubpageRelated";
 
 export const metadata: Metadata = {
-  title: "SEO Local Medellín | Google Maps",
+  title: "SEO local y Google Maps para negocios",
   description:
-    "SEO local en Medellín: aparece en Google Maps y búsquedas cercanas. Optimización de Google Business Profile, reseñas y NAP para negocios físicos.",
+    "SEO local para aparecer en Google Maps y búsquedas cercanas: Google Business Profile, reseñas y datos consistentes para negocios con atención en sitio.",
   keywords: ["seo local colombia", "aparecer google maps colombia", "google business profile colombia", "seo local medellin bogota"],
   alternates: { canonical: "https://stivenramirez.com/servicios/seo/local/", languages: { "es-CO": "https://stivenramirez.com/servicios/seo/local/", "x-default": "https://stivenramirez.com/servicios/seo/local/" } },
   openGraph: {
-    title: "SEO Local Medellín | Google Maps",
+    title: "SEO local y Google Maps para negocios",
     description: "Aparece primero cuando alguien busca tu negocio cerca. Google Business Profile y SEO local.",
     url: "https://stivenramirez.com/servicios/seo/local/",
     type: "website",
@@ -105,6 +106,8 @@ export default function SeoLocalPage() {
           },
         ]}
       />
+      <LocalCallout href="/seo/medellin/" anchor="SEO local en Medellín" text="¿Tu negocio está en Medellín o en el Valle de Aburrá? Trabajo con negocios de la zona y puedo atenderte de cerca. Mira la página de" />
+
       <SubpageCTA
         eyebrow="¿Tus clientes te encuentran en Maps?"
         title="El Local Pack de Google"

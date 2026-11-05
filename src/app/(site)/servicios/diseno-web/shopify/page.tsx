@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { LocalCallout } from "@/components/sections/subpage/LocalCallout";
 import { serviceSchema } from "@/lib/schema";
 import { SubpageHero } from "@/components/sections/subpage/SubpageHero";
 import { SubpageFeatures } from "@/components/sections/subpage/SubpageFeatures";
@@ -13,14 +14,14 @@ import { Container } from "@/components/ui/Container";
 import { FadeIn } from "@/components/ui/FadeIn";
 
 export const metadata: Metadata = {
-  title: "Shopify con SEO para pymes",
+  title: "Desarrollo de tiendas Shopify en Colombia",
   description:
-    "Tienda Shopify con SEO de colecciones, pasarelas de pago locales y conversión optimizada desde el lanzamiento. Freelance para pymes. Medellín.",
+    "Desarrollo de tiendas Shopify en Colombia con SEO de colecciones, pasarelas de pago locales y conversión optimizada desde el lanzamiento.",
   keywords: ["tienda shopify colombia", "shopify seo colombia", "crear tienda shopify colombia", "ecommerce shopify colombia"],
   alternates: { canonical: "https://stivenramirez.com/servicios/diseno-web/shopify/", languages: { "es-CO": "https://stivenramirez.com/servicios/diseno-web/shopify/", "x-default": "https://stivenramirez.com/servicios/diseno-web/shopify/" } },
   openGraph: {
-    title: "Shopify con SEO para pymes",
-    description: "Shopify con SEO de colecciones, velocidad optimizada y pasarelas de pago locales. Colombia.",
+    title: "Desarrollo de tiendas Shopify en Colombia",
+    description: "Desarrollo de tiendas Shopify en Colombia: SEO de colecciones, velocidad optimizada y pasarelas de pago locales.",
     url: "https://stivenramirez.com/servicios/diseno-web/shopify/",
     type: "website",
     locale: "es_CO",
@@ -201,6 +202,8 @@ export default function TiendaShopifySeoPage() {
           },
         ]}
       />
+      <LocalCallout href="/diseno-web/medellin/" anchor="diseño web en Medellín con Shopify" text="¿Tu negocio está en Medellín o en el Valle de Aburrá? Trabajo con negocios de la zona. Mira la página de" />
+
       <SubpageCTA
         eyebrow="¿Tienes productos para vender online?"
         title="Una tienda que vende"

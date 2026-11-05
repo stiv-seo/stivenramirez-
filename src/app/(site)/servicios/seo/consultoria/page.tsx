@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { LocalCallout } from "@/components/sections/subpage/LocalCallout";
 import { serviceSchema } from "@/lib/schema";
 import { SubpageHero } from "@/components/sections/subpage/SubpageHero";
 import { SubpageFeatures } from "@/components/sections/subpage/SubpageFeatures";
@@ -13,13 +14,13 @@ import { Container } from "@/components/ui/Container";
 import { FadeIn } from "@/components/ui/FadeIn";
 
 export const metadata: Metadata = {
-  title: "Consultor SEO Medellín — Sin Agencia",
+  title: "Consultoría SEO mensual sin agencia",
   description:
-    "SEO mensual directo conmigo, sin ejecutivos de cuenta ni contratos largos. Estrategia y resultados medibles para pymes en Medellín y Colombia.",
+    "SEO mensual directo conmigo, sin ejecutivos de cuenta ni contratos largos. Estrategia, contenido y resultados medibles para pymes en Colombia.",
   keywords: ["consultor seo medellin", "seo freelance colombia", "posicionamiento google medellin", "seo sin agencia colombia"],
   alternates: { canonical: "https://stivenramirez.com/servicios/seo/consultoria/", languages: { "es-CO": "https://stivenramirez.com/servicios/seo/consultoria/", "x-default": "https://stivenramirez.com/servicios/seo/consultoria/" } },
   openGraph: {
-    title: "Consultor SEO Freelance en Medellín — Sin Agencia",
+    title: "Consultoría SEO mensual sin agencia",
     description: "SEO mensual directo conmigo, sin ejecutivos de cuenta ni contratos largos. Estrategia, contenido y resultados medibles.",
     url: "https://stivenramirez.com/servicios/seo/consultoria/",
     type: "website",
@@ -191,6 +192,8 @@ export default function SeoConsultoriaPage() {
           },
         ]}
       />
+      <LocalCallout href="/seo/medellin/" anchor="consultor SEO en Medellín" text="¿Tu negocio está en Medellín o en el Valle de Aburrá? Trabajo con negocios de la zona y puedo atenderte de cerca. Mira la página de" />
+
       <SubpageCTA
         eyebrow="¿Quieres crecer en Google?"
         title="SEO que genera clientes,"
