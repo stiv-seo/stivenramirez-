@@ -52,6 +52,9 @@ export default async function Image({
   if (slug === "seo-para-inmobiliarias-colombia") {
     return new ImageResponse(<InmobiliariasOG />, { width: 1200, height: 630 });
   }
+  if (slug === "migracion-woocommerce-shopify-colombia") {
+    return new ImageResponse(<MigracionOG />, { width: 1200, height: 630 });
+  }
 
   // Generic fallback for posts without a custom banner
   return new ImageResponse(
@@ -1056,6 +1059,35 @@ function InmobiliariasOG() {
             <div style={{ width: 28, height: 28, background: "#fff", boxShadow: "0 0 12px rgba(255,255,255,0.85)" }} />
           </div>
         </div>
+      </div>
+    </div>
+  );
+}
+
+// ─── Migración WooCommerce → Shopify ──────────────────────────────────────────
+
+function MigracionOG() {
+  const filas = [
+    { viejo: "/producto/camiseta/", nuevo: "/products/camiseta" },
+    { viejo: "/categoria-producto/ropa/", nuevo: "/collections/ropa" },
+    { viejo: "/sobre-nosotros/", nuevo: "/pages/sobre-nosotros" },
+    { viejo: "/blog/guia-de-tallas/", nuevo: "/blogs/news/guia-de-tallas" },
+  ];
+  return (
+    <div style={{ ...stage, flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
+      <Corner />
+      <ScanLine />
+      <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
+        {filas.map((f, i) => (
+          <div key={i} style={{ display: "flex", alignItems: "center", gap: 22 }}>
+            <div style={{ display: "flex", width: 400, padding: "16px 24px", borderRadius: 12, border: "1px solid rgba(255,255,255,0.16)", background: "rgba(255,255,255,0.04)", color: "rgba(255,255,255,0.55)", fontSize: 24, fontFamily: "monospace" }}>{f.viejo}</div>
+            <div style={{ display: "flex", alignItems: "center", gap: 10, color: TEAL, fontFamily: "sans-serif" }}>
+              <div style={{ display: "flex", fontSize: 18, fontWeight: 800, padding: "3px 12px", borderRadius: 20, border: `1px solid ${TEAL}` }}>301</div>
+              <div style={{ display: "flex", fontSize: 34 }}>→</div>
+            </div>
+            <div style={{ display: "flex", width: 400, padding: "16px 24px", borderRadius: 12, border: `1px solid ${TEAL}`, background: "rgba(0,196,180,0.12)", color: "#fff", fontSize: 24, fontFamily: "monospace" }}>{f.nuevo}</div>
+          </div>
+        ))}
       </div>
     </div>
   );

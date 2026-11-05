@@ -20,8 +20,10 @@ import { BannerSeoAbogados } from "./BannerSeoAbogados";
 import { BannerSeoInmobiliarias } from "./BannerSeoInmobiliarias";
 import { BannerValeLaPenaSeo } from "./BannerValeLaPenaSeo";
 import { BannerCasoAxis33 } from "./BannerCasoAxis33";
+import { BannerMigracionWooShopify } from "./BannerMigracionWooShopify";
 
 export const bannerRegistry: Record<string, ComponentType> = {
+  "migracion-woocommerce-shopify-colombia":     BannerMigracionWooShopify,
   "wordpress-vs-shopify-colombia":              BannerWordpressVsShopify,
   "agencia-seo-vs-freelancer-colombia":         BannerAgenciaVsFreelancer,
   "que-es-el-seo-colombia":                     BannerQueEsElSeo,
