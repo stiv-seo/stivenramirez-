@@ -33,7 +33,7 @@ export function BannerSeoRestaurantesMedellin() {
   return (
     <div
       ref={containerRef}
-      style={{ width: "100%", height: Math.round(H * scale), overflow: "hidden", borderRadius: 16 }}
+      style={{ width: "100%", aspectRatio: `1200 / ${H}`, overflow: "hidden", borderRadius: 16 }}
       role="img"
       aria-label="Mapa de competencia SEO para restaurantes por zona en Medellín"
     >

@@ -36,7 +36,7 @@ export function BannerFrame({ label, eyebrow, title, subtitle, footer, children 
   return (
     <div
       ref={containerRef}
-      style={{ width: "100%", height: Math.round(H * scale), overflow: "hidden", borderRadius: 16 }}
+      style={{ width: "100%", aspectRatio: `${W} / ${H}`, overflow: "hidden", borderRadius: 16 }}
       role="img"
       aria-label={label}
     >

@@ -21,7 +21,7 @@ export function BannerAgenciaVsFreelancer() {
   return (
     <div
       ref={containerRef}
-      style={{ width: "100%", height: Math.round(630 * scale), overflow: "hidden", borderRadius: 16 }}
+      style={{ width: "100%", aspectRatio: "1200 / 630", overflow: "hidden", borderRadius: 16 }}
       role="img"
       aria-label="Ilustración comparativa: Agencia SEO (red distribuida de nodos) vs Freelancer (núcleo luminoso único)"
     >

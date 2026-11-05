@@ -32,7 +32,7 @@ export function BannerSeoRestaurantes() {
   return (
     <div
       ref={containerRef}
-      style={{ width: "100%", height: Math.round(stageH * scale), overflow: "hidden", borderRadius: 16 }}
+      style={{ width: "100%", aspectRatio: `1200 / ${stageH}`, overflow: "hidden", borderRadius: 16 }}
       role="img"
       aria-label="Gráfico de prioridades SEO para restaurantes en Colombia: Google Maps en primer lugar"
     >
