@@ -4,6 +4,7 @@ import { SubpageHero } from "@/components/sections/subpage/SubpageHero";
 import { SubpageFeatures } from "@/components/sections/subpage/SubpageFeatures";
 import { SubpageProcess } from "@/components/sections/subpage/SubpageProcess";
 import { SubpageCTA } from "@/components/sections/subpage/SubpageCTA";
+import { RelatedGuides } from "@/components/sections/subpage/RelatedGuides";
 import { SubpageMidCTA } from "@/components/sections/subpage/SubpageMidCTA";
 
 export const metadata: Metadata = {
@@ -61,6 +62,14 @@ export default function SeoTecnicoPage() {
           { number: "01", title: "Rastreo completo", description: "Crawl del sitio con herramientas profesionales (Screaming Frog + Semrush). Lista exhaustiva de problemas técnicos ordenados por impacto." },
           { number: "02", title: "Corrección priorizada", description: "Primero los problemas que bloquean la indexación, luego los que afectan la velocidad, luego los que limitan los rich snippets." },
           { number: "03", title: "Verificación y documentación", description: "Confirmación en Search Console de que las correcciones surtieron efecto. Entrega de informe técnico documentado." },
+        ]}
+      />
+      <RelatedGuides
+        title="Guías sobre SEO técnico"
+        guides={[
+          { href: "/blog/que-es-el-seo-tecnico/", title: "Qué es el SEO técnico", note: "Qué incluye, los 5 problemas más comunes y cómo revisarlo sin programar." },
+          { href: "/blog/auditoria-seo-basica/", title: "Auditoría SEO básica", note: "Un recorrido paso a paso con herramientas gratuitas." },
+          { href: "/blog/google-search-console-guia-negocios-colombia/", title: "Guía de Search Console", note: "Cómo ver qué páginas indexa Google y qué errores tiene tu sitio." },
         ]}
       />
       <SubpageCTA
