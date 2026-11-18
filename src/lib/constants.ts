@@ -81,6 +81,8 @@ export const SERVICES_DROPDOWN = [
 
 export const INSTAGRAM_HANDLE = "stiv.seo";
 export const INSTAGRAM_URL = "https://www.instagram.com/stiv.seo/";
+export const LINKEDIN_URL = "https://www.linkedin.com/in/stiven-ramirez-0a0332199/";
+export const PRAGMA_AUTHOR_URL = "https://www.pragma.co/es/blog/author/stiven-ramirez-gomez";
 
 // ─── Site metadata ────────────────────────────────────────────────────────────
 

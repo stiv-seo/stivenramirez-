@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { personSchema } from "@/lib/schema";
-import { INSTAGRAM_URL } from "@/lib/constants";
+import { INSTAGRAM_URL, LINKEDIN_URL, PRAGMA_AUTHOR_URL } from "@/lib/constants";
 import { SobreMiHero } from "@/components/sections/sobre-mi/SobreMiHero";
 import { SobreMiStory } from "@/components/sections/sobre-mi/SobreMiStory";
+import { SobreMiPublicaciones } from "@/components/sections/sobre-mi/SobreMiPublicaciones";
 import { SobreMiCredentials } from "@/components/sections/sobre-mi/SobreMiCredentials";
 import { SobreMiValues } from "@/components/sections/sobre-mi/SobreMiValues";
 import { SobreMiCTA } from "@/components/sections/sobre-mi/SobreMiCTA";
@@ -41,10 +42,7 @@ const personData = personSchema({
   jobTitle: "Consultor SEO y Diseñador Web",
   description:
     "Consultor SEO y diseñador web con base en Colombia. Especializado en pymes y emprendedores que quieren crecer en Google con diseño web y SEO integrados.",
-  sameAs: [
-    "https://www.linkedin.com/in/stiven-ramirez-0a0332199/",
-    INSTAGRAM_URL,
-  ],
+  sameAs: [LINKEDIN_URL, INSTAGRAM_URL, PRAGMA_AUTHOR_URL],
 });
 
 const profilePageSchema = {
@@ -64,6 +62,7 @@ export default function SobreMiPage() {
       <SobreMiHero />
       <SobreMiStory />
       <SobreMiCredentials />
+      <SobreMiPublicaciones />
       <SobreMiValues />
       <SobreMiCTA />
     </>
